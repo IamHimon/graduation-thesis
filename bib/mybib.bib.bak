@@ -1,0 +1,250 @@
+@article{batini1986comparative,
+  title={A comparative analysis of methodologies for database schema integration},
+  author={Batini, Carlo and Lenzerini, Maurizio and Navathe, Shamkant B.},
+  journal={ACM computing surveys (CSUR)},
+  volume={18},
+  number={4},
+  pages={323--364},
+  year={1986},
+  publisher={ACM}
+}
+
+@article{wand1996anchoring,
+  title={Anchoring data quality dimensions in ontological foundations},
+  author={Wand, Yair and Wang, Richard Y},
+  journal={Communications of the ACM},
+  volume={39},
+  number={11},
+  pages={86--95},
+  year={1996},
+  publisher={ACM}
+}
+
+@article{parent1998issues,
+  title={Issues and approaches of database integration},
+  author={Parent, Christine and Spaccapietra, Stefano},
+  journal={Communications of the ACM},
+  volume={41},
+  number={5es},
+  pages={166--178},
+  year={1998},
+  publisher={ACM}
+}
+
+@article{rahm2000data,
+  title={Data cleaning: Problems and current approaches},
+  author={Rahm, Erhard and Do, Hong Hai},
+  journal={IEEE Data Eng. Bull.},
+  volume={23},
+  number={4},
+  pages={3--13},
+  year={2000}
+}
+
+@article{rahm2001survey,
+  title={A survey of approaches to automatic schema matching},
+  author={Rahm, Erhard and Bernstein, Philip A},
+  journal={the VLDB Journal},
+  volume={10},
+  number={4},
+  pages={334--350},
+  year={2001},
+  publisher={Springer}
+}
+
+@inproceedings{raman2001potter,
+  title={Potter's wheel: An interactive data cleaning system},
+  author={Raman, Vijayshankar and Hellerstein, Joseph M},
+  booktitle={VLDB},
+  volume={1},
+  pages={381--390},
+  year={2001}
+}
+
+@article{galhardas2001declarative,
+  title={Declarative data cleaning: Language, model, and algorithms},
+  author={Galhardas, Helena and Florescu, Daniela and Shasha, Dennis and Simon, Eric and Saita, Cristian},
+  year={2001}
+}
+
+@inproceedings{dong2005reference,
+  title={Reference reconciliation in complex information spaces},
+  author={Dong, Xin and Halevy, Alon and Madhavan, Jayant},
+  booktitle={Proceedings of the 2005 ACM SIGMOD international conference on Management of data},
+  pages={85--96},
+  year={2005},
+  organization={ACM}
+}
+
+@inproceedings{cai2005personal,
+  title={Personal information management with SEMEX},
+  author={Cai, Yuhan and Dong, Xin Luna and Halevy, Alon and Liu, Jing Michelle and Madhavan, Jayant},
+  booktitle={Proceedings of the 2005 ACM SIGMOD international conference on Management of data},
+  pages={921--923},
+  year={2005},
+  organization={ACM}
+}
+
+@article{dorneles2011approximate,
+  title={Approximate data instance matching: a survey},
+  author={Dorneles, Carina Friedrich and Gon{\c{c}}alves, Rodrigo and dos Santos Mello, Ronaldo},
+  journal={Knowledge and Information Systems},
+  volume={27},
+  number={1},
+  pages={1--21},
+  year={2011},
+  publisher={Springer}
+}
+
+@book{redman1997data,
+  title={Data quality for the information age},
+  author={Redman, Thomas C and Blanton, A},
+  year={1997},
+  publisher={Artech House, Inc.}
+}
+
+@article{cappiello2002dl4,
+  title={DL4. B: Considerations about Costs Deriving from a Poor Data Quality},
+  author={Cappiello, Cinzia and Francalanci, Chiara},
+  journal={Retrieved March},
+  volume={1},
+  pages={2012},
+  year={2002},
+  publisher={Citeseer}
+}
+
+@article{bleiholder2008data,
+  title={Data fusion},
+  author={Bleiholder, Jens and Naumann, Felix},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={41},
+  number={1},
+  pages={1},
+  year={2008},
+  publisher={ACM}
+}
+
+@book{bellahsene2011schema,
+  title={Schema matching and mapping},
+  author={Bellahsene, Zohra and Bonifati, Angela and Rahm, Erhard and others},
+  volume={20},
+  year={2011},
+  publisher={Springer}
+}
+
+@incollection{ehrig2004qom,
+  title={QOM--quick ontology mapping},
+  author={Ehrig, Marc and Staab, Steffen},
+  booktitle={The Semantic Web--ISWC 2004},
+  pages={683--697},
+  year={2004},
+  publisher={Springer}
+}
+
+@inproceedings{kang2003schema,
+  title={On schema matching with opaque column names and data values},
+  author={Kang, Jaewoo and Naughton, Jeffrey F},
+  booktitle={Proceedings of the 2003 ACM SIGMOD international conference on Management of data},
+  pages={205--216},
+  year={2003},
+  organization={ACM}
+}
+
+@article{gu2003record,
+  title={Record linkage: Current practice and future directions},
+  author={Gu, Lifang and Baxter, Rohan and Vickers, Deanne and Rainsford, Chris},
+  journal={CSIRO Mathematical and Information Sciences Technical Report},
+  volume={3},
+  pages={83},
+  year={2003},
+  publisher={Citeseer}
+}
+
+--------------------------------------------
+Tree Based Record Matching  空缺
+---------------------------------------
+
+@article{beneventano1998consistency,
+  title={Consistency checking in complex object database schemata with integrity constraints},
+  author={Beneventano, Domenico and Bergamaschi, Sonia and Lodi, Stefano and Sartori, Claudio},
+  journal={Knowledge and Data Engineering, IEEE Transactions on},
+  volume={10},
+  number={4},
+  pages={576--598},
+  year={1998},
+  publisher={IEEE}
+}
+
+@article{toshniwal2009clustering,
+  title={Clustering Unstructured Text Documents Using Naive Bayesian Concept and Shape Pattern Matching},
+  author={Toshniwal, Durga and Roy, Rishiraj Saha},
+  journal={IJACT: International Journal of Advancements in Computing Technology},
+  volume={1},
+  number={1},
+  pages={52--63},
+  year={2009}
+}
+
+@inproceedings{chu1996search,
+  title={Search engines for the World Wide Web: A comparative study and evaluation methodology},
+  author={Chu, Heting and Rosenthal, Marilyn},
+  booktitle={PROCEEDINGS OF THE ANNUAL MEETING-AMERICAN SOCIETY FOR INFORMATION SCIENCE},
+  volume={33},
+  pages={127--135},
+  year={1996}
+}
+
+===========================
+（10）错误引用 空缺
+===============================
+
+@article{mackworth1992constraint,
+  title={Constraint satisfaction problems},
+  author={Mackworth, Alan K},
+  journal={Encyclopedia of AI},
+  volume={285},
+  pages={293},
+  year={1992}
+}
+
+@article{kupper1981matching,
+  title={Matching in epidemiologic studies: validity and efficiency considerations},
+  author={Kupper, Lawrence L and Karon, John M and Kleinbaum, David G and Morgenstern, Hal and Lewis, Donald K},
+  journal={Biometrics},
+  pages={271--291},
+  year={1981},
+  publisher={JSTOR}
+}
+
+@inproceedings{demartini2012zencrowd,
+  title={ZenCrowd: leveraging probabilistic reasoning and crowdsourcing techniques for large-scale entity linking},
+  author={Demartini, Gianluca and Difallah, Djellel Eddine and Cudr{\'e}-Mauroux, Philippe},
+  booktitle={Proceedings of the 21st international conference on World Wide Web},
+  pages={469--478},
+  year={2012},
+  organization={ACM}
+}
+
+@incollection{stoilos2005string,
+  title={A string metric for ontology alignment},
+  author={Stoilos, Giorgos and Stamou, Giorgos and Kollias, Stefanos},
+  booktitle={The Semantic Web--ISWC 2005},
+  pages={624--637},
+  year={2005},
+  publisher={Springer}
+}
+
+============================
+我们在 []中提出了基于非主模式的记录匹配 空缺
+============================
+
+@article{verykios2000automating,
+  title={Automating the approximate record-matching process},
+  author={Verykios, Vassilios S and Elmagarmid, Ahmed K and Houstis, Elias N},
+  journal={Information sciences},
+  volume={126},
+  number={1},
+  pages={83--98},
+  year={2000},
+  publisher={Elsevier}
+}

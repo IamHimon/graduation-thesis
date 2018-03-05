@@ -1,0 +1,53 @@
+\begin{publications}{99}
+\end{publications}
+
+%\begin{center}
+%\textbf{已发表论文}
+%\end{center}
+
+%[1].张三，李四. 论文标题. 刊物，年份, 卷(期).
+
+%\begin{center}
+\textbf{期刊论文:}
+%\end{center}
+
+[1] \textbf{杨强}, 李直旭, 蒋俊, 赵朋朋, 刘冠峰, 刘安, 周晓方. 基于非主属性值的实体匹配 [J]. 计算机学报, 2016, 39(10): 2075-2087.(\textbf{EI, 中文核心期刊})
+
+[2]	Binbin Gu, Zhixu Li, \textbf{Qiang Yang}, Qing Xie, An Liu, Guanfeng Liu, Kai Zheng and Xiangliang Zhang. Web-ADARE: A Web-Aided Data Repairing System[J]. Neurocomputing, 2016年.(\textbf{SCI, CCF C类, 已录用})
+
+%\begin{left}
+\textbf{会议论文:}
+%\end{left}
+
+
+[1] \textbf{Qiang Yang}, Zhixu Li, Binbin Gu, An Liu, Guanfeng Liu, Pengpeng Zhao and Lei Zhao. CTextEM: Using Consolidated Textual Data for Entity Matching [A]. International Conference on Database Systems for Advanced Applications [C]. Springer International Publishing, 2016: 117-132. (\textbf{EI, CCF B 类})
+
+[2] \textbf{Qiang Yang}, Zhixu Li, Jun Jiang, Pengpeng Zhao, Guanfeng Liu, An Liu and Zhu Jia. NokeaRM: Employing Non-Key Attributes in Record Matching [A]. International Conference on Web-Age Information Management [C]. Springer International Publishing, 2015: 438-442(\textbf{EI, CCF C 类})
+
+[3] Jian  Zhou, Zhixu Li, \textbf{Qiang  Yang}, Jun  Jiang, An  Liu, Guanfeng Liu, Lei Zhao and Jia Zhu. HouseIn: A Housing Rental Platform with Non-Redundant Information Integrated from Multiple Sources [A]. Asia Pacific Web Conference [C]. Springer International Publishing, 2015: 859-862(\textbf{EI, CCF C 类})
+
+[4] Jun Jiang, Zhixu Li, \textbf{Qiang Yang}, Pengpeng Zhao, Guanfeng Liu and Lei Zhao. SmartInt: A Demonstration System for the Interaction between Schema Mapping and Record Matching [A]. International Conference on Web-Age Information Management [C]. Springer International Publishing, 2015: 587-589(\textbf{EI, CCF C 类})
+
+
+
+%\begin{left}
+\textbf{申请发明专利:}
+%\end{left}
+
+[1] 李直旭, \textbf{杨强}等. ``一种用于实体匹配的方法及系统". 申请日期: 2015年07月14日, 专利申请号: 201510407893.6
+
+[2] \textbf{杨强}, 李直旭等. ``一种用于实体匹配的方法及系统". 申请日期: 2015年06月16日, 专利申请号: 201510329196.3
+
+[3] 李直旭, \textbf{杨强}等. ``一种数据填充方法及系统". 申请日期: 2015年06月08日, 专利申请号: 201510305681.7
+
+[4] 李直旭, \textbf{杨强}等. ``一种基于质量控制的数据填充方法及系统". 申请日期: 2015年06月08日, 专利申请号: 201510304683.2
+
+\textbf{软件著作权:}
+
+[1] \textbf{杨强}, 李直旭等. ``基于非主属性的概率决策树实体匹配软件". 申请日期: 2015年01月23日, 登记号: 2015SR077638
+
+%\begin{left}
+\textbf{参与的科研项目:}
+%\end{left}
+
+[1] 国家自然科学基金青年项目(61402313) “基于互联网海量信息的数据库文本类型数据清洗研究”, 2015/01-2017/12

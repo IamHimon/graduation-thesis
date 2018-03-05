@@ -1,0 +1,195 @@
+\chapter{相关理论及方法}
+\label{chap:chap02}
+本章首先介绍了数据质量的相关概念及其定义，并描述了常见的数据质量问题。然后给出了实体匹配的概念，并对实体匹配方法进行了分类。最后详细介绍了常见的实体匹配方法，并分析了各类方法的优缺点。
+
+\section{数据质量}
+
+前人给出了数据质量的各种定义，文献\cite{Huang1999Quality}指出数据质量是数据适合于使用的程度，数据质量越高，适用的程度也随之越高；文献\cite{Kahn1998Product}指出数据质量是数据满足用户某种特定需求的期望程度；文献\cite{Aebi1993Towards}认为数据质量是数据在多大程度上满足了模式层和实例层的一致性、正确性、完整性和最小性的要求。文献\cite{Sadiq2008Research, wand1996anchoring}认为数据质量可精简地由以下六个方面组成（如图~\ref{chap:chap02:fig:dimensions} 所示）：准确性（Accuracy）、一致性（Consistency）、完整性（Integrity）、时效性（Timeliness）、有效性（Validity）和完备性（Completeness）。
+%
+数据质量问题具有多种分类方式，本文则从数据源的角度对其进行分类，包括同一数据源内的质量问题和不同数据源之间的质量问题，其分类结果如图~\ref{chap:chap02:fig:problems} 所示。下面对这两类数据质量问题进行简要的描述。
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.45\textwidth]{../figures/chap02/dimensions.pdf}\\
+  \smallcaption{数据质量的六个维度}
+  \label{chap:chap02:fig:dimensions}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../figures/chap02/problems.pdf}\\
+  \smallcaption{数据质量问题分类}
+  \label{chap:chap02:fig:problems}
+\end{figure}
+
+\subsection{同一数据源内的质量问题}
+
+该类问题主要集中在模式层和实例层。常见的模式层问题\ucite{rahm2000data}如下所示:
+
+（1）唯一性约束问题（Uniqueness Violation Problem）。如学生信息表~\ref{studentTable}中学生的ID为主属性，可以唯一标识一名学生，因而属性值必须唯一，不能重复，但表中“Wei Wang”和“Hua Li” 的“ID” 却相同，解决此类问题可借助外部资源。
+
+（2）参照完整性问题（Referential Integrity Violation Problem）。如表~\ref{studentTable} 中的“Department ID” 需要参照院系信息表~\ref{depTable}，而“Qiang Wang”的“Department ID”属性值“005”在表~\ref{depTable} 中并不存在，此时便产生了参照完整性问题，同样可借助外部资源解决此问题。
+
+（3）非法值问题（Illegal Values Problem）。如表~\ref{studentTable}中学生“Wei Wang”的“Age”值为“$1000$”，学生“Hua Li”的“Birthday”值为“$1993.13$”，然而正常人的年龄值不可能为$1000$，任何一个人也不可能出生在13月,这些值都是非法的，不符合实际情况，可通过约束方法找出此问题，并使用参照数据集解决。
+
+（4）属性依赖约束问题（Violated Attribute Dependencies Problem）。如表~\ref{studentTable}中“Zhao Li” 的“Age=24”而“Birthday=1991.05”，我们可以发现“Age”的值并不等于当前的年份减去属性“Birthday”值，此时产生了依赖约束问题，可使用参照数据集解决。
+
+对于上述模式层的问题，目前较为常见的处理方式是改进模式设计、增加完整性约束等\ucite{beneventano1998consistency}。相比而言，实体层上的数据问题比模式层上的问题更为复杂，文献\cite{rahm2000data}给出了实体层的主要质量问题及解决方案：
+
+（1）缺失值问题（Missing Values Problem）。如表~\ref{depTable}中院系编号“002”的职工数“\# Faculty”为空，该问题是信息系统和数据库中普遍存在的一个问题\ucite{Vattulainen2015Improving}，对于缺失数据的填补工作前人已经做出了大量研究\ucite{Liu2012Noisy, Tian2014Missing}。解决数据丢失的常见方法包括：1）根据属性的依赖关系（如Function Dependency，Conditional Function, Integrity Dependency 等），借助数据集中的其它实体进行填补；2）基于模型的数据填补方法，通过利用已有的数据建立预测模型对缺失值进行预测；3）利用外部资源进行填补。
+
+（2）缩写问题（Abbreviations Problem）。如表~\ref{depTable}中院系编号“004”的院系名称“BSME”为缩写，其完整值为“Biological Science and Medical Engineering”。解决缩写类问题的常见方法是借助外部知识建立全称和缩写简称的对应表。
+
+（3）拼写错误问题（Misspelling Problem）。如表~\ref{depTable}中院系编号为“002”的实体其“Name = Computer Sicence”，而实际的值应该为“Computer Science”。解决拼写错误问题的常见方法也是借助外部知识建立相应的知识库，在本例中可借助互联网建立院系名称一览表，将拼写错误信息加以修正。
+
+（4）矛盾记录问题（Contradicting Records Problem）。如表~\ref{studentTable}中学生编号为“0004”的“Qiang Wang”的两条记录表示的是同一个实体。此外对矛盾的记录进行统一是一个非常棘手的问题，文献\cite{Chu1996Search}提出了通过Web搜索引擎获取信息从而决定哪个值更为可靠，而文献\cite{Yakout2011Guided} 则通过Crowdsorucing指导进行数据修复。
+
+（5）表达不一致记录问题（Duplicated Records Problem），该类问题又被称为实体匹配问题。如判断表~\ref{studentTable} 中的两个人（实体）“Qiang Wang”是否是同一个人，目前已有大量的研究成果\ucite{Pinheiro1998Methods, Dewitt1991An}，通常需要选用合适的相似度算法判断实体是否匹配,但这些方法要么存在匹配准确性的问题要么存在适用范围的问题。
+
+\begin{table}[h]
+\smallcaption{学生信息表}
+\small
+\centering
+\label{studentTable}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ Stud. ID & Name & Sex  & Age & Birthday & Department ID\\
+\hline
+0001 & Wei Wang & Male & 1000 & 1990.07 & 001 \\
+\hline
+0001 & Hua Li & Male & 24 & 1993.13 & 002\\
+\hline
+0003 & Lei Liu & - & 26 & 1991.05 & 003\\
+\hline
+0004 & Qiang Wang & Male & 23 & 1994.05 & 005\\
+\hline
+0005 & Zhao Li & Female & 24 & 1991.05 & 004\\
+\hline
+0004 & Qiang Wang & Male & 23 & 1994.05 & 002\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\smallcaption{院系信息表}
+\small
+\centering
+\label{depTable}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Dept. ID & Name & Website & \#Faculty \\
+\hline
+001 & Computer Sicence & nd.cs.edu.cn & 230\\
+\hline
+002 & Materials Science and Engineering & nd.is.edu.cn & - \\
+\hline
+003 & Automation Science and Electrical Engineering & 自动化科学与电气工程 & 500\\
+\hline
+004 & BSME & nd.cad.edu.cn & 380\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{数据源之间的质量问题}
+
+数据源之间的质量问题较数据源内的质量问题更加难以解决，因为不同数据源之间的不一致问题更为突出。常见质量问题如下所示：
+
+（1）命名冲突问题（Naming Conflicts Problem）。如表~\ref{tmallTable}中实体$r_1$和表~\ref{pconlineTable}中实体$s_1$的产品名称出现冲突，二者表示的都是同一款手机。解决该类问题可通过实体匹配算法进行识别，并统一起来。
+
+（2）结构冲突问题（Structural Conflicts Problem），该类问题是指数据集具有不同的模式层属性，可通过模式识别算法解决该问题。
+
+（3）数据重复问题（Entity Overlapping Problem）。如表~\ref{tmallTable}中实体$r_5$和表~\ref{pconlineTable}中实体$s_5$就是重复的数据，可通过实体匹配算法解决。
+
+（4）不一致问题（Inconsistent Problem）。如表~\ref{tmallTable}中时间的格式为“YY.MM”,其中月份用的数字，但表~\ref{pconlineTable}中时间的格式却为“MM, YY”，并且月份是英文表示，另外还存在缩写问题。该类问题可通过制定统一的规则进行处理。
+
+（5）数据丢失问题（Missing Values Problem）。如表~\ref{tmallTable}中实体“r2”在属性“size”下出现了缺失值，实体“s3”在属性“Manufacture”下的值为空。该类问题可通过数据填补解决。
+
+\begin{table}[h]
+\smallcaption{从天猫网站收集的在售手机信息}
+\small
+\centering
+\label{tmallTable}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+~ & Product & Manufacture & Size & RAM & Release\\
+\hline
+r1 &  w2013 & SAMSUNG & 3.7 inches & 1GB & 2013.04\\
+\hline
+r2 & 8295 & Coolpad & - & 1GB & 2013.01\\
+\hline
+r3 & MX \uppercase\expandafter{\romannumeral2} & - & 4.4 inches & 2GB & 2012.12\\
+\hline
+r4 & IPhone 4s & Apple & 3.5 inches & 512MB & 2011.01\\
+\hline
+r5 & G9098 & SAMSUNG & 3.67 inches & 2GB & 2014.09\\
+\hline
+r6 & 4s & XiaoMi & 5.0 inches & 3GB & 2016.02\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\smallcaption{从中关村在线网站收集的在售手机信息}
+\small
+\centering
+\label{pconlineTable}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+~ & Product & Manufacture & Size & RAM & Release\\
+\hline
+s1 & Galaxy w2013 & SAMSUNG & 3.7 '' & 1G & April, 2013\\
+\hline
+s2 &  8295 & Coolpad & 4.7 '' & 1G & Jan., 2013\\
+\hline
+s3 & MeiZu X2 & MeiZu & 4.4 '' & 2G & 2012, 12\\
+\hline
+s4 & 4s & Apple & 3.5 '' & - & January, 2011\\
+\hline
+s5 & G9098 & SAMSUNG & - & 2G & Sept. 2014\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{实体匹配概念以及现有的实体匹配方法}
+
+实体匹配是指找出同一数据源内或不同数据源间指代同一实体的数据库记录\ucite{Fan2009Reasoning,Arasu2009Record}，这些实体具有不同的表达形式。以手机实体为例，实体匹配就是指找出表~\ref{tmallTable}和表~\ref{pconlineTable}中表示同一款手机的数据库记录。通过观察，发现实体对$<r_1, s_1>$，$<r_2, s_2>$，$<r_3, s_3>$，$<r_4, s_4>$，$<r_5, s_5>$ 分别表示同一实体，尽管它们的某些属性在表达形式上不同，但在现实世界中它们是同一实体，而实体对 $<r_6, s_4>$ 虽然具有相同的产品名称“4s”，但是本质上它们是不同的实体。实体匹配近年来一直被广泛地研究，其应用领域涉及医疗卫生\ucite{Clark2004Practical}、信息检索\ucite{Hajishirzi2010Adaptive}、商业数据管理\ucite{Su2010Record} 等。
+
+实体匹配方法有多种分类方式，本文主要从数据的角度进行分类，大致可分为三类：基于内容的匹配方法、基于结构的匹配方法和基于混合模式的匹配方法，图~\ref{chap:chap02:fig:recordApproaches} 给出了实体匹配方法分类树\ucite{dorneles2011approximate}，下面对已有的实体匹配方法做简单的介绍。
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=1\textwidth]{../figures/chap02/record.pdf}\\
+  \smallcaption{实体匹配方法分类}
+  \label{chap:chap02:fig:recordApproaches}
+\end{figure}
+
+\subsection{基于内容的匹配方法}
+
+基于内容的匹配方法（Content-based Matching Methods）主要通过一个相似度函数（如edit distance similarity，Q-gram similarity 等）度量数据值上的相似性，进而比较两个实体是否匹配。这些数据值可以是数据表中的属性值，XML 文档中标签值等。此类方法大致可分为两大类：基于Atomic values 的方法和基于Aggregated values的方法。
+
+（1）基于Atomic values 的方法通过相似度函数比较原子值的相似性得分，又可细分为基于字符的方法\ucite{Cohen2003A}（character-based）和基于符号的方法\ucite{Dorneles2004Measuring}（token-based），前者进行字符间的比较，比如Levenshtein 方法，Jaro 方法和Q-grams 方法，后者则是进行符号之间的比较，这些符号可以是单词，或者子串，比如SoftTFIDF 方法，MongeElkan 方法和Jaccard 方法。此外，还有一些扩展方法利用机器学习技术构建相似度函数进行实体匹配的\ucite{bilenko2003adaptives}。
+
+（2）基于Aggregated values 的方法考虑如何对数据集中单个属性的相似度进行组合而匹配的，可细分为基于代数的方法\ucite{Motro1988VAGUE} （Algebraic formula-based）和基于AI 技术的方法\ucite{Schallehn2004Efficient}。前者使用一些度量方式结合属性集合中单个属性值的相似性进行匹配，进而得到实体的相似度，如Euclidean distance，Vectorial model 等，后者则是利用一些AI 技术和关联规则、聚类方法等进行匹配的。此外，还有一些基于有序邻居的方法（Sorted Neighborhood Method，简称SNM）\ucite{hernandez1998real}，该方法利用主属性值发现比较靠近的实体。如表~\ref{tmallTable}中的“G9098”和表~\ref{pconlineTable}中的“G9098”可通过主属性判断是否为同一实体。但是这类方法容易受到表达方式多样的影响，导致匹配的准确性不高。
+
+基于内容的匹配方法又可根据数据集中属性的类型进行分类，可细分为基于主属性数据的匹配方法和基于非主属性数据的实体匹配方法，其中基于非主属性数据的实体匹配方法又可细分为基于结构化非主属性数据的匹配方法和基于文本类型非主属性数据的匹配方法。
+
+（1）基于主属性数据的匹配方法大都是通过各种字符串相似性度量方法进行实体匹配,如基于字符的算法（如Edit distance\ucite{Cohen2003A}，Q-gram\ucite{Aizawa2005A})和基于符号的算法（如atomic string\ucite{Monge1996The}，WHIRL\ucite{Cohen1998Integration}），也有一些混合的方法被提出\ucite{Xiao2008Efficient}，这些方法或是直接用于实体匹配或是间接辅助进行实体匹配，有的方法着重于匹配效率的提升，如Q-gram算法，而有的方法着重于提高匹配的质量，如WHIRL。文献\cite{bilenko2003Adaptive}提出了两种可学习的文本字符串相似度度量方法，包括可学习的字符串编辑距离算法和使用SVM的向量空间度量算法，针对数据表的不同的字段使用不同的方法，在实体匹配过程中该方法具有较好的匹配准确性。近几十年来，一些基于分类\ucite{Jiang2013Entity}和语义网络\ucite{Dhamankar2004iMAP}的方法也有被提出，但是这类方法存在着灵活性差，时间开销大等问题。基于主属性的匹配方法容易受到数据表达方式多样的影响，含义相同的主属性值形式上可能千差万别，而含义不同的主属性值也可能表示同一实体。因此，没有任何一种相似度度量方法可以非常准确地度量所有主属性值之间的相似度。此外，这些实体匹配方法的准确率和召回率对相似度阈值也很敏感，阈值的设定会极大地影响匹配的结果。
+
+（2）鉴于主属性值在表达方式多样化和匹配准确性低等方面的劣势以及结构化非主属性在数目上的优势，一些基于结构化非主属性数据的实体匹配算法被提出，通常是根据结构化数据的相似性\ucite{Koudas2006Record}或关联性\ucite{Parkhomenko2009Sparse}进行实体匹配，常见的结构化数据如数值型数据、日期数据和短字符串数据等。文献\cite{Chaudhuri2007Example}提出了一种使用正反例的方式并结合相似度连接（similarity join）和相似度结合（similarity unions）以及用户指定的相似度函数构建SJU 操作树,通过该结构查询某种适用于待匹配实体属性的相似性度量算法，使得每个属性以最合适的相似性算法进行实体匹配，该方法不仅在小中型数据集上表现不错，而且在大型数据库上也适用。此外，也有一些方法\ucite{Jin2003Efficient}将结构化非主属性值映射到多维欧几里得空间中，结合给定的合并规则利用属性的相似性选择一个最优的属性集合，应用多维相似性连接判断实体对的相似度。文献\cite{Wang2012Can}中提出了一种基于结构的方法进行实体匹配，该方法使用结构化非主属性创建类似于决策树的Matching tree 进行实体匹配，该Matching tree 是一种基于0-1结构的二分树，通过一定的概率计算方式选择属性作为Matching tree 的节点，然后从根节点到叶节点遍历进行匹配，但是这种方法存在适用性问题，当属性值出现缺失时，此次的匹配过程便无法正常进行。
+
+（3）虽然基于结构化非主属性数据的实体匹配算法可以发现匹配的实体，但是当没有足够的可用的结构化数据足以反映实体匹配的结果时，也就是说即使实体具有相同或相似的结构化数据，仍有可能不是匹配的实体，在该情形下基于结构化数据的实体匹配算法很难达到较好的匹配效果，甚至产生更多的误匹配。作为结构化数据的补充，非结构化的文本数据经常出现在各种类型的数据集中。由于每个文本数据中包含了十几个句子甚至更多，而且伴有一些噪数据的出现，使得传统的字符串相似度算法并不能直接的应用。使用文本数据进行实体匹配的关键一步是如何从包含噪数据的文本数据中获取重要信息\ucite{Weiss2004Text}。近来有一些使用文本数据进行实体匹配的方法被提出。文献\cite{ektefa2011threshold}提出了一种混合算法，该算法同时计算文本之间的字符串相似性得分和语义相似性得分，但是字符串相似性只是简单应用了Jaccard 算法，而语义相似度算法也是简单定义了一些字段（如“Address”，“City”，“Phone”，“Type”等），且是在WordNet的辅助下获取相应信息的，因此该方法只使用一些特定的数据集，当换成其他数据集时效果会大大降低。文献\cite{gao2011web}提出了一种基于语义特征的方法，该方法定义了一个形如\emph\{time，location， agentive，objective，activity\} 语义特征向量，然后训练一个分类器可以根据实体的特征向量用以发现重复的实体，但是这种方法也受限于特征向量的维度，因为有些文本不包含这些特征向量中的信息。因此，此方法很难应用于其它数据集。近来，有一些利用主题模型的方法进行实体匹配，但有些情况下自由文本是对实体某一主题的多个方面进行描述，这些方面共享相同的主题，并没有明显的不同，因此直接使用这些主题模型很难获得较好的匹配效果。此外，文献\cite{Kim2012Method}根据单词的依赖关系提出了基于单词共现的方法，可以借助网页中的锚节点文本挖掘隐藏的子主题，但这种方法不仅受限于查询query的质量，而且还需要外部资源的支撑，使得该方法的健壮性受到影响。
+
+
+\subsection{基于结构的匹配方法}
+基于结构的匹配方法（Structure-based Matching Methods）主要通过比较数据值的结构，把值和结构作为唯一的比较单元，并不考虑数据的语义信息，这种方法被大量用于半结构化数据，如XML文档。此类方法大致可分为两类：基于路径的匹配方法（Path-based）\ucite{Vinson2007An}和基于图结构的匹配方法（Graph-based）\ucite{Kailing2004Efficient}。
+
+（1）基于路径的匹配方法是通过比较树结构中一条或多条路径进行匹配的。有的方法先建立shingles，然后计算比较实体的shingles 的交集大小与并集大小的比例作为它们的相似度，而有的方法则使用Temporal Series 比较XML 文档（实体）结构的相似性，还有一些方法则是利用离散傅里叶变换（Discrete fourier transform）将时间序列从时间域转换为频率域进行比较的。
+
+（2）基于图结构的匹配方法是通过计算实体间基于图的数据结构的相似度进行匹配的，有些方法利用基于树的编辑距离（tree-edit-distance）来表示XML 文档的相似性，而有的方法则使用边覆盖（Edge cover）在创建的二分图上进行匹配的，还有一些方法则利用similarity flooding 计算带有标记边的图结构中节点的相似性。但是，这类方法对实体要求严格，必须是具有一定结构的实体才有效，如果是关系表中的数据该类方法就失效了，因此存在适用范围小的问题。
+
+\subsection{混合方式匹配方法}
+混合方式匹配方法（Mixed Matching Methods）同时使用实体的值和结构，其中结构用于决定哪些值应该用于比较，此类方法大致可分为如下四类：（1）基于树的方法（tree-based）\ucite{Milano2006Structure}，通过结合扩展版的基于树的编辑距离方法和度量算法在树结构上进行相似性得分的计算；（2）基于AI 技术的方法\ucite{Yang2005Integrating}，该方法考虑如何将聚类算法和逆文档频率相结合应用于图结构中，利用迭代学习方法计算相似性；（3）基于路径的方法\ucite{Park2005An}，同时考虑数据值和与其相关的路径，并对这两个方面赋予不同的权重，然后计算总的相似性；（4） 基于IR 的方法\ucite{Carvalho2003Finding}，通常使用一些IR技术（如Vectorial model）实现匹配，通过分析将待比较实体的结构和数据值转化为向量形式，进而比较向量的相似度。
+
+此外，随着实体数量的增加，实体匹配的效率会急剧下降，如何在获得较高的实体匹配准确性的同时，又能保证较高的匹配效率也是当前的研究热点。为了减少实体对的比较次数，近年来有许多高效的方法被提出。例如，一些工作将Q-gram 算法和倒排索引算法（Inverted Indices）\ucite{Christen2011A}结合，通过这两种方法可以提高匹配效率，以尽可能少的时间开销为目的进行实体匹配，但此类方法的适用性存在一定的问题，如当参与匹配的实体存在缺失值，此类方法将不再适。此外，还有一些基于前缀修剪（pre-fix based pruning）的方法\ucite{Wang2012Can}、 基于top-k model 的方法\ucite{Gal2006Managing}以及基于批量匹配（batch-based）方法\ucite{Chandel2006Efficient}，通过这些方法过滤那些“明显”不匹配的实体，可以减少匹配过程中的比较次数。
+
+\section{本章小结}
+
+本章首先介绍了数据质量问题的概念，介绍了同一数据源内的质量问题和多个数据源之间的质量问题，并给出了各类问题的解决方法。然后详细介绍了实体匹配的概念，并对实体匹配方法进行分类，分析了已有的各类方法的优缺点。
+

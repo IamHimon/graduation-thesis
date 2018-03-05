@@ -1,0 +1,358 @@
+\chapter{基于文本类型非主属性数据的实体匹配}
+\label{chap:chap04}
+本章首先给出了基于文本类型非主属性数据实体匹配的问题定义。然后介绍了一些常见的文本处理方法，并分析了这些方法的优缺点。接下来提出了用于提升实体匹配效率的数据分块算法。最后详细介绍了本章提出的两个基于文本类型非主属性数据的实体匹配算法，并通过实验验证算法的效果。
+
+\section{问题定义}
+
+给定的一个关系表，实体匹配是指找出表中指代同一实体的数据库记录。本章中所使用的关系表既包含一些结构化数据（存在些缺失值），又包含文本类型的非结构化数据。在本章中对于包含实体关键信息的自由长文本描述数据，我们称之为Consolidated Textual Data（简称CText）。为了便于表述，在本章中我们称这种使用CText 的实体匹配任务为CTextEM。CTextEM 问题的形式化定义如下所示：
+
+\begin{definition}
+基于CText的实体匹配(CTextEM) ：给定数据表$T= \{r_1,r_2,…,r_n\}$，具有如下的模式$S=\{[A_1, A_2, ..., A_m], A_U\}$，其中$m,n$ 是正整数，$r_i$ 表示一个实体$(1 \leq i \leq n)$，$A_j$ 表示具有结构化数据的属性$(1 \leq j \leq m)$，$A_U$ 表示带有CText 数据的属性。CTextEM 问题旨在找到一个函数$\mathcal{F}(r_i,r_j, S)$ 和一个相似度阈值$\theta$，使得$\forall r_i, r_j \in T$ ($1\leq i,j \leq n, i \neq j$),$(r_i,r_j)$ 为指向同一实体的数据库记录，当且仅当$\mathcal{F}(r_i, r_j, S) \geq \theta$，否则二者不是匹配的实体。
+\end{definition}
+
+表~\ref{chap04:table:suzhou}给出了租房信息中的部分结构化非主属性，如“Residence Community”、“Location (District)”等，同时给出了文本类型的非主属性，如“General Supplemental Description”，其中包含了房源的某些特征信息，如朝向、绿化情况、装修类型等。从表~\ref{chap04:table:suzhou}中可以看出实体$r_1$ 和$r_4$ 尽管具有相同的结构化非主属性值，如“小区”、“地点”、“房源类型”等，但二者却不是同一房源，因为实体$r_1$ 在属性“General Supplemental Description”中描述的房源朝向为“south”，而实体$r_4$ 的朝向却是“east”，由此可判断二者并不表示同一房源，而是同一小区中具有相同楼层、装修类型的不同幢的房源。
+
+\begin{table}[!htb]
+\smallcaption{带有CTexts 数据的租房信息表，其中实体 $r_1$ 和$r_2$ 指的是同一房源，而实体$r_3$ 和$r_5$ 指的是同一房源}
+\small
+\centering
+\begin{tabular}{|m{0.23cm}|m{1.9cm}|m{1.7cm}|m{1.5cm}|m{1.1cm}|m{0.8cm}|m{5.2cm}|}
+\hline
+\bfseries & \bfseries Residence Community  & \bfseries Location (District) & \bfseries Type & \bfseries Size & \bfseries Floor &\bfseries  General Supplimental Description\\
+\hline
+$r_1$ & Eastern District Court & Canglang-Xujiang & Residence & 75 $m^2$ & 3/15 &  1. Community Planning, unique warmth, flowers and trees patchwork, like a garden, world without dispute, furniture and appliances equipped well. 2. refined decoration, gentle color, facing south, ...\\\hline
+$r_2$ & Eastern District Court & Canglang-Xujiang & Residence & 75 $m^2$ & 3/15  &  1. Community Planning, unique warmth, flowers and trees patchwork, furniture and appliances equipped well. 2. fine decoration, mild color, facing south, ...\\\hline
+$r_3$ & Oak Bay Garden & Xiangcheng-Yuanhe & Apartment & 100 $m^2$ & 25/29 &  1. general decoration, south facing, nice view, good lighting, air conditioning and water heaters and closed kitchen equiped, 2. free of parking, free of property charges, ...\\\hline
+$r_4$ & Eastern District Court & Canglang-Xujiang & Residence & 75 $m^2$ & 3/15  &  1. Community Planning, flowers and trees patchwork. 2. good decoration, furniture and appliances equipped well, color matching gentle, facing east, ...\\\hline
+$r_5$ & Oak Bay Garden & Xiangcheng-Yuanhe & Apartment & 100 $m^2$ & 25/29 & 1. naive decoration, south facing, good lighting, air conditioning and water heaters and washing machines proved, free of property charges, ...\\\hline
+\end{tabular}
+\label{chap04:table:suzhou}
+\end{table}
+
+在本章中我们同时使用结构化数据和CText 进行实体匹配，图~\ref{chap:chap04:workflow}给出了CTextEM 的工作流图，对于给定的带有CText 数据的关系表，在数据预处理阶段，如果结构化数据中存在一些丢失的数据，则从CText 中抽取一些有用的信息（如“ Area”，“District”，“Type”等）进行数据的填充，但仍有一些丢失数据无法填补。接下来，对结构化数据进行数据分块处理，获得带有缺失值的数据块和不含缺失值的数据块，然后构建两类比较实体对（块内实体对和块间实体对）；对于CText 数据，设计了CText Understanding 模块对CText 数据进行解析，提出了两种算法（IDF-based 提取算法和Sub-topics based 提取算法）提取CText 中的关键信息，然后利用提取的关键信息构建实体的比较向量，利用构建的比较向量计算实体的相似度，通过与预定义的相似度阈值的比较决定是否匹配。
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../figures/chap04/workflow.pdf}
+  \smallcaption{CTexEM 算法的工作流}
+  \label{chap:chap04:workflow}
+\end{figure}
+
+\section{传统的文本数据处理方法}
+
+作为结构化数据的补充，非结构化的文本数据（CText）经常出现在各种类型的数据集中，比如一些二手商品数据（二手车，二手房和二手家具等）。然而，使用CText并非易事，传统的字符串相似度度量方法如编辑距离（Edit distance）、词袋模型（bag-of-words）等并不适合度量CText 之间的相似度，因为每个CText 中包含了十几个句子甚至更多，而且还含有许多的噪数据，导致从CText 中获取重要信息更加艰难。
+
+近年来，有一些文本数据的处理方法被提出。文献\cite{ektefa2011threshold}提出了一个信息抽取模型，借助WordNet 从CText 中抽取诸如“Address”，“City”，“Phone”，“Type”等固定类型的信息，但该方法存在适用性问题，当换成其它数据集时可能无法抽取有用的信息，而且对WordNet 存在依赖性。文献\cite{gao2011web}提出了一种基于语义特征的方法，该方法定义了一个形如\emph\{time，location， agentive，objective，activity\} 语义特征向量用于提取文本数据中的信息，但是这种方法受限于特征向量的维度，因为有些文本中可能并不包含这些特征向量。因此，此方法很难应用于其它数据集。
+
+此外，文本处理和文本理解（Text Understanding）具有一定的相似性，都是从文本数据中获取一些关键信息，但文本理解侧重于如何理解文本数据中的主要信息，而不是考虑文本数据中短语之间的关联关系。文献\cite{Das2007A} 提出了一种利用深度学习算法（时间卷积网络）从字符级输入到抽象文本概念进行文本理解的方法。一些经典的主题模型如LDA\ucite{Blei2003Latent}，LSA\ucite{Landauer1998An}，PLSA\ucite{Hofmann2013Probabilistic}等可以从自由文本中识别隐藏的主题词（如“教育”、“经济”、“体育”和“文化”等），但是实体的CText 数据中并不存在一些明显的主题可以用于获取CText 的关键信息，也即是说CText并不能很好的被一些主题所表示，因为CText 中的自由文本通常是对实体某一主题的多个方面进行描述，这些方面共享相同的主题，它们之间并没有明显的界限。如果仍使用上述模型可能无法提取有效的信息。另一方面，CText 的子主题很短，比如几个单词，因此应用之前的方法很难学到一些有用的子主题。
+
+近来有一些子主题挖掘方法被提出，文献\cite{Kim2012Method}根据单词的依赖关系提出了基于单词共现的方法，借助网页中的锚节点文本挖掘隐藏的子主题，但这种方法受限于查询query 的质量，而且还需要外部资源的支撑，这都影响了该方法的健壮性。文献\cite{Wu2012Text}结合了LDA 模型和短语共现的原理去发现文本中的主题，但此方法需要外部专家的干预去学习文本的主题分布，然而通常情况下这些外部专家并不容易找到或者开销太大。
+
+\section{数据分块算法}
+
+实体匹配的效率问题也是一个很热的研究课题，传统的匹配方法是实体间的一对一比较，也即是说假定一个数据源具有$m$ 个实体，另一个数据源有$n$ 个实体，那么匹配时的比较次数将是$m \times n$. 当$m,n$ 很小时，匹配的时间是可以接受的，但当$m,n$ 较大时，匹配的时间开销就会大大增加，使得匹配结果的获取异常艰难。为了减少实体之间的比较次数，避免一些不必要的比较，提高实体匹配的效率，提出了一个数据分块算法，利用结构化数据对实体进行分块处理。该算法假定具有相同的结构化非主属性值的实体有可能是匹配的，但并不排除不匹配的可能，通过这种方式将可能匹配的实体放到同一个数据块中。具体而言包含如下两个步骤：
+
+（1）\emph{实体分块}: 首先，根据每个结构化非主属性识别一实体不同于其它实体的能力对非主属性进行考量，其评判标准如下，实体在同一属性下具有相同的值，而且实体之间是匹配的。数据集中满足此规则的实体数目越多，该属性的识别能力就越强。然后，利用将具有多个相同属性值的实体分配到同一个块中，并给每个数据块分配一个标识码。值得注意的是结构化非主属性中经常有一些缺失值，对数据分块造成了很大的影响，因为丢失的数据并不能确定是什么内容，即使未丢失的属性值都一样，也不能保证这些实体应该分到同一个数据块中。为此，我们设定了另外一种数据块，即包含缺失值的数据块，该块内的实体除了缺失值外其他属性值都相同。
+
+（2） \emph{构建比较实体对}: 对于同一数据块内的每个实体，产生两两比较的实体对，此时匹配的比较次数将远远小于$m \times n$，而与数据块的大小和每个块内的实体数相关，从而减少了大量不必要的比较。同时，如果两个数据块除了缺失值外其他非主属性值都相同，仍具有相同的标识码，那么这两个数据块的实体也会进行两两比较。通过上述处理方法可以在不太影响匹配准确性的前提下，尽可能的减少的实体匹配次数，进而提升匹配效率。
+
+\section{基于IDF 的迭代式实体匹配算法}
+
+信息检索中逆文档频率（Inverted Document Frequency，简称IDF）可以度量短语的普遍重要性，短语的IDF 值越大，说明该短语越重要。为了从CText 中获取有用的信息，我们提出了一个基于短语IDF 得分的实体匹配算法（baseline 算法），该算法假定具有高IDF 得分的短语能够近似的表达CText 数据的主要信息。因此，可以通过余弦相似度函数（Cosine Similarity Function）表示计算CText 之间的相似性的相似度函数，其输入为CText 中的重要短语集合。
+
+\subsection{Baseline算法的工作流程}
+
+对于给定一个实体的CText 数据，在移除了停顿词的前提下，提取2-6个长度的单词作为候选短语，接下来计算这些短语的IDF 得分，选择得分较高的短语作为CText 的关键信息，利用这些短语构建实体的比较向量，然后计算CText 之间的相似度，与预定义的相似度阈值比较，如果相似度大于阈值则认为实体是匹配的，否则不匹配。具体细节如下所述：
+
+（1）\emph{构建比较向量}：首先，根据CText 所在的块计算每个短语的的IDF 得分。然后，根据IDF 得分对这些短语以降序的方式进行排序，选择具有较高IDF 得分的短语表示其所对应的实体。最后，将数据集中每个实体所获得的不同短语进行收集整理，建立全局短语集合$\vec{P}_g =\{w_1, w_2, ..., w_g\}$，对于每个实体$r_i(1 \leq i \leq n)$ 根据$\vec{P}_g$ 构建布尔类型的比较向量$\vec{v}_i=\{bool(r_i, w_1), bool(r_i, w_2), ..., bool(r_i, w_n)\}$，其中：
+    \begin{equation}
+        bool(r_i, w_j) =
+        \begin{cases}
+           1, &\mbox{if $w_j$ exists in the phrase set of $r_i$}\\
+           0, &\mbox{otherwise}
+           \end{cases}
+    \end{equation}
+    
+（2）\emph{计算实体相似度}：对于实体$r_i$ 和$r_j$ 的比较向量$\vec{v}_i$和$\vec{v}_j$($1 \leq i, j \leq n$)，通过如下的方法计算两个实体的相似度：
+    \begin{equation}
+      \small
+      \begin{split}
+      sim(r_i, r_j) = \frac{\vec{v}_i \times \vec{v}_j}{||\vec{v}_i|| \cdot ||\vec{v}_j||} = \frac{\sum_{p=1}^{g}{bool(r_i, w_p)bool(r_j, w_p)}}{\sqrt{\sum_{p=1}^{g} bool(r_i, w_p)^{2}} \cdot \sqrt{\sum_{q=1}^{g} bool(r_j, w_q)^{2}}}
+      \label{eq:simuti}
+      \end{split}
+     \end{equation}
+     
+（3）\emph{调整数据块}：假定$\theta$ 表示预定义的相似度阈值。如果$sim(r_i, r_j) > \theta$，并且实体对$(r_i, r_j)$ 之前在同一个数据块中，它们将被合并为一个实体；否则，如果$sim(r_i, r_j) > \theta$，但是实体对$(r_i, r_j)$ 之前隶属于不同的数据块，在$r_j$ 的数据块编码存在缺失值的前提下，将实体$r_j$ 从原来的数据块中移除放到实体$r_i$ 所在的数据块中，并将之与$r_i$ 合并。
+
+\subsection{短语IDF 得分的迭代式更新}
+
+值得注意的是我们计算每个短语的IDF 得分时，是根据该短语的CText 数据所在的数据块计算得到的，随着匹配实体的发现，实体所依赖的数据块也应随之该改变。因此，我们需要对短语的IDF 得分更新。迭代式更新短语IDF 得分的想法是基于如下的事实：（1）随着更多匹配实体的发现，更多相关的CText 可以被用于计算或更新短语的IDF 得分；（2）随着相同数据块中相关CText 数据的增加，更多匹配的实体可以被发现。因此，我们迭代地更新所有短语的IDF 得分，然后重复上述三个步骤直至短语的IDF 得分趋于稳定。
+
+\section{基于短语共现的实体匹配算法}
+
+基于IDF 得分的baseline 算法只是在一个维度上度量CText 之间的相似度。然而，作为包含实体各方面信息的CText 数据，实际上可以通过方法分析出短语之间的关联关系，利用关联关系提取CText 的主要信息。在本章中将描述实体某些方面特性的关键信息称之为子主题。这里所说的子主题不同于诸如“体育”、“经济”、“文化”等主题，而是同一主题的各个方面。例如，在房源数据表中的CText 数据通过诸如“direction”，“greening”，“property”，“traffic”等方面进行描述。
+
+鉴于baseline 算法的不足，我们提出了一种新颖的基于短语共现的实体匹配算法，用于挖掘CText 的子主题，然后计算CText 数据在所有子主题维度上的相似性。该算法的思路是如果两个短语总是同时出现在一个句子中，那么很有可能这两个短语之间存在一定的关联性，通过对这种关联性的挖掘找出CText 中的关键信息，然后通过归一化处理获取关键信息的向量表示，最后在结构化非主属性的帮助下计算CText 对应的向量之间的相似性表示实体间的相似度。基于上述事实，通过对CText 中短语的统计分析方法建立短语共现图（Phrase Coocurrence Graph，简称PC-Graph）用以表示CText 数据之间所有短语的共现关系。值得注意的是有些短语虽然与其它短语共现但是这种共现关系并不强烈，又或是某些短语经常与其它多个短语共现，为了解决这个问题我们提出了分割算法将PC-Graph 分割为多个划分。然后利用短语关联度（Phrase Association Degree，简称PAD）度量实体在相应子主题上的相似度。
+
+在执行图划分时面临一个挑战就是如何使得每一个划分中的短语都尽可能地对应到一个子主题上。为此，我们首先将此问题构建成一个优化问题，然后通过理论上分析证明其是一个NP-hard 问题。通过短语的PAD 度量短语之间的关联程度的大小，并提出了一个贪心算法用于选择具有最小PAD 得分的边作为划分点。
+
+\subsection{共现图的构建}
+
+对于给定的一个CText 数据$ct$，根据诸如“,”，“.”，“?”等分隔符和停顿词将CText 分割为多个片段{\it $t_1, t_2, ..., t_n$}，然后在给定的已经过滤过停顿词的词典上，利用Longest-Cover 方法~\ucite{Kim2013Context}对每个片段分割获得最长短语。如果两个短语同时出现在一个片段中就在两个短语之间添加一条边并给其一定的权重，其中短语$p_i$ 和$p_j$ 所在边的权重可根据公式~\ref{chap04:freq}得到：
+\begin{equation}
+\label{chap04:freq}
+freq(ct, p_i, p_j) = e^{-gap_{ct}(p_i, p_j)} \cdot bool(p_i, p_j)
+\end{equation}
+其中$gap_{ct}(p_i, p_j)$ 表示短语$p_i$ 和$p_j$ 在其CText 数据中的距离，$e^{-gap_{ct}(p_i, p_j)}$ 是为了惩罚具有较长距离的短语，$bool(p_i, p_j)$ 是为了减少相似短语在同一CText 数据中的影响，具体可由公式~\ref{chap04:boolPhr}计算得到：
+\begin{equation}
+\label{chap04:boolPhr}
+bool(p_i, p_j) =
+\begin{cases}
+1, &\mbox{if $sim(p_i, p_j)$ $\leq$ $\theta$} \\
+0, &\mbox{otherwisw}
+\end{cases}
+\end{equation} 
+其中函数$sim(\cdot, \cdot)$ 用于计算短语之间的字符串相似度（如编辑距离），$\theta$ 是字符串相似度阈值。
+
+对于给定的训练集合$T$，使用公式~\ref{chap04:FreqPhr}统计短语对$(p_i, p_j)$ 在所有CText 数据中共同出现的总频率，
+\begin{equation}
+\label{chap04:FreqPhr}
+Freq(p_i, p_j) = \sum \limits_{ct\in T}{freq(ct, p_i, p_j)}
+\end{equation}
+进而，使用公式~\ref{chap04:freq}结合$Freq(p_i, p_j)$ 计算连接顶点$p_i$ 和$p_j$ 所在边的PAD 得分，
+\begin{equation}
+\label{chap04:pad}
+PAD(p_i, p_j) = \frac{Freq(p_i, p_j)}{\sum \limits_{p \in \vec{P}_g}{Freq(p_i, p)}} \cdot \log\frac{|\vec{P}_g|}{|Adj(p_j)|-1}
+\end{equation}
+其中$\frac{Freq(p_i, p_j)}{\sum \limits_{p \in \vec{P}_g}{Freq(p_i, p)}}$计算$p_i$ 和$p_j$ 的PAD 得分与所有连接$p_i$ 的短语的PAD 得分之和的比例。$\log\frac{|\vec{P}_g|}{|Adj(p_j)|-1}$ 为了惩罚总是和其它短语一起出现的其它短语，$Adj(p_j)$ 表示和$p_j$ 一起出现的短语集合，$|\cdot|$ 获取集合的大小。
+
+图~\ref{chap:chap04:example}给出了部分建立在租房信息数据集的PC-Graph，从图中可以看出经常一起出现的短语具有较高的PAD 得分，如“convenience”, “ease”等,而有些很少在一起出现的短语具有较低的PAD 得分，如“good” 和“traffic” 等。
+
+\begin{figure}[!htp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../figures/chap04/exam.pdf}\\
+  \smallcaption{例：具有三个划分的 PC-Graph}
+  \label{chap:chap04:example}
+\end{figure}
+
+\subsection{PC-Graph的分割}
+
+如图~\ref{chap:chap04:example}所示，有些短语节点中存在很弱的关联关系，也即是一些短语之间具有很低的PAD 得分，阻碍了我们从PC-Graph 识别CText 的子主题。因此，本章考虑将PC-Graph 分割为多个图划分，其中的每一个划分紧密的对应着一个子主题。受文献~\cite{Guo2010Record}所提模型的启发，我们的PC-Graph 分割问题可转化为如下的优化问题：（1）最大化每个图划分内的PAD 得分之和；（2）减少图划分之间的PAD 得分。此问题可形式化的表示为公式~\ref{chap04:max} 所示的最大化问题：
+\begin{equation}
+\label{chap04:max}
+  Maximize\sum\limits_{p_1 \in \vec{P}_g, p_2 \in \vec{P}_g, p_1\neq p_2}{\frac{PAD(p_1, p_2)}{dis(p_1)+dis(p_2)+\alpha}} \\
+\end{equation}
+\begin{equation}
+where  \begin{cases}
+  &dis(p_1) = Max_{p \in Adj(p_1)}{PAD(p_1, p)}-Min_{p \in Adj(p_1)}{PAD(p_1, p)} \\
+  &dis(p_2) = Max_{p \in Adj(p_2)}{PAD(p_2, p)}-Min_{p \in Adj(p_2)}{PAD(p_2, p)} \\
+  \end{cases}
+\end{equation}
+其中$\alpha$是一个平衡因子，用于防止分母为零。
+
+\begin{theorem}
+\label{theorem:1}
+发现公式~\ref{chap04:max}的最优解决方法是一个NP-hard 问题。
+\end{theorem}
+
+\begin{pf}
+我们证明即便在子主题数目已知的情况下，上述优化问题是NP-hard 问题。通过证明该问题可还原为平衡max-skip 划分问题，从而使原命题得证~\ucite{sun2014fine}。对于给定一个二元向量集合$V$，通过$V$ 发现一个划分$\mathcal P$ 使得公式~\ref{chap04:CP}的总开销$\mathcal {C(P)}$ 最大化：
+\begin{equation}
+\label{chap04:CP}
+\mathcal {C(P)}=\sum_{p_i\in \mathcal P}C(P_i)
+\end{equation}
+其中$C(P_i)=|P_i|$ 是一个图划分$P_i$ 的开销。在我们的问题中，使用公式~\ref{chap04:CPI}定义一个图划分$P_i$ 的开销：
+\begin{equation}
+\label{chap04:CPI}
+C(P_i)=\sum\limits_{p_1 \in \vec{P}_g, p_2 \in \vec{P}_g, p_1\neq p_2}{\frac{PAD(p_1, p_2)}{dis(p_1)+dis(p_2)+\alpha}}=\sum\limits_{p_1 \in \vec{P}_g, p_2 \in \vec{P}_g, p_1\neq p_2}1-\Delta (P_i)
+\end{equation}
+其中$\Delta (P_i)$ 类似于在平衡max-skip 划分问题中的$\bar{v}(P_i)j$。因此，公式~\ref{chap04:max}等价于最大化总开销$\mathcal P$，也即是说，发现公式~\ref{chap04:max}的最优解问题是NP-hard 问题。因此，定理~\ref{theorem:1}得证。
+\end{pf}
+
+根据定理~\ref{theorem:1}可知解决这个非线性优化问题并不容易。为此，我们提出了一个贪心算法，每次贪心地选择具有最小PAD 得分的边执行图划分。为了表示每个划分内节点的紧密程度，我们为每个划分$G_{par}$ 定义了一个一致性得分（cohesion score，简称CScore），可由如下公式~\ref{chap04:cscore}计算得到：
+\begin{equation}
+\label{chap04:cscore}
+\small
+CScore(G_{par}) = \frac{\sum\limits_{(p_1, p_2) \in \vec{P}_{G_{par}}}{PAD(p_1, p_2)}}{\max \limits_{(p_1, p_2) \in \vec{P}_{G_{par}}}{PAD(p_1, p_2)}-\min \limits_{(p_1, p_2) \in \vec{P}_{G_{par}}}{PAD(p_1, p_2)}+\alpha}
+\end{equation}
+其中$\alpha$ 是一个平衡因子，用于防止分母为零，$\vec{P}_{G_{par}}$ 表示划分$G_{par}$ 的短语集合。假定图划分$G_{par}$ 可以在具有最小PAD 得分的边上被分割为两个子划分$G_{par1}$ 和$G_{par2}$。如果这个分割操作满足如下公式~\ref{chap04:condition}中的限制条件，我们将执行分割操作。
+\begin{equation}
+\label{chap04:condition}
+\begin{cases}
+   & CScore(G_{par}) \le CScore(G_{par1})+CScore(G_{par2}) \\
+   & |CScore(G_{par1})-CScore(G_{par2})| \le \min \limits_{(p_1, p_2) \in \vec{P}_{G_{par}}}{PAD(p_1, p_2)}\\
+   & |G_{par1}| > 1, |G_{par2}| > 1
+ \end{cases}
+\end{equation}
+对于每一个图划分，我们迭代的选择具有最小PAD 得分的边执行分割操作，直至没有更多的边满足公式~\ref{chap04:condition}中的限制条件。
+
+
+\subsection{子主题及其权重的获取}
+
+对于分割后的每个图划分，我们从中获取图划分的子主题。具体来说，计算图划分中每个节点的平均PAD 得分，选择具有最大平均PAD 得分的短语作为该图划分的子主题，而其它短语作为该子主题下的子主题值。假定从PC-Graph 中我们得到了$K$ 个子主题可形式化表示为向量$<subT_1, subT_2, ..., subT_K>$，其中每个$subT_i$ ($1 \leq i \leq K$) 表示一个子主题。对于子主题向量的每一维使用领域知识设置用于实体匹配的权重，可形式化表示为如下的权重向量$<w_1, w_2, ..., w_K>$。初始阶段，我们设定$w_k = 1(1 \leq k \leq K)$，但随着匹配结果的改变权重向量将被迭代式的更新。在一次迭代完成后根据实体匹配结果，使用公式~\ref{chap04:weightupdate}更新权重$w_k$。 我们迭代式的执行更新操作直至它趋于稳定。
+\begin{equation}
+\label{chap04:weightupdate}
+w_k = \frac{Pos_{subT}(k)}{Pos_{subT}(k)+Neg_{subT}(k)}
+\end{equation}
+其中$Pos_{subT}(k)$ 表示满足如下要求的所有实体对$(r_i, r_j)$ 的个数：如果$r_i[k]=r_j[k]$，也即是说实例对$(r_i, r_j)$ 在子主题$subT_k$ 上具有相同的子主题值，那么实体对$(r_i, r_j)$ 在当前迭代中是匹配的实体；$Neg_{subT}(k)$ 表示满足如下要求的所有实体对$(r_i, r_j)$ 的个数：如果$r_i[k]=r_j[k]$，那么实体对$(r_i, r_j)$ 在当前迭代中不是匹配的实体。
+
+\subsection{实体匹配过程}
+首先，我们识别每个实体的每个CText 片段的子主题，然后使用Adjusted Cosine Similarity 函数\ucite{Sarwar2001Item}计算实体对的相似度：
+\begin{equation}
+\label{chap04:sim}
+       Sim(r_i, r_j)= \frac{\sum_{k=1}^{K}{w^2_k\cdot sim(r_i[k], r_j[k])}}{\sum_{k=1}^{K}[w_k \cdot sim(r_i[k], r_j[k])]^2}
+\end{equation}
+
+上述方法虽然可以很好的发现CText 片段中的子主题，但是有可能在CText 片段中没有明显的子主题，这将直接导致片段子主题识别的失败。为此，我们使用了一个概率模型去推断其所隶属的子主题。假定$\vec{P}(t)$ 表示片段$t$ 中识别的短语集合，我们根据全概率公式使用公式~\ref{chap04:weightupdate}计算$t$ 属于子主题$subT$ 的概率：
+\begin{equation}
+  \label{eqsubT}
+  Pr(subT | \vec{P}(t)) = \sum_{p \in \vec{P}(t)} \frac{Pr(p| subT)\cdot Pr( subT)}{\sum_{subT} Pr(p| subT)\cdot Pr( subT)}
+\end{equation}
+其中$subT$ 是一个子主题，$Pr(p|subT)$ 表示在满足子主题$subT$ 的条件下出现短语$p$ 的概率，其值可通过先验知识计算可得。在计算了$t$ 属于每个不同子主题的概率之后，选择具有最大概率值的子主题作为该片段$t$ 的子主题，然后利用公式~\ref{chap04:sim}计算实体的相似度。
+
+\section{实验结果及分析}
+
+我们从Web 上爬取了二手商品数据，其中既包含结构化数据又包含文本数据，在真实数据集上验证所提出算法的有效性和可用性。
+
+（1）\emph{二手房数据集（House）}：这个数据集是关于租房信息的，我们收集了来自三个租房网站（“Ganji”，“Anjuke”，“58tongcheng”）的五个大中型城市（“Beijing”，“Shenzheng”，“Tianjing”，“Chendu”和“Suzhou”）的二手房数据，其中既有结构化的数据也有非结构化的CText 数据。数据集的性质如表~\ref{chap04:table:datasets1} 所示。
+
+（2）\emph{二手车数据集（Car）}：这个数据集是关于二手车信息的，我们搜集了来自于“Ganji”和“168che” 的五个品牌（ “Toyota”，“Audi”，“BMW”，“Honda”和“Buick”）的二手车数据，其中包含了结构化数据和CText 信息。数据集的性质如表~\ref{chap04:table:datasets2} 所示。
+
+\begin{table}[!htb]
+\smallcaption{二手房数据信息表}
+\small
+\centering
+\begin{tabular}{|*{6}{c|}}
+\hline
+\multirow{2}{*}{\bfseries} & \multicolumn{5}{c|}{\bfseries House}\\
+\cline{2-6}
+ & beijing & chengdu & suzhou & shenzhen & tianjin \\\hline
+\bfseries {\#Attribute}  & 22 & 22 & 22 & 22 & 22 \\\hline
+\bfseries {\#Record}  & 5.6k & 8.6k & 10.8k & 17.1k & 13.5k\\\hline
+\end{tabular}
+\label{chap04:table:datasets1}
+\end{table}
+
+\begin{table}[!htb]
+\smallcaption{二手车数据信息表}
+\small
+\centering
+\begin{tabular}{|*{6}{c|}}
+\hline
+\multirow{2}{*}{\bfseries} &  \multicolumn{5}{c|}{\bfseries Car}\\
+\cline{2-6}
+  &  Toyota & Audi & BMW & Honda & Buick\\\hline
+\bfseries {\#Attribute}  &  12 & 12 & 12 & 12 & 12\\\hline
+\bfseries {\#Record}   &  5.6k & 5.2k & 6.0k & 5.5k & 5.8k\\\hline
+\end{tabular}
+\label{chap04:table:datasets2}
+\end{table}
+
+为了评估方法的效果我们使用了3个度量标准评：准确率（Precision），是指通过实验获得的所有匹配的实体中正确匹配的实体所占的比例；召回率（Recall），是指所有应该匹配的实体中正确匹配的实体所占的比例；F1 Score，是指对准确率和召回率的综合考虑，计算方法为：$F1 =(2*precision*recall )/( precision+recall)$。 我们使用算法的时间开销对方法的效率进行评估。
+
+\subsection{与以往方法在匹配效果方面的比较}
+
+我们将本章中提出的两种CTextEM 算法，基于IDF 的实体匹配算法（称为baseline 算法）和基于短语共现的实体匹配算法（称为Sub-topic 算法），与一些最先进的EM（实体匹配）算法和使用了其他经典主题模型的CTextEM 算法进行比较，并对它们的效果进行评估。
+
+（1） \emph{Key-based}：该方法集成了一些基于主属性值的先进技术用于减少匹配的开销，如Q-gram\ucite{Aizawa2005A}和Inverted Indices\ucite{Christen2011A}。
+
+（2）\emph{Blocking-based EM}\ucite{Borthwick2011Batch}：该算法选择具有好识别度的属性创建Hash Buckets 进行实体匹配。在相同的Hash Buckets 中的实体有可能是同一实体，而具有不同Hash 编码的实体则不可能是匹配的实体。
+
+（3）\emph{PRTree-based EM}\ucite{Yang2015NokeaRM}：该算法使用具有结构化数据的属性（主属性和非主属性）建立一颗类决策树，利用该类决策树进行实体匹配。
+
+（4）\emph{LDA-based EM}：该算法依赖LDA主题模型\ucite{Blei2003Latent}从CText 数据中挖掘隐藏的各种主题，进而建立主题向量，利用主题向量计算实体间的相似度。
+
+（5）\emph{GLC-based EM}：该算法依赖GLC 主题模型\ucite{Villarreal2011Topic}理解CText 数据中的信息，然后建立主题向量，利用主题向量计算实体间的相似度。
+
+如图~\ref{chap:chap04:fig:f1score}（a）所示，只依赖主属性的Key-based EM 方法具有最低的F1 score，由于结构化数据中具有丢失数据使得Blocking-Based EM 方法的效果大打折扣，导致了匹配假阳性的出现。PRTree EM 方法于Key-based EM 方法相比具有较高的F1 score，而与baseline 算法相比其结果低于其F1 Score，因为PRTree EM 方法只使用了结构化数据而没有使用CText 数据，导致一些本应该匹配的实体却没有被发现。baseline 算法从CText 数据中提取信息，并通过与结构化数据的结合，获得了较高的F1 score。LDA-based EM 算法的准确性低于baseline 算法，因为它并不擅长从CText 数据中学习子主题。baseline 算法和GLC-based EM 方法的匹配准确性不相上下，但都低于Sub-topic 算法，因为它可以以更高级的方法从CText  中抽取关键信息，进而获得更好的匹配效果。我们同时给出了这些方法在二手车数据集上的实验结果，如图~\ref{chap:chap04:fig:f1score}（b）所示。
+
+\begin{figure}[!htb]
+	\centering
+	\subfigure[\heiti 来自于五个城市的房源数据]{
+		\includegraphics[width=0.48\linewidth]{../figures/chap04/pr.pdf}
+	}
+	\subfigure[\heiti 来自于五个品牌的二手车数据]{
+		\includegraphics[width=0.48\linewidth]{../figures/chap04/carpr.pdf}
+	}
+	\smallcaption{与以往方法在F1 score上的比较}
+\label{chap:chap04:fig:f1score}
+\end{figure}
+
+为了获取更为全面的比较效果，我们比较了这些方法在房源数据集上的准确率和召回率。由于页面原因只选取前四个城市的实验结果进行展示。由表~\ref{chap04:table:pr}可以看出，sub-topic EM 算法较其他的匹配算法而言也取得了最高的准确率和召回率，而GLC-based EM 方法获得了第二高的匹配准确率和召回率。baseline 算法的结果近似于GLC-based EM 方法，但LDA-based EM 方法是这四个使用CText 数据中最差的。
+
+\begin{table*}[!htp]
+\smallcaption{在房源数据集中与以往方法在准确率和召回率上的比较（前四个城市）}
+\small
+\centering
+\begin{tabular}{|*{9}{c|}}
+\hline
+\multirow{2}{*}{\bfseries Methods} & \multicolumn{2}{c|}{\bfseries beijing} & \multicolumn{2}{|c|}{\bfseries chengdu}& \multicolumn{2}{c|}{\bfseries suzhou}& \multicolumn{2}{|c|}{\bfseries shenzhen} \\
+\cline{2-9}
+ & Precision & Recall & Precision & Recall & Precision & Recall & Precision & Recall \\\hline
+\bfseries Key & 0.6994 & 0.4512 & 0.7116 & 0.4212 & 0.7254 & 0.3998 & 0.7059 & 0.4105  \\\hline
+\bfseries PRTree & 0.7504 & 0.7125 & 0.7542 & 0.7239 & 0.7556 & 0.7582 & 0.7694 & 0.7081  \\\hline
+\bfseries Blocking & 0.7452 & 0.7028 & 0.7645 & 0.7332 & 0.7583 & 0.7425 & 0.7467 & 0.7259  \\\hline
+\bfseries LDA & 0.8472 & 0.8066 & 0.8616 & 0.8253 & 0.8438 & 0.8241 & 0.8527 & 0.8320   \\\hline
+\bfseries GLC & 0.8801 & 0.8625 & 0.8964 & 0.8693 & 0.9045 & 0.8632 & 0.9366 & 0.8590   \\\hline
+\bfseries baseline & 0.8966 & 0.8437 & 0.9059 & 0.8498 & 0.8891 & 0.8524 & 0.9105 & 0.8447 \\\hline
+\bfseries Sub-topic & {\bf 0.9688} & {\bf 0.8974} & {\bf 0.9472} & {\bf 0.8836} & {\bf 0.9802} & {\bf 0.9163} & {\bf 0.9650} & {\bf 0.8892} \\\hline
+\end{tabular}
+\label{chap04:table:pr}
+\end{table*}
+
+\subsection{算法提取结果的评估}
+我们将本章提出的两种信息提取方法与不同的主题模型提取方法进行比较，如表~\ref{chap04:table:extrinfo}所示，Sub-topic EM 算法较其他方法能够获得更为准确的信息，因为该方法通过产生的子主题很好的抽取了CText 数据中的有效信息。从表中可以看出LDA 模型只获取了粗糙的信息，这些信息不能很好地支撑实体匹配。此外，还可以发现一些重要的短语如“Community Planning”被分为了两个短语。GLC 模型有时能获取较好的子主题而有时却不能，例如，短语“floor”和“twenty”被混合在一起，这说明了该方法对数据集具有依赖性。baseline 算法的结果近似于GCL 模型的提取结果。总结来说，Sub-topic 方法较其它方法在理解CText 数据方面更为合适。
+
+\begin{table*}[!htp]
+\smallcaption{与以往的方法在抽取结果上的比较}
+\small
+\centering
+\begin{tabular}{|m{1.4cm}|*{2}{m{6.3cm}|}}
+\hline
+\multirow{2}{*}{\bfseries Methods} & \multicolumn{2}{c|}{\bfseries Example} \\
+\cline{2-3}
+   & 1. Community Planning well, unique warmth, flowers and trees patchwork, like a garden, furniture and appliances equipped well, refined decoration, facing south right, twenty floor, tenant types limit for family ... & 1. south facing, good lighting, two air conditioning, water heaters and washing machines  equipped, free of property charges. ...   \\\hline
+\bfseries LDA &  {\bf Community,} {\bf Planning}, {\bf warmth}, flowers, trees, garden, {\bf furniture}, {\bf appliances}, {\bf decoration}, {\bf south}, {\bf floor}, tenant types, family, ... & {\bf south}, {\bf facing}, {\bf lighting}, air, conditioning, water, heaters, washing,  machines, {\bf property}, {\bf charges}, ...\\\hline
+\bfseries GLC &  {\bf Community Planning}, {\bf warmth}, flowers and trees, garden, {\bf furniture and appliances}, refined, {\bf decoration}, south, {\bf twenty}, {\bf floor}, tenant types, family, ... & {\bf south}, {\bf lighting}, {\bf two}, air conditioning, water heaters, washing machines, {\bf free}, {\bf property charges}, ...\\\hline
+\bfseries baseline &  {\bf Community Planning}, well, warmth, flowers and trees, garden, {\bf furniture and appliances}, refined, {\bf decoration},  {\bf south},  {\bf facing}, {\bf floor}, tenant types, family, ... & {\bf facing}, {\bf south}, lighting, air conditioning, water heaters and washing machines, {\bf property charges}, ...\\\hline
+\bfseries Sub-topic &  {\bf Community Planning}, warmth, flowers, trees, furniture, {\bf appliances and decoration}, well-groomed, {\bf facing}, {\bf floor}, tenant types, family, ...& {\bf facing}, {\bf lighting}, air conditioning, water heaters, washing machines, {\bf property charges}, ... \\\hline
+\end{tabular}
+\label{chap04:table:extrinfo}
+\end{table*}
+
+如表~\ref{chap04:table:weight}所示，我们根据子主题获取模型及权重分配模型将房源数据集中部分子主题及其权重列举出来。从该表可以观察到子主题“floor”较其它子主题具有较高的权重，因为该子主题能够更好的决定匹配的结果，如果两个房源实体具有不同的楼层号，则二者不可能为同一实体。这也和我们的期望一致，具有较高识别度的子主题较其它子主题具有更高的权重。
+
+\begin{table}[!htp]
+\smallcaption{例：房源数据集中不同子主题的权重}
+\small
+\centering
+\begin{tabular}
+{{|m{1.2cm}|m{1.6cm}|m{1.0cm}|m{1.8cm}|m{1.5cm}|m{1.4cm}|m{0.72cm}|m{0.8cm}|m{0.6cm}|m{0.1cm}|}}
+\hline
+\bfseries CText & \multicolumn{9}{|m{13cm}|} {1. Community Planning well, unique warmth, flowers and trees patchwork, like a  garden, furniture and appliances equipped well. 2. Hardcover house, well-groomed room very much, matching color, facing south right, twenty floor, free of property
+charges, tenant type limits for single, free of parking, bag check, ...}\\\hline
+\bfseries Phrases & Community  Planning &  warmth & flowers and trees patchwork & furniture and appliances & decoration & color & facing & floor & ...\\\hline
+\bfseries Weight & 0.56 &  0.31 & 0.43 & 0.75 & 0.69 & 0.44 & 0.85 & 0.89 & ...\\\hline
+\end{tabular}
+\label{chap04:table:weight}
+\end{table}
+
+\subsection{算法的扩展性评估}
+
+我们比较了本章中提出的两个算法（baseline EM 算法和Sub-topic EM 算法）与基于主题模型的算法如LDA-based EM 方法和GLC-based EM 方法的可扩展性，即随着数据量的增加算法在F1 score 和时间开销方面的变化趋势。如图~\ref{chap:chap04:fig:scalability}（a）所示，随着实体数目从$100$增加至$10000$，Sub-topic EM 算法的F1 score 变化非常稳定，而且较其它方法具有更高的F1 Score。如图~\ref{chap:chap04:fig:scalability}（b）所示，随着实体数目的增加，Sub-topic EM 算法的时间开销较其它算法更少，原因在于该算法通过所产生的子主题能够更好的减少比较的维度，从而减少实体匹配的时间。
+
+\begin{figure}[!htb]
+	\centering
+	\subfigure[\heiti 实体数目（$10^x$）]{
+		\includegraphics[width=0.48\linewidth]{../figures/chap04/f1.pdf}
+	}
+	\subfigure[\heiti 实体数目（$10^x$）]{
+		\includegraphics[width=0.48\linewidth]{../figures/chap04/time.pdf}
+	}
+	\smallcaption{扩展性评估：在F1 score和时间开销方面与一些主题模型的比较}
+\label{chap:chap04:fig:scalability}
+\end{figure}
+
+\section{本章小结}
+
+本章主要介绍了如何利用非结构化的文本数据进行实体匹配。本章首先给出了基于文本类型非主属性实体匹配的问题定义，简单介绍了已有的文本处理方法并描述了其优缺点。然后提出了一种提高匹配效率的数据分块算法，并在此基础上提出了两种基于文本类型非主属性数据的实体匹配算法，最后在实验部分通过与以往实体匹配方法的比较，验证所提出算法的效果。

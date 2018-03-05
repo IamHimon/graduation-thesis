@@ -1,0 +1,446 @@
+\begin{thebibliography}{10}
+
+\bibitem{Floridi2014The}
+Floridi L and Illari P.
+\newblock
+\newblock The Philosophy of Information Quality [M]. Berlin: Springer
+  International Publishing, 2014.
+
+\bibitem{Ferro2010An}
+Ferro A, Giugno R, Puglisi P.~L and Pulvirenti A.
+\newblock An Efficient Duplicate Record Detection Using Q-Grams Array Inverted
+  Index [J].
+\newblock Lecture Notes in Computer Science, 2010, 6263(11): 309--323.
+
+\bibitem{Zheng2010Detecting}
+Zheng Y, Fen X, Xie X, Peng S and Fu~J.
+\newblock
+\newblock Detecting Nearly Duplicated Records in Location Datasets [A]. Agrawal
+  D. Proceedings of the 18th SIGSPATIAL International Conference on Advances in
+  Geographic Information Systems [C]. New York: ACM, 2010: 137--143.
+
+\bibitem{Giunchiglia2007Semantic}
+Giunchiglia F, Yatskevich M and Shvaiko P.
+\newblock Semantic Matching: Algorithms and Implementation [J].
+\newblock Journal on Data Semantics, 2007, 1(4): 1--38.
+
+\bibitem{Comito2006A}
+Comito C, Patarin S and Talia D.
+\newblock
+\newblock A Semantic Overlay Network for P2P Schema-Based Data Integration [A].
+  Bellavista P. Proceedings of the 11th IEEE Symposium on Computers and
+  Communications [C]. Washington: IEEE Computer Society, 2006: 88--94.
+
+\bibitem{Cheatham2013String}
+Cheatham M and Hitzler P.
+\newblock
+\newblock String Similarity Metrics for Ontology Alignment [M]. Berlin:
+  Springer Berlin Heidelberg, 2013.
+
+\bibitem{Dey2010Efficient}
+Dey D, Mookerjee V~S and Liu D.
+\newblock Efficient Techniques for Online Record Linkage [J].
+\newblock IEEE Transactions on Knowledge \& Data Engineering, 2010, 23(3):
+  373--387.
+
+\bibitem{Blei2003Latent}
+Blei D~M, Ng~A~Y and Jordan M~I.
+\newblock Latent Dirichlet Allocation [J].
+\newblock Journal of Machine Learning Research, 2003, 3(11): 993--1022.
+
+\bibitem{Hofmann2013Probabilistic}
+Hofmann T.
+\newblock Unsupervised Learning by Probabilistic Latent Semantic Analysis [J].
+\newblock Machine Learning, 2001, 42(1/2): 177--196.
+
+\bibitem{Landauer1998An}
+Landauer T~K, Foltz P~W and Laham D.
+\newblock An Introduction to Latent Semantic Analysis [J].
+\newblock Discourse Processes, 1998, 25(2-3): 259--284.
+
+\bibitem{ektefa2011threshold}
+Ektefa M, Jabar M~A, Sidi F, Memar S, Ibrahim H and Ramli A.
+\newblock
+\newblock A Threshold-Based Similarity Measure for Duplicate Detection [A].
+  2011 IEEE Conference on Open Systems (ICOS) [C]. IEEE Communications Society,
+  2011: 37--41.
+
+\bibitem{gao2011web}
+Gao C, Peng H, Zhao X and Chen H.
+\newblock
+\newblock Web Rrace Duplication Detection Based on Context [A]. Gong Z.
+  International Conference on Web Information Systems and Mining [C]. Berlin:
+  Springer, 2011: 292--301.
+
+\bibitem{Huang1999Quality}
+Huang K~T, Yang W~L and Wang R~Y.
+\newblock
+\newblock Quality Information and Knowledge [M]. Washington: Prentice Hall PTR,
+  1999.
+
+\bibitem{Kahn1998Product}
+Kahn B~K and Strong D~M.
+\newblock
+\newblock Product and Service Performance Model for Information Quality: An
+  Update [A]. Chengalur-Smith I N. Conference on Information Quality [C].
+  Cambridge: MIT, 1998: 102--115.
+
+\bibitem{Aebi1993Towards}
+Aebi D and Perrochon L.
+\newblock
+\newblock Towards Improving Data Quality [A]. Zwass V. International Conference
+  on Information Systems \& Management of Data [C]. New Delhi: Citeseer, 1993:
+  273--281.
+
+\bibitem{Sadiq2008Research}
+Sadiq S, Zhou X and Deng K.
+\newblock
+\newblock Research and Practice in Data Quality [A]. Zhang Y. Asia-Pacific Web
+  Conference on Progress in WWW Research and Development [C]. Berlin: Springer
+  Berlin Heidelberg, 2008: 41--42.
+
+\bibitem{wand1996anchoring}
+Wand Y and Wang R~Y.
+\newblock Anchoring Data Quality Dimensions in Ontological Foundations [J].
+\newblock Communications of the ACM, 1996, 39(11): 86--95.
+
+\bibitem{rahm2000data}
+Rahm E and Do~H.
+\newblock Data Cleaning: Problems and Current Approaches [J].
+\newblock IEEE Data Engineering Bulletin, 2000, 23(4): 3--13.
+
+\bibitem{beneventano1998consistency}
+Beneventano D, Bergamaschi S, Lodi S and Sartori C.
+\newblock Consistency Checking in Complex Object Database Schemata with
+  Integrity Constraints [J].
+\newblock IEEE Transactions on Knowledge and Data Engineering, 1998, 10(4):
+  576--598.
+
+\bibitem{Vattulainen2015Improving}
+Vattulainen M.
+\newblock
+\newblock Improving the Predictive Power of Business Performance Measurement
+  Systems by Constructed Data Quality Features? Five Cases [M]. Berlin:
+  Springer International Publishing, 2015.
+
+\bibitem{Liu2012Noisy}
+Liu H and Zhang S.
+\newblock Noisy Data Elimination Using Mutual K-Nearest Neighbor for
+  Classification Mining [J].
+\newblock Journal of Systems \& Software, 2012, 85(5): 1067--1074.
+
+\bibitem{Tian2014Missing}
+Tian J, Yu~B, Yu~D and Ma~S.
+\newblock Missing Data Analyses: A Hybrid Multiple Imputation Algorithm Using
+  Gray System Theory and Entropy Based on Clustering [J].
+\newblock Applied Intelligence, 2014, 40(2): 376--388.
+
+\bibitem{Chu1996Search}
+Chu H and Rosenthal M.
+\newblock
+\newblock Search Engines for the World Wide Web: A Comparative Study and
+  Evaluation Methodology [A]. Mosher E J. Proceedings of the Annual
+  Meeting-American Society for Information Science [C]. New York: ACM, 1996:
+  127--135.
+
+\bibitem{Yakout2011Guided}
+Yakout M, Elmagarmid A~K, Neville J, Ouzzani M and Ilyas I~F.
+\newblock Guided Data Repair [J].
+\newblock Proceedings of the VLDB Endowment, 2011, 4(5): 279--289.
+
+\bibitem{Pinheiro1998Methods}
+Pinheiro J~C and Sun D~X.
+\newblock
+\newblock Methods for Linking and Mining Massive Heterogeneous Databases [A].
+  Agrawal R. Knowledge Discovery and Data Mining [C]. New Delhi: Citeseer,
+  1998.
+
+\bibitem{Dewitt1991An}
+DeWitt D~J, Naughton J~F and Schneider D~A.
+\newblock
+\newblock An Evaluation of Non-Equijoin Algorithms [A]. Proceedings of the 17th
+  international conference on very large data bases [C]. Morgan Kaufmann
+  Publishers Inc., 1991: 443--452.
+
+\bibitem{Fan2009Reasoning}
+Fan W, Jia X, Li~J and Ma~S.
+\newblock Reasoning about Record Matching Rules [J].
+\newblock Proceedings of the Vldb Endowment, 2009, 2(1): 407--418.
+
+\bibitem{Arasu2009Record}
+Arasu A and Domingoferrer J.
+\newblock Record Matching [J].
+\newblock Encyclopedia of Database Systems, 2009, 2(1): 2354--2358.
+
+\bibitem{Clark2004Practical}
+Clark D.~E.
+\newblock Practical Introduction to Record Linkage for Injury Research [J].
+\newblock Injury Prevention Journal of the International Society for Child \&
+  Adolescent Injury Prevention, 2004, 10(3): 186.
+
+\bibitem{Hajishirzi2010Adaptive}
+Hajishirzi H, Yih W and Kolcz A.
+\newblock
+\newblock Adaptive Near-Duplicate Detection via Similarity Learning [A].
+  Crestani F. Proceedings of the 33rd International ACM SIGIR conference on
+  Research and Development in Information Retrieval [C]. New York: ACM, 2010:
+  419--426.
+
+\bibitem{Su2010Record}
+Su~W, Wang J and Lochovsky F~H.
+\newblock Record Matching over Query Results from Multiple Web Databases [J].
+\newblock IEEE Transactions on Knowledge \& Data Engineering, 2010, 22(4):
+  578--589.
+
+\bibitem{dorneles2011approximate}
+Dorneles C~F, Gon{\c{c}}alves R and Santos R~M.
+\newblock Approximate Data Instance Matching: A Survey [J].
+\newblock Knowledge and Information Systems, 2011, 27(1): 1--21.
+
+\bibitem{Cohen2003A}
+Cohen W~W, Ravikumar P and Fienberg S~E.
+\newblock
+\newblock A Comparison of String Distance Metrics for Name-Matching Tasks [A].
+  Kambhampati S. Proceedings of {IJCAI-03} Workshop on Information Integration
+  on the Web [C]. New York: ACM, 2003: 73--78.
+
+\bibitem{Dorneles2004Measuring}
+Dorneles C~F, Heuser C~A, Lima A~E, Silva A~S and Moura de~E~S.
+\newblock
+\newblock Measuring Similarity Between Collection of Values [A]. Laender A H F.
+  Proceedings of the 6th Annual ACM International Workshop on the Web
+  Information and Data Management [C]. New York: ACM, 2004: 56--63.
+
+\bibitem{bilenko2003adaptives}
+Bilenko M, Mooney R, Cohen W, Ravikumar P and Fienberg S.
+\newblock Adaptive Name Matching in Information Integration [J].
+\newblock IEEE Intelligent Systems, 2003, 18(5): 16--23.
+
+\bibitem{Motro1988VAGUE}
+Motro A.
+\newblock VAGUE: A User Interface to Relational Databases That Permits Vague
+  Queries [J].
+\newblock ACM Transactions on Information Systems, 1988, 6(3): 187--214.
+
+\bibitem{Schallehn2004Efficient}
+Schallehn E, Sattler K~U and Saake G.
+\newblock Efficient Similarity-Based Operations for Data Integration [J].
+\newblock Data \& Knowledge Engineering, 2004, 48(3): 361--387.
+
+\bibitem{hernandez1998real}
+Hern{\'a}ndez~A M and Stolfo S~J.
+\newblock Real-World Data Is Dirty: Data Cleansing and the Merge/Purge problem
+  [J].
+\newblock Data Mining and Knowledge Discovery, 1998, 2(1): 9--37.
+
+\bibitem{Aizawa2005A}
+Aizawa A and Oyama K.
+\newblock
+\newblock A Fast Linkage Detection Scheme for Multi-Source Information
+  Integration [A]. Proceedings of International Workshop on Challenges in Web
+  Information Retrieval and Integration [C]. IEEE, 2005: 30--39.
+
+\bibitem{Monge1996The}
+Monge A~E and Elkan C.
+\newblock
+\newblock The Field Matching Problem: Algorithms and Applications [A]. Simoudis
+  E. KDD [C]. Berlin: Springer Berlin Heidelberg, 1996: 267--270.
+
+\bibitem{Cohen1998Integration}
+Cohen W.~W.
+\newblock
+\newblock Integration of Heterogeneous Databases without Common Domains Using
+  Queries Based on Textual Similarity [A]. Haas L M. ACM SIGMOD Record [C]. New
+  York: ACM, 1998: 201--212.
+
+\bibitem{Xiao2008Efficient}
+Xiao C, Wang W, Lin X, Yu~J~X and Wang G.
+\newblock
+\newblock Efficient Similarity Joins for Near-Duplicate Detection [A]. Haas L
+  M. ACM Transactions on Database Systems (TODS) [C]. New York: ACM, 2011:
+  1--41.
+
+\bibitem{bilenko2003Adaptive}
+Bilenko M and Mooney R~J.
+\newblock
+\newblock Adaptive Duplicate Detection Using Learnable String Similarity
+  Measures [A]. Getoor L. Proceedings of the 9th ACM SIGKDD International
+  Conference on Knowledge Discovery and Data Mining [C]. New York: ACM, 2003:
+  39--48.
+
+\bibitem{Jiang2013Entity}
+Jiang F, Meng Y, Wei M and Li~Q.
+\newblock
+\newblock Entity Identification in Deep Web [M]. Berlin: Springer International
+  Publishing, 2013.
+
+\bibitem{Dhamankar2004iMAP}
+Dhamankar R, Lee Y, Doan A~H, Halevy A and Domingos P.
+\newblock
+\newblock IMAP: Discovering Complex Semantic Matches between Database Schemas
+  [A]. Weikum G. Proceedings of the 2004 ACM SIGMOD International Conference on
+  Management of Data [C]. New York: ACM, 2004: 383--394.
+
+\bibitem{Koudas2006Record}
+Koudas N, Sarawagi S and Srivastava D.
+\newblock
+\newblock Record Linkage: Similarity Measures and Algorithms [A]. Gruhl D.
+  Proceedings of the 2006 ACM SIGMOD International Conference on Management of
+  Data [C]. New York: ACM, 2006: 802--803.
+
+\bibitem{Parkhomenko2009Sparse}
+Parkhomenko E, Tritchler D and Beyene J.
+\newblock Sparse Canonical Correlation Analysis with Application to Genomic
+  Data Integration [J].
+\newblock Statistical Applications in Genetics and Molecular Biology, 2009,
+  8(1): 1--34.
+
+\bibitem{Chaudhuri2007Example}
+Chaudhuri S, Chen B~C, Ganti V and Kaushik R.
+\newblock
+\newblock Example-Driven Design of Efficient Record Matching Queries [A]. Koch
+  C. Proceedings of the 33rd international conference on Very large data bases
+  [C]. London: VLDB Endowment, 2007: 327--338.
+
+\bibitem{Jin2003Efficient}
+Jin L, Li~C and Mehrotra S.
+\newblock
+\newblock Efficient Record Linkage in Large Data Sets [A]. Jeffrey D. Ullman.
+  Proceedings of 8th International Conference on Database Systems for Advanced
+  Applications [C]. Washington: IEEE, 2003: 137--146.
+
+\bibitem{Wang2012Can}
+Wang J, Li~G and Feng J.
+\newblock
+\newblock Can We Beat the Prefix Filtering?: An Adaptive Framework for
+  Similarity Join and Search [A]. Candan K S. Proceedings of the 2012 ACM
+  SIGMOD International Conference on Management of Data [C]. New York: ACM,
+  2012: 85--96.
+
+\bibitem{Kim2012Method}
+Kim S~J and Lee J~H.
+\newblock
+\newblock Method of Mining Subtopics Using Dependency Structure and Anchor
+  Texts [A]. Calderon-Benavides L. International Symposium on String Processing
+  and Information Retrieval [C]. Berlin: Springer, 2012: 277--283.
+
+\bibitem{Vinson2007An}
+Vinson A~R, Heuser C~A, da~Silv aA~S and Moura de~E~S.
+\newblock
+\newblock An Approach to XML Path Matching [A]. Fundulaki I. Proceedings of the
+  9th Annual ACM International Workshop on Web Information and Data Management
+  [C]. New York: ACM, 2007: 17--24.
+
+\bibitem{Kailing2004Efficient}
+Kailing K, Kriegel H~P, Schonauer S and Seidl T.
+\newblock
+\newblock Efficient Similarity Search for Hierarchical Data in Large Databases
+  [M]. Berlin: Springer Berlin Heidelberg, 2004.
+
+\bibitem{Milano2006Structure}
+Diego M, Monica S and Tiziana C.
+\newblock Structure-Aware XML Object Identification [J].
+\newblock {IEEE} Data Eng. Bull., 2006, 29(2): 67--74.
+
+\bibitem{Yang2005Integrating}
+Yang J, Cheung W~K and Chen X.
+\newblock
+\newblock Integrating Element and Term Semantics for Similarity-Based XML
+  Document Clustering [A]. Skowron A. Proceedings of the 2005 IEEE/WIC/ACM
+  International Conference on Web Intelligence [C]. Washington: IEEE, 2005:
+  222--228.
+
+\bibitem{Park2005An}
+Park U and Seo Y.
+\newblock
+\newblock An Implementation of XML Documents Search System Based on Similarity
+  in Structure and Semantics [A]. Gruhl D. Proceedings of the 2005
+  International Workshop on Web Information Retrieval and Integration [C].
+  Washington: IEEE, 2005: 97--103.
+
+\bibitem{Carvalho2003Finding}
+Carvalho J~C and Silva da~A~S.
+\newblock
+\newblock Finding Similar Identities among Objects from Multiple Web Sources
+  [A]. Chiang R H L. Proceedings of the 5th ACM International Workshop on Web
+  Information and Data Management [C]. New York: ACM, 2003: 90--93.
+
+\bibitem{Christen2011A}
+Christen P.
+\newblock A Survey of Indexing Techniques for Scalable Record Linkage and
+  Deduplication [J].
+\newblock IEEE Transactions on Knowledge \& Data Engineering, 2011, 24(9):
+  1537--1555.
+
+\bibitem{Gal2006Managing}
+Gal A.
+\newblock Managing Uncertainty in Schema Matching with Top-K Schema Mappings
+  [J].
+\newblock Lecture Notes in Computer Science, 2006, 6(1): 90--114.
+
+\bibitem{Chandel2006Efficient}
+Chandel A, Nagesh P~C and Sarawagi S.
+\newblock
+\newblock Efficient Batch Top-K Search for Dictionary-Based Entity Recognition
+  [A]. Liu L. Proceedings of the 22nd International Conference on Data
+  Engineering [C]. Washington: IEEE, 2006: 28--28.
+
+\bibitem{Das2007A}
+Saranyamol C~S and Sindhu L.
+\newblock A Survey on Automatic Text Summarization [J].
+\newblock International Journal of Computer Science and Information Technology,
+  2014, 5(6): 7889--7893.
+
+\bibitem{Wu2012Text}
+Wu~M, Zhang D, Lan W and Wu~Q.
+\newblock
+\newblock Text Topic Mining Based on LDA and Co-Occurrence Theory [A]. Gruhl D.
+  Proceedings of the 2012 7th International Conference on Computer Science \&
+  Education [C]. Washington: IEEE, 2012: 525--528.
+
+\bibitem{Kim2013Context}
+Kim D, Wang H and Alice O.
+\newblock
+\newblock Context-Dependent Conceptualization [A]. Rossi F. International Joint
+  Conference on Artificial Intelligence [C]. Washington: IEEE, 2013:
+  2654--2661.
+
+\bibitem{Guo2010Record}
+Guo S, Dong X~L, Srivastava D and Zajac R.
+\newblock Record Linkage with Uniqueness Constraints and Erroneous Values [J].
+\newblock Proceedings of the VLDB Endowment, 2010, 3(1-2): 417--428.
+
+\bibitem{sun2014fine}
+Sun L, Franklin M~J, Krishnan S and Xin R~S.
+\newblock
+\newblock Fine-Grained Partitioning for Aggressive Data Skipping [A]. Dyreson C
+  E. Proceedings of the 2014 ACM SIGMOD international conference on Management
+  of data [C]. New York: ACM, 2014: 1115--1126.
+
+\bibitem{Sarwar2001Item}
+Sarwar B, Karypis G, Konstan J and Riedl J.
+\newblock
+\newblock Item-Based Collaborative Filtering Recommendation Algorithms [A].
+  Shen V Y. Proceedings of the 10th international conference on World Wide Web
+  [C]. New York: ACM, 2001: 285--295.
+
+\bibitem{Borthwick2011Batch}
+Verykios V~S, Elmagarmid A~K and Houstis E~N.
+\newblock Automating the Approximate Record-Matching Process [J].
+\newblock Information sciences, 2000, 126(1): 83--98.
+
+\bibitem{Yang2015NokeaRM}
+Yang Q, Li~Z, Jiang J, Zhao P, Liu G, Liu A and Zhu J.
+\newblock
+\newblock NokeaRM: Employing Non-Key Attributes in Record Matching [A]. Li J.
+  International Conference on Web-Age Information Management [C]. Berlin:
+  Springer, 2015: 438--442.
+
+\bibitem{Villarreal2011Topic}
+Villarreal S~E~G and Brena R~F.
+\newblock
+\newblock Topic Mining Based on Graph Local Clustering [A]. Batyrshin I Z.
+  Mexican International Conference on Artificial Intelligence [C]. Berlin:
+  Springer, 2011: 201--212.
+
+\end{thebibliography}
