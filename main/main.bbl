@@ -1,77 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Floridi2014The}
-Floridi L and Illari P.
-\newblock
-\newblock The Philosophy of Information Quality [M]. Berlin: Springer
-  International Publishing, 2014.
-
-\bibitem{Ferro2010An}
-Ferro A, Giugno R, Puglisi P.~L and Pulvirenti A.
-\newblock An Efficient Duplicate Record Detection Using Q-Grams Array Inverted
-  Index [J].
-\newblock Lecture Notes in Computer Science, 2010, 6263(11): 309--323.
-
-\bibitem{Zheng2010Detecting}
-Zheng Y, Fen X, Xie X, Peng S and Fu~J.
-\newblock
-\newblock Detecting Nearly Duplicated Records in Location Datasets [A]. Agrawal
-  D. Proceedings of the 18th SIGSPATIAL International Conference on Advances in
-  Geographic Information Systems [C]. New York: ACM, 2010: 137--143.
-
-\bibitem{Giunchiglia2007Semantic}
-Giunchiglia F, Yatskevich M and Shvaiko P.
-\newblock Semantic Matching: Algorithms and Implementation [J].
-\newblock Journal on Data Semantics, 2007, 1(4): 1--38.
-
-\bibitem{Comito2006A}
-Comito C, Patarin S and Talia D.
-\newblock
-\newblock A Semantic Overlay Network for P2P Schema-Based Data Integration [A].
-  Bellavista P. Proceedings of the 11th IEEE Symposium on Computers and
-  Communications [C]. Washington: IEEE Computer Society, 2006: 88--94.
-
-\bibitem{Cheatham2013String}
-Cheatham M and Hitzler P.
-\newblock
-\newblock String Similarity Metrics for Ontology Alignment [M]. Berlin:
-  Springer Berlin Heidelberg, 2013.
-
-\bibitem{Dey2010Efficient}
-Dey D, Mookerjee V~S and Liu D.
-\newblock Efficient Techniques for Online Record Linkage [J].
-\newblock IEEE Transactions on Knowledge \& Data Engineering, 2010, 23(3):
-  373--387.
-
-\bibitem{Blei2003Latent}
-Blei D~M, Ng~A~Y and Jordan M~I.
-\newblock Latent Dirichlet Allocation [J].
-\newblock Journal of Machine Learning Research, 2003, 3(11): 993--1022.
-
-\bibitem{Hofmann2013Probabilistic}
-Hofmann T.
-\newblock Unsupervised Learning by Probabilistic Latent Semantic Analysis [J].
-\newblock Machine Learning, 2001, 42(1/2): 177--196.
-
-\bibitem{Landauer1998An}
-Landauer T~K, Foltz P~W and Laham D.
-\newblock An Introduction to Latent Semantic Analysis [J].
-\newblock Discourse Processes, 1998, 25(2-3): 259--284.
-
-\bibitem{ektefa2011threshold}
-Ektefa M, Jabar M~A, Sidi F, Memar S, Ibrahim H and Ramli A.
-\newblock
-\newblock A Threshold-Based Similarity Measure for Duplicate Detection [A].
-  2011 IEEE Conference on Open Systems (ICOS) [C]. IEEE Communications Society,
-  2011: 37--41.
-
-\bibitem{gao2011web}
-Gao C, Peng H, Zhao X and Chen H.
-\newblock
-\newblock Web Rrace Duplication Detection Based on Context [A]. Gong Z.
-  International Conference on Web Information Systems and Mining [C]. Berlin:
-  Springer, 2011: 292--301.
-
 \bibitem{Huang1999Quality}
 Huang K~T, Yang W~L and Wang R~Y.
 \newblock
@@ -317,6 +245,20 @@ Wang J, Li~G and Feng J.
   SIGMOD International Conference on Management of Data [C]. New York: ACM,
   2012: 85--96.
 
+\bibitem{ektefa2011threshold}
+Ektefa M, Jabar M~A, Sidi F, Memar S, Ibrahim H and Ramli A.
+\newblock
+\newblock A Threshold-Based Similarity Measure for Duplicate Detection [A].
+  2011 IEEE Conference on Open Systems (ICOS) [C]. IEEE Communications Society,
+  2011: 37--41.
+
+\bibitem{gao2011web}
+Gao C, Peng H, Zhao X and Chen H.
+\newblock
+\newblock Web Rrace Duplication Detection Based on Context [A]. Gong Z.
+  International Conference on Web Information Systems and Mining [C]. Berlin:
+  Springer, 2011: 292--301.
+
 \bibitem{Kim2012Method}
 Kim S~J and Lee J~H.
 \newblock
@@ -385,11 +327,32 @@ Chandel A, Nagesh P~C and Sarawagi S.
   [A]. Liu L. Proceedings of the 22nd International Conference on Data
   Engineering [C]. Washington: IEEE, 2006: 28--28.
 
+\bibitem{Dey2010Efficient}
+Dey D, Mookerjee V~S and Liu D.
+\newblock Efficient Techniques for Online Record Linkage [J].
+\newblock IEEE Transactions on Knowledge \& Data Engineering, 2010, 23(3):
+  373--387.
+
 \bibitem{Das2007A}
 Saranyamol C~S and Sindhu L.
 \newblock A Survey on Automatic Text Summarization [J].
 \newblock International Journal of Computer Science and Information Technology,
   2014, 5(6): 7889--7893.
+
+\bibitem{Blei2003Latent}
+Blei D~M, Ng~A~Y and Jordan M~I.
+\newblock Latent Dirichlet Allocation [J].
+\newblock Journal of Machine Learning Research, 2003, 3(11): 993--1022.
+
+\bibitem{Landauer1998An}
+Landauer T~K, Foltz P~W and Laham D.
+\newblock An Introduction to Latent Semantic Analysis [J].
+\newblock Discourse Processes, 1998, 25(2-3): 259--284.
+
+\bibitem{Hofmann2013Probabilistic}
+Hofmann T.
+\newblock Unsupervised Learning by Probabilistic Latent Semantic Analysis [J].
+\newblock Machine Learning, 2001, 42(1/2): 177--196.
 
 \bibitem{Wu2012Text}
 Wu~M, Zhang D, Lan W and Wu~Q.
