@@ -6,50 +6,49 @@
 \contentsline {section}{\numberline {1.4}课题研究意义}{4}{section.1.4}
 \contentsline {section}{\numberline {1.5}文章组织结构}{5}{section.1.5}
 \contentsline {chapter}{\numberline {第二章\hspace {0.3em}}相关理论及方法}{6}{chapter.2}
-\contentsline {section}{\numberline {2.1}深度学习}{6}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}同一数据源内的质量问题}{7}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}数据源之间的质量问题}{9}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}实体匹配概念以及现有的实体匹配方法}{10}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}基于内容的匹配方法}{11}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}基于结构的匹配方法}{14}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}混合方式匹配方法}{14}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}本章小结}{15}{section.2.3}
-\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}基于结构化非主属性数据的实体匹配}{16}{chapter.3}
-\contentsline {section}{\numberline {3.1}问题定义}{16}{section.3.1}
-\contentsline {section}{\numberline {3.2}预备工作}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}基于非主属性区分度的实体匹配算法}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}基于规则的概率决策树的实体匹配算法}{18}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}算法基本思路}{19}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}基于规则的概率决策树的构建}{20}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}实体匹配过程}{24}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}基于PRTree 的NokeaEM 算法复杂度分析}{28}{subsection.3.4.4}
-\contentsline {subsection}{\numberline {3.4.5}基于PRTree 的NokeaEM 算法的扩充算法}{28}{subsection.3.4.5}
-\contentsline {section}{\numberline {3.5}实验结果及分析}{29}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}参数设定}{30}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}与以往方法在匹配效果方面的比较}{31}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}与以往方法在匹配效率方面的比较}{33}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}算法的扩展性评估}{34}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}本章小结}{34}{section.3.6}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于文本类型非主属性数据的实体匹配}{36}{chapter.4}
-\contentsline {section}{\numberline {4.1}问题定义}{36}{section.4.1}
-\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{38}{section.4.2}
-\contentsline {section}{\numberline {4.3}数据分块算法}{39}{section.4.3}
-\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{40}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{40}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{41}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{41}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{42}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{43}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{45}{subsection.4.5.3}
-\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{46}{subsection.4.5.4}
-\contentsline {section}{\numberline {4.6}实验结果及分析}{47}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{47}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{49}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{50}{subsection.4.6.3}
-\contentsline {section}{\numberline {4.7}本章小结}{51}{section.4.7}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{52}{chapter.5}
-\contentsline {section}{\numberline {5.1}全文总结}{52}{section.5.1}
-\contentsline {section}{\numberline {5.2}工作展望}{53}{section.5.2}
-\contentsline {chapter}{参考文献}{55}{chapter*.4}
-\contentsline {chapter}{攻读硕士学位期间发表的论文}{63}{chapter*.5}
-\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{65}{chapter*.6}
+\contentsline {section}{\numberline {2.1}深度学习在自然语言处理上的应用}{6}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}词向量}{7}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}分割式信息抽取概念以及现有的方法}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}基于内容的匹配方法}{12}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}基于结构的匹配方法}{15}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}混合方式匹配方法}{16}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}本章小结}{16}{section.2.3}
+\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}基于结构化非主属性数据的实体匹配}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}问题定义}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}预备工作}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}基于非主属性区分度的实体匹配算法}{19}{section.3.3}
+\contentsline {section}{\numberline {3.4}基于规则的概率决策树的实体匹配算法}{19}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}算法基本思路}{20}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}基于规则的概率决策树的构建}{21}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}实体匹配过程}{25}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}基于PRTree 的NokeaEM 算法复杂度分析}{29}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}基于PRTree 的NokeaEM 算法的扩充算法}{29}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}实验结果及分析}{30}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}参数设定}{31}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}与以往方法在匹配效果方面的比较}{32}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}与以往方法在匹配效率方面的比较}{34}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}算法的扩展性评估}{35}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}本章小结}{35}{section.3.6}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于文本类型非主属性数据的实体匹配}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}问题定义}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{39}{section.4.2}
+\contentsline {section}{\numberline {4.3}数据分块算法}{40}{section.4.3}
+\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{41}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{41}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{42}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{42}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{43}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{44}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{46}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{47}{subsection.4.5.4}
+\contentsline {section}{\numberline {4.6}实验结果及分析}{48}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{48}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{50}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{51}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}本章小结}{52}{section.4.7}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{53}{chapter.5}
+\contentsline {section}{\numberline {5.1}全文总结}{53}{section.5.1}
+\contentsline {section}{\numberline {5.2}工作展望}{54}{section.5.2}
+\contentsline {chapter}{参考文献}{56}{chapter*.4}
+\contentsline {chapter}{攻读硕士学位期间发表的论文}{62}{chapter*.5}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{64}{chapter*.6}

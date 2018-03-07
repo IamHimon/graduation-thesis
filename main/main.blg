@@ -24,22 +24,6 @@ I was expecting a `,' or a `}'---line 532 of file ../bib/mybib.bib
  :   editor={Gruhl D},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You can't pop an empty literal stack for entry Huang1999Quality
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Kahn1998Product
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Aebi1993Towards
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Sadiq2008Research
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Vattulainen2015Improving
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Chu1996Search
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Pinheiro1998Methods
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Dewitt1991An
-while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Hajishirzi2010Adaptive
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Cohen2003A
@@ -98,4 +82,4 @@ You can't pop an empty literal stack for entry Yang2015NokeaRM
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Villarreal2011Topic
 while executing---line 1050 of file sudabst.bst
-(There were 42 error messages)
+(There were 34 error messages)
