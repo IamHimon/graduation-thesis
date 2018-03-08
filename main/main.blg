@@ -24,51 +24,28 @@ I was expecting a `,' or a `}'---line 532 of file ../bib/mybib.bib
  :   editor={Gruhl D},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You can't pop an empty literal stack for entry Hajishirzi2010Adaptive
+You can't pop an empty literal stack for entry borkar2001automatic
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Cohen2003A
+Warning--empty journal in lafferty2001conditional
+You can't pop an empty literal stack for entry agichtein2004mining
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Dorneles2004Measuring
+You can't pop an empty literal stack for entry mansuri2006integrating
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Aizawa2005A
+You can't pop an empty literal stack for entry zhao2008exploiting
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Monge1996The
+You can't pop an empty literal stack for entry cortez2007flux
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Cohen1998Integration
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Xiao2008Efficient
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry bilenko2003Adaptive
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Jiang2013Entity
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Dhamankar2004iMAP
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Koudas2006Record
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Chaudhuri2007Example
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Jin2003Efficient
+You can't pop an empty literal stack for entry cortez2010ondux
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Wang2012Can
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry Aizawa2005A
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry ektefa2011threshold
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry gao2011web
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Kim2012Method
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Vinson2007An
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Kailing2004Efficient
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Yang2005Integrating
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Park2005An
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Carvalho2003Finding
-while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry Chandel2006Efficient
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Wu2012Text
 while executing---line 1050 of file sudabst.bst
@@ -82,4 +59,4 @@ You can't pop an empty literal stack for entry Yang2015NokeaRM
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry Villarreal2011Topic
 while executing---line 1050 of file sudabst.bst
-(There were 34 error messages)
+(There were 22 error messages)

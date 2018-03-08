@@ -1,8 +1,42 @@
-\chapter{»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝµÄÊµÌåÆ¥Åä}
+\chapter{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
 \label{chap:chap03}
-±¾ÕÂÊ×ÏÈ¸ø³öÁË»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝÊµÌåÆ¥ÅäµÄÎÊÌâ¶¨Òå¡£È»ºó½éÉÜÁËÓë±¾ÕÂËã·¨Ïà¹ØµÄÒ»Ð©Ô¤±¸¹¤×÷¡£½ÓÏÂÀ´Ìá³öÁËÁ½¸ö»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝµÄÊµÌåÆ¥ÅäËã·¨£¬²¢Í¨¹ýÊµÑéÑéÖ¤ËùÌá³öËã·¨µÄÐ§¹û¡£
+±¾ÕÂÊ×ÏÈ¸ø³öÁË»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨(¼ò³ÆÎª $CNN-IETS$ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉÜÁËËã·¨Ã¿Ò»²¿·ÖµÄÄÚÈÝ£¬×îºó¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûÀ´Ö¤Ã÷Ëã·¨µÄÐ§¹ûºÍ±íÏÖ¡£
 
-\section{ÎÊÌâ¶¨Òå}
+
+\section{Ëã·¨¸ÅÊö}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.45\textwidth]{../figures/chap03/framework.pdf}\\
+  \smallcaption{Ä£ÐÍµÄÕûÌå½á¹¹}
+  \label{chap:chap03:fig:framework}
+\end{figure}
+
+ÕâÒ»ÕÂ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ·Ç¼à¶½Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬Ëü»ùÓÚÉî¶È¾í»ýÉñ¾­ÍøÂç(CNN)À´¹¹½¨Ä£ÐÍ£¬½èÖúÌáÇ°¹¹ÔìµÄÖªÊ¶¿âÀ´¿Ë·þÐèÒªÈË¹¤±ê×¢ÓïÁÏµÄÄÑÌâ¡£¾í»ýÉñ¾­ÍøÂçÊÇÒ»ÖÖ¶Ëµ½¶ËµÄÄ£ÐÍ£¬ÏÈÌì¾ßÓÐ³éÈ¡ÌØÕ÷ºÍ×éºÏÌØÕ÷µÄÓÅÊÆ£¬Ê¹ÓÃÉî¶È¾í»ýÉñ¾­ÍøÂçÄÜ¹»×Ô¶¯µÃÑ¡Ôñ³ö¸ßÖÊÁ¿µÄÌØÕ÷À´¸üºÃµÄ¿Ì»­¸÷¸öÊôÐÔÖµ¡£¶øÕâ¸öÖªÊ¶¿âÓÐÁ½¸ö×÷ÓÃ£¬µÚÒ»¸ö×÷ÓÃÊÇÓÃÀ´ÑµÁ·ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ·ÖÀàÆ÷£¬µÚ¶þ¸ö×÷ÓÃÊÇÐ­ÖúÉú³ÉÎÄ±¾¶Î£¬ÔÙÊäÈëµ½ÎÒÃÇµÄ·ÖÀàÆ÷ÖÐ¡£¾ßÌåÒ»µã½²£¬ÈçÍ¼~\ref{chap:chap03:fig:framework}£¬ÊäÈëÒ»¸öÎÄ±¾,ÎÒÃÇÊ×ÏÈ¸ù¾Ý´ÊÓïÔÚÖªÊ¶¿âÖÐµÄ¹²ÏÖÀ´³õÊ¼·Ö¸ôÕâÌõÎÄ±¾£¬ÐÎ³ÉÈô¸É¸öÎÄ±¾¶Î¡£¶ÔÓÚÕâÐ©ÎÄ±¾¶Î£¬Èç¹ûËüÔÚÄ³¸öÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½Ï¸ß¶øÔÚÆäËûÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½ÏµÍ£¬²¢ÇÒµÃ·Ö¸ßÓÚÄ³¸öãÐÖµ£¬Ëü¾Í»á±»±ê×¢³ÉÕâ¸öÊôÐÔ¡£È»ºó¸ù¾ÝÕâÐ©³õÊ¼µÄ·Ö¸î×´Ì¬ºÍ±ê×¢½á¹û£¬ÄÄÐ©Ã»ÓÐ±ê×¢µÄÎÄ±¾¶Î»á±»ÊäÈëµ½ÏÂÒ»²½µÄCNN·ÖÀàÆ÷ÖÐ¡£ÔÚÏÂÒ»²½£¬ÎÒÃÇ²¢²»ÊÇÖ±½Ó½ÓÊÜCNN·ÖÀàÆ÷µÄÊä³ö½á¹û£¬ÎÒÃÇ¸ù¾ÝCNN·ÖÀàÆ÷µÄÊä³ö¸ÅÂÊ·¢Ã÷ÁËÒ»ÖÖ\emph{Ì°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}£¬Õâ¸öËã·¨»á´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´ÎªÊäÈëÎÄ±¾Ö´ÐÐ×îºÏÀíµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£¶ÔÓÚÒ»Ð©ÓÐÉÏÃæ¹ý³Ì²úÉúµÄÂ©±ê×¢ºÍ´íÎó±ê×¢µÄÇéÐÎ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ\emph{Ë«ÏòÎ»ÖÃÓëÐòÁÐÄ£ÐÍ}£¬½øÒ»²½¶Ô±ê×¢½á¹û½øÐÐµ÷ÕûºÍ¸ÄÉÆ¡£
+
+ÎªÁË¹¹½¨ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ£¬ÎÒÃÇÊ¹ÓÃÁËÒ»×éÈ«ÃæµÄÓïÒåÌØÕ÷ºÍ¾ä·¨ÌØÕ÷¼ÓÈëµ½Ä£ÐÍµÄÊäÈëÖÐ£¬ÕâÐ©ÌØÕ÷¶¼ÊÇÖ±½Ó´ÓÎÒÃÇµÄÖªÊ¶¿âÖÐ¹¹ÔìµÄ£¬ÕâÑùÎÒÃÇµÄÄ£ÐÍ¾Í¿ÉÒÔ³ä·ÖÀûÓÃÕâÐ©ÌØÕ÷À´±ê×¢Ã¿Ò»¸ö¶ÀÁ¢µÄÎÄ±¾¶Î¡£ËäÈ»£¬ÎÒÃÇµÄÄ£ÐÍ¿ÉÒÔÖ±½ÓÌá¹©Ò»¸ö±ê×¢µÄ½á¹û£¬µ«ÊÇÕâÐ©½á¹û½ö½öÊÇÃæ¶Ôµ¥¶ÀµÄÎÄ±¾¶Î£¬Ã»ÓÐ¿¼ÂÇÔÚÍ¬Ò»¸öÊäÈëÎÄ±¾ÖÐ¸÷ÎÄ±¾¶ÎÖ®¼äµÄÄÚÔÚ¹ØÏµ£¬ÕâÒ²²»ÄÜÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢½á¹û¡£Òò´Ë£¬ÎÒÃÇÐèÒª´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´Ö´ÐÐ¸ÅÂÊ±ê×¢¡£Òò´Ë£¬×îÀíÏëµÄ±ê×¢·½Ê½ÊÇ£¬ÎÒÃÇÒÀ´Î±ê×¢Ã¿¸öÎÄ±¾¿éÀ´×î´ó»¯ËùÓÐ±ê×¢½á¹ûµÄ¸ÅÂÊºÍ£¬µ«ÔÚÕâ¸ö¹ý³ÌÖÐ£¬±ØÐëÂú×ãÒ»¸öÇ°ÌáÌõ¼þ£¬¼´Ã¿¸öÊôÐÔÖµÖ»ÄÜ°üº¬Á¬ÐøµÄÎÄ±¾¶Î¡£ÎÒÃÇÊ×ÏÈÖ¤Ã÷ÁËÕâÊÇÒ»¸öNP-hardµÄÎÊÌâ£¬È»ºóÌá³öÁËÒ»ÖÖÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ËËã·¨ÄÜ¹»ÓÐÐ§µÄÊµÏÖ×î¼Ñ±ê×¢·½Ê½¡£
+
+Ê¹ÓÃÉÏÊöµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ó²¿·ÖµÄÊäÈëÎÄ±¾¶¼ÄÜ¹»±»ÕýÈ··Ö¸îºÍ±ê×¢ÁË£¬µ«ÊÇ»¹ÊÇ»á³öÏÖÒ»Ð©Â©±ê×¢ºÍ´íÎó±ê×¢ÎÊÌâ¡£ÎªÁË½â¾ö´ËÀàÎÊÌâ£¬ÎÒÃÇÔÚÖ´ÐÐ³éÈ¡µÄ¹ý³ÌÖÐÁËÈ¨ºâ¿¼ÂÇÁËÒÑ¾­±ê×¢ÎÄ±¾¶ÎµÄÎ»ÖÃºÍÐòÁÐÐÅÏ¢£¬Ïà±È½ÏÎÄÕÂ\ucite{cortez2010ondux}ÖÐÌá³öµÄµ¥ÏòÐòÁÐÄ£ÐÍ£¬ÎÒÃÇµÄÊÇË«ÏòÄ£ÐÍ£¬´ÓÇ°ÏòºÍºóÏòÍ¬Ê±¿¼ÂÇÐòÁÐ¹ØÏµ£¬Òò´ËÄÜ¹»¼õÉÙ¸ü¶àµÄ±ê×¢´íÎó²¢Ìá¹©¸ü´óµÄ°ïÖú¡£
+
+\section{·Ö¸îÊ½ÐÅÏ¢³éÈ¡¶¨ÒåÓëÖªÊ¶¿â½éÉÜ}
+
+\section{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
+
+\subsection{»ùÓÚÖªÊ¶¿âµÄ³õÊ¼·Ö¸îºÍ±ê×¢}
+
+\subsection{»ùÓÚ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍµÄ¹¹½¨ºÍÎÄ±¾¿éµÄ±ê×¢}
+
+\subsection{ÊäÈëÎÄ±¾µÄÌ°À·Ê½¸ÅÂÊ±ê×¢}
+
+\subsection{»ùÓÚÐòÁÐºÍÎ»ÖÃÌØÕ÷µÄ½á¹ûÐÞÕý}
+
+\section{ÊµÑé½á¹ûÓë·ÖÎö}
+
+\section{±¾ÕÂÐ¡½á}
+
+
+
+
 
 ¶ÔÓÚ¸ø¶¨Á½¸ö¹ØÏµ±í$T_1=\{t_1,t_2,...,t_n\}$ ºÍ$T_2= \{s_1,s_2,...,s_m\}$£¬$T_1$ ÖÐµÄÃ¿Ò»¸öÊµÌå$t_i\in T_1  (1 \leq i \leq n)$£¬$T_2$ ÖÐµÄÃ¿Ò»¸öÊµÌå$s_j\in T_2 (1 \leq j \leq m)$£¬ÊµÌåÆ¥ÅäÖ¼ÔÚ·¢ÏÖÁ½¸ö±í¼ä±íÊ¾Í¬Ò»ÊµÌåµÄÊµÌå¶Ô$(t_i,s_j)$¡£ÒÔÍùµÄÊµÌåÆ¥Åä·½·¨Ö÷ÒªÊÇÊ¹ÓÃÖ÷ÊôÐÔµÄÖµ£¬ÒÀÀµÓÚÒ»Ð©×Ö·û´®ÏàËÆ¶Èº¯Êý£¨Èç±à¼­¾àÀë£©ÒÔ¼°Ò»¸öÏàËÆ¶ÈãÐÖµ¾ö¶¨Á½¸ö±íÖÐµÄÊµÌåÊÇ·ñÆ¥Åä¡£ÆäÐÎÊ½»¯±íÊ¾ÈçÏÂËùÊ¾£ºÉè¶¨$A_0$ ÊÇ±í$T_1$ ºÍ±í$T_2$ µÄÖ÷ÊôÐÔ£¬¸ø¶¨Ò»¸ö×Ö·û´®ÏàËÆ¶Èº¯Êý$sim(\cdot, \cdot)$£¬ÒÔ¼°Ò»¸öÏàËÆ¶ÈãÐÖµ$\theta$£¬¶ÔÓÚÊµÌå¶Ô$(t_i, s_j)$£¬Èç¹ûÂú×ã$sim(t_i [A_0], s_j [A_0]) \geq \theta$£¬Ôò$t_i$ ºÍ$s_j$ ÎªÍ¬Ò»ÊµÌå¡£
 
@@ -190,7 +224,7 @@ B(bool_1| bool_2)=
 ÆäÖÐ£¬$Tr_c$ ÊÇÒ»¸öÔÚ½¨Á¢PRTree µÄ²»Í¬½×¶ÎÖÐ¶¯Ì¬¸Ä±äµÄÏÞÖÆ¼¯£¬Æä³õÊ¼»¯Îª£º$Tr_c=\{(t_i,s_j)|t_i\in Tr_1,s_j\in Tr_2\}$¡£
 
 ÏÂÃæÎÒÃÇ½«ÏêÏ¸ÌÖÂÛÈçºÎ½¨Á¢PRTree Æ¥ÅäÊ÷½á¹¹¡£¸ù¾ÝÉÏ½ÚÖÐµÄÃèÊö£¬ÊµÌå¶ÔµÄÏàËÆ¶È¼ÆËãÐèÒª¿¼ÂÇÊôÐÔ¼äµÄÏà»¥ÒÀÀµ¹ØÏµ£¬Òò´ËÎÒÃÇ²¢²»ÊÇÒ»´ÎÕÒ³ötop-k ¸ö¾ßÓÐ½Ï´ódifScore µÄ·ÇÖ÷ÊôÐÔ×÷Îª¸ÅÂÊ¾ö²ßÊ÷ÉÏµÄ·ÇÖ÷ÊôÐÔ½Úµã£¬¶øÊÇÊ¹ÓÃÌ°ÐÄËã·¨£¬Ã¿´ÎÖ»ÔÚÉÏÒ»²½µÄ¾ö²ß½á¹ûµÄÌõ¼þÏÂ£¬¼ÆËãÎ´Ê¹ÓÃ¹ýµÄ·ÇÖ÷ÊôÐÔµÄÌõ¼þ³ä·ÖÐÔ¸ÅÂÊºÍ±ØÒªÐÔ¸ÅÂÊ£¬´Ó¶øÑ¡Ôñ³öµ±Ç°Ìõ¼þÏÂ¾ßÓÐ×î´ó¾ö²ßÁ¦µÄ·ÇÖ÷ÊôÐÔ·ÅÈëÊ÷ÖÐµÄ¶ÔÓ¦Î»ÖÃ¡£¸Ã½¨Ê÷¹ý³Ì½«µü´úµØ½øÐÐÏÂÈ¥£¬Ö±ÖÁ´ïµ½Ò»¶¨µÄÍ£Ö¹Ìõ¼þ¡£»ùÓÚÉÏÊöË¼Â·£¬ÒÔÏÂ½éÉÜ½¨Á¢PRTree µÄ¹ý³ÌÖÐµÄÁ½¸öÖØÒªÎÊÌâ£ºÒ»·½ÃæÊÇÊôÐÔµÄÑ¡Ôñ£¬ÁíÒ»·½ÃæÊÇÍ£Ö¹Ìõ¼þµÄÉè¶¨¡£
- 
+
 £¨1£©ÊôÐÔÑ¡Ôñ£ºÊ×ÏÈ¸ù¾Ýµ±Ç°´ýÑ¡½ÚµãµÄÀà±ð£¨°üÀ¨¸ù½Úµã¡¢·ÇÒ¶½ÚµãºÍÒ¶½Úµã£©£¬¸ù¾ÝÒÑ¾­È·¶¨µÄºòÑ¡½Úµã¼¯Ã¿´ÎÑ¡Ôñ¾ßÓÐ×î´ó³ä·ÖÐÔ»ò×î´ó±ØÒªÐÔµÄÊôÐÔ×÷Îªµ±Ç°½Úµã£¬È»ºó½«¸ÃÊôÐÔ¼ÓÈëµ½ºòÑ¡½Úµã¼¯ÖÐ¡£Í¨¹ýÉÏÊöÑ¡Ôñ¹ý³Ì£¬ÄÜ¹»¾¡¿ÉÄÜÔçµØ·¢ÏÖÆ¥ÅäÊµÌå£¬ÅÅ³ý²»Æ¥ÅäÊµÌå¡£¾ßÓÐ½Ï´ó³ä·ÖÐÔ¸ÅÂÊµÄ·ÇÖ÷ÊôÐÔËµÃ÷¸ÃÊôÐÔÊ¶±ðÊµÌå¶ÔÆ¥ÅäµÄÄÜÁ¦½ÏÇ¿£¬¶ø¾ßÓÐ½Ï´ó±ØÒªÐÔ¸ÅÂÊµÄ·ÇÖ÷ÊôÐÔ±íÃ÷¸ÃÊôÐÔÔÚÅÅ³ý²»Æ¥ÅäÊµÌåµÄÄÜÁ¦½ÏÇ¿¡£
 
 £¨2£©Í£Ö¹Ìõ¼þ£ºÍ£Ö¹Ìõ¼þµÄÉè¶¨ÊÇÎªÁË·ÀÖ¹½¨Á¢µÄÊ÷²úÉú¹ýÄâºÏÏÖÏó£¬µ±·¢ÏÖËùÓÐµÄ´ý¿¼²ìÊôÐÔÔÚµ±Ç°½ÚµãÎ»ÖÃµÄÌõ¼þ³ä·ÖÐÔ¸ÅÂÊ»òÌõ¼þ±ØÒªÐÔ¸ÅÂÊ¶¼µÍÓÚÄ³Ò»Éè¶¨µÄãÐÖµ£¨$\tau_{stop}$£©Ê±£¬´ËÊ±Ó¦Í£Ö¹´´½¨¸ü¶àµÄ½Úµã£¬È»ºó½«ÉÏÒ»ÂÖ¸Õ¼ÓÈëºòÑ¡½Úµã¼¯µÄ·ÇÖ÷ÊôÐÔ×÷ÎªÊ÷µÄÒ¶×Ó½Úµã¡£
@@ -202,14 +236,14 @@ PRTree ÖÐ¹²°üº¬ÈýÀà½Úµã£¬¸ù½Úµã¡¢·ÇÒ¶½ÚµãºÍÒ¶½Úµã£¬¸÷Àà½Úµã¶¼ÓÐÆäÌØÐÔ¡£ÏÂÃæÏêÏ¸¸
     \label{formula:root}
      P_{root} = \max \limits_{A \in S_{NK}}(suf(A), nec(A))
     \end{equation}
-    
+
 £¨2£©·ÇÒ¶½ÚµãµÄ´´½¨£¨Non-Leaf Node£©£ºPRTree µÄ·ÇÒ¶½Úµã±íÊ¾¸Ã½ÚµãµÄ³ä·ÖÐÔ¸ÅÂÊ»ò±ØÒªÐÔ¸ÅÂÊ½ÏµÍ²»ÄÜÖ±½ÓÅÐ¶Ï³öÆ¥ÅäµÄ½á¹û£¬ÐèÒª½áºÏÆäËüµÄ·ÇÖ÷ÊôÐÔ£¬Ö±ÖÁÄÜ¹»×ö³öÅÐ¶ÏÎªÖ¹£¬¼´ÐèÒªµ½´ïPRTree µÄ¸ù½Úµã¡£ÎÒÃÇÔÚÄ¿Ç°ÒÑ¾­È·¶¨µÄºòÑ¡½Úµã¼¯µÄ»ù´¡ÉÏ£¬ÔÚ¼ÆËãÊ£ÓàµÄÆäËü·ÇÖ÷ÊôÐÔµÄ³ä·ÖÐÔ¸ÅÂÊºÍ±ØÒªÐÔ¸ÅÂÊÊ±£¬±ØÐëÒªÔÚÂú×ãºòÑ¡¼¯ÖÐËùÓÐÔªËØµÄÌõ¼þÏÂ½øÐÐ¼ÆËã¡£ÎªÁË´´½¨PRTree µÄ·ÇÒ¶½Úµã£¬ÔÚÂú×ãÄ¿Ç°ÒÑÓÐµÄËùÓÐ×æÏÈ½Úµã¼¯µÄÌõ¼þÏÂ¼ÆËãÊ£Óà·ÇÖ÷ÊôÐÔµÄ³ä·ÖÐÔ¸ÅÂÊºÍ±ØÒªÐÔ¸ÅÂÊ£¬Ñ¡Ôñ¾ßÓÐ×î´óÌõ¼þ³ä·ÖÐÔ¸ÅÂÊ»òÌõ¼þ±ØÒªÐÔ¸ÅÂÊµÄ·ÇÖ÷ÊôÐÔ×÷Îªµ±Ç°·ÇÒ¶½Úµã¡£·ÇÖ÷ÊôÐÔµÄÌõ¼þ³ä·ÖÐÔºÍÌõ¼þ±ØÒªÐÔ¿ÉÍ¨¹ý¹«Ê½~\ref{formula:suf} ºÍ~\ref{formula:nec} ¼ÆËãËùµÃ£¬²¢½«\emph{$Tr_c$} ¸Ä±äÎªÒ»¸ö¸üÐ¡µÄÑµÁ·¼¯£¬ÆäÖÐËùÓÐµÄÊµÌå¶¼Ó¦Âú×ã×æÏÈ½ÚµãµÄÌõ¼þ¡£·ÇÒ¶½ÚµãµÄ¼ÆËã·½·¨Èç¹«Ê½~\ref{formula:nonleaf}ËùÊ¾£º
  \begin{equation}
     \label{formula:nonleaf}
      P_{nonleaf} = P_{A|Candit(PRTree)}\max \limits_{A \in (S_{NK}-Candit(PRTree))}(suf(A), nec(A))
  \end{equation}
  ÆäÖÐ$Candit(PRTree)$ ±íÊ¾ÒÑÑ¡ÖÐµÄ×æÏÈ½ÚµãËù¹¹³ÉµÄ¼¯ºÏ¡£
- 
+
 £¨3£©Ò¶½ÚµãµÄ´´½¨£¨Leaf Node£©£ºPRTree µÄÒ¶½Úµã±íÊ¾´Ó¸ù½Úµãµ½µ±Ç°µÄ½Úµã¹¹³ÉµÄÊôÐÔ¼¯ºÏ¿ÉÒÔÅÐ¶Ï¸ø¶¨µÄÊµÌå¶ÔÊÇ·ñÆ¥Åä»òÕßÄ¿Ç°ÒÑÓÐµÄÊý¾ÝÎÞ·¨¸ø³öÃ÷È·µÄ½á¹û¡£PRTree µÄÃ¿¸öÒ¶½Úµã»áÊä³ö¡°Matched¡±½á¹û»ò¡°Unmatched¡±½á¹û£¬Í¨¹ýÊä³ö½á¹ûÎÒÃÇ¿ÉÒÔÅÐ¶¨ÊµÌå¶ÔÊÇ·ñÆ¥Åä¡£µ±·ÇÖ÷ÊôÐÔµÄ$suf(A)$ ºÍ$nec(A)$ Ò»Ö±ºÜµÍÊ±£¬¼´ÆäÖµµÍÓÚÒ»¸öºÏÀíµÄãÐÖµ$\tau_{stop}$ Ê±£¬ÎÒÃÇ½«Í£Ö¹»ñÈ¡¸ü¶àµÄ·ÇÖ÷ÊôÐÔÓÃÒÔ´´½¨PRTreeµÄ½Úµã¡£È»ºó£¬½«´´½¨Ò»¸ö¡°Exit (Not Decided)¡±½Úµã×÷Îª×îºóµÄ½Úµã£¬¸Ã½Úµã±íÊ¾ÎÞ·¨ÅÐ¶ÏÊµÌå¶ÔÊÇ·ñÆ¥Åä¡£Ò¶½ÚµãµÄ¼ÆËã·½·¨Èç¹«Ê½~\ref{formula:leaf}ËùÊ¾£º
   \begin{equation}
     \label{formula:leaf}
@@ -332,7 +366,7 @@ Conf(A_i) =
 £¨1£©¸ù¾Ý¹«Ê½~\ref{formula:suf}¡ª ¹«Ê½~\ref{chap3:conf}Í¨¹ý²»¶ÏµØµü´úÔËËã£¬ÕÒ³öÃ¿Ò»´Îµü´úÖÐ·ûºÏÒªÇóµÄºòÑ¡·ÇÖ÷ÊôÐÔ£¬µÃµ½ÁËÈçÍ¼~\ref{chap:chap03:fig:tree1}ËùÊ¾µÄPRTree¡£´ÓÍ¼ÖÐ¿ÉÒÔ¿´³ö¡°Manufacturer¡±¾ßÓÐ½Ï´óµÄ±ØÒªÐÔµÃ·Ö£¬Ò²¼´Ëµ¶ÔÓÚÊÖ»úÊµÌå¶øÑÔµ±¡°Manufacturer¡±²»Í¬»òÕß²»ÏàËÆÊ±£¬Á½¸öÊÖ»úÊµÌå±íÊ¾Í¬Ò»ÊµÌåµÄ¸ÅÂÊ»ù±¾Îª0£»µ±¡°Manufacturer¡± ºÍ¡°Release¡±¾ßÓÐÏàÍ¬»òÏàËÆµÄÖµÊ±£¬¡°OS¡±¾ßÓÐ½Ï´óµÄ³ä·ÖÐÔ¸ÅÂÊ£¬Èç¹û¡°OS¡± µÄÖµÏàÍ¬»òÏàËÆ£¬Ôò¿ÉÅÐ¶¨ÕâÁ½¸öÊÖ»úÎªÍ¬Ò»ÊµÌå£¬Èç¹û¡°OS¡±²»ÏàÍ¬»ò²»ÏàËÆ£¬ÔòÐèÒª´Ó¡°OS¡± µÄ¡°N¡±·ÖÖ§¼ÌÐøÑ°ÕÒ·ûºÏÒªÇóµÄÆäËü·ÇÖ÷ÊôÐÔ¡£
 
 £¨2£©ÔÚµÚÒ»²½Íê³Éºó£¬ÀûÓÃ¹«Ê½~\ref{chap3:conf}£¬ÎÒÃÇµÃµ½ÁËÍ¼~\ref{chap:chap03:fig:tree1} ÖÐ½ÚµãµÄConfÖµ£¬Èç±í~\ref{chap3:tableconf}ËùÊ¾¡£
- 
+
 £¨3£©¶ÔÓÚ¸ø¶¨µÄ±í~\ref{treeTamllTable}ÖÐµÄÊµÌå$t_1$ ºÍ±í~\ref{treePconlineTable}ÖÐµÄÊµÌå$s_1$£¬¸ù¾ÝËã·¨~\ref{chap3:matchingAlg}ÃèÊöÈçºÎÊ¹ÓÃÍ¼~\ref{chap:chap03:fig:tree1}ÖÐµÄPRTree ½øÐÐÊµÌåµÄÆ¥Åä£¬ÎÄ±¾ÖÐÉè¶¨·ÇÖ÷ÊôÐÔÖµµÄ±à¼­¾àÀëÏàËÆ¶ÈãÐÖµÎª$0.7$£¬ÊµÌåµÄÏàËÆ¶ÈãÐÖµÎª$0.55$¡£Ê×ÏÈ´Ó¸ù½Úµã¡°Manufacturer¡± ¿ªÊ¼±éÀúPRTree£¬ÓÉÓÚ$sim(t_1[Manuf.],s_1[Manuf.])=1>0.7$£¬ËùÒÔ±éÀú¡°Manufacturer¡±µÄ¡°Matched¡±×Ó½Úµã¼´¡°Release¡±£»ÒòÎª$sim(t_1[Release],s_1[Release])=0.86>0.7$£¬Òò´Ë±éÀú¡°Release¡±µÄ×Ó½Úµã¼´¡°OS¡±£»½ÓÏÂÀ´¼ÌÐø¼ÆËã$sim(t_1[OS],s_1[OS])=0.86>0.7$£¬ËùÒÔÎÒÃÇµ½´ï¡°OS¡±µÄ¡°YES¡±½ÚµãÒ²¼´ÊÇPRTree µÄÒ¶×Ó½Úµã£»×îÖÕ£¬Í¨¹ý¹«Ê½~\ref{chap3:fprtree}½áºÏ±í~\ref{chap3:tableconf}ÖÐ½ÚµãµÄconf Öµ£¬¼ÆËãÊµÌå$t_1$ ºÍÊµÌå$s_1$ µÄÏàËÆ¶È:
     $sim(t_1, s_1) = (1*0.94)^1 * (0.89 * 0.86)^{\frac{1}{2}} * (0.92 * 0.82)^{\frac{1}{3}} \thickapprox 0.7485>0.55$¡£Òò´Ë£¬Í¨¹ý±È½ÏÈÏ¶¨ÊµÌå$t_1$ ºÍÊµÌå$s_1$ ¶þÕßÊÇÆ¥ÅäµÄ£¬Ò²¼´$t_1$ ºÍ$s_1$ ÎªÍ¬Ò»ÊµÌå¡£
 
@@ -369,9 +403,9 @@ Conf(A_i) =
 ÎÒÃÇÔÚÁ½¸öÕæÊµÊý¾Ý¼¯ºÍÒ»¸öºÏ³ÉÊý¾Ý¼¯ÉÏ¶Ô±¾ÕÂÖÐÌá³öµÄ»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝµÄÊµÌåÆ¥ÅäËã·¨½øÐÐÑéÖ¤£º
 
 £¨1£© \emph{ÊÖ»úÊý¾Ý¼¯£¨Mobile£©}: ¸ÃÊý¾Ý¼¯ÊÇ´ÓÌìÃ¨Íø£¨Tmall£©ºÍÌ«Æ½ÑóµçÄÔÍø£¨PConline£©ÉÏËÑ¼¯µÄÔÚÊÛÊÖ»úÐÅÏ¢¡£ÆäÖÐTmallÊÖ»úÊý¾Ý¼¯ÖÐ¹²ÓÐ4k¸ö¼ÇÂ¼£¬53¸öÊôÐÔ£¬¶øPConlineÊÖ»úÊý¾Ý¼¯ÖÐ¹²ÓÐ5.6k¸öÔª×é£¬46 ¸öÊôÐÔ¡£ÆäÖÐÕâÁ½¸öÊý¾Ý¼¯Ëù¹²ÓÐµÄÊµÌå¸öÊýÎª3.8k£¬ÊôÐÔ¸öÊýÎª38£¬²¿·Ö¹²ÓÐµÄÊôÐÔÈç¡°Release Date¡±£¬¡°Operation System¡±£¬¡°RAM¡±£¬¡°Screen Size¡±£¬¡°Type¡±µÈ¡£ÊÖ»úÊý¾Ý¼¯µÄÐÔÖÊÈç±í~\ref{chap03:table:datasets} ËùÊ¾¡£
- 
+
 £¨2£©\emph{Ïà»úÊý¾Ý¼¯£¨Camera£©}: ¸ÃÊý¾Ý¼¯ÊÇ´ÓÌì¼«Íø£¨Yesky£©ºÍÌ«Æ½ÑóµçÄÔÍø£¨PConline£©ÉÏËÑ¼¯µÄÔÚÊÛµÄÊýÂëÏà»úÐÅÏ¢¡£ÆäÖÐYeskyÏà»úÊý¾Ý¼¯ÖÐ¹²ÓÐ2.5k¸öÔª×é£¬50¸öÊôÐÔ£¬¶øPConlineÏà»úÊý¾Ý¼¯ÖÐ¹²ÓÐ3.4k¸öÔª×é£¬44¸öÊôÐÔ¡£ÆäÖÐÕâÁ½¸öÊý¾Ý¼¯¹²ÓÐµÄÊµÌå¸öÊýÎª2.5k£¬ÊôÐÔ¸öÊýÎª31£¬²¿·Ö¹²ÓÐµÄÊôÐÔÈç¡°Type¡±£¬¡°Pixels¡±£¬ ¡°Panel¡±£¬¡°Wifi¡±£¬¡°Manufacturer¡°µÈ¡£Ïà»úÊý¾Ý¼¯µÄÐÔÖÊÈç±í~\ref{chap03:table:datasets} ËùÊ¾¡£
- 
+
 £¨3£©\emph{·ÂÕæÊý¾Ý¼¯£¨Synthetic£©}: ÎÒÃÇÉè¼ÆÉú³ÉÁËÁ½¸ö·ÂÕæÊý¾Ý¼¯£¬ÆäÖÐ¾ßÓÐ100k¸öÔª×é£¬60¸ö¹²ÓÐÊôÐÔ¡£ÎªÁËÊ¹ÓÃ¸Ã·ÂÕæÊý¾Ý¼¯ÖÐÊý¾ÝµÄ·Ö²¼½üËÆÓÚÕæÊµÊý¾Ý¼¯ÎÒÃÇÊ¹ÓÃÁËÒ»¶¨µÄÉè¼Æ¹æÔò£¬ÈçËæ»ú²úÉúÒ»¶¨ÊýÄ¿µÄÈ±Ê§Öµ£¬¶ÔÏàÍ¬µÄÊµÌåÉè¼ÆÏàËÆµÄ·ÇÖ÷ÊôÐÔÖµµÈ£¬´Ó¶øÊ¹µÃÆ¥ÅäÊµÌåµÄ·ÇÖ÷ÊôÐÔÖµÏàËÆ¶ÈÄÜ¹»Í³Ò»µØ·Ö²¼ÔÚ0ºÍ1 Ö®¼ä¡£·ÂÕæÊý¾Ý¼¯µÄÐÔÖÊÈç±í~\ref{chap03:table:datasets} ËùÊ¾¡£
 
 
