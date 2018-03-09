@@ -68,222 +68,200 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:chap03}{{三}{16}{基于卷积神经网络的贪婪式概率标注算法\relax }{chapter.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}算法概述}{16}{section.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  模型的整体结构}}{16}{figure.3.1}}
-\newlabel{chap:chap03:fig:framework}{{3-1}{16}{\wuhao 模型的整体结构\relax }{figure.3.1}{}}
 \citation{cortez2010ondux}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}分割式信息抽取定义与知识库介绍}{18}{section.3.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}基于卷积神经网络的贪婪式概率标注算法}{18}{section.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}基于知识库的初始分割和标注}{18}{subsection.3.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}基于卷积神经网络模型的构建和文本块的标注}{18}{subsection.3.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}输入文本的贪婪式概率标注}{18}{subsection.3.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}基于序列和位置特征的结果修正}{18}{subsection.3.3.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}实验结果与分析}{18}{section.3.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}本章小结}{18}{section.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  模型的整体结构}}{17}{figure.3.1}}
+\newlabel{chap:chap03:fig:framework}{{3-1}{17}{\wuhao 模型的整体结构\relax }{figure.3.1}{}}
+\citation{cortez2010ondux,zhao2008exploiting}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}基于卷积神经网络的贪婪式概率标注算法}{18}{section.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}基于知识库的初始分割和标注}{18}{subsection.3.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  一个简化的知识库}}{19}{figure.3.2}}
+\newlabel{chap:chap03:fig:KB}{{3-2}{19}{\wuhao 一个简化的知识库\relax }{figure.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  基于知识库的初始分割和标注例子}}{19}{figure.3.3}}
+\newlabel{chap:chap03:fig:labelExample}{{3-3}{19}{\wuhao 基于知识库的初始分割和标注例子\relax }{figure.3.3}{}}
+\newlabel{eq1}{{3.1}{19}{基于知识库的初始分割和标注\relax }{equation.3.2.1}{}}
+\citation{sahu2016relation,kim2014convolutional}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}基于卷积神经网络模型的构建和文本块的标注}{20}{subsection.3.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.}构建CNN分类模型}{20}{subsubsection.3.2.2.1}}
+\citation{th2015evaluating}
+\citation{mikolov2013distributed}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CNN分类模型的架构图}}{21}{figure.3.4}}
+\newlabel{chap:chap03:fig:CNN_des}{{3-4}{21}{\wuhao CNN分类模型的架构图\relax }{figure.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}输入文本的贪婪式概率标注}{22}{subsection.3.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}基于序列和位置特征的结果修正}{22}{subsection.3.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果与分析}{22}{section.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{22}{section.3.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}预备工作}{23}{section.3.5}}
 \citation{Wang2012Can}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}预备工作}{19}{section.3.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}基于非主属性区分度的实体匹配算法}{20}{section.3.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}基于规则的概率决策树的实体匹配算法}{21}{section.3.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.1}算法基本思路}{21}{subsection.3.8.1}}
-\newlabel{chap3:intuition}{{3.8.1}{21}{算法基本思路\relax }{subsection.3.8.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  属性间的相关性}}{22}{figure.3.2}}
-\newlabel{chap:chap03:fig:attributRelation}{{3-2}{22}{\wuhao 属性间的相关性\relax }{figure.3.2}{}}
-\newlabel{results}{{3.3}{22}{算法基本思路\relax }{equation.3.8.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.2}基于规则的概率决策树的构建}{22}{subsection.3.8.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  来自天猫（Tmall）中的手机信息}}{23}{table.3.1}}
-\newlabel{treeTamllTable}{{3-1}{23}{\wuhao 来自天猫（Tmall）中的手机信息\relax }{table.3.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  来自太平洋电脑（Pconline）中的手机信息}}{23}{table.3.2}}
-\newlabel{treePconlineTable}{{3-2}{23}{\wuhao 来自太平洋电脑（Pconline）中的手机信息\relax }{table.3.2}{}}
-\newlabel{chap3:def2}{{2}{23}{\relax }{definition.2}{}}
-\newlabel{formula:suf}{{3.6}{24}{基于规则的概率决策树的构建\relax }{equation.3.8.6}{}}
-\newlabel{formula:nec}{{3.7}{24}{基于规则的概率决策树的构建\relax }{equation.3.8.7}{}}
-\newlabel{formula:bool}{{3.8}{24}{基于规则的概率决策树的构建\relax }{equation.3.8.8}{}}
-\newlabel{formula:root}{{3.9}{25}{基于规则的概率决策树的构建\relax }{equation.3.8.9}{}}
-\newlabel{formula:nonleaf}{{3.10}{26}{基于规则的概率决策树的构建\relax }{equation.3.8.10}{}}
-\newlabel{formula:leaf}{{3.11}{26}{基于规则的概率决策树的构建\relax }{equation.3.8.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.3}实体匹配过程}{26}{subsection.3.8.3}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces BuildPRTree：构建类决策树}}{27}{algocf.1}}
-\newlabel{chap3:PRTreeAlg}{{1}{27}{基于规则的概率决策树的构建\relax }{algocf.1}{}}
-\newlabel{chap3:fprtree}{{3.12}{27}{实体匹配过程\relax }{equation.3.8.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  根据算法\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap3:PRTreeAlg}建立的不包含主属性的PRTree}}{28}{figure.3.3}}
-\newlabel{chap:chap03:fig:tree1}{{3-3}{28}{\wuhao 根据算法~\ref {chap3:PRTreeAlg}建立的不包含主属性的PRTree\relax }{figure.3.3}{}}
-\newlabel{chap3:conf}{{3.13}{28}{实体匹配过程\relax }{equation.3.8.13}{}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces 使用PRTree 实现实体匹配的NokeaEM 算法.}}{29}{algocf.2}}
-\newlabel{chap3:matchingAlg}{{2}{29}{实体匹配过程\relax }{algocf.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  图\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap:chap03:fig:tree1}中节点的置信度}}{30}{table.3.3}}
-\newlabel{chap3:tableconf}{{3-3}{30}{\wuhao 图~\ref {chap:chap03:fig:tree1}中节点的置信度\relax }{table.3.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.4}基于PRTree 的NokeaEM 算法复杂度分析}{30}{subsection.3.8.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.5}基于PRTree 的NokeaEM 算法的扩充算法}{30}{subsection.3.8.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  根据算法\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap3:PRTreeAlg}建立的包含主属性的PRTree}}{31}{figure.3.4}}
-\newlabel{chap:chap03:fig:tree2}{{3-4}{31}{\wuhao 根据算法~\ref {chap3:PRTreeAlg}建立的包含主属性的PRTree\relax }{figure.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.9}实验结果及分析}{31}{section.3.9}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  数据集信息表}}{32}{table.3.4}}
-\newlabel{chap03:table:datasets}{{3-4}{32}{\wuhao 数据集信息表\relax }{table.3.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.1}参数设定}{32}{subsection.3.9.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}基于非主属性区分度的实体匹配算法}{24}{section.3.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}基于规则的概率决策树的实体匹配算法}{25}{section.3.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.1}算法基本思路}{25}{subsection.3.7.1}}
+\newlabel{chap3:intuition}{{3.7.1}{25}{算法基本思路\relax }{subsection.3.7.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  属性间的相关性}}{26}{figure.3.5}}
+\newlabel{chap:chap03:fig:attributRelation}{{3-5}{26}{\wuhao 属性间的相关性\relax }{figure.3.5}{}}
+\newlabel{results}{{3.4}{26}{算法基本思路\relax }{equation.3.7.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.2}基于规则的概率决策树的构建}{27}{subsection.3.7.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  来自天猫（Tmall）中的手机信息}}{27}{table.3.1}}
+\newlabel{treeTamllTable}{{3-1}{27}{\wuhao 来自天猫（Tmall）中的手机信息\relax }{table.3.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  来自太平洋电脑（Pconline）中的手机信息}}{27}{table.3.2}}
+\newlabel{treePconlineTable}{{3-2}{27}{\wuhao 来自太平洋电脑（Pconline）中的手机信息\relax }{table.3.2}{}}
+\newlabel{chap3:def2}{{4}{28}{\relax }{definition.4}{}}
+\newlabel{formula:suf}{{3.7}{28}{基于规则的概率决策树的构建\relax }{equation.3.7.7}{}}
+\newlabel{formula:nec}{{3.8}{28}{基于规则的概率决策树的构建\relax }{equation.3.7.8}{}}
+\newlabel{formula:bool}{{3.9}{28}{基于规则的概率决策树的构建\relax }{equation.3.7.9}{}}
+\newlabel{formula:root}{{3.10}{30}{基于规则的概率决策树的构建\relax }{equation.3.7.10}{}}
+\newlabel{formula:nonleaf}{{3.11}{30}{基于规则的概率决策树的构建\relax }{equation.3.7.11}{}}
+\newlabel{formula:leaf}{{3.12}{30}{基于规则的概率决策树的构建\relax }{equation.3.7.12}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces BuildPRTree：构建类决策树}}{31}{algocf.1}}
+\newlabel{chap3:PRTreeAlg}{{1}{31}{基于规则的概率决策树的构建\relax }{algocf.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.3}实体匹配过程}{31}{subsection.3.7.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  根据算法\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap3:PRTreeAlg}建立的不包含主属性的PRTree}}{32}{figure.3.6}}
+\newlabel{chap:chap03:fig:tree1}{{3-6}{32}{\wuhao 根据算法~\ref {chap3:PRTreeAlg}建立的不包含主属性的PRTree\relax }{figure.3.6}{}}
+\newlabel{chap3:fprtree}{{3.13}{32}{实体匹配过程\relax }{equation.3.7.13}{}}
+\newlabel{chap3:conf}{{3.14}{33}{实体匹配过程\relax }{equation.3.7.14}{}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces 使用PRTree 实现实体匹配的NokeaEM 算法.}}{33}{algocf.2}}
+\newlabel{chap3:matchingAlg}{{2}{33}{实体匹配过程\relax }{algocf.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  图\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap:chap03:fig:tree1}中节点的置信度}}{34}{table.3.3}}
+\newlabel{chap3:tableconf}{{3-3}{34}{\wuhao 图~\ref {chap:chap03:fig:tree1}中节点的置信度\relax }{table.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.4}基于PRTree 的NokeaEM 算法复杂度分析}{34}{subsection.3.7.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.5}基于PRTree 的NokeaEM 算法的扩充算法}{35}{subsection.3.7.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  根据算法\hspace  {0.25em plus 0.125em minus 0.08em}\ignorespaces \ref  {chap3:PRTreeAlg}建立的包含主属性的PRTree}}{35}{figure.3.7}}
+\newlabel{chap:chap03:fig:tree2}{{3-7}{35}{\wuhao 根据算法~\ref {chap3:PRTreeAlg}建立的包含主属性的PRTree\relax }{figure.3.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}实验结果及分析}{36}{section.3.8}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  数据集信息表}}{36}{table.3.4}}
+\newlabel{chap03:table:datasets}{{3-4}{36}{\wuhao 数据集信息表\relax }{table.3.4}{}}
 \citation{Dey2010Efficient}
 \citation{Aizawa2005A}
 \citation{Wang2012Can}
 \citation{Christen2011A}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.1}参数设定}{37}{subsection.3.8.1}}
+\newlabel{fig:random_recall}{{3.8(a)}{37}{Subfigure 3 3.8(a)\relax }{subfigure.3.8.1}{}}
+\newlabel{sub@fig:random_recall}{{(a)}{37}{Subfigure 3 3.8(a)\relax }{subfigure.3.8.1}{}}
+\newlabel{fig:hier_recall}{{3.8(b)}{37}{Subfigure 3 3.8(b)\relax }{subfigure.3.8.2}{}}
+\newlabel{sub@fig:hier_recall}{{(b)}{37}{Subfigure 3 3.8(b)\relax }{subfigure.3.8.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-8}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  PRTree 的阈值对NokeaEM 的影响}}{37}{figure.3.8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}$\tau _s$ 对F1 的影响}}}{37}{figure.3.8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}$\tau _n$ 对F1 的影响}}}{37}{figure.3.8}}
+\newlabel{chap:chap03:fig:fig3}{{3-8}{37}{\wuhao PRTree 的阈值对NokeaEM 的影响\relax }{figure.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.2}与以往方法在匹配效果方面的比较}{37}{subsection.3.8.2}}
 \citation{Dey2010Efficient}
-\newlabel{fig:random_recall}{{3.5(a)}{33}{Subfigure 3 3.5(a)\relax }{subfigure.3.5.1}{}}
-\newlabel{sub@fig:random_recall}{{(a)}{33}{Subfigure 3 3.5(a)\relax }{subfigure.3.5.1}{}}
-\newlabel{fig:hier_recall}{{3.5(b)}{33}{Subfigure 3 3.5(b)\relax }{subfigure.3.5.2}{}}
-\newlabel{sub@fig:hier_recall}{{(b)}{33}{Subfigure 3 3.5(b)\relax }{subfigure.3.5.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  PRTree 的阈值对NokeaEM 的影响}}{33}{figure.3.5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}$\tau _s$ 对F1 的影响}}}{33}{figure.3.5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}$\tau _n$ 对F1 的影响}}}{33}{figure.3.5}}
-\newlabel{chap:chap03:fig:fig3}{{3-5}{33}{\wuhao PRTree 的阈值对NokeaEM 的影响\relax }{figure.3.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.2}与以往方法在匹配效果方面的比较}{33}{subsection.3.9.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-6}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在准确率和召回率方面与以往方法的对比}}{35}{figure.3.6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{35}{figure.3.6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{35}{figure.3.6}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{35}{figure.3.6}}
-\newlabel{chap:chap03:fig:fig4}{{3-6}{35}{\wuhao 在准确率和召回率方面与以往方法的对比\relax }{figure.3.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-7}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在准确率和召回率方面与Matching tree-based方法的对比}}{35}{figure.3.7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{35}{figure.3.7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{35}{figure.3.7}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{35}{figure.3.7}}
-\newlabel{chap:chap03:fig:fig5}{{3-7}{35}{\wuhao 在准确率和召回率方面与Matching tree-based方法的对比\relax }{figure.3.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.3}与以往方法在匹配效率方面的比较}{35}{subsection.3.9.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-8}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在效率方面与以往方法的对比}}{36}{figure.3.8}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{36}{figure.3.8}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{36}{figure.3.8}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{36}{figure.3.8}}
-\newlabel{chap:chap03:fig:fig6}{{3-8}{36}{\wuhao 在效率方面与以往方法的对比\relax }{figure.3.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-9}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在效率方面与Matching tree-based方法的对比}}{36}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{36}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{36}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{36}{figure.3.9}}
-\newlabel{chap:chap03:fig:fig7}{{3-9}{36}{\wuhao 在效率方面与Matching tree-based方法的对比\relax }{figure.3.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.4}算法的扩展性评估}{36}{subsection.3.9.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-10}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  不同数目的记录数和属性数对PRTree在效率上的影响}}{36}{figure.3.10}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}实体个数对效率的影响}}}{36}{figure.3.10}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}属性个数对效率的影响}}}{36}{figure.3.10}}
-\newlabel{chap:chap03:fig:fig8}{{3-10}{36}{\wuhao 不同数目的记录数和属性数对PRTree在效率上的影响\relax }{figure.3.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.10}本章小结}{37}{section.3.10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-9}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在准确率和召回率方面与以往方法的对比}}{39}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{39}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{39}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{39}{figure.3.9}}
+\newlabel{chap:chap03:fig:fig4}{{3-9}{39}{\wuhao 在准确率和召回率方面与以往方法的对比\relax }{figure.3.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-10}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在准确率和召回率方面与Matching tree-based方法的对比}}{39}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{39}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{39}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{39}{figure.3.10}}
+\newlabel{chap:chap03:fig:fig5}{{3-10}{39}{\wuhao 在准确率和召回率方面与Matching tree-based方法的对比\relax }{figure.3.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.3}与以往方法在匹配效率方面的比较}{39}{subsection.3.8.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-11}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在效率方面与以往方法的对比}}{40}{figure.3.11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{40}{figure.3.11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{40}{figure.3.11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{40}{figure.3.11}}
+\newlabel{chap:chap03:fig:fig6}{{3-11}{40}{\wuhao 在效率方面与以往方法的对比\relax }{figure.3.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-12}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在效率方面与Matching tree-based方法的对比}}{40}{figure.3.12}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}手机}}}{40}{figure.3.12}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}相机}}}{40}{figure.3.12}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {\CJKfamily {zhhei}仿真集}}}{40}{figure.3.12}}
+\newlabel{chap:chap03:fig:fig7}{{3-12}{40}{\wuhao 在效率方面与Matching tree-based方法的对比\relax }{figure.3.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8.4}算法的扩展性评估}{40}{subsection.3.8.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-13}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  不同数目的记录数和属性数对PRTree在效率上的影响}}{41}{figure.3.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}实体个数对效率的影响}}}{41}{figure.3.13}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}属性个数对效率的影响}}}{41}{figure.3.13}}
+\newlabel{chap:chap03:fig:fig8}{{3-13}{41}{\wuhao 不同数目的记录数和属性数对PRTree在效率上的影响\relax }{figure.3.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}本章小结}{41}{section.3.9}}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第四章\hspace  {0.3em}}基于文本类型非主属性数据的实体匹配}{38}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第四章\hspace  {0.3em}}基于文本类型非主属性数据的实体匹配}{42}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:chap04}{{四}{38}{基于文本类型非主属性数据的实体匹配\relax }{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}问题定义}{38}{section.4.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  带有CTexts 数据的租房信息表，其中实体 $r_1$ 和$r_2$ 指的是同一房源，而实体$r_3$ 和$r_5$ 指的是同一房源}}{39}{table.4.1}}
-\newlabel{chap04:table:suzhou}{{4-1}{39}{\wuhao 带有CTexts 数据的租房信息表，其中实体 $r_1$ 和$r_2$ 指的是同一房源，而实体$r_3$ 和$r_5$ 指的是同一房源\relax }{table.4.1}{}}
+\newlabel{chap:chap04}{{四}{42}{基于文本类型非主属性数据的实体匹配\relax }{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}问题定义}{42}{section.4.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  带有CTexts 数据的租房信息表，其中实体 $r_1$ 和$r_2$ 指的是同一房源，而实体$r_3$ 和$r_5$ 指的是同一房源}}{43}{table.4.1}}
+\newlabel{chap04:table:suzhou}{{4-1}{43}{\wuhao 带有CTexts 数据的租房信息表，其中实体 $r_1$ 和$r_2$ 指的是同一房源，而实体$r_3$ 和$r_5$ 指的是同一房源\relax }{table.4.1}{}}
 \citation{ektefa2011threshold}
 \citation{gao2011web}
 \citation{Das2007A}
 \citation{Blei2003Latent}
 \citation{Landauer1998An}
 \citation{Hofmann2013Probabilistic}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CTexEM 算法的工作流}}{40}{figure.4.1}}
-\newlabel{chap:chap04:workflow}{{4-1}{40}{\wuhao CTexEM 算法的工作流\relax }{figure.4.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{40}{section.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CTexEM 算法的工作流}}{44}{figure.4.1}}
+\newlabel{chap:chap04:workflow}{{4-1}{44}{\wuhao CTexEM 算法的工作流\relax }{figure.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{44}{section.4.2}}
 \citation{Kim2012Method}
 \citation{Wu2012Text}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}数据分块算法}{41}{section.4.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{42}{section.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{42}{subsection.4.4.1}}
-\newlabel{eq:simuti}{{4.2}{43}{Baseline算法的工作流程\relax }{equation.4.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{43}{subsection.4.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{43}{section.4.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}数据分块算法}{45}{section.4.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{46}{section.4.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{46}{subsection.4.4.1}}
+\newlabel{eq:simuti}{{4.2}{47}{Baseline算法的工作流程\relax }{equation.4.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{47}{subsection.4.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{47}{section.4.5}}
 \citation{Kim2013Context}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{44}{subsection.4.5.1}}
-\newlabel{chap04:freq}{{4.3}{44}{共现图的构建\relax }{equation.4.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{48}{subsection.4.5.1}}
+\newlabel{chap04:freq}{{4.3}{48}{共现图的构建\relax }{equation.4.5.3}{}}
 \citation{Guo2010Record}
-\newlabel{chap04:boolPhr}{{4.4}{45}{共现图的构建\relax }{equation.4.5.4}{}}
-\newlabel{chap04:FreqPhr}{{4.5}{45}{共现图的构建\relax }{equation.4.5.5}{}}
-\newlabel{chap04:pad}{{4.6}{45}{共现图的构建\relax }{equation.4.5.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{45}{subsection.4.5.2}}
+\newlabel{chap04:boolPhr}{{4.4}{49}{共现图的构建\relax }{equation.4.5.4}{}}
+\newlabel{chap04:FreqPhr}{{4.5}{49}{共现图的构建\relax }{equation.4.5.5}{}}
+\newlabel{chap04:pad}{{4.6}{49}{共现图的构建\relax }{equation.4.5.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{49}{subsection.4.5.2}}
 \citation{sun2014fine}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例：具有三个划分的 PC-Graph}}{46}{figure.4.2}}
-\newlabel{chap:chap04:example}{{4-2}{46}{\wuhao 例：具有三个划分的 PC-Graph\relax }{figure.4.2}{}}
-\newlabel{chap04:max}{{4.7}{46}{PC-Graph的分割\relax }{equation.4.5.7}{}}
-\newlabel{theorem:1}{{1}{46}{\relax }{theorem.1}{}}
-\newlabel{chap04:CP}{{4.9}{46}{\relax }{equation.4.5.9}{}}
-\newlabel{chap04:CPI}{{4.10}{47}{\relax }{equation.4.5.10}{}}
-\newlabel{chap04:cscore}{{4.11}{47}{PC-Graph的分割\relax }{equation.4.5.11}{}}
-\newlabel{chap04:condition}{{4.12}{47}{PC-Graph的分割\relax }{equation.4.5.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{47}{subsection.4.5.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例：具有三个划分的 PC-Graph}}{50}{figure.4.2}}
+\newlabel{chap:chap04:example}{{4-2}{50}{\wuhao 例：具有三个划分的 PC-Graph\relax }{figure.4.2}{}}
+\newlabel{chap04:max}{{4.7}{50}{PC-Graph的分割\relax }{equation.4.5.7}{}}
+\newlabel{theorem:1}{{1}{50}{\relax }{theorem.1}{}}
+\newlabel{chap04:CP}{{4.9}{50}{\relax }{equation.4.5.9}{}}
+\newlabel{chap04:CPI}{{4.10}{51}{\relax }{equation.4.5.10}{}}
+\newlabel{chap04:cscore}{{4.11}{51}{PC-Graph的分割\relax }{equation.4.5.11}{}}
+\newlabel{chap04:condition}{{4.12}{51}{PC-Graph的分割\relax }{equation.4.5.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{51}{subsection.4.5.3}}
 \citation{Sarwar2001Item}
-\newlabel{chap04:weightupdate}{{4.13}{48}{子主题及其权重的获取\relax }{equation.4.5.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{48}{subsection.4.5.4}}
-\newlabel{chap04:sim}{{4.14}{48}{实体匹配过程\relax }{equation.4.5.14}{}}
-\newlabel{eqsubT}{{4.15}{48}{实体匹配过程\relax }{equation.4.5.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}实验结果及分析}{49}{section.4.6}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  二手房数据信息表}}{49}{table.4.2}}
-\newlabel{chap04:table:datasets1}{{4-2}{49}{\wuhao 二手房数据信息表\relax }{table.4.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  二手车数据信息表}}{49}{table.4.3}}
-\newlabel{chap04:table:datasets2}{{4-3}{49}{\wuhao 二手车数据信息表\relax }{table.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{49}{subsection.4.6.1}}
+\newlabel{chap04:weightupdate}{{4.13}{52}{子主题及其权重的获取\relax }{equation.4.5.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{52}{subsection.4.5.4}}
+\newlabel{chap04:sim}{{4.14}{52}{实体匹配过程\relax }{equation.4.5.14}{}}
+\newlabel{eqsubT}{{4.15}{52}{实体匹配过程\relax }{equation.4.5.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}实验结果及分析}{53}{section.4.6}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  二手房数据信息表}}{53}{table.4.2}}
+\newlabel{chap04:table:datasets1}{{4-2}{53}{\wuhao 二手房数据信息表\relax }{table.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  二手车数据信息表}}{53}{table.4.3}}
+\newlabel{chap04:table:datasets2}{{4-3}{53}{\wuhao 二手车数据信息表\relax }{table.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{53}{subsection.4.6.1}}
 \citation{Aizawa2005A}
 \citation{Christen2011A}
 \citation{Borthwick2011Batch}
 \citation{Yang2015NokeaRM}
 \citation{Blei2003Latent}
 \citation{Villarreal2011Topic}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  与以往方法在F1 score上的比较}}{51}{figure.4.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}来自于五个城市的房源数据}}}{51}{figure.4.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}来自于五个品牌的二手车数据}}}{51}{figure.4.3}}
-\newlabel{chap:chap04:fig:f1score}{{4-3}{51}{\wuhao 与以往方法在F1 score上的比较\relax }{figure.4.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在房源数据集中与以往方法在准确率和召回率上的比较（前四个城市）}}{51}{table.4.4}}
-\newlabel{chap04:table:pr}{{4-4}{51}{\wuhao 在房源数据集中与以往方法在准确率和召回率上的比较（前四个城市）\relax }{table.4.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{51}{subsection.4.6.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  与以往的方法在抽取结果上的比较}}{52}{table.4.5}}
-\newlabel{chap04:table:extrinfo}{{4-5}{52}{\wuhao 与以往的方法在抽取结果上的比较\relax }{table.4.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例：房源数据集中不同子主题的权重}}{52}{table.4.6}}
-\newlabel{chap04:table:weight}{{4-6}{52}{\wuhao 例：房源数据集中不同子主题的权重\relax }{table.4.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{52}{subsection.4.6.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  扩展性评估：在F1 score和时间开销方面与一些主题模型的比较}}{53}{figure.4.4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}实体数目（$10^x$）}}}{53}{figure.4.4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}实体数目（$10^x$）}}}{53}{figure.4.4}}
-\newlabel{chap:chap04:fig:scalability}{{4-4}{53}{\wuhao 扩展性评估：在F1 score和时间开销方面与一些主题模型的比较\relax }{figure.4.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}本章小结}{53}{section.4.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  与以往方法在F1 score上的比较}}{55}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}来自于五个城市的房源数据}}}{55}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}来自于五个品牌的二手车数据}}}{55}{figure.4.3}}
+\newlabel{chap:chap04:fig:f1score}{{4-3}{55}{\wuhao 与以往方法在F1 score上的比较\relax }{figure.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  在房源数据集中与以往方法在准确率和召回率上的比较（前四个城市）}}{55}{table.4.4}}
+\newlabel{chap04:table:pr}{{4-4}{55}{\wuhao 在房源数据集中与以往方法在准确率和召回率上的比较（前四个城市）\relax }{table.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{55}{subsection.4.6.2}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  与以往的方法在抽取结果上的比较}}{56}{table.4.5}}
+\newlabel{chap04:table:extrinfo}{{4-5}{56}{\wuhao 与以往的方法在抽取结果上的比较\relax }{table.4.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4-6}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例：房源数据集中不同子主题的权重}}{56}{table.4.6}}
+\newlabel{chap04:table:weight}{{4-6}{56}{\wuhao 例：房源数据集中不同子主题的权重\relax }{table.4.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{56}{subsection.4.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  扩展性评估：在F1 score和时间开销方面与一些主题模型的比较}}{57}{figure.4.4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {\CJKfamily {zhhei}实体数目（$10^x$）}}}{57}{figure.4.4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {\CJKfamily {zhhei}实体数目（$10^x$）}}}{57}{figure.4.4}}
+\newlabel{chap:chap04:fig:scalability}{{4-4}{57}{\wuhao 扩展性评估：在F1 score和时间开销方面与一些主题模型的比较\relax }{figure.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}本章小结}{57}{section.4.7}}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第五章\hspace  {0.3em}}总结与展望}{54}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第五章\hspace  {0.3em}}总结与展望}{58}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:chap05}{{五}{54}{总结与展望\relax }{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}全文总结}{54}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}工作展望}{55}{section.5.2}}
+\newlabel{chap:chap05}{{五}{58}{总结与展望\relax }{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}全文总结}{58}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}工作展望}{59}{section.5.2}}
 \bibstyle{sudabst}
 \bibdata{../bib/mybib}
 \@writefile{loa}{\addvspace {10\p@ }}
-\bibcite{freitag2000information}{1}
-\bibcite{borkar2001automatic}{2}
-\bibcite{lafferty2001conditional}{3}
-\bibcite{peng2006information}{4}
-\bibcite{agichtein2004mining}{5}
-\bibcite{mansuri2006integrating}{6}
-\bibcite{zhao2008exploiting}{7}
-\bibcite{cortez2007flux}{8}
-\bibcite{michelson2007unsupervised}{9}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{57}{chapter*.4}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\bibcite{cortez2010ondux}{10}
-\bibcite{Wang2012Can}{11}
-\bibcite{Dey2010Efficient}{12}
-\bibcite{Aizawa2005A}{13}
-\bibcite{Christen2011A}{14}
-\bibcite{ektefa2011threshold}{15}
-\bibcite{gao2011web}{16}
-\bibcite{Das2007A}{17}
-\bibcite{Blei2003Latent}{18}
-\bibcite{Landauer1998An}{19}
-\bibcite{Hofmann2013Probabilistic}{20}
-\bibcite{Kim2012Method}{21}
-\bibcite{Wu2012Text}{22}
-\bibcite{Kim2013Context}{23}
-\bibcite{Guo2010Record}{24}
-\bibcite{sun2014fine}{25}
-\bibcite{Sarwar2001Item}{26}
-\bibcite{Borthwick2011Batch}{27}
-\bibcite{Yang2015NokeaRM}{28}
-\bibcite{Villarreal2011Topic}{29}
-\@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{61}{chapter*.5}}
+\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{61}{chapter*.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{63}{chapter*.6}}
+\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{63}{chapter*.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}

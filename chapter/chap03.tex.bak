@@ -1,8 +1,116 @@
 \chapter{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
 \label{chap:chap03}
-±¾ÕÂÊ×ÏÈ¸ø³öÁË»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝÊµÌåÆ¥ÅäµÄÎÊÌâ¶¨Òå¡£È»ºó½éÉÜÁËÓë±¾ÕÂËã·¨Ïà¹ØµÄÒ»Ð©Ô¤±¸¹¤×÷¡£½ÓÏÂÀ´Ìá³öÁËÁ½¸ö»ùÓÚ½á¹¹»¯·ÇÖ÷ÊôÐÔÊý¾ÝµÄÊµÌåÆ¥ÅäËã·¨£¬²¢Í¨¹ýÊµÑéÑéÖ¤ËùÌá³öËã·¨µÄÐ§¹û¡£
+±¾ÕÂÊ×ÏÈ¸ø³öÁË»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨(¼ò³ÆÎª $CNN-IETS$ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉÜÁËËã·¨Ã¿Ò»²¿·ÖµÄÄÚÈÝ£¬×îºó¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûÀ´Ö¤Ã÷Ëã·¨µÄÐ§¹ûºÍ±íÏÖ¡£
 
-\section{ÎÊÌâ¶¨Òå}
+
+\section{Ëã·¨¸ÅÊö}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/framework.pdf}\\
+  \smallcaption{Ä£ÐÍµÄÕûÌå½á¹¹}
+  \label{chap:chap03:fig:framework}
+\end{figure}
+
+ÕâÒ»ÕÂ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ·Ç¼à¶½Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬Ëü»ùÓÚÉî¶È¾í»ýÉñ¾­ÍøÂç(CNN)À´¹¹½¨Ä£ÐÍ£¬½èÖúÌáÇ°¹¹ÔìµÄÖªÊ¶¿âÀ´¿Ë·þÐèÒªÈË¹¤±ê×¢ÓïÁÏµÄÄÑÌâ¡£¾í»ýÉñ¾­ÍøÂçÊÇÒ»ÖÖ¶Ëµ½¶ËµÄÄ£ÐÍ£¬ÏÈÌì¾ßÓÐ³éÈ¡ÌØÕ÷ºÍ×éºÏÌØÕ÷µÄÓÅÊÆ£¬Ê¹ÓÃÉî¶È¾í»ýÉñ¾­ÍøÂçÄÜ¹»×Ô¶¯µÃÑ¡Ôñ³ö¸ßÖÊÁ¿µÄÌØÕ÷À´¸üºÃµÄ¿Ì»­¸÷¸öÊôÐÔÖµ¡£¶øÕâ¸öÖªÊ¶¿âÓÐÁ½¸ö×÷ÓÃ£¬µÚÒ»¸ö×÷ÓÃÊÇÓÃÀ´ÑµÁ·ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ·ÖÀàÆ÷£¬µÚ¶þ¸ö×÷ÓÃÊÇÐ­ÖúÉú³ÉÎÄ±¾¶Î£¬ÔÙÊäÈëµ½ÎÒÃÇµÄ·ÖÀàÆ÷ÖÐ¡£¾ßÌåÒ»µã½²£¬ÈçÍ¼~\ref{chap:chap03:fig:framework}£¬ÊäÈëÒ»¸öÎÄ±¾,ÎÒÃÇÊ×ÏÈ¸ù¾Ý´ÊÓïÔÚÖªÊ¶¿âÖÐµÄ¹²ÏÖÀ´³õÊ¼·Ö¸ôÕâÌõÎÄ±¾£¬ÐÎ³ÉÈô¸É¸öÎÄ±¾¶Î¡£¶ÔÓÚÕâÐ©ÎÄ±¾¶Î£¬Èç¹ûËüÔÚÄ³¸öÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½Ï¸ß¶øÔÚÆäËûÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½ÏµÍ£¬²¢ÇÒµÃ·Ö¸ßÓÚÄ³¸öãÐÖµ£¬Ëü¾Í»á±»±ê×¢³ÉÕâ¸öÊôÐÔ¡£È»ºó¸ù¾ÝÕâÐ©³õÊ¼µÄ·Ö¸î×´Ì¬ºÍ±ê×¢½á¹û£¬ÄÄÐ©Ã»ÓÐ±ê×¢µÄÎÄ±¾¶Î»á±»ÊäÈëµ½ÏÂÒ»²½µÄCNN·ÖÀàÆ÷ÖÐ¡£ÔÚÏÂÒ»²½£¬ÎÒÃÇ²¢²»ÊÇÖ±½Ó½ÓÊÜCNN·ÖÀàÆ÷µÄÊä³ö½á¹û£¬ÎÒÃÇ¸ù¾ÝCNN·ÖÀàÆ÷µÄÊä³ö¸ÅÂÊ·¢Ã÷ÁËÒ»ÖÖ\emph{Ì°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}£¬Õâ¸öËã·¨»á´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´ÎªÊäÈëÎÄ±¾Ö´ÐÐ×îºÏÀíµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£¶ÔÓÚÒ»Ð©ÓÐÉÏÃæ¹ý³Ì²úÉúµÄÂ©±ê×¢ºÍ´íÎó±ê×¢µÄÇéÐÎ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ\emph{Ë«ÏòÎ»ÖÃÓëÐòÁÐÄ£ÐÍ}£¬½øÒ»²½¶Ô±ê×¢½á¹û½øÐÐµ÷ÕûºÍ¸ÄÉÆ¡£
+
+ÎªÁË¹¹½¨ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ£¬ÎÒÃÇÊ¹ÓÃÁËÒ»×éÈ«ÃæµÄÓïÒåÌØÕ÷ºÍ¾ä·¨ÌØÕ÷¼ÓÈëµ½Ä£ÐÍµÄÊäÈëÖÐ£¬ÕâÐ©ÌØÕ÷¶¼ÊÇÖ±½Ó´ÓÎÒÃÇµÄÖªÊ¶¿âÖÐ¹¹ÔìµÄ£¬ÕâÑùÎÒÃÇµÄÄ£ÐÍ¾Í¿ÉÒÔ³ä·ÖÀûÓÃÕâÐ©ÌØÕ÷À´±ê×¢Ã¿Ò»¸ö¶ÀÁ¢µÄÎÄ±¾¶Î¡£ËäÈ»£¬ÎÒÃÇµÄÄ£ÐÍ¿ÉÒÔÖ±½ÓÌá¹©Ò»¸ö±ê×¢µÄ½á¹û£¬µ«ÊÇÕâÐ©½á¹û½ö½öÊÇÃæ¶Ôµ¥¶ÀµÄÎÄ±¾¶Î£¬Ã»ÓÐ¿¼ÂÇÔÚÍ¬Ò»¸öÊäÈëÎÄ±¾ÖÐ¸÷ÎÄ±¾¶ÎÖ®¼äµÄÄÚÔÚ¹ØÏµ£¬ÕâÒ²²»ÄÜÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢½á¹û¡£Òò´Ë£¬ÎÒÃÇÐèÒª´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´Ö´ÐÐ¸ÅÂÊ±ê×¢¡£Òò´Ë£¬×îÀíÏëµÄ±ê×¢·½Ê½ÊÇ£¬ÎÒÃÇÒÀ´Î±ê×¢Ã¿¸öÎÄ±¾¿éÀ´×î´ó»¯ËùÓÐ±ê×¢½á¹ûµÄ¸ÅÂÊºÍ£¬µ«ÔÚÕâ¸ö¹ý³ÌÖÐ£¬±ØÐëÂú×ãÒ»¸öÇ°ÌáÌõ¼þ£¬¼´Ã¿¸öÊôÐÔÖµÖ»ÄÜ°üº¬Á¬ÐøµÄÎÄ±¾¶Î¡£ÎÒÃÇÊ×ÏÈÖ¤Ã÷ÁËÕâÊÇÒ»¸öNP-hardµÄÎÊÌâ£¬È»ºóÌá³öÁËÒ»ÖÖÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ËËã·¨ÄÜ¹»ÓÐÐ§µÄÊµÏÖ×î¼Ñ±ê×¢·½Ê½¡£
+
+Ê¹ÓÃÉÏÊöµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ó²¿·ÖµÄÊäÈëÎÄ±¾¶¼ÄÜ¹»±»ÕýÈ··Ö¸îºÍ±ê×¢ÁË£¬µ«ÊÇ»¹ÊÇ»á³öÏÖÒ»Ð©Â©±ê×¢ºÍ´íÎó±ê×¢ÎÊÌâ¡£ÎªÁË½â¾ö´ËÀàÎÊÌâ£¬ÎÒÃÇÔÚÖ´ÐÐ³éÈ¡µÄ¹ý³ÌÖÐÁËÈ¨ºâ¿¼ÂÇÁËÒÑ¾­±ê×¢ÎÄ±¾¶ÎµÄÎ»ÖÃºÍÐòÁÐÐÅÏ¢£¬Ïà±È½ÏÎÄÕÂ\ucite{cortez2010ondux}ÖÐÌá³öµÄµ¥ÏòÐòÁÐÄ£ÐÍ£¬ÎÒÃÇµÄÊÇË«ÏòÄ£ÐÍ£¬´ÓÇ°ÏòºÍºóÏòÍ¬Ê±¿¼ÂÇÐòÁÐ¹ØÏµ£¬Òò´ËÄÜ¹»¼õÉÙ¸ü¶àµÄ±ê×¢´íÎó²¢Ìá¹©¸ü´óµÄ°ïÖú¡£
+
+\section{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
+ÔÚÕâÒ»½Ú£¬ÎÒÃÇÊ×ÏÈ¸ø³ö·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñµÄ¶¨Òå£¬È»ºóÏêÏ¸½éÉÜ½èÖúÖªÊ¶¿âÎÒ¾í»ýÉñ¾­ÍøÂç¹¹½¨µÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨(CNN-IETS)¡£
+
+\begin{definition}
+{\bf (·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñ)}
+¶ÔÓÚÄ³¸öÁìÓòµÄÊôÐÔ¼¯ $\mathbb{A}$, ¼ÙÉèÊäÈëÎÄ±¾ $I$ °üº¬ÁËÒ»Ð©ÊôÐÔ¼¯ $\mathbb{A}$ÖÐµÄÊôÐÔÖµ, ·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñÄ¿µÄÊÇ·Ö¸î $I$ ³ÉÒ»Ð©ÁÐµÄÎÄ±¾¶Î $S=\{s_1, s_2, ..., s_m\}$, È»ºóÊ¹ÓÃÒ»¸öÊôÐÔÖµ $A_i \in \mathbb{A}$ À´±ê×¢Ã¿Ò»¸öÎÄ±¾¶Î $s_i$ ($1\leq i \leq m$), ÕâÀï $s_i$ ÊýÊôÐÔ $A_i$ÖÐµÄÒ»¸öÊôÐÔÖµ.
+\end{definition}
+
+\noindent \underline{\em ÖªÊ¶¿â:}
+ÎÒÃÇÊ¹ÓÃÊµÏÖ´æÔÚµÄÓïÁÏ¿âÀ´¹¹½¨Ò»¸ö¹Ì¶¨ÁìÓòµÄÖªÊ¶¿â(¼ò³ÆÎªKB)£¬¾ÍÏñ\cite{cortez2010ondux, zhao2008exploiting}ÖÐ×öµÄÒ»Ñù¡£¼òµ¥½²£¬ÖªÊ¶¿â(KB)°üº¬Ò»×éÌØ¶¨µÄÊôÐÔÒÔ¼°¶ÔÓ¦µÄÊôÐÔÖµ£¬ÎÒÃÇ¼Ç×ö KB=$\{ <A_1, V_1>, <A_2, V_2>, ..., <A_n, V_n> \}$ £¬ÕâÀïÃ¿Ò»¸öÊôÐÔ$A_i$ ($1\leq i \leq n$)¶¼ÊÇÕâ¸öÁìÓòÊôÐÔ¼¯  $\mathbb{A}$ ÖÐµÄÒ»¸ö¶ÀÁ¢ÊôÐÔ£¬ $V_i$ ÊÇÒ»×é´ÊÓï£¬ÊÇÔÚÊôÐÔ$a_i$ÖÐ³öÏÖµÄµäÐÍµÄ¡¢ºÏÀíµÄÖµ£¬²¢ÇÒ¼ÇÂ¼Ã¿¸öÊôÐÔÖµÔÚ¼ÇÂ¼ÖÐµÄÎ»ÖÃ $\{(v_{i,1}, PS_{i,1}), (v_{i,2}, PS_{i,2}$ $), ..., (v_{i, n_i}, PS_{i,n_i}) \}$£¬ÕâÀï$PS_{i, k}$ ÊÇÒ»×éÎ»ÖÃÏà¹ØµÄÊýÖµ£¬À´±íÊ¾Õâ¸öÊôÐÔÖµ $v_{i, k}$ ³öÏÖÔÚ²»Í¬¼ÇÂ¼ÖÐµÄÎ»ÖÃÊôÐÔ¡£Ò»¸ö¼ò»¯µÄÖªÊ¶¿âÈçÍ¼~\ref{chap:chap03:fig:KB}ËùÊ¾£¬ÎªÁË·½±ãÀí½â£¬ÕâÀïÎÒÃÇÖ»ÊÇÊ¹ÓÃÁËÒ»Ð©¼ò»¯µÄµ¥´Ê¶ø²»ÊÇÊ¹ÓÃÔ­Ê¼µÄÊôÐÔÃû¡£
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/KB.pdf}\\
+  \smallcaption{Ò»¸ö¼ò»¯µÄÖªÊ¶¿â}
+  \label{chap:chap03:fig:KB}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/labelExample.pdf}\\
+  \smallcaption{»ùÓÚÖªÊ¶¿âµÄ³õÊ¼·Ö¸îºÍ±ê×¢Àý×Ó}
+  \label{chap:chap03:fig:labelExample}
+\end{figure}
+
+
+\subsection{»ùÓÚÖªÊ¶¿âµÄ³õÊ¼·Ö¸îºÍ±ê×¢}
+ÕâÒ»Ä£¿éµÄÖ÷ÒªÄ¿µÄÊÇÊ¶±ð³öÊäÈëÎÄ±¾ÖÐËùÎ½µÄ\emph{Ãªµã¿é}(Anchor Blocks)£¬¾ÍÊÇ¶ÔÒ»Ð©ÎÄ±¾¶Î£¬ÎÒÃÇ»á¸ù¾ÝÖªÊ¶¿â¼ÆËã³öÀ´Ò»¸ö±ê×¢¿ÉÐÅ¶È£¬µ±Õâ¸ö¿ÉÐÅ¶È´óÓÚÄ³¸öãÐÖµÊ±£¬±ã¿ÉÒÔÖ±½Ó½«Õâ¸öÎÄ±¾¶Î±ê×¢³ÉÄ³Ò»¸öÊôÐÔ¡£È»ºó£¬ÕâÐ©Ê¶±ð³öÀ´µÄ\emph{Ãªµã¿é}½«±»ÊÓ×÷Ò»¸ö»ù´¡Ãªµã£¬Ö´ÐÐºóÃæ²½ÖèÖÐµÄ·Ö¸îºÍ±ê×¢¡£
+
+\begin{definition}
+{\bf (Ãªµã¿é)}
+¸ø¶¨Ò»¸öÊäÈëÎÄ±¾ $I$, Èç¹ûËüÂú×ãÏÂÃæµÄÁ½¸öÌõ¼þ£¬$I$ ÖÐµÄÒ»¸öÎÄ±¾¶Î $b$ ²Å¿ÉÒÔ±»±ê×¢³É¾ßÓÐÊôÐÔ $A$ µÄÃªµã¿é£º
+%
+1)Ã»ÓÐÈÎºÎÒ»¸öÆäËûÊôÐÔ $A' \in \mathbb{A}$  Âú×ã $p(b, A') >=p(b, A)$ £¬ ÕâÀï $p(b, A)$ ÊÇÎÒÃÇ¶¨ÒåµÄÒ»¸ö·½³ÌÓÃÀ´¼ÆËãÒ»¸öÎÄ±¾¶Î $b$ ÊôÓÚÊôÐÔ $A$ µÄ¸ÅÂÊ¡£
+%
+2) $p(b, A) > \theta$£¬Õâ¸öãÐÖµ $\theta$ ÊÇÎÒÃÇ×Ô¼º¶¨ÒåµÄ£¬ÓÃÀ´Ìá¸ßÃªµã¿éµÄ±ê×¢ÖÊÁ¿¡£
+\end{definition}
+
+¼ÙÉèÒ»¸öÎÄ±¾¶Î $b$ ³öÏÖÔÚÖªÊ¶¿âÖÐµÄ $m$ ¸ö²»Í¬ÊôÐÔ$\{(A_1, A_2, ..., A_m\}$ µÄÊôÐÔÖµÀïÃæ£¬ÕâÀï$A_i \in \mathbb{A}$ ($1\leq i \leq m$)±íÊ¾ $b$ µÄÒ»¸ö¿ÉÄÜµÄÊôÐÔ¡£¶ÔÓÚÃ¿Ò»¸ö $A_i$ £¬ ¼ÙÉè $b$ ³öÏÖÔÚÒ»×é²»Í¬µÄÊôÐÔÖµÖÐ£¬²¢ÇÒ¾ßÓÐ²»Í¬µÄ³öÏÖÆµÂÊ£¬ÎÒÃÇ¼Ç×ö  $\{(v_{i,1}, f_{i,1}), (v_{i,2}, f_{i,2}), ..., $ $(v_{i,r_i}, f_{i, r_i})\}$ £¬¼ÙÉèËùÓÐÊôÐÔÖµ¶¼ÊÇ»¥Ïà¶ÀÁ¢µÄ£¬ÔòÎÒÃÇ¿ÉÒÔÍ¨¹ýÏÂÃæµÄ¹«Ê½£¬¼ÆËã³öÕâ¸öÎÄ±¾¶Î $b$ ÊôÓÚÊôÐÔ $A_i$ µÄ¸ÅÂÊÎª£º
+
+\begin{equation}
+\label{eq1}
+p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}{x}}}{1+\sum_{1 \leq k \leq m}\sum_{1\leq j \leq r_k}\sum_{1\leq x \leq f_{k, j}}{\frac{1}{x}}}
+\end{equation}
+
+ÕâÀï£¬ÎÒÃÇÔÚ·ÖÄ¸Ê¹ÓÃ¼Ó1µÄ²Ù×÷ÊÇÎªÁË·ÀÖ¹·ÖÄ¸³öÏÖÎªÁãµÄÇé¿ö¡£ ÓÐÁËÕâ¸ö¹«Ê½ºÍÎÒÃÇ¶¨ÒåµÄãÐÖµ $\theta$ £¬ÎÒÃÇ±ãÄÜ¹»ÔÚÊäÈëÎÄ±¾ $I$ ÖÐ±ê×¢³öÒ»Ð©\emph{Ãªµã¿é}ÁË¡£ÒòÎª£¬ÎÒÃÇµÄ·½·¨µÄ³éÈ¡ÖÊÁ¿ºÍÐ§ÂÊÊÇ¶ÔãÐÖµ $\theta$ Ãô¸ÐµÄ£¬ËùÒÔÎÒÃÇ»áÍ¨¹ýºóÃæµÄÊµÑé²¿·ÖÕÒµ½Ò»¸öºÏÊÊµÄãÐÖµ¡£
+
+×¢Òâ£¬Ò»¸öµ¥¶ÀµÄÊôÐÔÖµ¿ÉÄÜ±»·Ö¸î³ÉÁËÁ½¸ö»ò¸ü¶à¸öÎÄ±¾¿é£¬±ÈÈçÍ¼~\ref{chap:chap03:fig:labelExample}ÖÐ£¬ÊôÐÔ $D$ ±ãÓÐÁ½¸öÎÄ±¾¿é $d_1$, $d_3$¡£¿¼ÂÇµ½ÔÚÒ»¸öÊäÈëÎÄ±¾ÖÐÃ¿¸öÊôÐÔ¿ÉÄÜÓÐÒ»¸öÊôÐÔÖµ£¬ËùÒÔ£¬ÎÒÃÇ¿ÉÒÔ½«ÕâÁ½¸ö\emph{Ãªµã¿é}ºÍËûÃÇÖ®¼äËùÓÐµÄ´ÊÓï¶¼ºÏ²¢µ½Ò»Æð¡£ÕâÀï¿ÉÄÜ³öÏÖµÄÒ»¸ö³åÍ»ÊÇ£¬ÔÚÒ»¸öÊôÐÔµÄÁ½¸ö\emph{Ãªµã¿é}Ö®¼ä³öÏÖÁËÁíÒ»¸öÊôÐÔµÄ\emph{Ãªµã¿é}£¬Í¨³££¬Ò»¸öºÏÊÊµÄãÐÖµ $theta$ ±ã¿ÉÒÔ±ÜÃâ³öÏÖÕâÖÖ³åÍ»¡£µ«ÊÇ£¬Èç¹ûÕâÖÖÇé¿öÈÔÈ»´æÔÚ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÆúµô³åÍ»\emph{Ãªµã¿é}ÖÐµÃ·Ö¸üµÍµÄÄÇ¸öÀ´½â¾öÕâ¸öÎÊÌâ¡£
+±ÈÈç£¬¸ø¶¨Í¼ ~\ref{chap:chap03:fig:labelExample}(a) ÖÐµÄÖªÊ¶¿â£¬ ¶ÔÓÚÒ»¸öÍ¼~\ref{chap:chap03:fig:labelExample}(b-1)ÖÐÊäÈëÎÄ±¾£¬ ÎÒÃÇÄÜ¹»Ê¶±ð³öÏÂÃæÕâÐ©\emph{Ãªµã¿é}: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ ÒÔ¼° $f_2$ £¬¾ÍÊÇÍ¼~\ref{chap:chap03:fig:labelExample}(b-2)ÖÐÂÌÉ«·½¸ñÕâÐ©ÎÄ±¾¶Î¡£ÁíÍâ, ¼ÈÈ» $d_1$ ºÍ $d_3$ ¶¼ÊÇÊôÐÔ $D$ µÄ\emph{Ãªµã¿é}, ÎÒÃÇºÏ²¢ÕâÈý¸ö¿é $d_1 d_2 d_3$ £¬²¢¹²Í¬±ê×¢ÎªÊôÐÔ $D$ £¬ÈçÍ¼.~\ref{fig:2}(b-3)ËùÊ¾¡£
+
+
+\subsection{»ùÓÚ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍµÄ¹¹½¨ºÍÎÄ±¾¿éµÄ±ê×¢}
+ÎªÁË´¦ÀíÒ»Ð©Î´±ê×¢µÄÎÄ±¾¶Î£¬±ÈÈçÉÏÊöÀý×ÓÖÐµÚÒ»²½²úÉúµÄ$a_1$£¬ $a_3$ ºÍ $c_2$£¬ÎÒÃÇÐèÒªÖ´ÐÐÒ»¸ö»ùÓÚ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ·ÖÀà½á¹ûµÄ¸ÅÂÊ±ê×¢¡£¼òÒªÀ´½²£¬ÎÒÃÇÊ×ÏÈÊ¹ÓÃÖªÊ¶¿âÑµÁ·Ò»¸ö¾í»ýÉñ¾­ÍøÂç·ÖÀàÆ÷(CNN·ÖÀàÆ÷)£¬¼ÙÉè $|\mathbb{A}|$ ±íÊ¾¸ø¶¨ÁìÓòÖÐÊôÐÔµÄ¸öÊý£¬È»ºó¶ÔÓÚÃ¿Ò»¸öÊäÈëÎÄ±¾ $s$ £¬ÎÒÃÇµÄCNN·ÖÀàÆ÷»áÉú³ÉÒ»¸ö $|\mathbb{A}|$-Î¬µÄÊä³öÏòÁ¿ $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$£¬ ÕâÀïÃ¿Ò»¸ö $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$)±íÊ¾$s$ÊôÓÚÊôÐÔ $A_i \in \mathbb{A}$ µÄ¸ÅÂÊ¡£¶ÔÓÚÃ¿Ò»¸öÎ´±ê×¢µÄÎÄ±¾¶Î£¬ÎÒÃÇÊ¹ÓÃÎÒÃÇµÄCNNÄ£ÐÍÀ´¾ö¶¨ËüÊôÓÚÄÄÒ»¸öÊôÐÔ£¬È»ºó×ÛºÏ¿¼ÂÇËùÓÐÎ´±ê×¢ÎÄ±¾¶ÎµÄCNNÄ£ÐÍÊä³öµÄ¸ÅÂÊ½á¹ûºÍÄÇÐ©\emph{Ãªµã¿é}£¬µÃµ½Õû¸öÊäÈëÎÄ±¾µÄ×î¼Ñ·Ö¸îºÍ±ê×¢½á¹û¡£ÏÂÃæ£¬ÎÒÃÇ½âÊÍÈçºÎ¹¹½¨CNNÄ£ÐÍ£¬²¢ÇÒ½éÉÜÈçºÎÕÒµ½×î¼ÑµÄ±ê×¢·½Ê½¡£
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/CNN_des.pdf}\\
+  \smallcaption{CNN·ÖÀàÄ£ÐÍµÄ¼Ü¹¹Í¼}
+  \label{chap:chap03:fig:CNN_des}
+\end{figure}
+
+\subsubsection{¹¹½¨CNN·ÖÀàÄ£ÐÍ}
+Í¼~\ref{chap:chap03:fig:CNN_des}¸ø³öÁËÎÒÃÇ¹¹½¨µÄCNN·ÖÀàÄ£ÐÍµÄ¼Ü¹¹Í¼£¬ËüµÄÊäÈëÊ±Ò»¸öÎÄ±¾¶Î£¬Êä³öÒ»¸ö¹ØÓÚËùÓÐ¿ÉÄÜµÄÊôÐÔµÄ¸ÅÂÊÏòÁ¿¡£ÕûÌåÀ´¿´£¬ÎÒÃÇµÄCNNÄ£ÐÍ°üÀ¨ÌØÕ÷ÊäÈë²ã£¬Ç¶Èë²ã£¬¾í»ù²ã£¬×î´óÖµ³Ø»¯²ã£¬È«Á¬½Ó²ãºÍ×îºóµÄSoftmax·ÖÀàÆ÷²ã¡£ÌØÕ÷ÊäÈë²ã½ÓÊÜÒ»¸öÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷¾ØÕó£¬Õâ¸öÌØÕ÷¾ØÕó°üº¬ÁË·á¸»µÄ¾ä·¨ºÍÓïÒåÌØÕ÷¡£Ç¶Èë²ã¸ºÔð½«ÕâÐ©ÌØÕ÷Öµ¶ÔÓ¦µ½ÏàÓ¦µÄÌØÕ÷ÏòÁ¿È»ºó½«ËûÃÇºÏ²¢ÔÚÒ»Æð¡£È»ºóÎÒÃÇÔÚÌØÕ÷¾ØÕóÉÏÖ´ÐÐ¾í»ý²Ù×÷À´ÌáÈ¡¹ØÓÚÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷£¬ÔÚÕâÒ»²½ÎÒÃÇÊ¹ÓÃÁË²»Í¬´óÐ¡µÄ¹ýÂËºËÀ´ÔÚÊäÈëÎÄ±¾¶ÎÉÏ¾¡¿ÉÄÜ¶àµÄ¸²¸Çn-gramµÄÎÄ±¾·¶Î§£¬ÕâÑùÎÒÃÇ¾Í¿ÉÒÔÉú³É¶à²ã´ÎµÄ£¬ÇÒ²»Í¬³ß´çµÄÌØÕ÷¾ØÕó¡£È»ºó£¬ÎÒÃÇÔÙÊ¹ÓÃ×î´óÖµ³Ø»¯À´¶Ô¾í»ý²ãµÄ½á¹û½øÐÐ±ê×¼»¯£¬Ê¹Æä×îÖÕ¶¼³ÉÎªÏàÍ¬ÐÎ×´µÄÌØÕ÷¾ØÕó£¬ÇÒÕâÒ»²½Ò²ÊÇ½øÒ»²½³éÈ¡ÌØÕ÷ºÍ½µÎ¬µÄ²Ù×÷¡£³Ø»¯²ãµÃµ½µÄÌØÕ÷¾ØÕóÔÙÍ¨¹ýÒ»¸öÈ«Á¬½Ó²ã£¬¾ÍÊÇÒ»¸öÆÕÍ¨µÄÉñ¾­ÍøÂç£¬×ö½øÒ»²½µÄÌØÕ÷×éºÏºÍÍÆÀí¡£×îÖÕ£¬ÎÒÃÇÊ¹ÓÃSoftmax·ÖÀàÆ÷×÷ÎªÎÒÃÇµÄÊä³ö²ã£¬ÎªÃ¿Ò»¸öÊäÈëÎÄ±¾¶Î²úÉú·ÖÀà½á¹û¡£¸ü¶àµÄÏ¸½Ú£¬¿ÉÒÔÈ¥²Î¿¼~\cite{sahu2016relation, kim2014convolutional}¡£
+
+\smallskip
+\noindent \underline{\it ÌØÕ÷:}ÎÒÃÇÎªÃ¿¸öÊäÈëÎÄ±¾¶Î¶¼¹¹ÔìÁËÒ»Ð©ÁÐ·á¸»µÄÓïÒåÌØÕ÷£¬°üÀ¨Ò»Ð©ºÏ³ÉµÄÌØÕ÷¡£¶ÔÓÚÎÄ±¾¶ÎÖÐµÄÃ¿Ò»¸öµ¥´Ê£¬ËûµÄÌØÕ÷¾ØÕóÖÐ°üÀ¨ÁË£¬ÌáÇ°ÑµÁ·µÄ´ÊÏòÁ¿ Word2vec£¬ ÎÄ±¾¶ÎµÄÎ»ÖÃÐÅÏ¢£¬ÎÄ±¾¶ÎÔÚÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃÐÅÏ¢£¬´ÊÐÔ±ê×¢ÐÅÏ¢(POS)£¬ÎÄ±¾¶Î³¤¶È£¬ÒÔ¼°Ò»ÖÖÈÏÎª¹¹ÔìµÄ¹éÒ»»¯Àà±ð¸ÅÂÊ¡£ÏÂÃæ¸ø³öÃ¿Ò»¸öÌØÕ÷µÄÏêÏ¸½éÉÜ£º
+
+\begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
+\item {\bf Word2Vec:} For word embedding, we use pre-trained word vector~\cite{muneeb2015evaluating} learned on Pubmed articles using word2vec tool ~\cite{mikolov2013distributed}, which is a very effective and powerful web embedding tool developed by Tomas Mikolov at Google.
+
+\item {\bf Position in Segment:} This is the position that a word locates in the segment. We consider to use this feature based on the observation that some particular word usually appears at similar position in values of a certain attribute.
+
+\item {\bf Position in Record:} This is the position that a word locates in the record, which is used since the position of a word in a text record sometimes is greatly relevant to the attribute it belongs to.
+
+\item {\bf Length of Segment:} This is the number of words in the segment. We use this feature given the fact that the average number of words in attribute values are various among different attributes.
+
+\item {\bf Parts of Speech Tag:} The PoS information is the process of marking up a word in a text as corresponding to a particular part of speech, based on both its definition and its context. Here we use GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/} to obtain pos tag of each word.
+
+\item {\bf Normalized Category Probability:} We use a function similar to Eq.~\ref{eq1} to calculate a probability vector $\vec{cp}$, each value of which denotes the probability that a word belonging to an attribute.
+\end{enumerate} 
+
+
+\subsection{ÊäÈëÎÄ±¾µÄÌ°À·Ê½¸ÅÂÊ±ê×¢}
+
+\subsection{»ùÓÚÐòÁÐºÍÎ»ÖÃÌØÕ÷µÄ½á¹ûÐÞÕý}
+
+\section{ÊµÑé½á¹ûÓë·ÖÎö}
+
+\section{±¾ÕÂÐ¡½á}
+
+
+
+
 
 ¶ÔÓÚ¸ø¶¨Á½¸ö¹ØÏµ±í$T_1=\{t_1,t_2,...,t_n\}$ ºÍ$T_2= \{s_1,s_2,...,s_m\}$£¬$T_1$ ÖÐµÄÃ¿Ò»¸öÊµÌå$t_i\in T_1  (1 \leq i \leq n)$£¬$T_2$ ÖÐµÄÃ¿Ò»¸öÊµÌå$s_j\in T_2 (1 \leq j \leq m)$£¬ÊµÌåÆ¥ÅäÖ¼ÔÚ·¢ÏÖÁ½¸ö±í¼ä±íÊ¾Í¬Ò»ÊµÌåµÄÊµÌå¶Ô$(t_i,s_j)$¡£ÒÔÍùµÄÊµÌåÆ¥Åä·½·¨Ö÷ÒªÊÇÊ¹ÓÃÖ÷ÊôÐÔµÄÖµ£¬ÒÀÀµÓÚÒ»Ð©×Ö·û´®ÏàËÆ¶Èº¯Êý£¨Èç±à¼­¾àÀë£©ÒÔ¼°Ò»¸öÏàËÆ¶ÈãÐÖµ¾ö¶¨Á½¸ö±íÖÐµÄÊµÌåÊÇ·ñÆ¥Åä¡£ÆäÐÎÊ½»¯±íÊ¾ÈçÏÂËùÊ¾£ºÉè¶¨$A_0$ ÊÇ±í$T_1$ ºÍ±í$T_2$ µÄÖ÷ÊôÐÔ£¬¸ø¶¨Ò»¸ö×Ö·û´®ÏàËÆ¶Èº¯Êý$sim(\cdot, \cdot)$£¬ÒÔ¼°Ò»¸öÏàËÆ¶ÈãÐÖµ$\theta$£¬¶ÔÓÚÊµÌå¶Ô$(t_i, s_j)$£¬Èç¹ûÂú×ã$sim(t_i [A_0], s_j [A_0]) \geq \theta$£¬Ôò$t_i$ ºÍ$s_j$ ÎªÍ¬Ò»ÊµÌå¡£
 
@@ -163,7 +271,7 @@ s9 &  8730L & Coolpad & ~~-  & 1G & 2012-05 & Bar & Android 4.3 & ...\\
 
 ·ÇÖ÷ÊôÐÔµÄ³ä·ÖÐÔÌØÐÔºÍ±ØÒªÐÔÌØÐÔÔÚ¹¹½¨PRTree Ê±Æð×ÅÖØÒªµÄ¾ö¶¨×÷ÓÃ£¬·ÇÖ÷ÊôÐÔµÄ³ä·ÖÐÔ·´Ó¦ÁËÊôÐÔÊ¶±ðÆ¥ÅäÊµÌåµÄÄÜÁ¦£¬¼´µ±ÊµÌåµÄ·ÇÖ÷ÊôÐÔÖµÏàÍ¬Ê±£¬ÄÜ¹»ÔÚ¶à´ó¸ÅÂÊÉÏÅÐ¶¨ÆäËù¶ÔÓ¦µÄÊµÌåÎªÍ¬Ò»ÊµÌå£»¶ø·ÇÖ÷ÊôÐÔµÄ±ØÒªÐÔÔò·´Ó¦ÁËÊôÐÔÅÅ³ý²»Æ¥ÅäÊµÌåµÄÄÜÁ¦£¬¼´µ±ÊµÌå¶Ô±íÊ¾ÎªÍ¬Ò»ÊµÌåÊ±£¬ÊµÌå¶ÔÔÚÄ³Ò»ÊôÐÔÉÏÒ²¾ß±¸ÏàÍ¬»òÏàËÆÊôÐÔÖµµÄ¸ÅÂÊ¡£
 
-¸ù¾Ý¶¨Òå~\ref{chap3:def2}ËùÊö£¬ÊôÐÔµÄ³ä·ÖÐÔ¸ÅÂÊºÍ±ØÒªÐÔ¸ÅÂÊ¿ÉÍ¨¹ýÑµÁ·µÃµ½£¬ÆäÖÐÑµÁ·¼¯ÖÐµÄÒÑÖªÁ½¸öÊý¾Ý±íÖÐÆ¥ÅäµÄÊµÌå¶Ô£¬Æä¶¨ÒåÎª($Tr_1$, $Tr_2$)¡£¼Ù¶¨ÑµÁ·¼¯ÖÐµÄÊý¾Ý·Ö²¼½Ó½üÓÚÊµÌåÆ¥ÅäµÄÁ½¸öÕæÊµÊý¾Ý±í£¬ÔòÎÒÃÇ¿ÉÒÔµÃµ½³ä·ÖÐÔÌØÐÔºÍ±ØÒªÐÔÌØÐÔµÄ¼ÆËã¹«Ê½ÈçÏÂ£º
+¸ù¾Ý¶¨Òå~\ref{chap3:def2}ËùÊö£¬ÊôÐÔµÄ³ä·ÖÐÔ¸ÅÂÊºÍ±ØÒªÐÔ¸ÅÂÊ¿ÉÍ¨¹ýÑµÁ·µÃµ½£¬ÆäÖÐÑµÁ·¼¯ÖÐµÄÒÑÖªÁ½¸öÊý¾Ý±íÖÐÆ¥ÅäµÄÊµÌå¶Ô£¬Æä¶¨ÒåÎª($Tr_1$, $Tr_2$)¡£ ¼Ù¶¨ÑµÁ·¼¯ÖÐµÄÊý¾Ý·Ö²¼½Ó½üÓÚÊµÌåÆ¥ÅäµÄÁ½¸öÕæÊµÊý¾Ý±í£¬ÔòÎÒÃÇ¿ÉÒÔµÃµ½³ä·ÖÐÔÌØÐÔºÍ±ØÒªÐÔÌØÐÔµÄ¼ÆËã¹«Ê½ÈçÏÂ£º
 \begin{equation}
 \label{formula:suf}
 suf(A_k) = \sum\limits_{\{(t_i, s_j)|Tr_{c}\}}
@@ -268,7 +376,7 @@ PRTree ÖÐ¹²°üº¬ÈýÀà½Úµã£¬¸ù½Úµã¡¢·ÇÒ¶½ÚµãºÍÒ¶½Úµã£¬¸÷Àà½Úµã¶¼ÓÐÆäÌØÐÔ¡£ÏÂÃæÏêÏ¸¸
 
 \subsection{ÊµÌåÆ¥Åä¹ý³Ì}
 
-ÔÚËã·¨~\ref{chap3:matchingAlg}ÖÐÎÒÃÇ¸ø³öÁËÈçºÎÊ¹ÓÃ½¨Á¢µÄPRTree Ö´ÐÐNokeaEM Ëã·¨¡£²âÊÔ¼¯Êý¾Ý¼¯ÖÐµÄÃ¿Ò»¸öÊµÌå¶Ô$(t, s)$£¬ÎÒÃÇ´ÓPRTreeµÄ¸ù½Úµã¿ªÊ¼·ÃÎÊ£¬²¢ÔÚµ½´ïÒ¶×Ó½ÚµãÊ±Í£Ö¹¡£Ã¿´Îµ±ÊµÌå¶Ô$(t, s)$ µ½´ïÄ³Ò»·ÇÖ÷ÊôÐÔ$A_k$ ½ÚµãÊ±£¬¼ì²éÊµÀý¶ÔÔÚµ±Ç°½Úµã$A_k$ ÊÇ·ñ¾ßÓÐÏàÍ¬»òÏàËÆµÄÊôÐÔÖµ¡£Èç¹ûÏàÍ¬»òÏàËÆ£¬Ôò·ÃÎÊ$A_k$½ÚµãµÄ¡°Matched¡±×Ó½Úµã£¬·ñÔò·ÃÎÊ$A_k$ ½ÚµãµÄ¡°Unmatched¡±×Ó½Úµã¡£µ«ÊÇ£¬Èç¹ûÊµÌå¶ÔÔÚ½Úµã$A_k$ µÄ·ÇÖ÷ÊôÐÔÖµÎª¿ÕÊ±£¬ÔòÓ¦·ÃÎÊ¸Ã¡°Invalid¡±×Ó½Úµã£¬±íÃ÷´ý±È½ÏµÄÊµÌå¶ÔÔÚÊôÐÔ$A_k$ ÏÂ³öÏÖÁËÈ±Ê§Öµ¡£µ±ÊµÌå¶Ô·ÃÎÊÖÁPRTree µÄÒ¶½ÚµãÊ±£¬½«»á¸ù¾ÝÒ¶½ÚµãµÄÐÔÖÊ´Ó¶ø¾ö¶¨Êä³ö¡°Matched¡± »òÕß ¡°Unmatched¡±¡£¾ö²ßµÄÖÃÐÅ¶ÈÊÇÓÉÊµÌå¶ÔËù¾­¹ýµÄ´Ó¸ù½Úµãµ½µ±Ç°½Úµã×é³ÉµÄËùÓÐ·ÇÖ÷ÊôÐÔ½Úµã×éºÏ¹²Í¬¾ö¶¨µÄ¡£³ý¸ù½ÚµãÖ®Íâ£¬PRTree ÖÐÃ¿Ò»¸ö½ÚµãµÄ½á¹ûµÄ¼ÆËã²¢²»ÊÇ¶ÀÁ¢ÓÚÆäËüµÄ½Úµã¶øµÃµ½µÄ£¬¶øÊÇÔÚÂú×ãµ±Ç°½ÚµãËù¾­ÀúµÄËùÓÐ×æÏÈ½ÚµãµÄÌõ¼þÏÂËùµÃµ½µÄ¡£´ËÍâ£¬ÎªÁË´ïµ½¸üºÃµÄÆ¥ÅäÐ§¹û£¬PRTree ÖÐ´¦ÓÚ²»Í¬¸ß¶ÈµÄ½Úµã£¬ÔÚ¼ÆËãÖÃÐÅ¶ÈÊ±Ó¦¸øÓë²»Í¬µÄÈ¨ÖØ·ÖÅä£¬ÒòÎªÔ½ÊÇ¿¿½ü¸ù½ÚµãµÄ·ÇÖ÷ÊôÐÔ£¬ÊÜµ½ÆäËü·ÇÖ÷ÊôÐÔµÄÓ°Ïì¾ÍÔ½Ð¡£¬¶øÔ½ÊÇÔ¶Àë¸ù½ÚµãµÄ·ÇÖ÷ÊôÐÔ£¬ÊÜµ½ÆäËûÊôÐÔµÄÓ°Ïì¾ÍÔ½´ó¡£Îª´Ë£¬±¾ÕÂÖÐ²ÉÓÃÁËÒ»¶¨µÄ·½Ê½±£Ö¤·ÇÖ÷ÊôÐÔÈ¨ÖØµÄºÏÀí·ÖÅä¡£×ÛºÏÒÔÉÏµÄ¿¼ÂÇÎÒÃÇ¸ù¾ÝÈçÏÂ¹«Ê½~\ref{chap3:fprtree} ¼ÆËãÊµÀý¶ÔÖ®¼äµÄÏàËÆÐÔ£º
+ÔÚËã·¨~\ref{chap3:matchingAlg}ÖÐÎÒÃÇ¸ø³öÁËÈçºÎÊ¹ÓÃ½¨Á¢µÄPRTree Ö´ÐÐNokeaEM Ëã·¨¡£²âÊÔ¼¯Êý¾Ý¼¯ÖÐµÄÃ¿Ò»¸öÊµÌå¶Ô$(t, s)$£¬ÎÒÃÇ´ÓPRTreeµÄ¸ù½Úµã¿ªÊ¼·ÃÎÊ£¬²¢ÔÚµ½´ïÒ¶×Ó½ÚµãÊ±Í£Ö¹¡£Ã¿´Îµ±ÊµÌå¶Ô$(t, s)$ µ½´ïÄ³Ò»·ÇÖ÷ÊôÐÔ$A_k$ ½ÚµãÊ±£¬¼ì²éÊµÀý¶ÔÔÚµ±Ç°½Úµã$A_k$ ÊÇ·ñ¾ßÓÐÏàÍ¬»òÏàËÆµÄÊôÐÔÖµ¡£Èç¹ûÏàÍ¬»òÏàËÆ£¬Ôò·ÃÎÊ$A_k$½ÚµãµÄ¡°Matched¡±×Ó½Úµã£¬·ñÔò·ÃÎÊ$A_k$ ½ÚµãµÄ¡°Unmatched¡±×Ó½Úµã¡£µ«ÊÇ£¬Èç¹ûÊµÌå¶ÔÔÚ½Úµã$A_k$ µÄ·ÇÖ÷ÊôÐÔÖµÎª¿ÕÊ±£¬ÔòÓ¦·ÃÎÊ¸Ã¡°Invalid¡±×Ó½Úµã£¬±íÃ÷´ý±È½ÏµÄÊµÌå¶ÔÔÚÊôÐÔ$A_k$ ÏÂ³öÏÖÁËÈ±Ê§Öµ¡£µ±ÊµÌå¶Ô·ÃÎÊÖÁPRTree µÄÒ¶½ÚµãÊ±£¬½«»á¸ù¾ÝÒ¶½ÚµãµÄÐÔÖÊ´Ó¶ø¾ö¶¨Êä³ö¡°Matched¡± »òÕß ¡°Unmatched¡±¡£ ¾ö²ßµÄÖÃÐÅ¶ÈÊÇÓÉÊµÌå¶ÔËù¾­¹ýµÄ´Ó¸ù½Úµãµ½µ±Ç°½Úµã×é³ÉµÄËùÓÐ·ÇÖ÷ÊôÐÔ½Úµã×éºÏ¹²Í¬¾ö¶¨µÄ¡£³ý¸ù½ÚµãÖ®Íâ£¬PRTree ÖÐÃ¿Ò»¸ö½ÚµãµÄ½á¹ûµÄ¼ÆËã²¢²»ÊÇ¶ÀÁ¢ÓÚÆäËüµÄ½Úµã¶øµÃµ½µÄ£¬¶øÊÇÔÚÂú×ãµ±Ç°½ÚµãËù¾­ÀúµÄËùÓÐ×æÏÈ½ÚµãµÄÌõ¼þÏÂËùµÃµ½µÄ¡£´ËÍâ£¬ÎªÁË´ïµ½¸üºÃµÄÆ¥ÅäÐ§¹û£¬PRTree ÖÐ´¦ÓÚ²»Í¬¸ß¶ÈµÄ½Úµã£¬ÔÚ¼ÆËãÖÃÐÅ¶ÈÊ±Ó¦¸øÓë²»Í¬µÄÈ¨ÖØ·ÖÅä£¬ÒòÎªÔ½ÊÇ¿¿½ü¸ù½ÚµãµÄ·ÇÖ÷ÊôÐÔ£¬ÊÜµ½ÆäËü·ÇÖ÷ÊôÐÔµÄÓ°Ïì¾ÍÔ½Ð¡£¬¶øÔ½ÊÇÔ¶Àë¸ù½ÚµãµÄ·ÇÖ÷ÊôÐÔ£¬ÊÜµ½ÆäËûÊôÐÔµÄÓ°Ïì¾ÍÔ½´ó¡£Îª´Ë£¬±¾ÕÂÖÐ²ÉÓÃÁËÒ»¶¨µÄ·½Ê½±£Ö¤·ÇÖ÷ÊôÐÔÈ¨ÖØµÄºÏÀí·ÖÅä¡£×ÛºÏÒÔÉÏµÄ¿¼ÂÇÎÒÃÇ¸ù¾ÝÈçÏÂ¹«Ê½~\ref{chap3:fprtree} ¼ÆËãÊµÀý¶ÔÖ®¼äµÄÏàËÆÐÔ£º
 \begin{equation}
 \label{chap3:fprtree}
 \mathcal{F}_{PRTree}(t, s) =

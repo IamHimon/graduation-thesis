@@ -120,20 +120,20 @@
 %% 封面部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % 中文封面内容
-  \title{基于多形态非主属性数据的实体匹配算法研究}
+  \title{基于深度学习技术的信息抽取工具的研究与开发}
   \author{胡猛}
   \advisor{李直旭}
   \degree{硕~士~}
   \major{计算机科学与技术}
-  \minor{数据管理与数据分析}
-  \submitdate{2017年3月}
-  \grade{2~0~1~7~届}
+  \minor{信息抽取}
+  \submitdate{2018年3月}
+  \grade{2~0~1~8~届}
 
   % 英文封面内容
-  \englishtitle{Entity Matching Based on Polymorphic Non-Key Attributes}
-  \englishAbstractTitle{Entity Matching Based on Polymorphic Non-Key Attributes}
-  \englishfancytitle{Entity Matching Based on Polymorphic Non-Key Attributes}
-  \englishauthor{Qiang Yang}
+  \englishtitle{Information Extraction based on Deep Learning technology}
+  \englishAbstractTitle{Information Extraction based on Deep Learning technology}
+  \englishfancytitle{Information Extraction based on Deep Learning technology}
+  \englishauthor{Meng Hu}
   \englishadvisor{Zhixu Li}
 
   % 封面

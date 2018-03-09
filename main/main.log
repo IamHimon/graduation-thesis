@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  8 MAR 2018 21:12
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  9 MAR 2018 15:14
 entering extended mode
 **main.tex
 ("D:\毕业相关\graduation thesis\main\main.tex"
@@ -894,111 +894,114 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-("D:\毕业相关\graduation thesis\main\main.aux")
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 96.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 96.
+("D:\毕业相关\graduation thesis\main\main.aux"
 
+LaTeX Warning: Label `chap:chap03:fig:framework' multiply defined.
 
-(D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omltxmi.fd
+)
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 95.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 95.
+
+ (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 96.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 96.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 95.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 95.
 
 
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 96.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 96.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 95.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 95.
 
 
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 96.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 96.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 95.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 95.
 
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 96.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 95.
 
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
@@ -1018,7 +1021,7 @@ File: ot1txr.fd 2000/12/15 v3.1
 \everyMPtoPDFconversion=\toks36
 )
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring ON on input line 96.
+Package hyperref Info: Link coloring ON on input line 95.
  (D:\JobSoftware\CTEX\MiKTeX\tex\latex\hyperref\nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -1027,9 +1030,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count302
 )
-LaTeX Info: Redefining \ref on input line 96.
-LaTeX Info: Redefining \pageref on input line 96.
-LaTeX Info: Redefining \nameref on input line 96.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
 
 ("D:\毕业相关\graduation thesis\main\main.out")
 ("D:\毕业相关\graduation thesis\main\main.out")
@@ -1094,28 +1097,28 @@ File: extended.enc 2008/12/29 4.8.2
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\cjk\extended.chr
 File: extended.chr 2008/12/29 4.8.2
 )
-<cover.pdf, id=218, page=1, 597.73312pt x 845.40843pt>
+<cover.pdf, id=242, page=1, 597.73312pt x 845.40843pt>
 File: cover.pdf Graphic file (type pdf)
  <use cover.pdf, page 1>
-Package pdftex.def Info: cover.pdf, page1 used on input line 140.
+Package pdftex.def Info: cover.pdf, page1 used on input line 139.
 (pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
 File: cover.pdf Graphic file (type pdf)
 
 <use cover.pdf, page 1>
-Package pdftex.def Info: cover.pdf, page1 used on input line 140.
+Package pdftex.def Info: cover.pdf, page1 used on input line 139.
 (pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
 File: cover.pdf Graphic file (type pdf)
  <use cover.pdf, page 1>
-Package pdftex.def Info: cover.pdf, page1 used on input line 140.
+Package pdftex.def Info: cover.pdf, page1 used on input line 139.
 (pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
 File: cover.pdf Graphic file (type pdf)
  <use cover.pdf, page 1>
-Package pdftex.def Info: cover.pdf, page1 used on input line 140.
+Package pdftex.def Info: cover.pdf, page1 used on input line 139.
 (pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
 File: cover.pdf Graphic file (type pdf)
 
 <use cover.pdf, page 1>
-Package pdftex.def Info: cover.pdf, page1 used on input line 140.
+Package pdftex.def Info: cover.pdf, page1 used on input line 139.
 (pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
  [1
 Non-PDF special ignored!
@@ -1123,56 +1126,56 @@ Non-PDF special ignored!
  <D:/毕业相关/graduation thesis/main/cover.pdf>]
 [2
 
-] <copyrightPage1.pdf, id=258, page=1, 597.55246pt x 845.07718pt>
+] <copyrightPage1.pdf, id=282, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage1.pdf Graphic file (type pdf)
 
 <use copyrightPage1.pdf, page 1>
-Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 145.
+Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: copyrightPage1.pdf Graphic file (type pdf)
  <use copyrightPage1.pdf, page 1>
-Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 145.
+Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage1.pdf Graphic file (type pdf)
 
 <use copyrightPage1.pdf, page 1>
-Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 145.
+Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage1.pdf Graphic file (type pdf)
  <use copyrightPage1.pdf, page 1>
-Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 145.
+Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage1.pdf Graphic file (type pdf)
 
 <use copyrightPage1.pdf, page 1>
-Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 145.
+Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
  [3 <D:/毕业相关/graduation thesis/main/copyrightPage1.pdf>] [4
 
 ]
-<copyrightPage2.pdf, id=299, page=1, 597.55246pt x 845.07718pt>
+<copyrightPage2.pdf, id=323, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage2.pdf Graphic file (type pdf)
 
 <use copyrightPage2.pdf, page 1>
-Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 147.
+Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: copyrightPage2.pdf Graphic file (type pdf)
  <use copyrightPage2.pdf, page 1>
-Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 147.
+Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage2.pdf Graphic file (type pdf)
 
 <use copyrightPage2.pdf, page 1>
-Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 147.
+Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage2.pdf Graphic file (type pdf)
  <use copyrightPage2.pdf, page 1>
-Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 147.
+Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: copyrightPage2.pdf Graphic file (type pdf)
 
 <use copyrightPage2.pdf, page 1>
-Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 147.
+Package pdftex.def Info: copyrightPage2.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
  [5 <D:/毕业相关/graduation thesis/main/copyrightPage2.pdf>] [6
 
@@ -1233,15 +1236,13 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 2.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [6
 
-])
+] [7])
 \tf@toc=\write5
 \c@definition=\count313
 \c@lemma=\count314
 \c@theorem=\count315
 \c@pf=\count316
- [7] [8
-
-]
+ [8]
 ("D:\毕业相关\graduation thesis\chapter\chap01.tex"
 ��һ��
 LaTeX Font Info:    Try loading font information for C19+zhsong on input line 1
@@ -1254,6 +1255,7 @@ File: c19zhsong.fd 2009/09/23 4.8.2
                    \relax 
 l.10 
       [1
+
 
 ]
 Underfull \vbox (badness 2903) has occurred while \output is active []
@@ -1281,7 +1283,7 @@ used, duplicate ignored
 l.1 \chapter
             {������ۼ�����} [5]
 �ڶ���
-<../figures/chap02/ner-features.jpg, id=545, 568.1225pt x 435.6275pt>
+<../figures/chap02/ner-features.jpg, id=575, 568.1225pt x 435.6275pt>
 File: ../figures/chap02/ner-features.jpg Graphic file (type jpg)
 
 <use ../figures/chap02/ner-features.jpg>
@@ -1329,7 +1331,7 @@ Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
- [8]<<c1981.cmap>> <../figures/chap02/word2vec_sample.png, id=568, 670.505pt x 
+ [8]<<c1981.cmap>> <../figures/chap02/word2vec_sample.png, id=598, 670.505pt x 
 181.67876pt>
 File: ../figures/chap02/word2vec_sample.png Graphic file (type png)
 
@@ -1341,7 +1343,7 @@ ne 54.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW.png, id=570, 497.86pt x 280.04625pt>
+<../figures/chap02/CBOW.png, id=600, 497.86pt x 280.04625pt>
 File: ../figures/chap02/CBOW.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW.png>
@@ -1351,7 +1353,7 @@ Package pdftex.def Info: ../figures/chap02/CBOW.png used on input line 62.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW_general.png, id=571, 443.6575pt x 548.0475pt>
+<../figures/chap02/CBOW_general.png, id=601, 443.6575pt x 548.0475pt>
 File: ../figures/chap02/CBOW_general.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW_general.png>
@@ -1371,13 +1373,83 @@ ation thesis/figures/chap02/CBOW_general.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
+
+LaTeX Warning: Citation `freitag2000information' on page 12 undefined on input 
+line 93.
+
+
+LaTeX Warning: Citation `borkar2001automatic' on page 12 undefined on input lin
+e 93.
+
+
 Underfull \vbox (badness 2460) has occurred while \output is active []
 
- [12]<<c1974.cmap>>
+ [12]
+
+LaTeX Warning: Citation `lafferty2001conditional' on page 13 undefined on input
+ line 95.
+
+
+LaTeX Warning: Citation `peng2006information' on page 13 undefined on input lin
+e 95.
+
+
+LaTeX Warning: Citation `lafferty2001conditional' on page 13 undefined on input
+ line 95.
+
+
+LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
+e 96.
+
+
+LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
+line 96.
+
+
+LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
+ 96.
+
+
+LaTeX Warning: Citation `cortez2007flux' on page 13 undefined on input line 96.
+
+
+
+LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
+line 96.
+
+
+LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
+e 97.
+
+
+LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
+ 97.
+
+
+LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
+e 97.
+
+
+LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
+ 97.
+
+
+LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
+line 97.
+
+
+LaTeX Warning: Citation `michelson2007unsupervised' on page 13 undefined on inp
+ut line 101.
+
+<<c1974.cmap>>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-<../figures/chap03/framework.pdf, id=638, 451.6875pt x 619.31375pt>
+
+LaTeX Warning: Citation `cortez2010ondux' on page 14 undefined on input line 10
+3.
+
+<../figures/chap03/framework.pdf, id=646, 451.6875pt x 619.31375pt>
 File: ../figures/chap03/framework.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/framework.pdf>
@@ -1395,112 +1467,201 @@ File: ../figures/chap03/framework.pdf Graphic file (type pdf)
 <use ../figures/chap03/framework.pdf>
 Package pdftex.def Info: ../figures/chap03/framework.pdf used on input line 10.
 
-(pdftex.def)             Requested size: 198.45662pt x 272.11143pt.
- [16
+(pdftex.def)             Requested size: 352.81552pt x 483.78098pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16
 
 ]
+
+LaTeX Warning: Citation `cortez2010ondux' on page 17 undefined on input line 19
+.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
+
+LaTeX Warning: Citation `cortez2010ondux' on page 18 undefined on input line 30
+.
+
+
+LaTeX Warning: Citation `zhao2008exploiting' on page 18 undefined on input line
+ 30.
+
+<../figures/chap03/KB.pdf, id=689, 462.72874pt x 164.615pt>
+File: ../figures/chap03/KB.pdf Graphic file (type pdf)
+
+<use ../figures/chap03/KB.pdf>
+Package pdftex.def Info: ../figures/chap03/KB.pdf used on input line 34.
+(pdftex.def)             Requested size: 352.81552pt x 125.51561pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../figures/chap03/labelExample.pdf, id=690, 453.695pt x 217.81375pt>
+File: ../figures/chap03/labelExample.pdf Graphic file (type pdf)
+
+<use ../figures/chap03/labelExample.pdf>
+Package pdftex.def Info: ../figures/chap03/labelExample.pdf used on input line 
+41.
+(pdftex.def)             Requested size: 352.81552pt x 169.3822pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package CJKpunct Info: punctuation spaces for family 'zhkai' do not exist. Use 
-family 'def' instead. on input line 46.
+family 'def' instead. on input line 52.
+[18] [19 <D:/毕业相关/graduation thesis/figures/chap03/KB.pdf> <D:/毕业�
+�关/graduation thesis/figures/chap03/labelExample.pdf>]
 
-[18] [19]
+LaTeX Warning: Reference `fig:2' on page 20 undefined on input line 69.
 
-LaTeX Warning: Reference `tmallTable' on page 20 undefined on input line 66.
+<../figures/chap03/CNN_des.pdf, id=753, 1144.275pt x 450.9347pt>
+File: ../figures/chap03/CNN_des.pdf Graphic file (type pdf)
+
+<use ../figures/chap03/CNN_des.pdf>
+Package pdftex.def Info: ../figures/chap03/CNN_des.pdf used on input line 77.
+(pdftex.def)             Requested size: 352.81552pt x 139.03831pt.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [20]
-<../figures/chap03/relation.pdf, id=718, 349.10715pt x 135.52332pt>
+
+LaTeX Warning: Citation `sahu2016relation' on page 20 undefined on input line 8
+3.
+
+
+LaTeX Warning: Citation `kim2014convolutional' on page 20 undefined on input li
+ne 83.
+
+[20]
+
+LaTeX Warning: Citation `th2015evaluating' on page 21 undefined on input line 8
+9.
+
+
+LaTeX Warning: Citation `mikolov2013distributed' on page 21 undefined on input 
+line 89.
+
+[21 <D:/毕业相关/graduation thesis/figures/chap03/CNN_des.pdf>] [22]
+
+LaTeX Warning: File ot158.cmap not found on input line 137.
+
+[23]
+
+LaTeX Warning: Citation `Wang2012Can' on page 24 undefined on input line 137.
+
+
+LaTeX Warning: Reference `tmallTable' on page 24 undefined on input line 141.
+
+
+Underfull \vbox (badness 2111) has occurred while \output is active []
+
+ [24]
+[25] <../figures/chap03/relation.pdf, id=837, 349.10715pt x 135.52332pt>
 File: ../figures/chap03/relation.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/relation.pdf>
-Package pdftex.def Info: ../figures/chap03/relation.pdf used on input line 92.
+Package pdftex.def Info: ../figures/chap03/relation.pdf used on input line 167.
+
 (pdftex.def)             Requested size: 286.65883pt x 111.28284pt.
- [21]
+ [26 <D:/毕业相关/graduation thesis/figures/chap03/relation.pdf>]
 
 LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.54> not available
-(Font)              size <10.95> substituted on input line 129.
+(Font)              size <10.95> substituted on input line 204.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.54> not available
-(Font)              size <10.95> substituted on input line 129.
+(Font)              size <10.95> substituted on input line 204.
 
-[22 <D:/毕业相关/graduation thesis/figures/chap03/relation.pdf>] [23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[27] [28] [29]
 
- [24]
-[25]
-
-LaTeX Warning: File ot138.cmap not found on input line 268.
+LaTeX Warning: File ot138.cmap not found on input line 343.
 
 
-LaTeX Warning: File ot142.cmap not found on input line 291.
+LaTeX Warning: File ot142.cmap not found on input line 366.
 
 
-LaTeX Warning: File ot163.cmap not found on input line 291.
+LaTeX Warning: File ot163.cmap not found on input line 366.
 
-<../figures/chap03/tree1.pdf, id=786, 470.50781pt x 563.85657pt>
+[30] <../figures/chap03/tree1.pdf, id=903, 470.50781pt x 563.85657pt>
 File: ../figures/chap03/tree1.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/tree1.pdf>
-Package pdftex.def Info: ../figures/chap03/tree1.pdf used on input line 298.
+Package pdftex.def Info: ../figures/chap03/tree1.pdf used on input line 373.
 (pdftex.def)             Requested size: 264.61333pt x 317.11691pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26]
+[31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [32 <D:/毕业相关/graduation thesis/figures/chap03/tree1.pdf>]
 Missing character: There is no � in font txr!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28 <D:/毕业相关/graduation thesis/figures/chap03/tree1.pdf>] [29]
-<../figures/chap03/tree2.pdf, id=924, 470.50781pt x 640.64343pt>
+ [33] [34]
+<../figures/chap03/tree2.pdf, id=1031, 470.50781pt x 640.64343pt>
 File: ../figures/chap03/tree2.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/tree2.pdf>
-Package pdftex.def Info: ../figures/chap03/tree2.pdf used on input line 397.
+Package pdftex.def Info: ../figures/chap03/tree2.pdf used on input line 472.
 (pdftex.def)             Requested size: 242.5611pt x 330.2723pt.
- [30] [31 <D:/毕业相关/graduation thesis/figures/chap03/tree2.pdf>] [32]
+ [35 <D:/毕业相关/graduation thesis/figures/chap03/tree2.pdf>] [36]
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/nec.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
 > allowed
-<../figures/chap03/nec.pdf, id=1000, 177.82736pt x 95.0454pt>
+<../figures/chap03/nec.pdf, id=1099, 177.82736pt x 95.0454pt>
 File: ../figures/chap03/nec.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/nec.pdf>
-Package pdftex.def Info: ../figures/chap03/nec.pdf used on input line 436.
+Package pdftex.def Info: ../figures/chap03/nec.pdf used on input line 511.
 (pdftex.def)             Requested size: 198.45662pt x 106.07883pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/suf.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
 > allowed
-<../figures/chap03/suf.pdf, id=1001, 177.38911pt x 94.60796pt>
+<../figures/chap03/suf.pdf, id=1100, 177.38911pt x 94.60796pt>
 File: ../figures/chap03/suf.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/suf.pdf>
-Package pdftex.def Info: ../figures/chap03/suf.pdf used on input line 438.
+Package pdftex.def Info: ../figures/chap03/suf.pdf used on input line 513.
 (pdftex.def)             Requested size: 198.45662pt x 105.8519pt.
- [33 <D:/毕业相关/graduation thesis/figures/chap03/nec.pdf> <D:/毕业相�
-�/graduation thesis/figures/chap03/suf.pdf>]
-[34]
+
+
+LaTeX Warning: Citation `Dey2010Efficient' on page 37 undefined on input line 5
+21.
+
+
+LaTeX Warning: Citation `Aizawa2005A' on page 37 undefined on input line 523.
+
+
+LaTeX Warning: Citation `Wang2012Can' on page 37 undefined on input line 523.
+
+
+LaTeX Warning: Citation `Christen2011A' on page 37 undefined on input line 523.
+
+
+[37 <D:/毕业相关/graduation thesis/figures/chap03/nec.pdf> <D:/毕业相关
+/graduation thesis/figures/chap03/suf.pdf>]
+
+LaTeX Warning: Citation `Dey2010Efficient' on page 38 undefined on input line 5
+25.
+
+[38]
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/mobile_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most versio
 n <1.5> allowed
-<../figures/chap03/mobile_pr.pdf, id=1050, 172.1344pt x 96.25089pt>
+<../figures/chap03/mobile_pr.pdf, id=1140, 172.1344pt x 96.25089pt>
 File: ../figures/chap03/mobile_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/mobile_pr.pdf>
-Package pdftex.def Info: ../figures/chap03/mobile_pr.pdf used on input line 463
+Package pdftex.def Info: ../figures/chap03/mobile_pr.pdf used on input line 538
 .
 (pdftex.def)             Requested size: 136.71442pt x 76.44858pt.
 
@@ -1508,11 +1669,11 @@ Package pdftex.def Info: ../figures/chap03/mobile_pr.pdf used on input line 463
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/camera_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most versio
 n <1.5> allowed
-<../figures/chap03/camera_pr.pdf, id=1051, 173.4478pt x 97.5646pt>
+<../figures/chap03/camera_pr.pdf, id=1141, 173.4478pt x 97.5646pt>
 File: ../figures/chap03/camera_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/camera_pr.pdf>
-Package pdftex.def Info: ../figures/chap03/camera_pr.pdf used on input line 466
+Package pdftex.def Info: ../figures/chap03/camera_pr.pdf used on input line 541
 .
 (pdftex.def)             Requested size: 136.71442pt x 76.90546pt.
 
@@ -1520,50 +1681,50 @@ Package pdftex.def Info: ../figures/chap03/camera_pr.pdf used on input line 466
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/synthetic_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most ver
 sion <1.5> allowed
-<../figures/chap03/synthetic_pr.pdf, id=1052, 175.02458pt x 98.2869pt>
+<../figures/chap03/synthetic_pr.pdf, id=1142, 175.02458pt x 98.2869pt>
 File: ../figures/chap03/synthetic_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/synthetic_pr.pdf>
 Package pdftex.def Info: ../figures/chap03/synthetic_pr.pdf used on input line 
-469.
+544.
 (pdftex.def)             Requested size: 136.71442pt x 76.77592pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/mobile2mt_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most ver
 sion <1.5> allowed
-<../figures/chap03/mobile2mt_pr.pdf, id=1053, 171.69576pt x 98.11145pt>
+<../figures/chap03/mobile2mt_pr.pdf, id=1143, 171.69576pt x 98.11145pt>
 File: ../figures/chap03/mobile2mt_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/mobile2mt_pr.pdf>
 Package pdftex.def Info: ../figures/chap03/mobile2mt_pr.pdf used on input line 
-478.
+553.
 (pdftex.def)             Requested size: 136.71442pt x 78.12546pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/camera2mt_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most ver
 sion <1.5> allowed
-<../figures/chap03/camera2mt_pr.pdf, id=1054, 175.63757pt x 94.16931pt>
+<../figures/chap03/camera2mt_pr.pdf, id=1144, 175.63757pt x 94.16931pt>
 File: ../figures/chap03/camera2mt_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/camera2mt_pr.pdf>
 Package pdftex.def Info: ../figures/chap03/camera2mt_pr.pdf used on input line 
-481.
+556.
 (pdftex.def)             Requested size: 136.71442pt x 73.30519pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/synthetic2mt_pr.pdf): PDF inclusion: found PDF version <1.6>, but at most 
 version <1.5> allowed
-<../figures/chap03/synthetic2mt_pr.pdf, id=1055, 177.38911pt x 98.11174pt>
+<../figures/chap03/synthetic2mt_pr.pdf, id=1145, 177.38911pt x 98.11174pt>
 File: ../figures/chap03/synthetic2mt_pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/synthetic2mt_pr.pdf>
 Package pdftex.def Info: ../figures/chap03/synthetic2mt_pr.pdf used on input li
-ne 484.
+ne 559.
 (pdftex.def)             Requested size: 136.71442pt x 75.61961pt.
- [35 <D:/毕业相关/graduation thesis/figures/chap03/mobile_pr.pdf> <D:/毕�
+ [39 <D:/毕业相关/graduation thesis/figures/chap03/mobile_pr.pdf> <D:/毕�
 �相关/graduation thesis/figures/chap03/camera_pr.pdf> <D:/毕业相关/gradua
 tion thesis/figures/chap03/synthetic_pr.pdf> <D:/毕业相关/graduation thesis
 /figures/chap03/mobile2mt_pr.pdf> <D:/毕业相关/graduation thesis/figures/ch
@@ -1573,106 +1734,106 @@ tic2mt_pr.pdf>]
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/mobile_time.pdf): PDF inclusion: found PDF version <1.6>, but at most vers
 ion <1.5> allowed
-<../figures/chap03/mobile_time.pdf, id=1193, 211.29079pt x 91.45357pt>
+<../figures/chap03/mobile_time.pdf, id=1280, 211.29079pt x 91.45357pt>
 File: ../figures/chap03/mobile_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/mobile_time.pdf>
-Package pdftex.def Info: ../figures/chap03/mobile_time.pdf used on input line 4
-98.
+Package pdftex.def Info: ../figures/chap03/mobile_time.pdf used on input line 5
+73.
 (pdftex.def)             Requested size: 136.71442pt x 59.17616pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/camera_time.pdf): PDF inclusion: found PDF version <1.6>, but at most vers
 ion <1.5> allowed
-<../figures/chap03/camera_time.pdf, id=1194, 208.93358pt x 88.9471pt>
+<../figures/chap03/camera_time.pdf, id=1281, 208.93358pt x 88.9471pt>
 File: ../figures/chap03/camera_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/camera_time.pdf>
 Package pdftex.def Info: ../figures/chap03/camera_time.pdf used on input line 5
-01.
+76.
 (pdftex.def)             Requested size: 136.71442pt x 58.20442pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/synthetic_time.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
-<../figures/chap03/synthetic_time.pdf, id=1195, 207.2837pt x 88.36664pt>
+<../figures/chap03/synthetic_time.pdf, id=1282, 207.2837pt x 88.36664pt>
 File: ../figures/chap03/synthetic_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/synthetic_time.pdf>
 Package pdftex.def Info: ../figures/chap03/synthetic_time.pdf used on input lin
-e 504.
+e 579.
 (pdftex.def)             Requested size: 136.71442pt x 58.2817pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/mobile2mt_time.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
-<../figures/chap03/mobile2mt_time.pdf, id=1196, 208.59691pt x 87.38116pt>
+<../figures/chap03/mobile2mt_time.pdf, id=1283, 208.59691pt x 87.38116pt>
 File: ../figures/chap03/mobile2mt_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/mobile2mt_time.pdf>
 Package pdftex.def Info: ../figures/chap03/mobile2mt_time.pdf used on input lin
-e 513.
+e 588.
 (pdftex.def)             Requested size: 136.71442pt x 57.26906pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/camera2mt_time.pdf): PDF inclusion: found PDF version <1.6>, but at most v
 ersion <1.5> allowed
-<../figures/chap03/camera2mt_time.pdf, id=1197, 206.95518pt x 87.05263pt>
+<../figures/chap03/camera2mt_time.pdf, id=1284, 206.95518pt x 87.05263pt>
 File: ../figures/chap03/camera2mt_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/camera2mt_time.pdf>
 Package pdftex.def Info: ../figures/chap03/camera2mt_time.pdf used on input lin
-e 516.
+e 591.
 (pdftex.def)             Requested size: 136.71442pt x 57.50671pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/synthetic2mt_time.pdf): PDF inclusion: found PDF version <1.6>, but at mos
 t version <1.5> allowed
-<../figures/chap03/synthetic2mt_time.pdf, id=1198, 208.47084pt x 88.48387pt>
+<../figures/chap03/synthetic2mt_time.pdf, id=1285, 208.47084pt x 88.48387pt>
 File: ../figures/chap03/synthetic2mt_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/synthetic2mt_time.pdf>
 Package pdftex.def Info: ../figures/chap03/synthetic2mt_time.pdf used on input 
-line 519.
+line 594.
 (pdftex.def)             Requested size: 136.71442pt x 58.02687pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/records_time.pdf): PDF inclusion: found PDF version <1.6>, but at most ver
 sion <1.5> allowed
-<../figures/chap03/records_time.pdf, id=1202, 175.11523pt x 92.19052pt>
+<../figures/chap03/records_time.pdf, id=1289, 175.11523pt x 92.19052pt>
 File: ../figures/chap03/records_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/records_time.pdf>
 Package pdftex.def Info: ../figures/chap03/records_time.pdf used on input line 
-532.
+607.
 (pdftex.def)             Requested size: 194.04887pt x 102.16106pt.
 
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap03/attributes_time.pdf): PDF inclusion: found PDF version <1.6>, but at most 
 version <1.5> allowed
-<../figures/chap03/attributes_time.pdf, id=1203, 174.76122pt x 99.42606pt>
+<../figures/chap03/attributes_time.pdf, id=1290, 174.76122pt x 99.42606pt>
 File: ../figures/chap03/attributes_time.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/attributes_time.pdf>
 Package pdftex.def Info: ../figures/chap03/attributes_time.pdf used on input li
-ne 535.
+ne 610.
 (pdftex.def)             Requested size: 194.04887pt x 110.40517pt.
-)
-("D:\毕业相关\graduation thesis\chapter\chap04.tex" [36 <D:/毕业相关/gr
-aduation thesis/figures/chap03/mobile_time.pdf> <D:/毕业相关/graduation the
-sis/figures/chap03/camera_time.pdf> <D:/毕业相关/graduation thesis/figures/
-chap03/synthetic_time.pdf> <D:/毕业相关/graduation thesis/figures/chap03/mo
-bile2mt_time.pdf> <D:/毕业相关/graduation thesis/figures/chap03/camera2mt_t
-ime.pdf> <D:/毕业相关/graduation thesis/figures/chap03/synthetic2mt_time.pd
-f> <D:/毕业相关/graduation thesis/figures/chap03/records_time.pdf> <D:/毕�
-��相关/graduation thesis/figures/chap03/attributes_time.pdf>] [37]
+ [40 <D:/毕业相关/graduation thesis/figures/chap03/mobile_time.pdf> <D:/毕
+业相关/graduation thesis/figures/chap03/camera_time.pdf> <D:/毕业相关/gr
+aduation thesis/figures/chap03/synthetic_time.pdf> <D:/毕业相关/graduation 
+thesis/figures/chap03/mobile2mt_time.pdf> <D:/毕业相关/graduation thesis/fi
+gures/chap03/camera2mt_time.pdf> <D:/毕业相关/graduation thesis/figures/cha
+p03/synthetic2mt_time.pdf>])
+("D:\毕业相关\graduation thesis\chapter\chap04.tex" [41 <D:/毕业相关/gr
+aduation thesis/figures/chap03/records_time.pdf> <D:/毕业相关/graduation th
+esis/figures/chap03/attributes_time.pdf>]
 ������
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 16.
 
@@ -1798,9 +1959,9 @@ Overfull \hbox (1.19508pt too wide) in paragraph at lines 27--27
 []|\OT1/txr/m/n/10.54 25/29| 
  []
 
-[38
+[42
 
-] <../figures/chap04/workflow.pdf, id=1459, 1124.70187pt x 456.20438pt>
+] <../figures/chap04/workflow.pdf, id=1547, 1124.70187pt x 456.20438pt>
 File: ../figures/chap04/workflow.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/workflow.pdf>
@@ -1809,9 +1970,15 @@ Package pdftex.def Info: ../figures/chap04/workflow.pdf used on input line 36.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [39]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 45.
+ [43]
 
+LaTeX Warning: Citation `ektefa2011threshold' on page 44 undefined on input lin
+e 45.
+
+
+LaTeX Warning: Citation `gao2011web' on page 44 undefined on input line 45.
+
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 45.
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
@@ -1820,36 +1987,73 @@ LaTeX Font Info:    Font shape `OMS/txr/m/it' in size <12> not available
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 45.
 
+
+LaTeX Warning: Citation `Das2007A' on page 44 undefined on input line 47.
+
+
+LaTeX Warning: Citation `Blei2003Latent' on page 44 undefined on input line 47.
+
+
+
+LaTeX Warning: Citation `Landauer1998An' on page 44 undefined on input line 47.
+
+
+
+LaTeX Warning: Citation `Hofmann2013Probabilistic' on page 44 undefined on inpu
+t line 47.
+
+
 Underfull \vbox (badness 2913) has occurred while \output is active []
 
- [40 <D:/毕业相关/graduation thesis/figures/chap04/workflow.pdf>]
+ [44 <D:/毕业相关/graduation thesis/figures/chap04/workflow.pdf>]
+
+LaTeX Warning: Citation `Kim2012Method' on page 45 undefined on input line 49.
+
+
+LaTeX Warning: Citation `Wu2012Text' on page 45 undefined on input line 49.
+
+
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [41]
-[42]
+ [45]
+[46]
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 78.
 
 
 LaTeX Warning: File ot145.cmap not found on input line 95.
 
-[43]
+[47]
+
+LaTeX Warning: Citation `Kim2013Context' on page 48 undefined on input line 101
+.
+
+
 Underfull \vbox (badness 1681) has occurred while \output is active []
 
- [44]
-<../figures/chap04/exam.pdf, id=1592, 571.59244pt x 214.18318pt>
+ [48]
+<../figures/chap04/exam.pdf, id=1662, 571.59244pt x 214.18318pt>
 File: ../figures/chap04/exam.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/exam.pdf>
 Package pdftex.def Info: ../figures/chap04/exam.pdf used on input line 133.
 (pdftex.def)             Requested size: 418.96548pt x 156.99951pt.
 
+
+LaTeX Warning: Citation `Guo2010Record' on page 49 undefined on input line 140.
+
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [45]
+ [49]
+
+LaTeX Warning: Citation `sun2014fine' on page 50 undefined on input line 159.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46 <D:/毕业相关/graduation thesis/figures/chap04/exam.pdf>]
+ [50 <D:/毕业相关/graduation thesis/figures/chap04/exam.pdf>]
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 175.
 
@@ -1878,16 +2082,45 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.7> not available
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.5> not available
 (Font)              size <5> substituted on input line 177.
 
-[47]
+[51]
+
+LaTeX Warning: Citation `Sarwar2001Item' on page 52 undefined on input line 200
+.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48]
-[49]
+ [52]
+[53]
+
+LaTeX Warning: Citation `Aizawa2005A' on page 54 undefined on input line 257.
+
+
+LaTeX Warning: Citation `Christen2011A' on page 54 undefined on input line 257.
+
+
+
+LaTeX Warning: Citation `Borthwick2011Batch' on page 54 undefined on input line
+ 259.
+
+
+LaTeX Warning: Citation `Yang2015NokeaRM' on page 54 undefined on input line 26
+1.
+
+
+LaTeX Warning: Citation `Blei2003Latent' on page 54 undefined on input line 263
+.
+
+
+LaTeX Warning: Citation `Villarreal2011Topic' on page 54 undefined on input lin
+e 265.
+
+
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/pr.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<../figures/chap04/pr.pdf, id=1738, 356.71638pt x 257.5773pt>
+<../figures/chap04/pr.pdf, id=1797, 356.71638pt x 257.5773pt>
 File: ../figures/chap04/pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/pr.pdf>
@@ -1898,13 +2131,13 @@ Package pdftex.def Info: ../figures/chap04/pr.pdf used on input line 273.
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/carpr.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1
 .5> allowed
-<../figures/chap04/carpr.pdf, id=1739, 356.71678pt x 252.01762pt>
+<../figures/chap04/carpr.pdf, id=1798, 356.71678pt x 252.01762pt>
 File: ../figures/chap04/carpr.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/carpr.pdf>
 Package pdftex.def Info: ../figures/chap04/carpr.pdf used on input line 276.
 (pdftex.def)             Requested size: 211.68661pt x 149.55818pt.
- [50]
+ [54]
 Underfull \hbox (badness 1231) in paragraph at lines 314--314
 []|\OT1/txr/m/n/10.54 1. Com-mu-ni-ty Plan-ning well, u-nique
  []
@@ -1936,7 +2169,7 @@ Underfull \hbox (badness 1521) in paragraph at lines 318--318
 \OT1/txr/m/n/10.54 , air con-di-tion-ing, wa-
  []
 
-[51 <D:/毕业相关/graduation thesis/figures/chap04/pr.pdf> <D:/毕业相关/
+[55 <D:/毕业相关/graduation thesis/figures/chap04/pr.pdf> <D:/毕业相关/
 graduation thesis/figures/chap04/carpr.pdf>]
 Overfull \hbox (0.98653pt too wide) in paragraph at lines 334--334
 []|\OT1/txr/bx/n/10.54 Phrases| 
@@ -1992,12 +2225,12 @@ Overfull \hbox (5.05954pt too wide) in paragraph at lines 335--335
 []|\OT1/txr/m/n/10.54 ...| 
  []
 
-[52]
+[56]
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/f1.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<../figures/chap04/f1.pdf, id=1784, 173.11957pt x 95.26541pt>
+<../figures/chap04/f1.pdf, id=1840, 173.11957pt x 95.26541pt>
 File: ../figures/chap04/f1.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/f1.pdf>
@@ -2008,26 +2241,24 @@ Package pdftex.def Info: ../figures/chap04/f1.pdf used on input line 348.
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/time.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
 5> allowed
-<../figures/chap04/time.pdf, id=1785, 176.96875pt x 90.3369pt>
+<../figures/chap04/time.pdf, id=1841, 176.96875pt x 90.3369pt>
 File: ../figures/chap04/time.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/time.pdf>
 Package pdftex.def Info: ../figures/chap04/time.pdf used on input line 351.
 (pdftex.def)             Requested size: 211.68661pt x 108.06738pt.
 )
-("D:\毕业相关\graduation thesis\chapter\chap05.tex" [53 <D:/毕业相关/gr
+("D:\毕业相关\graduation thesis\chapter\chap05.tex" [57 <D:/毕业相关/gr
 aduation thesis/figures/chap04/f1.pdf> <D:/毕业相关/graduation thesis/figur
 es/chap04/time.pdf>]
 ������
-[54
+[58
 
 ]
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [55])
-("D:\毕业相关\graduation thesis\main\main.bbl" [56] [57
-
-] [58] [59])
+ [59])
+("D:\毕业相关\graduation thesis\main\main.bbl")
 ("D:\毕业相关\graduation thesis\chapter\pub.tex" [60]
 
 LaTeX Warning: Empty `publications' environment on input line 2.
@@ -2076,12 +2307,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 <<c1969.cmap>><<c1931.cmap>>) [63
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 223.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 223.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 222.
 
 ("D:\毕业相关\graduation thesis\main\main.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 223.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 223.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 222.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 222.
 
 
 Package rerunfilecheck Warning: File `main.out' has changed.
@@ -2089,8 +2320,8 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: A266B723188720526C9651576E7D68A2;9036
-(rerunfilecheck)             After:  0132F8B7A779454B673FC9F13944F880;4498.
+(rerunfilecheck)             Before: F2CD57457AF533841AF6CD24D36A84FD;10386
+(rerunfilecheck)             After:  24E7EB01655FFEA04C6689BD0B02455C;4368.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.5pt have occurred.
@@ -2099,111 +2330,73 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23468 strings out of 495354
- 376187 string characters out of 3183188
- 448171 words of memory out of 3000000
- 25135 multiletter control sequences out of 15000+200000
- 196962 words of font info for 573 fonts, out of 3000000 for 9000
+ 23615 strings out of 495354
+ 378875 string characters out of 3183188
+ 448609 words of memory out of 3000000
+ 25280 multiletter control sequences out of 15000+200000
+ 205913 words of font info for 597 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,20n,50p,1252b,1208s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{equation.3.4.13} has been referenced but does not
- exist, replaced by a fixed one
+ 41i,20n,51p,1252b,1138s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
+st, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.4.12} has been referenced but does not e
-xist, replaced by a fixed one
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
 
-pdfTeX warning (dest): name{equation.3.4.11} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.3.4.10} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.3.4.7} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{equation.3.4.6} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.5.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.5.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.5.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.5.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-<C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
-hei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/F
+<C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc>{D:/JobSoftware/CTEX/
+MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Windows/Fonts/simhei.ttf><C:/Windows
+/Fonts/simhei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:
+/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai
+.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Font
+s/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Wind
+ows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf>
+<C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/sim
+sun.ttc><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/F
 onts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/W
 indows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.t
-tf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/
+tf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/
 simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Window
-s/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simsun.ttc><C
-:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simka
-i.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fon
-ts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Win
-dows/Fonts/simhei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf
-><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/si
-mkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/
-Fonts/simsun.ttc>{D:/JobSoftware/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C
-:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simka
-i.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fon
+s/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C
+:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simka
+i.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fon
 ts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Win
 dows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf
 ><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/si
 mhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/
-Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/
+Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/
 Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.
 ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts
 /simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windo
 ws/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><
 C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sims
-un.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fo
+un.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fo
 nts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Wi
 ndows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.tt
 f><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/s
 imhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows
 /Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:
-/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun
+/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun
 .ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Font
 s/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Wind
 ows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc>
 <C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
-sun.ttc><C:/Windows/Fonts/simsun.ttc><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/pu
-blic/txfonts/rtxi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/rt
-xmi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxr.pfb><D:/Job
-Software/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/JobSoftware/CTEX/M
-iKTeX/fonts/type1/public/txfonts/txsy.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/typ
-e1/public/txfonts/txsyb.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfo
-nts/txsyc.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/
-JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSoftware/CTEX/M
-iKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (77 pages, 3266594 bytes).
+sun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><D:/JobSoftwa
+re/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxi.pfb><D:/JobSoftware/CTEX/MiKTeX/
+fonts/type1/public/txfonts/rtxmi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/pu
+blic/txfonts/rtxr.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/tx
+ex.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb><D:/JobS
+oftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyb.pfb><D:/JobSoftware/CTEX/M
+iKTeX/fonts/type1/public/txfonts/txsyc.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/ty
+pe1/urw/times/utmb8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmb
+i8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSof
+tware/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (77 pages, 3426202 bytes).
 PDF statistics:
- 2275 PDF objects out of 2487 (max. 8388607)
- 307 named destinations out of 1000 (max. 500000)
- 780 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2313 PDF objects out of 2487 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
+ 843 words of extra memory for PDF output out of 10000 (max. 10000000)
 
