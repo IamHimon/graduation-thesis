@@ -21,39 +21,25 @@
 \BOOKMARK [2][-]{subsection.3.2.4}{3.2.4 基于序列和位置特征的结果修正}{section.3.2}% 21
 \BOOKMARK [1][-]{section.3.3}{3.3 实验结果与分析}{chapter.3}% 22
 \BOOKMARK [1][-]{section.3.4}{3.4 本章小结}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.5}{3.5 预备工作}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.6}{3.6 基于非主属性区分度的实体匹配算法}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.7}{3.7 基于规则的概率决策树的实体匹配算法}{chapter.3}% 26
-\BOOKMARK [2][-]{subsection.3.7.1}{3.7.1 算法基本思路}{section.3.7}% 27
-\BOOKMARK [2][-]{subsection.3.7.2}{3.7.2 基于规则的概率决策树的构建}{section.3.7}% 28
-\BOOKMARK [2][-]{subsection.3.7.3}{3.7.3 实体匹配过程}{section.3.7}% 29
-\BOOKMARK [2][-]{subsection.3.7.4}{3.7.4 基于PRTree 的NokeaEM 算法复杂度分析}{section.3.7}% 30
-\BOOKMARK [2][-]{subsection.3.7.5}{3.7.5 基于PRTree 的NokeaEM 算法的扩充算法}{section.3.7}% 31
-\BOOKMARK [1][-]{section.3.8}{3.8 实验结果及分析}{chapter.3}% 32
-\BOOKMARK [2][-]{subsection.3.8.1}{3.8.1 参数设定}{section.3.8}% 33
-\BOOKMARK [2][-]{subsection.3.8.2}{3.8.2 与以往方法在匹配效果方面的比较}{section.3.8}% 34
-\BOOKMARK [2][-]{subsection.3.8.3}{3.8.3 与以往方法在匹配效率方面的比较}{section.3.8}% 35
-\BOOKMARK [2][-]{subsection.3.8.4}{3.8.4 算法的扩展性评估}{section.3.8}% 36
-\BOOKMARK [1][-]{section.3.9}{3.9 本章小结}{chapter.3}% 37
-\BOOKMARK [0][-]{chapter.4}{第四章 \040基于文本类型非主属性数据的实体匹配}{}% 38
-\BOOKMARK [1][-]{section.4.1}{4.1 问题定义}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{4.2 传统的文本数据处理方法}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.3}{4.3 数据分块算法}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.4}{4.4 基于IDF 的迭代式实体匹配算法}{chapter.4}% 42
-\BOOKMARK [2][-]{subsection.4.4.1}{4.4.1 Baseline算法的工作流程}{section.4.4}% 43
-\BOOKMARK [2][-]{subsection.4.4.2}{4.4.2 短语IDF 得分的迭代式更新}{section.4.4}% 44
-\BOOKMARK [1][-]{section.4.5}{4.5 基于短语共现的实体匹配算法}{chapter.4}% 45
-\BOOKMARK [2][-]{subsection.4.5.1}{4.5.1 共现图的构建}{section.4.5}% 46
-\BOOKMARK [2][-]{subsection.4.5.2}{4.5.2 PC-Graph的分割}{section.4.5}% 47
-\BOOKMARK [2][-]{subsection.4.5.3}{4.5.3 子主题及其权重的获取}{section.4.5}% 48
-\BOOKMARK [2][-]{subsection.4.5.4}{4.5.4 实体匹配过程}{section.4.5}% 49
-\BOOKMARK [1][-]{section.4.6}{4.6 实验结果及分析}{chapter.4}% 50
-\BOOKMARK [2][-]{subsection.4.6.1}{4.6.1 与以往方法在匹配效果方面的比较}{section.4.6}% 51
-\BOOKMARK [2][-]{subsection.4.6.2}{4.6.2 算法提取结果的评估}{section.4.6}% 52
-\BOOKMARK [2][-]{subsection.4.6.3}{4.6.3 算法的扩展性评估}{section.4.6}% 53
-\BOOKMARK [1][-]{section.4.7}{4.7 本章小结}{chapter.4}% 54
-\BOOKMARK [0][-]{chapter.5}{第五章 \040总结与展望}{}% 55
-\BOOKMARK [1][-]{section.5.1}{5.1 全文总结}{chapter.5}% 56
-\BOOKMARK [1][-]{section.5.2}{5.2 工作展望}{chapter.5}% 57
-\BOOKMARK [0][-]{chapter*.4}{攻读硕士学位期间发表的论文}{}% 58
-\BOOKMARK [0][-]{chapter*.5}{致 \040谢}{}% 59
+\BOOKMARK [0][-]{chapter.4}{第四章 \040基于文本类型非主属性数据的实体匹配}{}% 24
+\BOOKMARK [1][-]{section.4.1}{4.1 问题定义}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{4.2 传统的文本数据处理方法}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.3}{4.3 数据分块算法}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.4}{4.4 基于IDF 的迭代式实体匹配算法}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.4.1}{4.4.1 Baseline算法的工作流程}{section.4.4}% 29
+\BOOKMARK [2][-]{subsection.4.4.2}{4.4.2 短语IDF 得分的迭代式更新}{section.4.4}% 30
+\BOOKMARK [1][-]{section.4.5}{4.5 基于短语共现的实体匹配算法}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.5.1}{4.5.1 共现图的构建}{section.4.5}% 32
+\BOOKMARK [2][-]{subsection.4.5.2}{4.5.2 PC-Graph的分割}{section.4.5}% 33
+\BOOKMARK [2][-]{subsection.4.5.3}{4.5.3 子主题及其权重的获取}{section.4.5}% 34
+\BOOKMARK [2][-]{subsection.4.5.4}{4.5.4 实体匹配过程}{section.4.5}% 35
+\BOOKMARK [1][-]{section.4.6}{4.6 实验结果及分析}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.6.1}{4.6.1 与以往方法在匹配效果方面的比较}{section.4.6}% 37
+\BOOKMARK [2][-]{subsection.4.6.2}{4.6.2 算法提取结果的评估}{section.4.6}% 38
+\BOOKMARK [2][-]{subsection.4.6.3}{4.6.3 算法的扩展性评估}{section.4.6}% 39
+\BOOKMARK [1][-]{section.4.7}{4.7 本章小结}{chapter.4}% 40
+\BOOKMARK [0][-]{chapter.5}{第五章 \040总结与展望}{}% 41
+\BOOKMARK [1][-]{section.5.1}{5.1 全文总结}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.2}{5.2 工作展望}{chapter.5}% 43
+\BOOKMARK [0][-]{chapter*.4}{攻读硕士学位期间发表的论文}{}% 44
+\BOOKMARK [0][-]{chapter*.5}{致 \040谢}{}% 45

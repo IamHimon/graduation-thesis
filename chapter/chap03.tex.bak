@@ -83,22 +83,24 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 图~\ref{chap:chap03:fig:CNN_des}给出了我们构建的CNN分类模型的架构图，它的输入时一个文本段，输出一个关于所有可能的属性的概率向量。整体来看，我们的CNN模型包括特征输入层，嵌入层，卷基层，最大值池化层，全连接层和最后的Softmax分类器层。特征输入层接受一个输入文本段的特征矩阵，这个特征矩阵包含了丰富的句法和语义特征。嵌入层负责将这些特征值对应到相应的特征向量然后将他们合并在一起。然后我们在特征矩阵上执行卷积操作来提取关于输入文本段的特征，在这一步我们使用了不同大小的过滤核来在输入文本段上尽可能多的覆盖n-gram的文本范围，这样我们就可以生成多层次的，且不同尺寸的特征矩阵。然后，我们再使用最大值池化来对卷积层的结果进行标准化，使其最终都成为相同形状的特征矩阵，且这一步也是进一步抽取特征和降维的操作。池化层得到的特征矩阵再通过一个全连接层，就是一个普通的神经网络，做进一步的特征组合和推理。最终，我们使用Softmax分类器作为我们的输出层，为每一个输入文本段产生分类结果。更多的细节，可以去参考~\cite{sahu2016relation, kim2014convolutional}。
 
 \smallskip
-\noindent \underline{\it 特征:}我们为每个输入文本段都构造了一些列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，他的特征矩阵中包括了，提前训练的词向量 Word2vec， 文本段的位置信息，文本段在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种认为构造的归一化类别概率。下面给出每一个特征的详细介绍：
+\noindent \underline{\it 特征:}我们为每个输入文本段都构造了一些列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，他的特征矩阵中包括了，提前训练的词向量 Word2vec， 文本段的位置信息，文本段在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种人为构造的归一化类别概率。下面给出每一个特征的详细介绍：
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
-\item {\bf Word2Vec:} For word embedding, we use pre-trained word vector~\cite{muneeb2015evaluating} learned on Pubmed articles using word2vec tool ~\cite{mikolov2013distributed}, which is a very effective and powerful web embedding tool developed by Tomas Mikolov at Google.
+\item {\bf Word2Vec:} 对于词向量，我们直接使用文章~\cite{th2015evaluating}中用~\cite{mikolov2013distributed}词向量模型在Pubmed文章上提前训练好的词向量，这个词向量模型是由Tomas Mikolov在Google发明，我们在之前的章节有详细介绍。对于中文实验集，我们在自己的中文语料上使用Google的word2vec工具~\footnote{ https://code.google.com/archive/p/word2vec/}训练了一个词向量。
 
-\item {\bf Position in Segment:} This is the position that a word locates in the segment. We consider to use this feature based on the observation that some particular word usually appears at similar position in values of a certain attribute.
+\item {\bf 在文本段中位置特征:} 这个位置特征是指一个单词在输入文本段中的位置，我们之所以使用这个特征，是因为我们观察到，在一些特定的属性值中，一些特殊的词语会出现在相同的位置上。
 
-\item {\bf Position in Record:} This is the position that a word locates in the record, which is used since the position of a word in a text record sometimes is greatly relevant to the attribute it belongs to.
+\item {\bf 在输入文本中的位置特征:} 这个位置特征是指一个单词在原始输入文本中的位置，我们选择这个特征是因为一个单词在文本中的所在位置往往与它属于哪个属性有密切的关联，这个一个比较容易想到的特征项。
 
-\item {\bf Length of Segment:} This is the number of words in the segment. We use this feature given the fact that the average number of words in attribute values are various among different attributes.
+\item {\bf 文本段的长度:} 也就是文本段中单词的个数，使用这个特征是因为不同属性的属性值的平均长度往往是有差别的，这说明，文本段的长度是一个非常有区分性的特征。
 
-\item {\bf Parts of Speech Tag:} The PoS information is the process of marking up a word in a text as corresponding to a particular part of speech, based on both its definition and its context. Here we use GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/} to obtain pos tag of each word.
+\item {\bf 语法和词性标注特征(POS):} 构造POS特征的过程，对一句话中的每个单词，依赖这个单词的词性定义和上下文来给它标注一个标签，用以说明这个单词在这句话中的角色。这里，我们使用GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}来得到每个词的POS特征。
 
-\item {\bf Normalized Category Probability:} We use a function similar to Eq.~\ref{eq1} to calculate a probability vector $\vec{cp}$, each value of which denotes the probability that a word belonging to an attribute.
+\item {\bf 归一化类别概率:} 我们同样使用公式.~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量每一维的值表示一个单词属于某个属性的概率。
+    
 \end{enumerate} 
 
+\subsubsection{构建CNN分类模型}
 
 \subsection{输入文本的贪婪式概率标注}
 
