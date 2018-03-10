@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  9 MAR 2018 22:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  10 MAR 2018 18:39
 entering extended mode
 **main.tex
 ("D:\毕业相关\graduation thesis\main\main.tex"
@@ -898,6 +898,9 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 
 LaTeX Warning: Label `chap:chap03:fig:framework' multiply defined.
 
+
+LaTeX Warning: Label `theorem:1' multiply defined.
+
 )
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 94.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 94.
@@ -1097,7 +1100,7 @@ File: extended.enc 2008/12/29 4.8.2
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\cjk\extended.chr
 File: extended.chr 2008/12/29 4.8.2
 )
-<cover.pdf, id=186, page=1, 597.73312pt x 845.40843pt>
+<cover.pdf, id=190, page=1, 597.73312pt x 845.40843pt>
 File: cover.pdf Graphic file (type pdf)
  <use cover.pdf, page 1>
 Package pdftex.def Info: cover.pdf, page1 used on input line 138.
@@ -1126,7 +1129,7 @@ Non-PDF special ignored!
  <D:/毕业相关/graduation thesis/main/cover.pdf>]
 [2
 
-] <copyrightPage1.pdf, id=226, page=1, 597.55246pt x 845.07718pt>
+] <copyrightPage1.pdf, id=230, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage1.pdf Graphic file (type pdf)
 
 <use copyrightPage1.pdf, page 1>
@@ -1153,7 +1156,7 @@ Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 143.
  [3 <D:/毕业相关/graduation thesis/main/copyrightPage1.pdf>] [4
 
 ]
-<copyrightPage2.pdf, id=267, page=1, 597.55246pt x 845.07718pt>
+<copyrightPage2.pdf, id=271, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage2.pdf Graphic file (type pdf)
 
 <use copyrightPage2.pdf, page 1>
@@ -1284,7 +1287,7 @@ used, duplicate ignored
 l.1 \chapter
             {������ۼ�����} [5]
 �ڶ���
-<../figures/chap02/ner-features.jpg, id=505, 568.1225pt x 435.6275pt>
+<../figures/chap02/ner-features.jpg, id=510, 568.1225pt x 435.6275pt>
 File: ../figures/chap02/ner-features.jpg Graphic file (type jpg)
 
 <use ../figures/chap02/ner-features.jpg>
@@ -1332,7 +1335,7 @@ Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
- [8]<<c1981.cmap>> <../figures/chap02/word2vec_sample.png, id=528, 670.505pt x 
+ [8]<<c1981.cmap>> <../figures/chap02/word2vec_sample.png, id=533, 670.505pt x 
 181.67876pt>
 File: ../figures/chap02/word2vec_sample.png Graphic file (type png)
 
@@ -1344,7 +1347,7 @@ ne 54.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW.png, id=530, 497.86pt x 280.04625pt>
+<../figures/chap02/CBOW.png, id=535, 497.86pt x 280.04625pt>
 File: ../figures/chap02/CBOW.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW.png>
@@ -1354,7 +1357,7 @@ Package pdftex.def Info: ../figures/chap02/CBOW.png used on input line 62.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW_general.png, id=531, 443.6575pt x 548.0475pt>
+<../figures/chap02/CBOW_general.png, id=536, 443.6575pt x 548.0475pt>
 File: ../figures/chap02/CBOW_general.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW_general.png>
@@ -1374,83 +1377,13 @@ ation thesis/figures/chap02/CBOW_general.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-
-LaTeX Warning: Citation `freitag2000information' on page 12 undefined on input 
-line 93.
-
-
-LaTeX Warning: Citation `borkar2001automatic' on page 12 undefined on input lin
-e 93.
-
-
 Underfull \vbox (badness 2460) has occurred while \output is active []
 
- [12]
-
-LaTeX Warning: Citation `lafferty2001conditional' on page 13 undefined on input
- line 95.
-
-
-LaTeX Warning: Citation `peng2006information' on page 13 undefined on input lin
-e 95.
-
-
-LaTeX Warning: Citation `lafferty2001conditional' on page 13 undefined on input
- line 95.
-
-
-LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
-e 96.
-
-
-LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
-line 96.
-
-
-LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
- 96.
-
-
-LaTeX Warning: Citation `cortez2007flux' on page 13 undefined on input line 96.
-
-
-
-LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
-line 96.
-
-
-LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
-e 97.
-
-
-LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
- 97.
-
-
-LaTeX Warning: Citation `agichtein2004mining' on page 13 undefined on input lin
-e 97.
-
-
-LaTeX Warning: Citation `zhao2008exploiting' on page 13 undefined on input line
- 97.
-
-
-LaTeX Warning: Citation `mansuri2006integrating' on page 13 undefined on input 
-line 97.
-
-
-LaTeX Warning: Citation `michelson2007unsupervised' on page 13 undefined on inp
-ut line 101.
-
-<<c1974.cmap>>
+ [12]<<c1974.cmap>>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-
-LaTeX Warning: Citation `cortez2010ondux' on page 14 undefined on input line 10
-3.
-
-<../figures/chap03/framework.pdf, id=576, 451.6875pt x 619.31375pt>
+<../figures/chap03/framework.pdf, id=604, 451.6875pt x 619.31375pt>
 File: ../figures/chap03/framework.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/framework.pdf>
@@ -1476,23 +1409,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [16
 
 ]
-
-LaTeX Warning: Citation `cortez2010ondux' on page 17 undefined on input line 19
-.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-
-LaTeX Warning: Citation `cortez2010ondux' on page 18 undefined on input line 30
-.
-
-
-LaTeX Warning: Citation `zhao2008exploiting' on page 18 undefined on input line
- 30.
-
-<../figures/chap03/KB.pdf, id=619, 462.72874pt x 164.615pt>
+<../figures/chap03/KB.pdf, id=652, 462.72874pt x 164.615pt>
 File: ../figures/chap03/KB.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/KB.pdf>
@@ -1502,7 +1422,7 @@ Package pdftex.def Info: ../figures/chap03/KB.pdf used on input line 34.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap03/labelExample.pdf, id=620, 453.695pt x 217.81375pt>
+<../figures/chap03/labelExample.pdf, id=653, 453.695pt x 217.81375pt>
 File: ../figures/chap03/labelExample.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/labelExample.pdf>
@@ -1517,7 +1437,7 @@ Package CJKpunct Info: punctuation spaces for family 'zhkai' do not exist. Use
 family 'def' instead. on input line 52.
 [18] [19 <D:/毕业相关/graduation thesis/figures/chap03/KB.pdf> <D:/毕业�
 �关/graduation thesis/figures/chap03/labelExample.pdf>]
-<../figures/chap03/CNN_des.pdf, id=684, 1144.275pt x 450.9347pt>
+<../figures/chap03/CNN_des.pdf, id=717, 1144.275pt x 450.9347pt>
 File: ../figures/chap03/CNN_des.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/CNN_des.pdf>
@@ -1527,38 +1447,48 @@ Package pdftex.def Info: ../figures/chap03/CNN_des.pdf used on input line 78.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Citation `sahu2016relation' on page 20 undefined on input line 8
-4.
-
-
-LaTeX Warning: Citation `kim2014convolutional' on page 20 undefined on input li
-ne 84.
-
 [20]
-
-LaTeX Warning: Citation `th2015evaluating' on page 21 undefined on input line 9
-0.
-
 
 LaTeX Warning: Citation `mikolov2013distributed' on page 21 undefined on input 
 line 90.
 
-[21 <D:/毕业相关/graduation thesis/figures/chap03/CNN_des.pdf>]
-
-LaTeX Warning: File ot148.cmap not found on input line 115.
-
-[22]
-<../figures/chap03/candidate-Labels.pdf, id=754, 390.45876pt x 336.25626pt>
+[21 <D:/毕业相关/graduation thesis/figures/chap03/CNN_des.pdf>] [22]
+<../figures/chap03/candidate-Labels.pdf, id=792, 390.45876pt x 336.25626pt>
 File: ../figures/chap03/candidate-Labels.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/candidate-Labels.pdf>
 Package pdftex.def Info: ../figures/chap03/candidate-Labels.pdf used on input l
 ine 120.
 (pdftex.def)             Requested size: 352.81552pt x 303.8541pt.
-)
-("D:\毕业相关\graduation thesis\chapter\chap04.tex" [23 <D:/毕业相关/gr
-aduation thesis/figures/chap03/candidate-Labels.pdf>]
+ [23 <D:/毕业相关/graduation thesis/figures/chap03/candidate-Labels.pdf>]
+
+LaTeX Warning: File ot158.cmap not found on input line 152.
+
+[24]
+
+LaTeX Warning: Reference `alg:1' on page 25 undefined on input line 156.
+
+[25] <../figures/chap03/greedyLabelling.pdf, id=832, 450.68375pt x 303.1325pt>
+File: ../figures/chap03/greedyLabelling.pdf Graphic file (type pdf)
+
+<use ../figures/chap03/greedyLabelling.pdf>
+Package pdftex.def Info: ../figures/chap03/greedyLabelling.pdf used on input li
+ne 160.
+(pdftex.def)             Requested size: 352.81552pt x 237.3166pt.
+
+
+LaTeX Warning: Reference `alg:1' on page 26 undefined on input line 167.
+
+[26 <D:/毕业相关/graduation thesis/figures/chap03/greedyLabelling.pdf>]
+
+LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.54> not available
+(Font)              size <10.95> substituted on input line 190.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.54> not available
+(Font)              size <10.95> substituted on input line 190.
+
+) ("D:\毕业相关\graduation thesis\chapter\chap04.tex" [27]
 ������
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 16.
 
@@ -1568,14 +1498,6 @@ LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.5> not available
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.5> not available
 (Font)              size <10.95> substituted on input line 16.
-
-
-LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.54> not available
-(Font)              size <10.95> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.54> not available
-(Font)              size <10.95> substituted on input line 19.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--21
@@ -1692,9 +1614,9 @@ Overfull \hbox (1.19508pt too wide) in paragraph at lines 27--27
 []|\OT1/txr/m/n/10.54 25/29| 
  []
 
-[24
+[28
 
-] <../figures/chap04/workflow.pdf, id=785, 1124.70187pt x 456.20438pt>
+] <../figures/chap04/workflow.pdf, id=890, 1124.70187pt x 456.20438pt>
 File: ../figures/chap04/workflow.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/workflow.pdf>
@@ -1703,15 +1625,9 @@ Package pdftex.def Info: ../figures/chap04/workflow.pdf used on input line 36.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25]
-
-LaTeX Warning: Citation `ektefa2011threshold' on page 26 undefined on input lin
-e 45.
-
-
-LaTeX Warning: Citation `gao2011web' on page 26 undefined on input line 45.
-
+ [29]
 LaTeX Font Info:    Try loading font information for OMS+txr on input line 45.
+
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
@@ -1720,73 +1636,36 @@ LaTeX Font Info:    Font shape `OMS/txr/m/it' in size <12> not available
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 45.
 
-
-LaTeX Warning: Citation `Das2007A' on page 26 undefined on input line 47.
-
-
-LaTeX Warning: Citation `Blei2003Latent' on page 26 undefined on input line 47.
-
-
-
-LaTeX Warning: Citation `Landauer1998An' on page 26 undefined on input line 47.
-
-
-
-LaTeX Warning: Citation `Hofmann2013Probabilistic' on page 26 undefined on inpu
-t line 47.
-
-
 Underfull \vbox (badness 2913) has occurred while \output is active []
 
- [26 <D:/毕业相关/graduation thesis/figures/chap04/workflow.pdf>]
-
-LaTeX Warning: Citation `Kim2012Method' on page 27 undefined on input line 49.
-
-
-LaTeX Warning: Citation `Wu2012Text' on page 27 undefined on input line 49.
-
-
+ [30 <D:/毕业相关/graduation thesis/figures/chap04/workflow.pdf>]
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [27]
-[28]
+ [31]
+[32]
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 78.
 
 
 LaTeX Warning: File ot145.cmap not found on input line 95.
 
-[29]
-
-LaTeX Warning: Citation `Kim2013Context' on page 30 undefined on input line 101
-.
-
-
+[33]
 Underfull \vbox (badness 1681) has occurred while \output is active []
 
- [30]
-<../figures/chap04/exam.pdf, id=900, 571.59244pt x 214.18318pt>
+ [34]
+<../figures/chap04/exam.pdf, id=1023, 571.59244pt x 214.18318pt>
 File: ../figures/chap04/exam.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/exam.pdf>
 Package pdftex.def Info: ../figures/chap04/exam.pdf used on input line 133.
 (pdftex.def)             Requested size: 418.96548pt x 156.99951pt.
 
-
-LaTeX Warning: Citation `Guo2010Record' on page 31 undefined on input line 140.
-
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
-
-LaTeX Warning: Citation `sun2014fine' on page 32 undefined on input line 159.
-
-
+ [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32 <D:/毕业相关/graduation thesis/figures/chap04/exam.pdf>]
+ [36 <D:/毕业相关/graduation thesis/figures/chap04/exam.pdf>]
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 175.
 
@@ -1815,45 +1694,16 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.7> not available
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <0.5> not available
 (Font)              size <5> substituted on input line 177.
 
-[33]
-
-LaTeX Warning: Citation `Sarwar2001Item' on page 34 undefined on input line 200
-.
-
-
+[37]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34]
-[35]
-
-LaTeX Warning: Citation `Aizawa2005A' on page 36 undefined on input line 257.
-
-
-LaTeX Warning: Citation `Christen2011A' on page 36 undefined on input line 257.
-
-
-
-LaTeX Warning: Citation `Borthwick2011Batch' on page 36 undefined on input line
- 259.
-
-
-LaTeX Warning: Citation `Yang2015NokeaRM' on page 36 undefined on input line 26
-1.
-
-
-LaTeX Warning: Citation `Blei2003Latent' on page 36 undefined on input line 263
-.
-
-
-LaTeX Warning: Citation `Villarreal2011Topic' on page 36 undefined on input lin
-e 265.
-
-
+ [38]
+[39]
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/pr.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<../figures/chap04/pr.pdf, id=1035, 356.71638pt x 257.5773pt>
+<../figures/chap04/pr.pdf, id=1168, 356.71638pt x 257.5773pt>
 File: ../figures/chap04/pr.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/pr.pdf>
@@ -1864,13 +1714,13 @@ Package pdftex.def Info: ../figures/chap04/pr.pdf used on input line 273.
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/carpr.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1
 .5> allowed
-<../figures/chap04/carpr.pdf, id=1036, 356.71678pt x 252.01762pt>
+<../figures/chap04/carpr.pdf, id=1169, 356.71678pt x 252.01762pt>
 File: ../figures/chap04/carpr.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/carpr.pdf>
 Package pdftex.def Info: ../figures/chap04/carpr.pdf used on input line 276.
 (pdftex.def)             Requested size: 211.68661pt x 149.55818pt.
- [36]
+ [40]
 Underfull \hbox (badness 1231) in paragraph at lines 314--314
 []|\OT1/txr/m/n/10.54 1. Com-mu-ni-ty Plan-ning well, u-nique
  []
@@ -1902,7 +1752,7 @@ Underfull \hbox (badness 1521) in paragraph at lines 318--318
 \OT1/txr/m/n/10.54 , air con-di-tion-ing, wa-
  []
 
-[37 <D:/毕业相关/graduation thesis/figures/chap04/pr.pdf> <D:/毕业相关/
+[41 <D:/毕业相关/graduation thesis/figures/chap04/pr.pdf> <D:/毕业相关/
 graduation thesis/figures/chap04/carpr.pdf>]
 Overfull \hbox (0.98653pt too wide) in paragraph at lines 334--334
 []|\OT1/txr/bx/n/10.54 Phrases| 
@@ -1958,12 +1808,12 @@ Overfull \hbox (5.05954pt too wide) in paragraph at lines 335--335
 []|\OT1/txr/m/n/10.54 ...| 
  []
 
-[38]
+[42]
 
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/f1.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5>
  allowed
-<../figures/chap04/f1.pdf, id=1079, 173.11957pt x 95.26541pt>
+<../figures/chap04/f1.pdf, id=1218, 173.11957pt x 95.26541pt>
 File: ../figures/chap04/f1.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/f1.pdf>
@@ -1974,25 +1824,27 @@ Package pdftex.def Info: ../figures/chap04/f1.pdf used on input line 348.
 pdfTeX warning: pdflatex.exe (file D:/毕业相关/graduation thesis/figures/ch
 ap04/time.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.
 5> allowed
-<../figures/chap04/time.pdf, id=1080, 176.96875pt x 90.3369pt>
+<../figures/chap04/time.pdf, id=1219, 176.96875pt x 90.3369pt>
 File: ../figures/chap04/time.pdf Graphic file (type pdf)
 
 <use ../figures/chap04/time.pdf>
 Package pdftex.def Info: ../figures/chap04/time.pdf used on input line 351.
 (pdftex.def)             Requested size: 211.68661pt x 108.06738pt.
 )
-("D:\毕业相关\graduation thesis\chapter\chap05.tex" [39 <D:/毕业相关/gr
+("D:\毕业相关\graduation thesis\chapter\chap05.tex" [43 <D:/毕业相关/gr
 aduation thesis/figures/chap04/f1.pdf> <D:/毕业相关/graduation thesis/figur
 es/chap04/time.pdf>]
 ������
-[40
+[44
 
 ]
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [41])
-No file main.bbl.
-("D:\毕业相关\graduation thesis\chapter\pub.tex" [42]
+ [45])
+("D:\毕业相关\graduation thesis\main\main.bbl" [46] [47
+
+] [48] [49])
+("D:\毕业相关\graduation thesis\chapter\pub.tex" [50]
 
 LaTeX Warning: Empty `publications' environment on input line 2.
 
@@ -2024,20 +1876,20 @@ ng/m/n/12/51 c\OT1/txr/m/n/12 06\C19/zhsong/m/n/12/63 \OT1/txr/m/n/12 16\C19/z
 hsong/m/n/12/54 F\OT1/txr/m/n/12 ,
  []
 
-[43
+[51
 
-]) ("D:\毕业相关\graduation thesis\chapter\thanks.tex" [44]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                \hskip 12.0pt
-(hyperref)                replaced by space on input line 1.
-
+]) ("D:\毕业相关\graduation thesis\chapter\thanks.tex" [52]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 1.
 
-<<c1969.cmap>><<c1931.cmap>>) [45
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 12.0pt
+(hyperref)                replaced by space on input line 1.
+
+<<c1969.cmap>><<c1931.cmap>>) [53
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
@@ -2053,8 +1905,8 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 4B43631075EE3D2B488395A3568D7A85;7627
-(rerunfilecheck)             After:  CEAE346947F517463E879BA13E791E22;3259.
+(rerunfilecheck)             Before: F97C62A92AB794C8B40DC8B8A29D8EA8;7705
+(rerunfilecheck)             After:  5837D68CCDAF12D2397C24B0E2DCFB7B;3305.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.5pt have occurred.
@@ -2067,13 +1919,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23192 strings out of 495354
- 370486 string characters out of 3183188
- 441500 words of memory out of 3000000
- 25021 multiletter control sequences out of 15000+200000
- 198606 words of font info for 581 fonts, out of 3000000 for 9000
+ 23322 strings out of 495354
+ 372755 string characters out of 3183188
+ 443183 words of memory out of 3000000
+ 25082 multiletter control sequences out of 15000+200000
+ 200488 words of font info for 585 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,20n,51p,1244b,1137s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,21n,51p,2019b,1157s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -2081,19 +1933,19 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
 <C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
-hei.ttf>{D:/JobSoftware/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Windows
-/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:
-/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai
-.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Font
-s/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Wind
-ows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf>
-<C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
-kai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/F
+hei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/F
 onts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/W
-indows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simhei.t
+indows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.t
 tf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/
 simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Window
 s/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simsun.ttc><C
+:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simka
+i.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fon
+ts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Win
+dows/Fonts/simhei.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf
+><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/si
+mkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/
+Fonts/simsun.ttc>{D:/JobSoftware/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C
 :/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simkai.ttf><C:/Windows/Fonts/simka
 i.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fon
 ts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Windows/Fonts/simhei.ttf><C:/Win
@@ -2118,17 +1970,18 @@ s/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Wind
 ows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc>
 <C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/simsun.ttc><C:/Windows/Fonts/sim
 sun.ttc><C:/Windows/Fonts/simsun.ttc><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/pu
-blic/txfonts/rtxmi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/r
-txr.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/Job
-Software/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb><D:/JobSoftware/CTEX/M
-iKTeX/fonts/type1/public/txfonts/txsyb.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/ty
-pe1/public/txfonts/txsyc.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/
-utmb8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><D:/Jo
-bSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSoftware/CTEX/MiK
-TeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (59 pages, 2112250 bytes).
+blic/txfonts/rtxi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/rt
+xmi.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxr.pfb><D:/Job
+Software/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/JobSoftware/CTEX/M
+iKTeX/fonts/type1/public/txfonts/txsy.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/typ
+e1/public/txfonts/txsya.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfo
+nts/txsyb.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb>
+<D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/JobSoftware/CT
+EX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on main.pdf (67 pages, 2190781 bytes).
 PDF statistics:
- 1521 PDF objects out of 1728 (max. 8388607)
- 161 named destinations out of 1000 (max. 500000)
- 641 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1695 PDF objects out of 1728 (max. 8388607)
+ 224 named destinations out of 1000 (max. 500000)
+ 654 words of extra memory for PDF output out of 10000 (max. 10000000)
 

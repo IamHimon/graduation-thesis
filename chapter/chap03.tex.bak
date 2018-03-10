@@ -65,8 +65,9 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 这里，我们在分母使用加1的操作是为了防止分母出现为零的情况。 有了这个公式和我们定义的阈值 $\theta$ ，我们便能够在输入文本 $I$ 中标注出一些\emph{锚点块}了。因为，我们的方法的抽取质量和效率是对阈值 $\theta$ 敏感的，所以我们会通过后面的实验部分找到一个合适的阈值。
 
-注意，一个单独的属性值可能被分割成了两个或更多个文本块，比如图~\ref{chap:chap03:fig:labelExample}中，属性 $D$ 便有两个文本块 $d_1$, $d_3$。考虑到在一个输入文本中每个属性可能有一个属性值，所以，我们可以将这两个\emph{锚点块}和他们之间所有的词语都合并到一起。这里可能出现的一个冲突是，在一个属性的两个\emph{锚点块}之间出现了另一个属性的\emph{锚点块}，通常，一个合适的阈值 $theta$ 便可以避免出现这种冲突。但是，如果这种情况仍然存在，我们可以通过弃掉冲突\emph{锚点块}中得分更低的那个来解决这个问题。
-比如，给定图 ~\ref{chap:chap03:fig:labelExample}(a) 中的知识库， 对于一个图~\ref{chap:chap03:fig:labelExample}(b-1)中输入文本， 我们能够识别出下面这些\emph{锚点块}: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(b-2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的\emph{锚点块}, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图.~\ref{fig:2}(b-3)所示。
+注意，一个单独的属性值可能被分割成了两个或更多个文本块，比如图~\ref{chap:chap03:fig:labelExample}中，属性 $D$ 便有两个文本块 $d_1$, $d_3$。考虑到在一个输入文本中每个属性可能有一个属性值，所以，我们可以将这两个\emph{锚点块}和他们之间所有的词语都合并到一起。这里可能出现的一个冲突是，在一个属性的两个\emph{锚点块}之间出现了另一个属性的\emph{锚点块}，通常，一个合适的阈值 $\theta$ 便可以避免出现这种冲突。但是，如果这种情况仍然存在，我们可以通过弃掉冲突\emph{锚点块}中得分更低的那个来解决这个问题。
+
+例子一：给定图 ~\ref{chap:chap03:fig:KB} 中的知识库， 对于一个图~\ref{chap:chap03:fig:labelExample}(1)中输入文本， 我们能够识别出下面这些\emph{锚点块}: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的\emph{锚点块}, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图~\ref{chap:chap03:fig:labelExample}(3)所示。
 
 
 \subsection{基于卷积神经网络模型的构建和文本块的标注}
@@ -96,13 +97,65 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 \item {\bf 语法和词性标注特征(POS):} 构造POS特征的过程，对一句话中的每个单词，依赖这个单词的词性定义和上下文来给它标注一个标签，用以说明这个单词在这句话中的角色。这里，我们使用GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}来得到每个词的POS特征。
 
-\item {\bf 归一化类别概率:} 我们同样使用公式.~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量每一维的值表示一个单词属于某个属性的概率。
-    
-\end{enumerate} 
+\item {\bf 归一化类别概率:} 我们同样使用公式~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量每一维的值表示一个单词属于某个属性的概率。
+
+\end{enumerate}
 
 \subsubsection{构建CNN分类模型}
+虽然CNN分类器可以直接输出一个输入文本段属于各个属性的概率值，因为已经存在标注了的\emph{锚点块}的位置，所以每个输入文本段只会有几个可能的候选属性，因此，对于CNN分类器的结果，有些概率中是用不着的。例如，在图~\ref{chap:chap03:fig:labelExample}(3)中，文本段 $a_3$ 只可能属于属性 $A$， $B$ 和 $E$
+中的一个，因为我们已经有了属性为 $C$，$D$ 和 $F$ 的\emph{锚点块}，且这些\emph{锚点块}都在文本段$a_3$的非邻接位置。我们在图~\ref{chap:chap03:fig:candidate-Labels}列出了其他文本段的所有候选属性列表，其中已经得到的\emph{锚点块}只有一个候选属性。
+
+对一个文本段 $s$ ，另 $\mathbf{A}_c(s)$ 表示一组候选属性，$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ 表示$s$ 的CNN模型的输出结果，则文本段$s$ 属于一个候选属性 $A \in \mathbf{A}_c(s)$ 的概率用下面的公式计算得到：
+\begin{equation}
+\label{eq:2}
+p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
+\end{equation}
+这里 $i(A)$ 表示属性 $A$ 在属性列 $\mathbb{A}$ 中的下标。对于每一个输入文本段，我们都可以使用公式~\ref{eq:2}计算得到它属于每个候选属性的概率值。
+
+例子二：图~\ref{chap:chap03:fig:candidate-Labels}中列出了例子一基于CNN模型得到的各未标注文本段的属于各候选属性的概率值。对于文本段 $a_3$ ，假设它原始的CNN模型输出的概率向量是  $[0.567, $ $0.067, 0.199, 0.133, 0.033]$ ， 因为 $a_3$ 只可能属于属性 $A$，$B$ 或者 $E$ 。因此，我们能计算出文本段 $a_3$ 属于 $A$ 的概率为：$p(a_3, A) = \frac{0.567}{0.567+0.067+0.033} = 0.85$ ，相同的，我们可以计算出属于 $B$ 和 $E$ 的概率 $p(a_3, B)=0.1$ 和 $p(a_3, E)=0.05$。
+
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/candidate-Labels.pdf}\\
+  \smallcaption{例子中文本段的候选属性值和基于CNN模型的变换概率值}
+  \label{chap:chap03:fig:candidate-Labels}
+\end{figure}
+
 
 \subsection{输入文本的贪婪式概率标注}
+尽管我们的CNN模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要整体考虑整个文本的分割和标注状态，事实上，我们期待去找了一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN的受限分割式信息抽取}(Constrained CNN-IETS Problem)：
+
+\begin{definition}
+({\bf Constrained CNN-IETS Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做分割式信息抽取任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
+%
+每一个文本段 $s_i \in S$ 都有一组候选属性标签 $\mathbf{A}_c(s)$，则\emph{基于CNN的受限的分割式信息抽取}任务的目的是最大化下面这个方程式：
+
+\begin{equation}
+\label{eq:3}
+Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
+\end{equation}
+, 这里 $A_s \in \mathbf{A}_c(s)$ 是 $s$ 的一个可选属性标签， 所谓\emph{受限}是指，对于任何不相邻的文本段 $s_a \in S(I)$ 和 $s_b \in S(I)$，他们的可选属性标签 $A_{s_a} \neq A_{s_b}$ ，除非他们之间的所有文本段都具有相同的可选属性标签。
+
+\end{definition}
+
+但是，这中基于CNN模型结果的受限的分割式信息抽取问题(Constrained CNN-IETS Problem)是一个NP-hard问题，我们给出下面的定义：
+
+\begin{theorem}
+\label{theorem:1}
+基于CNN的受限的分割式信息抽取问题是一个NP-hard问题。
+\end{theorem}
+
+\begin{proof}
+首先，我们假设输入文本中一个没有任何\emph{锚点块}的属性称作\emph{自由属性}(Free-Attribute)，如果在这个输入文本中存在属性值，则它可能出现在这段文本中任何没有标记的位置上。假设，这个输入文本中有 $n$ 个自由属性，我们可以将我们的基于CNN的受限的分割式信息抽取问题约简地看做是旅行商问题(Travelling SalesMan problem，TSP)。另 $V$ 表示一组城市, $A=\{(r,s):r,s\in V\}$ 表示城市之间的路径，$C(r, s)=C(s, r)$ 表示城市 $r$ 和城市 $s$ 之间的路程费用，旅行商问题(TSP)是最基本的路线规划问题，就是找到最小的路程总费用而访问完所有城市。
+
+我们可以将我们的问题简化成为旅行商问题(TSP)：将我们的问题中的 $n$ 个自由属性看做旅行商问题中的那一组城市 $V$ ，将公式~\ref{eq:3}中的 $p(s, A_s)$ 看做是与边 $(A_c, A_s)$ 相关的路费计算方式，当且仅当 $A_c$ 是第 $i$ 次出发的城市。然后，我们的问题就是找到最大的路程总费用而访问完所有城市。因此，我们可以发现，基于CNN的受限的分割式信息抽取问题跟旅行商问题一样，在旅行商问题中需要去全排列列出来所有可能的路线，然后找到最小化花费的旅行路线，我们的是要全排列列出所有可能的文本段组合方式，找到最大概率值得标注方式。于是，理论~\ref{theorem:1}得证。
+
+\end{proof}
+
+但是，列出所有可能的文本段组合方式是一个很不合实际的方式，因为，(1)因为未标注的文本段个数很多，用全排列会产生大量的组合结果，很多组合结果完全没有考虑\emph{锚点块}的位置，是完全没有意义的，这增加了整体标注错误的几率， (2)得到如此多组合结果，处理起来会花费大量的时间，这种方式效率上会大受影响。为了解决这些问题，我们提出了一种\emph{贪婪式概率标注算法}，这个算法基于每个文本段属于所有候选属性的概率值，然后寻找到一个对于当前输入文本的尽可能接近最佳的标注结果。在算法~\ref{alg:1}中详细介绍了这种贪婪式的标注算法：对于一个输入文本 $I$ ，另 $S(I)=\{s_1, s_2, ..., s_m\}$ 表示从文本 $I$ 中分割得到的所有文本段，最开始，一部分这些文本段被定义为\emph{锚点块}，对于剩下的未标注的文本段，我们以一种贪婪的模式来标注他们。首先，我们在输入文本中寻找有没有存在相邻的\emph{锚点块}，比如图~\ref{chap:chap03:fig:labelExample}(2)中的点块 $b_1b_2$ 和点块 $c_1$ ,如果找到了，我们便可以将输入文本分割成两部分，比如像图~\ref{chap:chap03:fig:labelExample}(3)中的这条分割线。然后，对于每一个分区，基于CNN模型的输出概率向量，使用公式~\ref{eq:2}，我们便可以计算出来每个文本块属于它的所有候选属性的概率值。在这些所有未标注的文本块中，每一次我们只贪婪地选择一个出来进行标注，记做$s_c$ ，这个选出来的文本段的概率应该是剩下这一分区中未标注文本段中概率值最高的那一个。然后，我们根据概率值为文本段 $s_c$ 标注上对应属性，记做 $A_c$，然后，我们立即检测是不是存在一个非邻接的文本段 $s'$ ，且这个文本段 $s'$ 也已经具有属性 $A_c$ ，如果出现这种情形，我们需要检查 $s'$ 和 $s_c$ 之间是不是已经存在标注了其他属性的文本段，如果，这种情况出现了，我们便取消这次对 $s_c$ 的标注，然后重新选择具有第二高概率值的文本段来进行相同的标注。如果这种情形没有发生，我们需要将 $s'$ 和 $s_c$ 之间所有的文本段合并形成一个新的文本段，且标注为 $A_c$ 。我们重复执行这个过程，直到输入文本 $I$ 中没有可以被标注的文本段为止。注意，在这个过程中，我们定义了一个阈值 $\lambda$ 来防止产生低质量的标注。
+
+
 
 \subsection{基于序列和位置特征的结果修正}
 
@@ -113,506 +166,3 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 
 
-
-对于给定两个关系表$T_1=\{t_1,t_2,...,t_n\}$ 和$T_2= \{s_1,s_2,...,s_m\}$，$T_1$ 中的每一个实体$t_i\in T_1  (1 \leq i \leq n)$，$T_2$ 中的每一个实体$s_j\in T_2 (1 \leq j \leq m)$，实体匹配旨在发现两个表间表示同一实体的实体对$(t_i,s_j)$。以往的实体匹配方法主要是使用主属性的值，依赖于一些字符串相似度函数（如编辑距离）以及一个相似度阈值决定两个表中的实体是否匹配。其形式化表示如下所示：设定$A_0$ 是表$T_1$ 和表$T_2$ 的主属性，给定一个字符串相似度函数$sim(\cdot, \cdot)$，以及一个相似度阈值$\theta$，对于实体对$(t_i, s_j)$，如果满足$sim(t_i [A_0], s_j [A_0]) \geq \theta$，则$t_i$ 和$s_j$ 为同一实体。
-
-然而，仅仅使用主属性值判定实体对是否匹配是不够的，因为主属性值通常具有多种表现形式，如姓名为“Li Hua” 的实体和姓名为“Hua Li”的实则表示同一个人。又或是主属性值直接无法使用，如丢失数据和噪声数据。本章中，我们使用结构化非主属性值进行实体匹配。假定表$T_1$ 和表$T_2$ 具有相同的非主属性集合$S_{NK}  = \{A_1, A_2, ..., A_p\}$，使用非主属性进行实体匹配的定义如下：
-
-\begin{definition}
-非主属性的实体匹配(EM with Non-Key Attributes (NokeaEM))：给定两个数据表$T_1  = \{t_1, t_2, ..., t_n \}$ 和$T_2= \{s_1, s_2, ..., s_m \}$，二者具有相同的结构化非主属性集合$S_{NK}=\{A_1, A_2, ..., A_p \}$，NokeaEM 问题旨在找到一个基于$S_{NK}$ 的函数$F(t_i,s_j )$ 和一个相似度阈值$\tau$，使得$\forall t_i \in T_1$ ($1\leq i \leq n$)， $\forall s_j \in T_2$ ($1\leq j \leq m$)，$(t_i,s_j)$ 为指向同一实体的实体，当且仅当它们满足：
-\begin{enumerate}[(1)]
-\item $F(t_i,s_j) \geq \tau$；
-\item $\forall s_k \in T_2, F(t_i,s_j) \geq F(t_i,s_k)$
-\end{enumerate}
-\end{definition}
-
-\section{预备工作}
-使用结构化非主属性进行实体匹配并非易事，其中面临着众多困难与挑战。与主属性相比，结构化非主属性中存在更多的噪声值，而且数据间的不一致问题更为严重。通常情况下数据集中的结构化非主属性个数要比主属性个数多，使得基于非主属性的匹配算法存在着严重的匹配效率问题。当使用结构化非主属性进行实体匹配时至少面临三个挑战：
-
-（1）非主属性选择：面对众多的结构化非主属性，需要考虑如何对每一个结构化非主属性识别一实体不同于其它实体的能力进行评估，从而选择识别能力高的结构化非主属性进行匹配。
-
-（2）噪数据以及丢失数据的影响：结构化非主属性中可能存在噪数据和丢失数据，这些噪数据和丢失数据影响实体匹配的结果，因此如何处理数据集中的噪数据和丢失数据也是一个很大的问题。
-
-（3）实体匹配效率问题：基于结构化非主属性的实体匹配方法与传统的只使用主属性的实体匹配方法相比，它的时间开销要多出很多倍，因为基于结构化的实体匹配方法需要比较更多的非主属性值。
-
-我们发现文献\cite{Wang2012Can}与本章的工作很相似，提出了一种基于树结构的方法进行实体匹配，该方法使用结构化非主属性创建类似于决策树的Matching tree 进行实体匹配，Matching tree 是一种基于0-1结构的二分树，通过一定的概率计算方式选择属性作为Matching tree 的节点，然后从根节点到叶节点遍历进行匹配，但是这种方法存在适用性问题，当属性值出现缺失时，此次的匹配过程便无法正常进行。但是本章提出的方法却能很好的处理该问题，在遍历过程中若出现缺失值就会产生独立的分支，继续遍历具有缺失值属性下的其它节点，进行后续的匹配。此外，Matching tree-based 方法没有考虑Matching tree 中不同层次的结构化非主属性对匹配结果的影响程度，而粗糙地将靠近根节点的结构化非主属性给予较大的权重，将靠近叶子节点的结构化非主属性对匹配结果给予较小的权重，但实际情况中应该根据节点所在的层次给予合适的权重分配。本章提出的基于结构化非属性的概率决策树的实体匹配算法通过平衡函数合理地分配非主属性的权重，解决了上述问题。
-
-\section{基于非主属性区分度的实体匹配算法}
-
-基于非主属性区分度的实体匹配算法（baseline 算法）主要考虑使用结构化非主属性区分一实体不同于其他实体的能力，结构化非主属性的这种能力被定义为属性的区分度得分（Differentiation Degree Score，简称difScore）。属性的difScore 大致上反应了该结构化非主属性下的属性值分布情况。例如，在没有重复实体的情况下数据表中主属性值都是不同的，因此主属性具有最高的difScore 也即是$1.0$。 通过分析可以发现，在表~\ref{tmallTable}中结构化非主属性“Size”具有较高的difScore，因为该非主属性值的分布比较多样，而非主属性“RAM”则具有一个相对较低的difScore。结构化非主属性$A_i(1 \leq i \leq p)$ 的difScore 具体计算方法如下所示：
-\begin{equation}
-difScore(A_i, T) = \frac {distinct(A_i, T)}{|T|}
-\end{equation}
-其中$|T|$ 表示数据集$T$ 中实体的总个数，$distinct(A_i, T)$ 表示结构化非主属性$A_i$ 下不同的属性值个数。
-%
-当获得关系表中每个结构化非主属性的difScore 后， 使用如下的公式计算实体$t\in T_1$ 和$s\in T_2$ 之间的相似度：
-\begin{equation}
-\mathcal{F}_{baseline}(t,s) = \frac { \sum_{A \in S_{NK}} (difScore(A) \times sim(t[A],s[A]))}  {\sum_{A \in S_{NK}} difScore(A)}
-\end{equation}
-其中$S_{NK}$ 表示两表中共同的非主属性集合，$t[A]$、$s[A]$ 分别表示实体$t$ 和$s$ 在非主属性$A$ 下的属性值，$sim(t[A],s[A])$ 是指属性值$t[A]$ 和$s[A]$ 之间的相似度。
-
-然而，通过实验发现，本章提出的baseline 算法只能识别出一半左右的匹配实体（大约45-55\%的召回率）。通过分析发现其原因是：一方面，difScore 并不能完全反应非主属性的区分度，因为该度量方式并未考虑属性之间的组合关系；另一方面，丢失数据影响了相似度的计算。更为重要的是baseline算法的复杂度为$O(pnm)$， 其中$| T_1| = n$, $|T_2| = m$，$|S_{NK}| = p$。
-
-\section{基于规则的概率决策树的实体匹配算法}
-
-为了解决baseline 算法中的问题，考虑到决策树能够提高效率以及表示节点重要性的优点，具体体现在树中的每一个节点都有机会对输入的数据做出最终的决策，而且不同层次的节点具有不同的重要性，本章提出了一个更高级的基于树结构的实体匹配算法，该算法使用结构化非主属性建立基于规则的概率决策树（Probabilistic Rule-based Decision Tree，简称PRTree）进行实体匹配，期望能够在尽可能早的时间内获取匹配实体对或者排除不匹配实体对。通过PRTree 可以很好地克服baseline 算法的缺陷，因为该结构既考虑了非主属性之间的组合关系，又不易受缺失值的影响。接下来，首先介绍该算法的基本思路，然后具体介绍如何使用非主属性建立PRTree，并给出使用该PRTree 的NokeaEM 算法，最后通过实验与其他已有实体匹配算法比较验证baseline 算法和PRTree 算法的效果。
-
-\subsection{算法基本思路}
-\label{chap3:intuition}
-对于给定的实体对$t_i\in T_1$，$s_j\in T_2 (1 \leq i \leq n, 1 \leq j \leq m)$，它们的匹配结果是由其各个非主属性下的属性值是否匹配所决定的。考虑到不同的非主属性在唯一确定实体能力上的不同，本章考虑选择一组具有最高决策能力的属性集进行实体匹配。此外，为了尽可能地减少实体匹配的匹配开销，我们期望能够尽早发现匹配的实体或者尽早排除那些不匹配实体，因此创建了一种具有类似于决策树结构特征的结构进行实体匹配，将各个非主属性放入决策树的不同节点中对实体进行逐层联合判定最终确定匹配结果；此外，通过分析发现非主属性集中各个非主属性在决定匹配结果时并不是相互独立的，而是存在层次上的相互依赖关系，因此在创建PRTree 的过程中以及使用PRTree 进行匹配时还需要考虑非主属性之间的依赖度。
-
-我们对这种依赖关系进行了可视化分析，如图~\ref{chap:chap03:fig:attributRelation}所示，实体的匹配结果$R$  是由非主属性集$S=\{A_1, A_2, ..., A_5\}$ 中的属性共同决定的。以路线1为例，可以发现属性$A_2$ 的结果是在属性$A_1$ 的条件下而得到的，而属性$A_4$ 的结果是在属性$A_2$ 的条件下而得到的，其他属性以此类推。最终所得结果是在以上各步的结果基础上综合作用得到的。
-
-\begin{figure}[!htp]
-  \centering
-  \includegraphics[width=0.65\textwidth]{../figures/chap03/relation.pdf}\\
-  \smallcaption{属性间的相关性}
-  \label{chap:chap03:fig:attributRelation}
-\end{figure}
-
-为了方便起见，我们使用非$0$即$1$的方式表示实体$t_i$ 与$s_j$ 的匹配结果，其形式化表示为：
-\begin{equation}
-\label{results}
-R=
-   \begin{cases}
-   1, &\mbox{if $t_i=s_j$}\\
-   0, &\mbox{otherwise}
-   \end{cases}
-\end{equation}
-此外，我们用$M_k(1 \leq k \leq p)$ 表示实体所在非主属性组合下的第{\it k} 个非主属性对于匹配结果$R$ 的一个贡献，如果二者具有相同或者相似的值则认为是一个正的贡献，否则认为是一个负的贡献。具体计算方式如下所示：
-\begin{equation}
-M_k=
-   \begin{cases}
-   1, &\mbox{if $t_i[A_k]=s_j[A_k]$}\\
-   0, &\mbox{otherwise}
-   \end{cases}
-\end{equation}
-
-对于关系表中的非主属性的集合$S_{NK}  = \{A_1,A_2,…,A_p \}$，实体间的匹配结果可通过条件概率进行量化，其概率可通过贝叶斯条件概率进行评估，其公式如下所示：
-\begin{equation}
-p(S_{NK}) = Pr(R=1|S_{NK}) = \frac{Pr(S_{NK}|R=1)Pr(R=1)}{Pr(S_{NK}|R=1)Pr(R=1)+Pr(S_{NK}|R=0)Pr(R=0)}
-\end{equation}
-
-\subsection{基于规则的概率决策树的构建}
-
-为了便于展示PRTree 的构建过程以及如何在创建的PRTree上进行实体匹配，我们我们给出了数据集的部分数据，如表~\ref{treeTamllTable}和表~\ref{treePconlineTable} 所示。
-
-\begin{table}[!htb]
-\smallcaption{来自天猫（Tmall）中的手机信息}
-\small
-\centering
-\label{treeTamllTable}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-%{|m{0.38cm}|m{1.6cm}|m{1.9cm}|m{1.2cm}|m{1.2cm}|m{1.1cm}|m{1.1cm}|m{1.6cm}|m{0.6cm}|}
-\hline
-& Product Name & Manufacturer & Size & RAM & Release & Type & OS & ... \\
-\hline
-t1 &  w2013 & SAMSUNG & 3.7 inches & 1GB & 2013.04 & Flip & Android 4 & ...\\
-\hline
-t2 &  8295 & Coolpad & 4.7 inches & 1GB & 2013.01 & Bar & Android 4.1& ...\\
-\hline
-t3 &  MX\uppercase\expandafter{\romannumeral2} & MeiZu & 4.4 inches & 2GB & 2012.12 & Bar & Flyme 2 & ...\\
-\hline
-t4 &  Ericsson U1 & Sony & 3.5 inches & 512MB & 2009.10 & Bar & S60V5 & ...\\
-\hline
-t5 &  4S & Apple & 3.5 inches & 512MB  & 2011.01 & Bar & IOS 5& ...\\
-\hline
-t6 &  A880 & Lenove & 6 inches & 1GB & 2013.04 & Bar & Android 4.2& ...\\
-\hline
-t7 & Ascend M2 & HuaWei & 6.1 inches & 2GB & 2014.03 & Bar & Android 4.3 & ...\\
-\hline
-t8 &  S930 & Doov & 2.8 inches & 512MB & 2010.09 & Slide & ~~~~~~-& ... \\
-\hline
-t9 &  G9098 & SAMSUNG & 3.67 inches & 2GB & 2014.09 & Bar & Android 4.3 & ...\\
-\hline
-t10 &  8730L & Collpad & 5.5 inches & 1GB & 2012.05 & Bar & Android 4.3& ...\\
-\hline
-... &  ... & ... & ... & ... & ... & ... & ...& ...\\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[!htb]
-\smallcaption{来自太平洋电脑（Pconline）中的手机信息}
-\small
-\centering
-\label{treePconlineTable}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-%{m{0.38cm}|m{1.6cm}|m{1.9cm}|m{1.2cm}|m{1.2cm}|m{1.1cm}|m{1.1cm}|m{1.6cm}|m{0.6cm}}
-\hline
- & Product Name & Manufacturer & Size &  RAM & Release & Type & OS & ... \\
-\hline
-s1 & Galaxy w2013  & SAMSUNG & 3.7 '' & 1GB & 2013-04 &  Flip & Android 4.0  & ...\\
-\hline
-s2 &   8295 & Coolpad & 4.7 '' &  ~~- & 2013-01 & Bar & Android 4.1 & ...\\
-\hline
-s3 &  Meizu MX2 & MeiZu & 4.5 '' & 2.0G &2012-04 & ~~- & Flyme 2.0 & ...\\
-\hline
-s4 &  3s &  XIAOMI & 5.1 '' & 3G &  ~~~~-  & Bar & MIUI V5 & ...\\
-\hline
-s5 &  IPhone 4s & Apple & ~~-  & 512MB & 2011-10 & Bar & IOS 5.0 & ...\\
-\hline
-s6 & A880 & Lenove & 6.0 '' & 1G & 2013-04 & Bar & Android 4.1 & ...\\
-\hline
-s7 &  Mate2 & HuaWei & 6.1 '' & 2GB & 2014-03 & Bar & Android 4.3& ...\\
-\hline
-s8 &  S930 & Doov & 2.8 '' & 512M & 2010-09 & Slide & ~~~~~~-& ... \\
-\hline
-s9 &  8730L & Coolpad & ~~-  & 1G & 2012-05 & Bar & Android 4.3 & ...\\
-\hline
-... &  ... & ... & ... & ... & ... & ... & ...& ...\\
-\hline
-\end{tabular}
-\end{table}
-
-基于第~\ref{chap3:intuition}节的分析，我们给出PRTree 的理论依据：（1）决策树的结构有利于减少实体匹配过程中使用的属性数目，进而减少匹配的时间开销；（2）贝叶斯概率决策树能够反应具有一定决策能力的非主属性之间的依赖关系；（3）不同的非主属性在匹配过程中具有不同的决策能力，表现为非主属性的两个重要性质，即决策匹配的充分性（Sufficiency）以及决策匹配的必要性（Necessity），其定义如下：
-\begin{definition}
-\label{chap3:def2}
- 决策匹配的充分性和必要性（Sufficiency and Necessity）：对于给定的两个关系表$T_1  = \{t_1,t_2,...,t_n\}$ 和$T_2= \{s_1,s_2,...,s_m\}$，假定二者具有相同的非主属性集合$S$，属性$A_k \in  S(1 \leq k \leq p)$ 的充分性概率是指当满足$t_i[A_k]=s_j[A_k]$ 时，实体$t_i\in T_1  (1 \leq i \leq n)$和$s_j \in T_2(1 \leq j \leq m)$ 为同一实体的概率，而属性$A_k$的必要性概率是指当$t_i$ 和$s_j$ 为同一实体时，也即当$t_i=s_j$ 时，$t_i[A_k]=s_j[A_k]$ 的概率。
-\end{definition}
-
-非主属性的充分性特性和必要性特性在构建PRTree 时起着重要的决定作用，非主属性的充分性反应了属性识别匹配实体的能力，即当实体的非主属性值相同时，能够在多大概率上判定其所对应的实体为同一实体；而非主属性的必要性则反应了属性排除不匹配实体的能力，即当实体对表示为同一实体时，实体对在某一属性上也具备相同或相似属性值的概率。
-
-根据定义~\ref{chap3:def2}所述，属性的充分性概率和必要性概率可通过训练得到，其中训练集中的已知两个数据表中匹配的实体对，其定义为($Tr_1$, $Tr_2$)。 假定训练集中的数据分布接近于实体匹配的两个真实数据表，则我们可以得到充分性特性和必要性特性的计算公式如下：
-\begin{equation}
-\label{formula:suf}
-suf(A_k) = \sum\limits_{\{(t_i, s_j)|Tr_{c}\}}
-\frac {{B(t_i=s_j \mid t_i[A]=s_j[A])}}{
-B(t_i=s_j \mid  t_i[A]=s_j[A]) + B(t_i\neq s_j \mid t_i[A]=s_j[A])}
-\end{equation}
-
-\begin{equation}
-\label{formula:nec}
-nec(A_k) = \sum\limits_{\{(t_i, s_j)|Tr_{c}\}}
-\frac {{B(t_i[A]=s_j[A] \mid  t_i=s_j)}}{
-B(t_i[A]=s_j[A] \mid  t_i=s_j) + B(t_i[A] \neq s_j[A] \mid  t_i=s_j)}
-\end{equation}
-其中，函数$B(bool_1|bool_2)$ 为布尔函数，其具体表示如下所示：
-\begin{equation}
-\label{formula:bool}
-B(bool_1| bool_2)=
-   \begin{cases}
-   1, &\mbox{if $bool_2=$TRUE and $bool_1=$TRUE }\\
-   1, &\mbox{if $bool_2=$TRUE and $bool_1=$FALSE }\\
-   0, &\mbox{if $bool_2=$FALSE}
-   \end{cases}
-\end{equation}
-其中，$Tr_c$ 是一个在建立PRTree 的不同阶段中动态改变的限制集，其初始化为：$Tr_c=\{(t_i,s_j)|t_i\in Tr_1,s_j\in Tr_2\}$。
-
-下面我们将详细讨论如何建立PRTree 匹配树结构。根据上节中的描述，实体对的相似度计算需要考虑属性间的相互依赖关系，因此我们并不是一次找出top-k 个具有较大difScore 的非主属性作为概率决策树上的非主属性节点，而是使用贪心算法，每次只在上一步的决策结果的条件下，计算未使用过的非主属性的条件充分性概率和必要性概率，从而选择出当前条件下具有最大决策力的非主属性放入树中的对应位置。该建树过程将迭代地进行下去，直至达到一定的停止条件。基于上述思路，以下介绍建立PRTree 的过程中的两个重要问题：一方面是属性的选择，另一方面是停止条件的设定。
-
-（1）属性选择：首先根据当前待选节点的类别（包括根节点、非叶节点和叶节点），根据已经确定的候选节点集每次选择具有最大充分性或最大必要性的属性作为当前节点，然后将该属性加入到候选节点集中。通过上述选择过程，能够尽可能早地发现匹配实体，排除不匹配实体。具有较大充分性概率的非主属性说明该属性识别实体对匹配的能力较强，而具有较大必要性概率的非主属性表明该属性在排除不匹配实体的能力较强。
-
-（2）停止条件：停止条件的设定是为了防止建立的树产生过拟合现象，当发现所有的待考察属性在当前节点位置的条件充分性概率或条件必要性概率都低于某一设定的阈值（$\tau_{stop}$）时，此时应停止创建更多的节点，然后将上一轮刚加入候选节点集的非主属性作为树的叶子节点。
-
-PRTree 中共包含三类节点，根节点、非叶节点和叶节点，各类节点都有其特性。下面详细给出了PRTree的创建过程：
-
-（1）根节点的创建（Root Node）：当计算得出每个非主属性的充分性概率和必要性概率后，我们选择具有最大充分性和必要性得分的属性作为根节点。对于根节点设定三个分支，即匹配分支（Matched (Y)），不匹配分支（Unmatched (N)）和无效分支（Invalid (Null)）。如果根节点的类型是具有最高充分性得分的非主属性，则节点的匹配分支是叶节点，并将以一定的置信度成为“Matched”分支，而“Unmatched” 分支以及“Invalid”分支则是非叶节点。相反地，如果根节点是具有最大必要性得分的非主属性，节点的“Unmatched”分支则成为叶节点，并将以一定的置信度成为“Unmatched”分支，而“Matched”分支和“Invalid” 分支都应是非叶节点。PRTree 的根节点的计算公式如下所示：
-    \begin{equation}
-    \label{formula:root}
-     P_{root} = \max \limits_{A \in S_{NK}}(suf(A), nec(A))
-    \end{equation}
-
-（2）非叶节点的创建（Non-Leaf Node）：PRTree 的非叶节点表示该节点的充分性概率或必要性概率较低不能直接判断出匹配的结果，需要结合其它的非主属性，直至能够做出判断为止，即需要到达PRTree 的根节点。我们在目前已经确定的候选节点集的基础上，在计算剩余的其它非主属性的充分性概率和必要性概率时，必须要在满足候选集中所有元素的条件下进行计算。为了创建PRTree 的非叶节点，在满足目前已有的所有祖先节点集的条件下计算剩余非主属性的充分性概率和必要性概率，选择具有最大条件充分性概率或条件必要性概率的非主属性作为当前非叶节点。非主属性的条件充分性和条件必要性可通过公式~\ref{formula:suf} 和~\ref{formula:nec} 计算所得，并将\emph{$Tr_c$} 改变为一个更小的训练集，其中所有的实体都应满足祖先节点的条件。非叶节点的计算方法如公式~\ref{formula:nonleaf}所示：
- \begin{equation}
-    \label{formula:nonleaf}
-     P_{nonleaf} = P_{A|Candit(PRTree)}\max \limits_{A \in (S_{NK}-Candit(PRTree))}(suf(A), nec(A))
- \end{equation}
- 其中$Candit(PRTree)$ 表示已选中的祖先节点所构成的集合。
-
-（3）叶节点的创建（Leaf Node）：PRTree 的叶节点表示从根节点到当前的节点构成的属性集合可以判断给定的实体对是否匹配或者目前已有的数据无法给出明确的结果。PRTree 的每个叶节点会输出“Matched”结果或“Unmatched”结果，通过输出结果我们可以判定实体对是否匹配。当非主属性的$suf(A)$ 和$nec(A)$ 一直很低时，即其值低于一个合理的阈值$\tau_{stop}$ 时，我们将停止获取更多的非主属性用以创建PRTree的节点。然后，将创建一个“Exit (Not Decided)”节点作为最后的节点，该节点表示无法判断实体对是否匹配。叶节点的计算方法如公式~\ref{formula:leaf}所示：
-  \begin{equation}
-    \label{formula:leaf}
-     P_{leaf} = \max \limits_{A \in (S_{NK}-Candit{PRTree}, suf(A)\approx \tau_{stop}, nec(A)\approx \tau_{stop})}(suf(A), nec(A))
- \end{equation}
-
-利用非主属性的充分性概率和必要性概率创建PRTree的方法如算法~\ref{chap3:PRTreeAlg}所示。通过对数据集中大量数据的训练，我们建立了如图~\ref{chap:chap03:fig:tree1}所示的不包含于非主属性的PRTree。在接下来的部分中，我们将介绍如何使用PRTree 进行实体匹配。
-
-\begin{algorithm}[!htb]
-\caption{BuildPRTree：构建类决策树}
-\LinesNumbered
-\label{chap3:PRTreeAlg}
-    %\scriptsize
-    \SetKwInOut{Input}{Input}
-    \SetKwInOut{Output}{Output}
-    \SetKwFunction{IntervalPrune}{\textbf{IntervalPrune}}
-    \SetKw{Return}{return}
-
-    \Input{具有属性集$S$的训练表$Tr_1$ 和$Tr_2$，充分性阈值$\tau_s$ 和必要性阈值$\tau_n$ 以及不再继续创建PRTree 的阈值$\tau_{stop}$}
-    \Output{PRTree的根节点的引用$root$}
-    \BlankLine
-     初始化 $root = null, cur = root, AncsCond = \emptyset$\;
-     \While{$S \neq \emptyset$} {
-     	  \ForEach{$A \in S$}{
-    		根据公式~\ref{formula:suf}和公式~\ref{formula:nec}计算或更新每个模式当前条件下的 $suf(A|AncsCond)$ 和 $nec(A|AncsCond)$\;
-		\lIf{$A.suf < \tau_s$}{	$A.suf = 0$	}
-		\lIf{$A.nec < \tau_n$}{	$A.nec = 0$	}
-	   }
-       在所有的非主属性中将具有最大值的$suf(A|AncsCond)$ 或$nec(A|AncsCond)$ 属性$A$ 赋给cur, $cur = A$\;
-	   $cur.conf = Max(suf(A|AncsCond), nec(A|AncsCond))$\;
-	   \If{$cur.conf < \tau_{stop}$}{
-	   	$cur = ``Exit (Not Decided)''$\;
-		Break\;
-	   }
-	   $cur.NullChild = BuildPRTree$($\mathbf{Tr}_1$, $\mathbf{Tr}_2$, $S=S-\{A\}$, $\tau_s$, $\tau_n$, $\tau_{stop}$)\;
-	   \If{$cur.conf = suf(A|AncsCond)$} {
-	   	$cur.YChild = ``Matched''$\;
-		$AncsCond = AncsCond + \{(A, unmatched, cur.suf)\}$\;
-		$cur = cur.NChild$\;
-	   }\Else{
-	   	$cur.NChild = ``Unmatched''$\;
-		$AncsCond = AncsCond + \{(A, matched, cur.nec\}$\;
-		$cur = cur.YChild$\;
-	   }
-	}
-      \Return $root$\;
-\end{algorithm}
-
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{../figures/chap03/tree1.pdf}\\
-  \smallcaption{根据算法~\ref{chap3:PRTreeAlg}建立的不包含主属性的PRTree}
-  \label{chap:chap03:fig:tree1}
-\end{figure}
-
-\subsection{实体匹配过程}
-
-在算法~\ref{chap3:matchingAlg}中我们给出了如何使用建立的PRTree 执行NokeaEM 算法。测试集数据集中的每一个实体对$(t, s)$，我们从PRTree的根节点开始访问，并在到达叶子节点时停止。每次当实体对$(t, s)$ 到达某一非主属性$A_k$ 节点时，检查实例对在当前节点$A_k$ 是否具有相同或相似的属性值。如果相同或相似，则访问$A_k$节点的“Matched”子节点，否则访问$A_k$ 节点的“Unmatched”子节点。但是，如果实体对在节点$A_k$ 的非主属性值为空时，则应访问该“Invalid”子节点，表明待比较的实体对在属性$A_k$ 下出现了缺失值。当实体对访问至PRTree 的叶节点时，将会根据叶节点的性质从而决定输出“Matched” 或者 “Unmatched”。 决策的置信度是由实体对所经过的从根节点到当前节点组成的所有非主属性节点组合共同决定的。除根节点之外，PRTree 中每一个节点的结果的计算并不是独立于其它的节点而得到的，而是在满足当前节点所经历的所有祖先节点的条件下所得到的。此外，为了达到更好的匹配效果，PRTree 中处于不同高度的节点，在计算置信度时应给与不同的权重分配，因为越是靠近根节点的非主属性，受到其它非主属性的影响就越小，而越是远离根节点的非主属性，受到其他属性的影响就越大。为此，本章中采用了一定的方式保证非主属性权重的合理分配。综合以上的考虑我们根据如下公式~\ref{chap3:fprtree} 计算实例对之间的相似性：
-\begin{equation}
-\label{chap3:fprtree}
-\mathcal{F}_{PRTree}(t, s) =
-\prod_{1 \leq  i \leq H(A)} (Conf(A_i)*sim(t[A_i], s[A_i]))^\frac{1}{i}
-\end{equation}
-%
-其中，$H(A)$ 表示当前节点在PRTree 结构中的高度，使用$(\cdot)^{1/i}$ 调整第$i$ 个节点对匹配结果的影响，因为越接近当前节点的节点，对当前节点的决策影响越大。当节点所处的层次越低，其削弱的力度也就越大；相反地，当节点所处的层次越高，其削弱的力度也就越小。由于高层次的节点是在低层次节点的基础上创建的，即说高层次的节点依赖低层次的节点，对整棵PRTree 的影响较低层次节点影响小，故应给与较低的削弱力度；相反地，对于高层次的节点具有类似的原理。我们使用$Conf(A_i)$ 表示路径节点$A_i$ 的置信度，其计算方法如公式~\ref{chap3:conf} 所示：
-%
-\begin{equation}
-\label{chap3:conf}
-Conf(A_i) =
-   \begin{cases}
-   suf(A_i), &\mbox{if $A_i$'s ``Matched'' branch is in passed}\\
-   1-nec(A_i), &\mbox{if $A_i$'s ``Unmatched'' branch is passed}\\
-   1, &\mbox{if $A_i$'s ``Invalid'' branch is passesd}
-   \end{cases}
-\end{equation}
-%
-通过上述的步骤结合公式~\ref{formula:suf}至公式~\ref{chap3:conf}可以计算出给定实体对的相似度，并通过与相似度阈值的比较判断给定的实体对是否表示为同一实体。
-
-%
-\begin{algorithm}[!htb]
-\caption{使用PRTree 实现实体匹配的NokeaEM 算法.}
-\LinesNumbered
-\label{chap3:matchingAlg}
-    \SetKwInOut{Input}{Input}
-    \SetKwInOut{Output}{Output}
-    \SetKw{Return}{return}
-
-    \Input{PRTree 的根节点 $root$,实体对$(t, s)$}
-    \Output{实体对$(t，s)$ 的相似度：$FPRTree(t,s)$}
-    \BlankLine
-    $cur = root; level = 1; sim = 1$\;
-    \While{$true$}{
-        \If{$cur.output = ``Exit''$}{
-        		\Return{-1}; \textit{ // 表明算法不能给出一个适当的相似度}
-        }
-        \If {$cur is a leafNode$} {
-              \Return{$sim$}\;
-        }
-        \If{$t[cur] = null or s[cur]= null$} {
-        		$cur = cur.NullChild$;
-        }
-        \Else{
-        		$sim = sim * (cur.conf * sim (t[cur], s[cur]))^{\frac{1}{level}}$\;
-		\If{$t[cur]=s[cur]$} {
-			$cur = cur.YChild$;
-		}
-		\Else {
-			$cur = cur.NChild$;
-		}
-		$level ++$;
-	}
-   }
-   \Return{$similarity$}\;
-\end{algorithm}
-
-
-下面以表~\ref{treeTamllTable}中实体$t_1$ 和表~\ref{treePconlineTable}中的实体$s_1$ 为例介绍如何使用创建的PRTree 进行实体匹配。
-
-（1）根据公式~\ref{formula:suf}— 公式~\ref{chap3:conf}通过不断地迭代运算，找出每一次迭代中符合要求的候选非主属性，得到了如图~\ref{chap:chap03:fig:tree1}所示的PRTree。从图中可以看出“Manufacturer”具有较大的必要性得分，也即说对于手机实体而言当“Manufacturer”不同或者不相似时，两个手机实体表示同一实体的概率基本为0；当“Manufacturer” 和“Release”具有相同或相似的值时，“OS”具有较大的充分性概率，如果“OS” 的值相同或相似，则可判定这两个手机为同一实体，如果“OS”不相同或不相似，则需要从“OS” 的“N”分支继续寻找符合要求的其它非主属性。
-
-（2）在第一步完成后，利用公式~\ref{chap3:conf}，我们得到了图~\ref{chap:chap03:fig:tree1} 中节点的Conf值，如表~\ref{chap3:tableconf}所示。
-
-（3）对于给定的表~\ref{treeTamllTable}中的实体$t_1$ 和表~\ref{treePconlineTable}中的实体$s_1$，根据算法~\ref{chap3:matchingAlg}描述如何使用图~\ref{chap:chap03:fig:tree1}中的PRTree 进行实体的匹配，文本中设定非主属性值的编辑距离相似度阈值为$0.7$，实体的相似度阈值为$0.55$。首先从根节点“Manufacturer” 开始遍历PRTree，由于$sim(t_1[Manuf.],s_1[Manuf.])=1>0.7$，所以遍历“Manufacturer”的“Matched”子节点即“Release”；因为$sim(t_1[Release],s_1[Release])=0.86>0.7$，因此遍历“Release”的子节点即“OS”；接下来继续计算$sim(t_1[OS],s_1[OS])=0.86>0.7$，所以我们到达“OS”的“YES”节点也即是PRTree 的叶子节点；最终，通过公式~\ref{chap3:fprtree}结合表~\ref{chap3:tableconf}中节点的conf 值，计算实体$t_1$ 和实体$s_1$ 的相似度:
-    $sim(t_1, s_1) = (1*0.94)^1 * (0.89 * 0.86)^{\frac{1}{2}} * (0.92 * 0.82)^{\frac{1}{3}} \thickapprox 0.7485>0.55$。因此，通过比较认定实体$t_1$ 和实体$s_1$ 二者是匹配的，也即$t_1$ 和$s_1$ 为同一实体。
-
-\begin{table}[!htb]
-\centering
-\smallcaption{图~\ref{chap:chap03:fig:tree1}中节点的置信度}
-\small
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-\bfseries Node & \bfseries Manufacturer & \bfseries Release  & \bfseries OS  & \bfseries RAM & \bfseries Size  & \bfseries Type \\
-\hline
- \bfseries Confidence & 0.94 & 0.89 & 0.92 & 0.81  &  0.83 &  0.76 \\
- \hline
-\end{tabular}
-\label{chap3:tableconf}
-\end{table}
-
-\subsection{基于PRTree 的NokeaEM 算法复杂度分析}
-
-基于PRTree 的NokeaEM 算法相对于baseline 算法极大地减少了匹配的时间开销，因为基于PRTree 的NokeaEM 算法使用尽可能少的非主属性做出了最终的决策，减少了实体对之间非主属性的比较次数，而baseline算法使用了全部的非主属性才能做出决策。算法~\ref{chap3:matchingAlg}的时间复杂度为$O(qnm)$，其中变量$q$ 表示在匹配过程中每个实体对所到达的平均高度。值得注意的是$q \ll p$，所以可以排除一大部分不匹配的实体对，并在尽可能早的时间内找到匹配的实体对。
-
-\subsection{基于PRTree 的NokeaEM 算法的扩充算法}
-
-鉴于主属性在唯一标识某一实体的特点，因此可以在一定程度上辅助非主属性进行实体匹配。在本小节将讨论如何将基于PRTree 的NokeaEM 算法与基于主属性的实体匹配方法（keyEM）相结合进行实体匹配。其中一种可能的方式是分别从keyEM 和NokeaEM 中获取实体对的相似度权重之和，然而该方式存在的问题是没有一个合适的权重能够满足所有的情形。而另外一种方式是先执行KeyEM 或者NokeaEM，并给出一个严格的准确率阈值，然后执行另外一种EM 算法用以提高匹配的召回率。然而，通过观察，发现这种方式也不能达到较高的匹配准确率和召回率。最终，我们发现在建立PRTree的过程中将主属性参与进去可以达到最好的性能。通过上述方法，我们见了如图~\ref{chap:chap03:fig:tree2}所示的带有主属性的PRTree，该PRTree 将主属性“Product”作为其一个节点。我们将在实验部分对这种结合方式所得的PRTree 的匹配效果进行评估。
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=0.55\textwidth]{../figures/chap03/tree2.pdf}\\
-  \smallcaption{根据算法~\ref{chap3:PRTreeAlg}建立的包含主属性的PRTree}
-  \label{chap:chap03:fig:tree2}
-\end{figure}
-
-\section{实验结果及分析}
-我们在两个真实数据集和一个合成数据集上对本章中提出的基于结构化非主属性数据的实体匹配算法进行验证：
-
-（1） \emph{手机数据集（Mobile）}: 该数据集是从天猫网（Tmall）和太平洋电脑网（PConline）上搜集的在售手机信息。其中Tmall手机数据集中共有4k个记录，53个属性，而PConline手机数据集中共有5.6k个元组，46 个属性。其中这两个数据集所共有的实体个数为3.8k，属性个数为38，部分共有的属性如“Release Date”，“Operation System”，“RAM”，“Screen Size”，“Type”等。手机数据集的性质如表~\ref{chap03:table:datasets} 所示。
-
-（2）\emph{相机数据集（Camera）}: 该数据集是从天极网（Yesky）和太平洋电脑网（PConline）上搜集的在售的数码相机信息。其中Yesky相机数据集中共有2.5k个元组，50个属性，而PConline相机数据集中共有3.4k个元组，44个属性。其中这两个数据集共有的实体个数为2.5k，属性个数为31，部分共有的属性如“Type”，“Pixels”， “Panel”，“Wifi”，“Manufacturer“等。相机数据集的性质如表~\ref{chap03:table:datasets} 所示。
-
-（3）\emph{仿真数据集（Synthetic）}: 我们设计生成了两个仿真数据集，其中具有100k个元组，60个共有属性。为了使用该仿真数据集中数据的分布近似于真实数据集我们使用了一定的设计规则，如随机产生一定数目的缺失值，对相同的实体设计相似的非主属性值等，从而使得匹配实体的非主属性值相似度能够统一地分布在0和1 之间。仿真数据集的性质如表~\ref{chap03:table:datasets} 所示。
-
-
-\begin{table}[!htb]
-\smallcaption{数据集信息表}
-\small
-\centering
-\begin{tabular}{|*{6}{c|}}
-\hline
-\multirow{2}{*}{\bfseries} & \multicolumn{2}{c|}{\bfseries Mobile} &  \multicolumn{2}{c|}{\bfseries Camera} & \multirow{2}{*}{\bfseries Synthetic} \\
-\cline{2-5}
- & Tmall & PConline & Yesky & PConline &  \\\hline
-\bfseries {\#Attribute}  & 53 & 46 & 50 & 44 & 60 \\\hline
-\bfseries {\#Record}  & 4k & 5.6k & 2.5k & 3.4k & 100k\\\hline
-\end{tabular}
-\label{chap03:table:datasets}
-\end{table}
-
-为了估方法的效果我们使用了3个度量标准评：准确率（Precision），是指通过实验获得的所有匹配的实体中正确匹配的实体所占的比例；召回率（Recall），是指所有应该匹配的实体中正确匹配的实体所占的比例；F1 Score，是指对准确率和召回率的综合考虑，计算方法为：$F1 =(2*precision*recall )/( precision+recall)$。 我们使用算法的时间开销对方法的效率进行评估。
-
-\subsection{参数设定}
-
-在所提出的算法中有一些很重要的参数需要设定，如实体相似度阈值，字符串相似度阈值，以及建立PRTree时的阈值等，这些参数影响了提出算法的效果和效率。在对我们提出的算法评估之前，先对其中的一些参数进行说明：（1）创建PRTree所用到的阈值（Thresholds for Building the PRTree）：如图~\ref{chap:chap03:fig:fig3}所示，可以发现F1 Score 随着两个阈值$\tau_s$ 和$\tau_n$ 在0和1之间变动时发生的改变。通过我们的观察发现，当$\tau_s = 0.8$，$\tau_n = 1$ 时，F1 score 恰好达到最大值。同时为了防止过拟合的产生，我们也使用一个阈值$\tau_{stop}$ 用于控制树的高度和质量，通过观察发现当$\tau_{stop} \thickapprox 0.6$ 时，PRTree的效果达到最好。注意到在图~\ref{chap:chap03:fig:fig3}（b）中，由于$\tau_s$ 的值太大，导致一些比较重要的非主属性被排除而不能用于创建PRTree，导致了F1 Score 的急剧下降。（2）字符串相似度阈值的设定（Threshold for String Similarity）：通过在三个数据集的实验我们发现最佳的字符串相似度阈值大约为$0.7$。（3）匹配实体的相似度阈值（Threshold for Matching Instances Similarity）：同时我们也设定了一个用于判定匹配结果的阈值$\tau_{matched}$。通过在三个数据集上的实验发现当$\tau_{matched} = 0.55$ 时，是一个比较合适的取值。
-
-\begin{figure}[!ht]
-	\centering
-	\subfigure[\heiti $\tau_s$ 对F1 的影响]{\label{fig:random_recall}		\includegraphics[width=0.45\linewidth]{../figures/chap03/nec.pdf}
-	}
-	\subfigure[\heiti $\tau_n$ 对F1 的影响]{\label{fig:hier_recall}		\includegraphics[width=0.45\linewidth]{../figures/chap03/suf.pdf}
-	}
-	\smallcaption{PRTree 的阈值对NokeaEM 的影响}
-\label{chap:chap03:fig:fig3}
-\end{figure}
-
-
-\subsection{与以往方法在匹配效果方面的比较}
-
-我们将本章提出的基于结构化非主属性数据的实体匹配算法（baseline 算法和 PRTree (Nokey)-based 算法）与现有的使用多种技术合成的最先进的Key-based 匹配方法和最先进的使用结构化非主属性进行实体匹配方法Matching tree-based\ucite{Dey2010Efficient}进行比较，通过匹配的结果比较其各自的准确率和召回率。本章提出的算法中使用的字符串相似度函数统一使用Edit distance。
-
-（1） \emph{Key-based}: 该方法集成了多篇文章中所提到的基于键值匹配的最新技术。在本章中我们首先创建基于Q-gram 的后缀数组，然后将那些可能匹配的实体进行分块处理，具体来说就是根据已知的可信匹配实体中多提取的“分块主键”把实体进行分块操作\ucite{Aizawa2005A}。除此之外,我们还融入了诸如前缀过滤（prefix-based filtering）\ucite{Wang2012Can}，倒排索引（Inverted Indices）\ucite{Christen2011A} 等多种优化过滤技术进行块内实体间的相似性计算，通过这些方法提升了实体匹配的效率。
-
-（2） \emph{Matching tree-based}: 该方法是一种基于结构化非主属性的匹配算法，目前唯有Dey 等人在\cite{Dey2010Efficient}中提出的另外一种基于0-1分支决策树的匹配树算法Matching tree-based。简而言之，该方法在选择Matching tree 的节点时根据非主属性的匹配概率选择具有最大信息熵的非主属性。该方法只是简单地根据属性值是否一致构建0-1分支从而建立Matching tree，但没有考虑缺失值的影响以及不同层次的节点应给予不同的权重。
-
-%
-在本节中我们除了对上述方法进行了比较，同时也考虑了与基于PRTree 的扩展方法进行比较，该方法将基于PRTree 的方法和基于Key-based 的方法结合，通过三个数据集上的实验结果可以发现将主属性也用于创建PRTree 时匹配效果达到最优，即让主属性融合到建树的过程中。因此，我们也使用了PRTree(Key)-based 参与实验结果的比较。
-
-首先，我们评估上述5种匹配方法的准确率和召回率，如图~\ref{chap:chap03:fig:fig4} 所示，通过实验结果可以发现上述5种匹配方法随着匹配召回率地不断增大，匹配准确率整体上呈下降的趋势。但是不同的方法下降的平稳程度各不相同。通过比较发现Key-based 方法与本章中提出的方法相比，在匹配准确率和匹配召回率方面效果最差。此外还可发现baseline 算法的效果比Key-based方法好，而低于Matching tree-based 方法，但是Matching tree-based 方法与PRTree 方法相比匹配效果略差，注意到使用主属性的PRTree 方法在准确率和召回率方面获得了最优的效果。没有使用主属性的PRTree 匹配方法也达到一个较好的匹配效果。之所以没有使用主属性的PRTree匹配方法方法比使用主属性的PRTree 方法效果略差是因为该方法缺少了主属性的提供的信息。
-
-现在我们对上述各种匹配方法所达到的匹配效果做出如下的分析：Key-based 方法整体上波动较大，因为该方法易受数据表达方式的影响，注意到当数据在表达方式上相差较大时，该方法的匹配准确率和匹配召回率会受到极大的影响，导致那些本应该匹配的实体无法匹配到一起。如图~\ref{chap:chap03:fig:fig4}（b）所示，我们发现当Key-based 方法的召回率超过0.75后，该方法的匹配准确率急剧下降。baseline 算法在稳定性上较key-based 方法好，因为baseline 算法使用了结构化非主属性，从而受数据表达方式多样的影响较小。如图~\ref{chap:chap03:fig:fig5} 所示，Matching tree-based 方法和基于PRTree 的方法的匹配准确率随匹配召回率稳定变化，但前者的变化率与使用主属性的PRTree 方法想比更大，原因在于：一方面是缺失值的影响，导致Matching tree-based 方法的匹配效果受到了影响，该方法并未考虑缺失值的情况，而使用主属性的PRTree 方法在建树的过程中考虑了缺失值的影响；另一方面，前者没有考虑匹配树中不同层次的节点对匹配结果的影响，而使用主属性的PRTree 方法则考虑了上述影响。使用主属性的PRTree 方法的匹配效果之所以比不使用属性的PRTree 方法好，是因为使用主属性的PRTree 方法通过通过主属性获取了匹配是所需的一些信息。从整体上看，通过在三个数据集上的实验结果可以发现本章提出的方法在匹配准确率方面提升了近15\%，而在匹配召回率方面提升了20\%左右。
-
-\begin{figure}[!htb]
-	\centering
-	\subfigure[\heiti 手机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/mobile_pr.pdf}
-	}
-	\subfigure[\heiti 相机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/camera_pr.pdf}
-	}
-    \subfigure[\heiti 仿真集]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/synthetic_pr.pdf}
-	}
-	\smallcaption{在准确率和召回率方面与以往方法的对比}
-\label{chap:chap03:fig:fig4}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\subfigure[\heiti 手机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/mobile2mt_pr.pdf}
-	}
-	\subfigure[\heiti 相机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/camera2mt_pr.pdf}
-	}
-    \subfigure[\heiti 仿真集]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/synthetic2mt_pr.pdf}
-	}
-	\smallcaption{在准确率和召回率方面与Matching tree-based方法的对比}
-\label{chap:chap03:fig:fig5}
-\end{figure}
-
-\subsection{与以往方法在匹配效率方面的比较}
-
-在本节中我们对上述5种匹配方法在匹配效率方面进行了评估，评估方式是比较了方法在三个数据集上的匹配时间开销。如图~\ref{chap:chap03:fig:fig6}所示，Key-based 方法具有最少的匹配时间开销，因为该方法只使用了主属性进行实体匹配，而且使用了block、prefix filtering 和inverted indices 等技术用于减少匹配的时间开销；通过实验发现baseline 算法的平均时间开销大约是Key-based方法的30倍，因为baseline 方法使用了所有的非主属性进行匹配，而基于PRTree 的匹配算法的时间开销相对于baseline 算法少10倍多，因为基于PRTree 的方法选择了具有最大充分性或必要性概率的非主属性，并结合停止建树阈值排除一些影响因子小的非主属性，通过这种方式能够尽早做出匹配决策，极大地较少属性值的比较次数，进而提高实体匹配效率。此外，从图~\ref{chap:chap03:fig:fig7}中我们可以得到基于PRTree 的方法在匹配效率上与Matching tree-based 方法不相上下，但在平均效率上看基于Matching tree-based 的匹配方法稍低一些，因为Matching tree-based 方法在创建树时用于选择属性的开销较大，尤其是匹配过程中出现假阳性错误的时候。
-
-
-\begin{figure}[!htb]
-	\centering
-	\subfigure[\heiti 手机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/mobile_time.pdf}
-	}
-	\subfigure[\heiti 相机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/camera_time.pdf}
-	}
-    \subfigure[\heiti 仿真集]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/synthetic_time.pdf}
-	}
-	\smallcaption{在效率方面与以往方法的对比}
-\label{chap:chap03:fig:fig6}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\subfigure[\heiti 手机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/mobile2mt_time.pdf}
-	}
-	\subfigure[\heiti 相机]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/camera2mt_time.pdf}
-	}
-    \subfigure[\heiti 仿真集]{
-		\includegraphics[width=0.31\linewidth]{../figures/chap03/synthetic2mt_time.pdf}
-	}
-	\smallcaption{在效率方面与Matching tree-based方法的对比}
-\label{chap:chap03:fig:fig7}
-\end{figure}
-
-\subsection{算法的扩展性评估}
-
-如图~\ref{chap:chap03:fig:fig8}所示，为了对PRTree 方法的可扩展性进行评估，我们在仿真数据集上进行了实验。如图~\ref{chap:chap03:fig:fig8}（a）所示，我们可以看出随着记录的数目从100变化到10W，该方法的时间开销以近似于指数增长方式的形式缓慢增加，该结果也从另一方面证明了PRTree 可以极大地减少比较时间。从图~\ref{chap:chap03:fig:fig8}（b）中可以看出，随着仿真集中属性的数目从10增加至60，该方法的时间开销以近似于线性增长的方式增加。
-
-\begin{figure}[!htb]
-	\centering
-	\subfigure[\heiti 实体个数对效率的影响]{
-		\includegraphics[width=0.44\linewidth]{../figures/chap03/records_time.pdf}
-	}
-	\subfigure[\heiti 属性个数对效率的影响]{
-		\includegraphics[width=0.44\linewidth]{../figures/chap03/attributes_time.pdf}
-	}
-	\smallcaption{不同数目的记录数和属性数对PRTree在效率上的影响}
-\label{chap:chap03:fig:fig8}
-\end{figure}
-
-\section{本章小结}
-
-本章介绍了基于结构化非主属性的实体匹配算法的思路和问题定义，提出了两种匹配算法，分别给出了每种算法是如何进行实体匹配的。特别介绍了基于PRTree 的NokeaEM 算法的过程，包括如何创建PRTree 以及利用PRTree 进行实体匹配，并给出了算法的复杂度分析。最后，通过实验与其他已有的经典算法进行比较验证了提出算法的在准确性和效率方面较其它算法更为优秀。

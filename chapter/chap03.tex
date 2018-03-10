@@ -98,11 +98,11 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 \item {\bf 语法和词性标注特征(POS):} 构造POS特征的过程，对一句话中的每个单词，依赖这个单词的词性定义和上下文来给它标注一个标签，用以说明这个单词在这句话中的角色。这里，我们使用GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}来得到每个词的POS特征。
 
 \item {\bf 归一化类别概率:} 我们同样使用公式~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量每一维的值表示一个单词属于某个属性的概率。
-    
-\end{enumerate} 
+
+\end{enumerate}
 
 \subsubsection{构建CNN分类模型}
-虽然CNN分类器可以直接输出一个输入文本段属于各个属性的概率值，因为已经存在标注了的\emph{锚点块}的位置，所以每个输入文本段只会有几个可能的候选属性，因此，对于CNN分类器的结果，有些概率中是用不着的。例如，在图~\ref{chap:chap03:fig:labelExample}(3)中，文本段 $a_3$ 只可能属于属性 $A$， $B$ 和 $E$ 
+虽然CNN分类器可以直接输出一个输入文本段属于各个属性的概率值，因为已经存在标注了的\emph{锚点块}的位置，所以每个输入文本段只会有几个可能的候选属性，因此，对于CNN分类器的结果，有些概率中是用不着的。例如，在图~\ref{chap:chap03:fig:labelExample}(3)中，文本段 $a_3$ 只可能属于属性 $A$， $B$ 和 $E$
 中的一个，因为我们已经有了属性为 $C$，$D$ 和 $F$ 的\emph{锚点块}，且这些\emph{锚点块}都在文本段$a_3$的非邻接位置。我们在图~\ref{chap:chap03:fig:candidate-Labels}列出了其他文本段的所有候选属性列表，其中已经得到的\emph{锚点块}只有一个候选属性。
 
 对一个文本段 $s$ ，另 $\mathbf{A}_c(s)$ 表示一组候选属性，$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ 表示$s$ 的CNN模型的输出结果，则文本段$s$ 属于一个候选属性 $A \in \mathbf{A}_c(s)$ 的概率用下面的公式计算得到：
@@ -124,6 +124,99 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 
 
 \subsection{输入文本的贪婪式概率标注}
+尽管我们的CNN模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要整体考虑整个文本的分割和标注状态，事实上，我们期待去找了一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN的受限分割式信息抽取}(Constrained CNN-IETS Problem)：
+
+\begin{definition}
+({\bf Constrained CNN-IETS Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做分割式信息抽取任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
+%
+每一个文本段 $s_i \in S$ 都有一组候选属性标签 $\mathbf{A}_c(s)$，则\emph{基于CNN的受限的分割式信息抽取}任务的目的是最大化下面这个方程式：
+
+\begin{equation}
+\label{eq:3}
+Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
+\end{equation}
+, 这里 $A_s \in \mathbf{A}_c(s)$ 是 $s$ 的一个可选属性标签， 所谓\emph{受限}是指，对于任何不相邻的文本段 $s_a \in S(I)$ 和 $s_b \in S(I)$，他们的可选属性标签 $A_{s_a} \neq A_{s_b}$ ，除非他们之间的所有文本段都具有相同的可选属性标签。
+
+\end{definition}
+
+但是，这中基于CNN模型结果的受限的分割式信息抽取问题(Constrained CNN-IETS Problem)是一个NP-hard问题，我们给出下面的定义：
+
+\begin{theorem}
+\label{theorem:1}
+基于CNN的受限的分割式信息抽取问题是一个NP-hard问题。
+\end{theorem}
+
+\begin{proof}
+首先，我们假设输入文本中一个没有任何\emph{锚点块}的属性称作\emph{自由属性}(Free-Attribute)，如果在这个输入文本中存在属性值，则它可能出现在这段文本中任何没有标记的位置上。假设，这个输入文本中有 $n$ 个自由属性，我们可以将我们的基于CNN的受限的分割式信息抽取问题约简地看做是旅行商问题(Travelling SalesMan problem，TSP)。另 $V$ 表示一组城市, $A=\{(r,s):r,s\in V\}$ 表示城市之间的路径，$C(r, s)=C(s, r)$ 表示城市 $r$ 和城市 $s$ 之间的路程费用，旅行商问题(TSP)是最基本的路线规划问题，就是找到最小的路程总费用而访问完所有城市。
+
+我们可以将我们的问题简化成为旅行商问题(TSP)：将我们的问题中的 $n$ 个自由属性看做旅行商问题中的那一组城市 $V$ ，将公式~\ref{eq:3}中的 $p(s, A_s)$ 看做是与边 $(A_c, A_s)$ 相关的路费计算方式，当且仅当 $A_c$ 是第 $i$ 次出发的城市。然后，我们的问题就是找到最大的路程总费用而访问完所有城市。因此，我们可以发现，基于CNN的受限的分割式信息抽取问题跟旅行商问题一样，在旅行商问题中需要去全排列列出来所有可能的路线，然后找到最小化花费的旅行路线，我们的是要全排列列出所有可能的文本段组合方式，找到最大概率值得标注方式。于是，理论~\ref{theorem:1}得证。
+
+\end{proof}
+
+但是，列出所有可能的文本段组合方式是一个很不合实际的方式，因为，(1)因为未标注的文本段个数很多，用全排列会产生大量的组合结果，很多组合结果完全没有考虑\emph{锚点块}的位置，是完全没有意义的，这增加了整体标注错误的几率， (2)得到如此多组合结果，处理起来会花费大量的时间，这种方式效率上会大受影响。为了解决这些问题，我们提出了一种\emph{贪婪式概率标注算法}，这个算法基于每个文本段属于所有候选属性的概率值，然后寻找到一个对于当前输入文本的尽可能接近最佳的标注结果。在算法~\ref{alg:1}中详细介绍了这种贪婪式的标注算法：对于一个输入文本 $I$ ，另 $S(I)=\{s_1, s_2, ..., s_m\}$ 表示从文本 $I$ 中分割得到的所有文本段，最开始，一部分这些文本段被定义为\emph{锚点块}，对于剩下的未标注的文本段，我们以一种贪婪的模式来标注他们。首先，我们在输入文本中寻找有没有存在相邻的\emph{锚点块}，比如图~\ref{chap:chap03:fig:labelExample}(2)中的点块 $b_1b_2$ 和点块 $c_1$ ,如果找到了，我们便可以将输入文本分割成两部分，比如像图~\ref{chap:chap03:fig:labelExample}(3)中的这条分割线，这样我们就可以分开来执行标注算法，这可以提高标注效率。然后，对于每一个分区，基于CNN 模型的输出概率向量，使用公式~\ref{eq:2}，我们便可以计算出来每个文本块属于它的所有候选属性的概率值。在这些所有未标注的文本块中，每一次我们只贪婪地选择一个出来进行标注，记做$s_c$ ，这个选出来的文本段的概率应该是剩下这一分区中未标注文本段中概率值最高的那一个。然后，我们根据概率值为文本段 $s_c$ 标注上对应属性，记做 $A_c$，然后，我们立即检测是不是存在一个非邻接的文本段 $s'$ ，且这个文本段 $s'$ 也已经具有属性 $A_c$ ，如果出现这种情形，我们需要检查 $s'$ 和 $s_c$ 之间是不是已经存在标注了其他属性的文本段，如果，这种情况出现了，我们便取消这次对 $s_c$ 的标注，然后重新选择具有第二高概率值的文本段来进行相同的标注。如果这种情形没有发生，我们需要将 $s'$ 和 $s_c$ 之间所有的文本段合并形成一个新的文本段，且标注为 $A_c$ 。 我们重复执行这个过程，直到输入文本 $I$ 中没有可以被标注的文本段为止。注意，在这个过程中，我们定义了一个阈值 $\lambda$ 来防止产生低质量的标注，我们会在实验部分检测这个阈值的作用，并寻找到它的最佳值。
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/greedyLabelling.pdf}\\
+  \smallcaption{贪婪式概率标注例子}
+  \label{chap:chap03:fig:greedyLabelling}
+\end{figure}
+
+
+例子三：对于例子一种的输入文本，图~\ref{chap:chap03:fig:candidate-Labels}中给出了每个未标注文本段对于对应的候选属性的基于CNN模型的变换概率值，
+我们设定阈值 $\lambda=0.3$，我们执行文本标注的算法~\ref{alg:1}如下： 
+
+\begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
+ \item 首先，我们像图~\ref{chap:chap03:fig:labelExample}(3)中一样将输入文本分成两个部分，然后独立的在每个分区上执行我们的标注算法。如图
+ ~\ref{chap:chap03:fig:greedyLabelling}所示。
+
+ \item 在第一个分区，我们首先标注 $a_1$ 为属性 $A$ 的一个文本块，因为，$s_1$ 在这个分区中的所有文本块中具有最高的概率值。然后，我们继续标注 $a_1$ 为属性 $A$ 的一个文本块，此时，我们完成了第一个分区的标注任务。
+
+\item 在第二个分区有5个未标注的文本段，其中文本段 $c_3$ 属于属性 $C$ 具有最高的概率值，将被第一个标注。然后，我们通过标注$c_2$ 为属性 $C$ 来合并 $c_1$ 和 $c_3$。至此，我们还有三个未标注的文本段，其中，$c_4$ 具有最高的概率值首先被标注为 $E$ ，然后，$e_1$ 应该是一下个被标注为 $E$ 的，但是，因为它与 $c_4$ 冲突了，所以我们撤销了对 $e_1$ 的标注，然后标注文本块 $f_1$。直到最后 $e_1$ 任然不会被标注，因为它的概率值小于我们的阈值 ($\lambda=0.3$ )。
+
+\end{enumerate}
+
+
+\begin{algorithm}%[!htb]
+    %\linesnumbered
+    \small
+    %\tiny
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+% \SetKwFunction{IntervalPrune}{\textbf{IntervalPrune}}
+    \SetKwRepeat{doWhile}{do}{while}
+    \SetKw{Return}{return}
+
+    \Input{Input text $I$, segments $S(I)=\{s_1, s_2, ..., s_m\}$, $P=\{p(s_1, $ $A_{c1}), p(s_1, A_{c2}), ...\}$, where $p(s_i, A_{cj})$ denotes the probability that an segment $s_i \in S(I)$ belonging to its candidate attribute $A_{cj}$ according to Equation~\ref{eq:2}, and a minimum labelling probability threshold $\lambda$}
+%    \Input{The probability if $s_i$ belonging to attribute $A_c$ in Equation 2 $p(s_i, A_c)$}
+    \Output{Label set $\mathbf{A}(I) =\{ A_{l1}, A_{l2}, ... A_{lm}\}$ for segments in $S(I)$}
+    \BlankLine
+
+    Initialize $\mathbf{A}(I)$ by setting each $A_{li}=-1$, where $A_{li} \in \mathbf{A}(I)$\;
+   $\mathbf{Pt}=\{Pt_1, Pt_2, ...\} \leftarrow$ Partitioning $S(I)$ into adjacent subsets\;
+
+   \ForEach{$Pt \in \mathbf{Pt}$}{
+   \doWhile{$P \neq \emptyset$ \&\& $\exists$ unlabelled segment in $Pt$}{
+   	$(s_c, A_c) \leftarrow$ the pair with $\max_{s \in Pt, A \in \mathbf{A}_c(s)} p(s, A)$\;
+	\If{$p(s_c, A_c) \leq \lambda$}{
+		break\;
+	}
+	
+   	$P = P - \{p(s_c, A_c)\}$\;
+	$ind(s_c) \leftarrow$ the index of $s_c$ in $S(I)$\;
+	\If{$A_c=A_{lq} \in \mathbf{A}(I)$}{
+		\If{$\nexists A_{lr} \neq \mathbf{A}(I)$ between the $ind(s_c)$-th and $q$-th positions in $\mathbf{A}(I)$}{
+			Set the $ind(s_c)$-th element in $\mathbf{A}(I)$ into $A_c$\;
+			Also set all elements between the $ind(s_c)$-th and $q$-th positions in $\mathbf{A}(I)$ into $A_c$\;
+		}		
+	}
+   }
+   }
+   \Return{$\mathbf{A}(I)$}\;
+
+\caption{\small CNN-based Greedy Probabilistic Labeling}
+\label{alg:1}
+\end{algorithm}
 
 
 

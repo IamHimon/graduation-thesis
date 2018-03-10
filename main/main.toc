@@ -21,28 +21,29 @@
 \contentsline {subsubsection}{\numberline {1.}构建CNN分类模型}{20}{subsubsection.3.2.2.1}
 \contentsline {subsubsection}{\numberline {2.}构建CNN分类模型}{22}{subsubsection.3.2.2.2}
 \contentsline {subsection}{\numberline {3.2.3}输入文本的贪婪式概率标注}{23}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}基于序列和位置特征的结果修正}{23}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}实验结果与分析}{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}本章小结}{23}{section.3.4}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于文本类型非主属性数据的实体匹配}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}问题定义}{24}{section.4.1}
-\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{26}{section.4.2}
-\contentsline {section}{\numberline {4.3}数据分块算法}{27}{section.4.3}
-\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{28}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{28}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{29}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{29}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{30}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{31}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{33}{subsection.4.5.3}
-\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{34}{subsection.4.5.4}
-\contentsline {section}{\numberline {4.6}实验结果及分析}{35}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{35}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{37}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{38}{subsection.4.6.3}
-\contentsline {section}{\numberline {4.7}本章小结}{39}{section.4.7}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{40}{chapter.5}
-\contentsline {section}{\numberline {5.1}全文总结}{40}{section.5.1}
-\contentsline {section}{\numberline {5.2}工作展望}{41}{section.5.2}
-\contentsline {chapter}{攻读硕士学位期间发表的论文}{43}{chapter*.4}
-\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{45}{chapter*.5}
+\contentsline {subsection}{\numberline {3.2.4}基于序列和位置特征的结果修正}{27}{subsection.3.2.4}
+\contentsline {section}{\numberline {3.3}实验结果与分析}{27}{section.3.3}
+\contentsline {section}{\numberline {3.4}本章小结}{27}{section.3.4}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于文本类型非主属性数据的实体匹配}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}问题定义}{28}{section.4.1}
+\contentsline {section}{\numberline {4.2}传统的文本数据处理方法}{30}{section.4.2}
+\contentsline {section}{\numberline {4.3}数据分块算法}{31}{section.4.3}
+\contentsline {section}{\numberline {4.4}基于IDF 的迭代式实体匹配算法}{32}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Baseline算法的工作流程}{32}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}短语IDF 得分的迭代式更新}{33}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}基于短语共现的实体匹配算法}{33}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}共现图的构建}{34}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}PC-Graph的分割}{35}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}子主题及其权重的获取}{37}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}实体匹配过程}{38}{subsection.4.5.4}
+\contentsline {section}{\numberline {4.6}实验结果及分析}{39}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}与以往方法在匹配效果方面的比较}{39}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}算法提取结果的评估}{41}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}算法的扩展性评估}{42}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}本章小结}{43}{section.4.7}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{44}{chapter.5}
+\contentsline {section}{\numberline {5.1}全文总结}{44}{section.5.1}
+\contentsline {section}{\numberline {5.2}工作展望}{45}{section.5.2}
+\contentsline {chapter}{参考文献}{47}{chapter*.4}
+\contentsline {chapter}{攻读硕士学位期间发表的论文}{51}{chapter*.5}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{53}{chapter*.6}
