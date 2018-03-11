@@ -45,6 +45,7 @@
 
 
 \subsection{基于知识库的初始分割和标注}
+\label{KB-based Segmentation and Labelling}
 这一模块的主要目的是识别出输入文本中所谓的\emph{锚点块}(Anchor Blocks)，就是对一些文本段，我们会根据知识库计算出来一个标注可信度，当这个可信度大于某个阈值时，便可以直接将这个文本段标注成某一个属性。然后，这些识别出来的\emph{锚点块}将被视作一个基础锚点，执行后面步骤中的分割和标注。
 
 \begin{definition}
@@ -124,6 +125,8 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 
 
 \subsection{输入文本的贪婪式概率标注}
+\label{Probabilistic Labelling to Input Texts}
+
 尽管我们的CNN模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要整体考虑整个文本的分割和标注状态，事实上，我们期待去找了一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN的受限分割式信息抽取}(Constrained CNN-IETS Problem)：
 
 \begin{definition}
@@ -176,10 +179,12 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 \end{enumerate}
 
+使用我们的基于CNN的贪婪式概率标注算法，大部分输入文本都可以被正确的分割和标注了，只有一些特殊的情形中出现了错误标注（mis-matching）和漏标注（un-matching），比如像例子三中的 $c_4$ ， $e_1$ 。为了处理这种错误，在下一节中，我们从测试数据集中实时地学习到已经标注文本段的位置和序列信息，使用一个模型来权衡这些位置和序列信息来修正目前的标注结果。
+
 
 \begin{algorithm}%[!htb]
     %\linesnumbered
-    \small
+    \large
     %\tiny
     \SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
@@ -214,18 +219,306 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
    }
    \Return{$\mathbf{A}(I)$}\;
 
-\caption{\small CNN-based Greedy Probabilistic Labeling}
+\caption{\small 基于CNN的贪婪式概率标注算法，CNN-based Greedy Probabilistic Labeling}
 \label{alg:1}
 \end{algorithm}
 
 
+\subsection{基于序列和位置的结果修正}
+\label{Sequential-based Amendment}
 
-\subsection{基于序列和位置特征的结果修正}
+我们提出了一种双向的位置和序列模型来捕捉输入文本中已经标注了的文本段的位置和序列信息。对于一个输入文本$I$，假设有一组文本段 $S(I)=\{s_1, s_2, ..., s_m\}$ ，并且他们对应的标签为 $\mathbf{A}(I) =\{ A_{l1}, A_{l2}, ... A_{lm}\}$ 。对于一个文本段 $s_i$ ，他的两个相邻的文本段为 $s_{i-1}$ 和 $s_{i+1}$ ，这三个文本段分别被标注为属性 $A_{li}$, $A_{l(i-1)}$ and $A_{l(i+1)}$ 。序列模型考虑：（1）从$A_{l(i-1)}$ 转移到 $A_{li}$ 的概率以及从 $A_{li}$ 转移到 $A_{l(i-1)}$ 的概率。（2）属性 $A_{li}$ 出现在某个位置的概率。
+
+因为经过我们的基于CNN的贪婪式概率标注算法得到的标注结果已经具有非常高的准确率（后面的实验中会证明这一点），所以，这个结果可以用来学习序列相关的特征和输入文本中属性值位置的信息。有一点很重要，这些特征的学习是从每一组输入文本中实时的（on-demand）学习到的，不需要人工的训练，也没有属性值遵循某一个特定的顺序这个假设，然后我们构建一种类似隐马尔科夫模型的图模型来强化此前得到的标注结果，我们称之为BPSM（Bidirectional Positioning and Sequencing Model）。相比较 ~\cite{cortez2010ondux}中提出的单相位置和序列模型(PSM)，我们的模型从双向考虑序列之间的关联，这可以减少单向标注中出错的风险。
+
+\smallskip
+\noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。 
+
+我们构建矩阵 $FT$ ，需要考虑在基于CNN的标注结果中从状态 $l_i$ 到 状态 $l_j$ 的数量和从状态 $l_i$ 出发的前向的所有数量的比例。所以，概率矩阵 $FT$ 中每一个概率值 $ft_{i,j}$ 的定义方式如下：
+\begin{equation}
+ft_{i,j} = \frac{\#\; of\; transitions\; from\; l_i\; to\; l_j}{Total\; \#\; of\; transitions\; out\; of\; l_i}
+\end{equation}
+这里只是计算前向的转移，同理，我们从只考虑后向转移来构建概率矩阵 $BT$ ，$BT$ 中的每个概率值 $bt_{k, j}$ 的定义方式如下：
+\begin{equation}
+bt_{k, j} = \frac{\#\; of\; transitions\; from\; l_k\; to\; l_j}{Total\; \#\; of\; transitions\; out\; of\; l_k}
+\end{equation}
+这里只从后向来计算转移概率。
+
+我们使用从CNN标注的结果中观察到的状态$l_j$出现在 $pos$ 位置的次数比上出现在位置 $pos$ 所有状态的总数目来构建矩阵 $PS$ 。因此，矩阵 $PS$ 中每个概率值的定义方式如下：
+\begin{equation}
+ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segments\;in\;pos}
+\end{equation}
+
+根据CNN标注模型的标注结果，我们使用概率矩阵 $TF$ ， $BT$ ，$P$ 来最大化输入文本中属性值出现的序列和位置概率和，这种方式遵循了最大化概率方式（Maximum Likelihood approach），通常被用来训练图相关的模型~\cite{borkar2001automatic, sarawagi2008information}。在实际操作中，构建矩阵 $TF$ ， $BT$ ，$PS$  需要在CNN标注模型的输出结果上执行单趟的观察。这里注意，漏标注的文本段（mis-matching）在构建矩阵的时候是被自动忽略的，虽然构建矩阵时也可以加上这些漏标注文本段的数量，但这可能会刻画出谬误的转移。此外，在我们的实验中发现，CNN标注模块中产生的漏标注文本段的数量本身是非常少的，因此我们不必考虑这些漏标注的文本段，它们也不会对整体的修正起到很大的影响。
+
+图~\ref{chap:chap03:fig:forwardpsm} 和 图~\ref{chap:chap03:fig:backwardpsm} 展示了我们使用CAR数据集构建的BPSM模型，我们可以发现，这个模型不仅可以表示分配给文本段的属性序列相关的信息，也可以表示输入文本中位置相关的信息。例如，在这个数据集中，输入文本开头的属性值，相比为‘Color’的属性值，更倾向于是为‘Brand’的属性值，还有，为‘Engine’的属性值出现在为‘Price’的属性值后面的概率会更大。这些信息都是对输入文本结构相关信息的描述。当构建好了BPSM模型，我们便可以用这些估计出来的概率值来优化标注结果。
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/forwardpsm.pdf}\\
+  \smallcaption{CAR数据集上产生的BPSM例子-前向和位置}
+  \label{chap:chap03:fig:forwardpsm}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../figures/chap03/backwardpsm.pdf}\\
+  \smallcaption{CAR数据集上产生的BPSM例子-后向和位置}
+  \label{chap:chap03:fig:backwardpsm}
+\end{figure}
+
+
+\smallskip
+\noindent \underline{\em 使用BPSM来做修正:}
+我们在执行最后修正的步骤时，同时考虑三个因素，序列概率，位置概率和CNN标注模型的结果，是非常重要的。考虑到这三个因素是相互独立的，文章~\cite{cortez2010ondux}中讨论了这个问题，一种 Noisy-OR-Gate模型 ~\cite{pearl2014probabilistic} 非常适合来整合这三个因素来决定每个文本段最终的标注方案。 因此，对于文本段 $s$ 属于属性 $A_j$ 的概率分别从前向考虑和后向考虑为：
+\begin{equation}
+%\scriptsize
+P_{fw}(s, A_j) = 1-((1-p(s, A_j))(1-ft_{i, j})(1-ps_{j, pos(s)}) )
+\end{equation}
+\begin{equation}
+%\scriptsize
+P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
+\end{equation}
+这里，$s$ 表示在输入文本中位置为 $pos$ 的文本段，它前面是是一个被标注为 $A_j$ 属性的文本段，后面是一个被标注为 $A_k$ 属性的文本段。概率项 $ft_{i,j}$, $bt_{k,j}$ 和 $ps_{j,pos(s)}$ 分别来自矩阵 $TF$, $TB$ and $PS$。
+
+对于输入文本 $I$ 的一组文本段 $S(I)=\{s_1, s_2, ..., s_m\}$ ，在一次迭代中，我们需要比较输入文本中最前面的一个未标注文本段的前向概率，记作 $P_{fw}(s_1, A_{l1})$ ，和最后一个未标注文本段的后向概率，记作 $P_{bw}(s_m, A_{lm})$ 。如果 $P_{fw}(s_1, A_{l1}) \geq P_{bw}(s_m, A_{lm})$ ，我们首先标注 $s_1$，然后继续比较 $P_{fw}(s_2, A_{l2}) $ 和 $P_{bw}(s_m, A_{lm})$ 。否则，我们首先标注 $s_m$ ，然后继续比较 $P_{fw}(s_1, A_{l1}) $ 和 $P_{bw}(s_{m-1}, A_{l,m-1})$  来决定哪一个是下一个被标注的文本段。我们希望通过这种思路，同时从前向和后向考虑，找到最佳的标注结果。我们循环执行这行这个过程，直到一条输入文本中所有的文本段都被标注了为止。
+
 
 \section{实验结果与分析}
+在这一节，我们会介绍本文提出的模型在在三个数据集上的实验结果，并做充分的分析和比较。
+
+\subsection{数据集和评价标准}
+我们在下面这三个真实数据集上做了实验：
+
+\vspace{-2pt}
+\begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
+
+  \item  \textit{引文数据集:} 我们从超过500个计算机领域的研究员的主页上手机了超过2.5万条的论文引文信息，这些引文信息中隐含的属性值属于{\em Title, Author, Journal, Volume, Pages,} and {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
+
+  \item \textit{二手房:} 我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com}上收集了超过10万的关于二手房出售和租赁相关信息的描述文本，每一条文本中包含的值属于属性：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} and {\em Furnitures}。我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
+
+  \item \textit{二手车:} 二手车的数据集，我们从Carsales~\footnote{www.carsales.com}网站中收集了超过20万条的关于二手车售卖的描述信息，这个数据集的属性集包括：{\em Brand, Price, Transmission, Color, Body, Engine, Fuel Consuming} ，我们的构建知识库(KB)的数据同样可以从这个网站上的结构化表格区域得到。
+ 
+\end{enumerate}
+
+
+\noindent{\bf 评价标注:} 
+我们使用准确率({\bf Precision})，召回率({\bf Recall})和F值({\bf F-Measure})来评测我们提出的模型。对于一个属性 $A$， 另 $N_l(A)$ 表示使用某个方法标注文本段的总数量，$N_c(A)$ 表示对于这个属性正确标注的文本段数量，$N_g(A)$ 表示测试集中应该被标注为属性 $A$的文本段数量。然后，在属性 $A$上的准确率可以表示成：$prec = \frac{N_c(A)}{N_l(A)}$，在属性 $A$上的召回率可以表示成：$recall =\frac{N_c(A)}{N_g(A)}$，在属性 $A$上的F值可以表示成：$F_1= \frac{2(prec \times recall)}{prec+recall}$ 。
+
+
+\subsection{参数的设定}
+在我们的方法中有两个重要的参数：一个是在章节~\ref{KB-based Segmentation and Labelling}中用来定义锚点快的阈值 $\theta$，另外一个是章节~\ref{Probabilistic Labelling to Input Texts}中算法一中用来防止低质量标注的阈值 $\lambda$ 。在我们的实验中，我们采用单一变量分析的方法，先设置阈值$\lambda=0.6$，然后在三个数据集上测试我们的方法中阈值 $\theta$ 对抽取质量和效率的影响。然后，设置阈值$\theta=0.9$，来测试阈值 $\lambda$ 对抽取质量的影响。注意，在这两组实验中，我们的知识库(KB)在测试集中的属性值覆盖率均不超过30\%。
+
+在我们的方法中，图~\ref{fig:7}中表明了阈值 $\theta$ 对抽取质量和效率的影响。详细来讲，从图~\ref{fig:7}(a)中可以看出，当 $\theta$ 从 $0.4$ 增加到 $0.9$，在引文数据集中，F值首先从$0.880$ 平滑的增加到 $0.929$，在这点之后，当 $\theta$ 从 $0.9$ 增加到 $1.0$ ，F值从 $0.929$ 缓慢的下降到 $0.910$ 附近。我们在图~\ref{fig:7}(b)和图~\ref{fig:7}(c)中的二手房和二手车数据集中可以看到相同的趋势。 基于上面的实验结果，我们得出结论，在所有这三个数据集中，来定义锚点快时，设置阈值 $\theta = 0.9$ 是一个合适的选择，这个值也将在后面的实验部分中来使用。在另一方面，当考虑抽取效率时，我们从图~\ref{fig:7}(d)中可以发现，在引文数据集中，当 $\theta$ 从 $0.4$ 增加到 $1.0$ 时，抽取每条文本所花费的时间从 大概 $0.05$秒 缓慢增加到 $0.31$ 秒 。在图~\ref{fig:7}(e)和图~\ref{fig:7}(f)中的二手房和二手车数据集中可以看到相同的趋势。因此，虽然 $\theta=0.9$ 可能不能实现最佳的抽取效率，但是牺牲一点点效率来换取更佳的抽取质量是可以接受的。
+
+图~\ref{fig:8}中表明了阈值 $\lambda$ 对抽取质量的影响。从图~\ref{fig:8}(a)中可以发现，当阈值 $\lambda$ 的值从 $0.2$ 增加到 $0.6$ ，引文数据集上的抽取质量首先从 $0.817$ 增长到 $0.929$ ，在 $\lambda=0.6$ 时达到最大值。当阈值 $\lambda$ 的值从 $0.6$ 增加到 $1.0$ ，我们方法的抽取质量从  $0.929$ 缓慢的下降到 $0.808$ 。在另外两个数据集中，如图 ~\ref{fig:8}(b) 和图 ~\ref{fig:8}(c)所示，可以看到相同的现象。因此，我们可以得出结论，算法一中在过滤一些糟糕的标注的环节，$\lambda=0.6$ 或许是一个合适的值，我们也将在下面的实验中使用这个值。
+
+
+\begin{figure*}[!ht]
+\centering
+%mobile
+\subfigure[F-Measure on PersonalBib]{
+    \label{fig:subfig:a}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_f.pdf}
+    \end{minipage}
+    }
+\subfigure[F-Measure on House]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_f.pdf}
+    \end{minipage}
+    }
+\subfigure[F-Measure on Car]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_f.pdf}
+    \end{minipage}
+    }
+
+\subfigure[Time Cost on PersonalBib]{
+    \label{fig:subfig:a}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_e.pdf}
+    \end{minipage}
+    }
+\subfigure[Time Cost on House]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_e.pdf}
+    \end{minipage}
+    }
+\subfigure[Time Cost on Car]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_e.pdf}
+    \end{minipage}
+    }
+\caption{Evaluating the Effect of Threshold $\theta$ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}
+\label{fig:7}
+\end{figure*}
+
+
+\begin{figure*}[!ht]
+\centering
+%mobile
+\subfigure[F-Measure on PersonalBib]{
+    \label{fig:subfig:a}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_lambda.pdf}
+    \end{minipage}
+    }
+\subfigure[F-Measure on House]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_lambda.pdf}
+    \end{minipage}
+    }
+\subfigure[F-Measure on Car]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_lambda.pdf}
+    \end{minipage}
+    }
+\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
+\label{fig:8}
+\end{figure*}
+
+
+\subsection{与其他方法的比较}
+我们比较了我们的方法(CNN-IETS)的抽取质量与另外两种目前表现最佳的方法的抽取质量，为了公平的比较，对于每个数据集上的每个方法，我们都将他们调整成具有最佳的抽取表现。
+
+\vspace{-2pt}
+\begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
+
+\item 基于CRF的监督式模型 ({\bf CRF}): 这是目前表现最佳的一种基于隐马尔科夫模型(CRF)
+的监督式信息抽取方法~\cite{lafferty2001conditional}，我们构建CRF模型所使用的特征包括文本自身特征，模型布局特征，外部词典源，文章~\cite{peng2006information}中有信息的说明。这些特征也被看做是一种标准的特征。
+
+\item 非监督式ONDUX方法 (\noindent {\bf ONDUX}): ONDUX~\cite{cortez2010ondux} 是目前分割式信息抽取任务中采用非监督式方法表现最佳的一种方法。这种方法首先将根据一个知识库，将输入文本粗略的分割成若干个文本块，每一个文本块是可能组成一个属性值的一组词语，然后通过一组特定的匹配函数，将这些文本块与已知的属性进行匹配。为了比较的公平，这种ONDUX方法与我们的方法(CNN-IETS)使用同一个知识库(KB)。
+\end{enumerate}
+
+
+\begin{table}%[!hb]
+\centering
+\small
+\caption{Comparing the Extraction Quality on PersonalBib}
+\label{table:1}
+\begin{tabular}{| l | c | c | c |}
+\hline
+Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Title & 0.829 & 0.781 & {\bf 0.833} \\ \hline
+Author & 0.856 & {\bf 0.861}  & 0.859 \\ \hline
+Journal & 0.772 & 0.803 & {\bf 0.932} \\ \hline
+Volume & 0.787 & 0.822 &  {\bf 0.987} \\ \hline
+Pages & 0.832 & 0.831 & {\bf 0.979} \\ \hline
+Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
+{\bf Average} & 0.809 & 0.810 &  {\bf 0.929}  \\ \hline
+%Whole-instance & 0.693 & 0.721 & 0.736 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}%[!hb]
+\centering
+\small
+\caption{Comparing the Extraction Quality on House}
+\label{table:2}
+\begin{tabular}{| l | c | c | c |}
+\hline
+Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Name  & 0.894 & 0.867 &  {\bf 0.977} \\ \hline
+Publish-time & 0.829 & 0.880 & {\bf 0.985} \\ \hline
+Price  & 0.846 & 0.877 &  {\bf 0.985}  \\ \hline
+Charge-Method & 0.859 & 0.907 &  {\bf 0.989} \\ \hline
+Neighborhood & 0.837 & 0.875 &  {\bf 0.984} \\ \hline
+Unit & 0.835 & 0.880 &  {\bf 0.987} \\ \hline
+Floor & 0.847 &  0.894 & {\bf 0.985} \\ \hline
+Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
+{\bf Average} & 0.846 & 0.845 & {\bf 0.986} \\ \hline
+%Whole-instance & 0.879 & 0.921 & {\bf 0.951} \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}%[!hbp]
+\centering
+\small
+\caption{Comparing the Extraction Quality on Car}
+\label{table:3}
+\begin{tabular}{| l | c | c | c |}
+\hline
+Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Brand & 0.844 & 0.857 &  {\bf 0.972} \\ \hline
+Price & 0.794 & 0.890 & {\bf 1.000} \\ \hline
+Transmission & 0.825 & 0.872 & {\bf 1.000} \\ \hline
+Color & 0.773 & 0.858 & {\bf 0.868} \\ \hline
+Body & 0.769 & 0.866 &  {\bf 1.000}  \\ \hline
+Engine & 0.801 & 0.830 &  {\bf 1.000}  \\ \hline
+Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
+{\bf Average} & 0.803 & 0.861 & {\bf 0.968} \\ \hline
+%Whole-instance & 0.721 & 0.762 & 0.847 \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\noindent {\bf 抽取质量的比较}:
+我们在三个数据集中比较了这三种方法的抽取质量，为了全面的比较，我们不仅比较各个属性的F值得分，也比较了在每个数据集上所有属性的平均F值得分。我们从表~\ref{table:1}，表~\ref{table:2} 和表~\ref{table:3}中可以看到，我们的方法在三个数据集的几乎所有属性上的表现都好于另外两种方法。整体来讲，我们的方法(CNN-IETS)相比较另外两种目前表现最好的方法(CRF， ONDUX)，在三个数据集上，抽取质量平均提升了超过10\%。
+
+\noindent {\bf 抽取效率的比较}:
+我们另外比较了使用这三种方法来抽取一条文本所花费的平均时间，从表~\ref{table:4}中可以看到，相比较ONDUX和CNN-IETS，基于CRF的方法花费了更多的时间来训练自己的模型。尽管，我们的方法(CNN-IETS)也需要训练CNN模型，但是这个训练的过程可以使用已经存在的知识库在线下来运行，因此我们的方法跟ONDEX方法在做线上的信息抽取时所花费的时间差不多。
+
+\begin{table}%[!hbp]
+\centering
+\small
+\caption{三种方法花费时间的比较}
+\label{table:5}
+\begin{tabular}{| l | c | c | c |}
+\hline
+Dataset & CRF & ONDUX & CNN-IETS \\ \hline
+PersonalBib & 2350ms & 190ms &  150ms \\ \hline
+House & 4670ms & 380ms & 340ms \\ \hline
+Car & 3780ms & 200ms & 210ms \\ \hline
+\end{tabular}
+\label{table:4}
+\end{table}
+
+
+\noindent {\bf 知识库(KB)的覆盖率对抽取质量的比较}:
+因为ONDUX方法和我们的方法都需要使用一个事先构建好的知识库用来理解输入文本的结构特征，因此，知识库在测试集中属性值的覆盖率对抽取质量有非常大的影响。经过试验，我们得出结论，相比较ONDEX的方法，我们的CNN-IETS方法对知识库覆盖率的要求更低。从图~\ref{fig:9}(a)中可以看到，当知识库的覆盖率从 $0.1$ 增加到 $0.6$ ，在引文数据集上，CNN-IETS方法的抽取质量从 $0.874$ 缓慢地增加到 $0.929$ ，而ONDEX方法的抽取质量急剧的从 $0.704$ 增加到 $0.810$ 。另外，不管知识库的覆盖率是多少，我们的CNN-IETS方法的表现都要好于ONDEX方法。从图~\ref{fig:9}(b)和图~\ref{fig:9}(c)中我们可以发现相同的现象，这就证明了，我们的方法相比较ONDEX方法对知识库覆盖率的依赖更低。
+
+
+\subsection{BPSM效果的验证}
+我们提出了一个全新的类似隐马尔科夫的概率图模型，双向位置与序列模型(BPSM)，用来进一步修正CNN模型得到的标注结果，相比较在ONDEX方法~\cite{cortez2010ondux}中使用的单向位置和序列模型(PSM)，我们的模型同时从前向和后向来考虑序列关系，因此可以有效的避免使用单向模型可能出现标注错误的风险。
+
+为了验证BPSM的有效性，已经相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN的抽取质量在三个数据集上平均提升了大概5-8\%。因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
+
+
+\begin{table}%[!hbp]
+\centering
+\small
+\caption{\small  CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
+\label{table:5}
+\begin{tabular}{| c | c | c | c |}
+\hline
+Dataset & CNN  & CNN + PSM & CNN + BPSM \\ \hline
+PersonalBib & 0.862 & 0.891 &  {\bf 0.929} \\ \hline
+House & 0.903 & 0.943 & {\bf 0.986} \\ \hline
+Car & 0.897 & 0.932 & {\bf 0.968} \\ \hline
+\end{tabular}
+\end{table}
+
 
 \section{本章小结}
 
-
+本章，我们给出了分割式信息抽取(IETS)的正式定义，介绍了知识库的构建，并详细介绍了本文提出的基于卷积神经网络的贪婪式概率标注算法的每一部分，最后我们在三个数据集上与另外两种目前表现最佳的方法做了充分的对比实验，给出了详细的实验结果和分析，最终得到结论，文本提出的方法不仅在抽取质量还是在抽取效率上都明显好于其他方法。
 
 
