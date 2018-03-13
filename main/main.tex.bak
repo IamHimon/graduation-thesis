@@ -9,7 +9,6 @@
 \documentclass[openany]{SUDAthesis}
 %\usepackage{algorithm}
 %\usepackage{algorithmic}
-\usepackage{diagbox} % ¼ÓÔØºê°ü
 \usepackage{cite}
 \usepackage{pdfpages}
 \usepackage{tabularx}
