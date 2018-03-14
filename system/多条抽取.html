@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>加载KB</title>
+<title>多条抽取</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>加载KB</title>
+<title>多条抽取</title>
 
 <style>
 #page{
@@ -175,9 +175,9 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
             <h1 class="press">CNN-IETS</h2>
         </div>
         <div id="header2">
-            <button class="button2" style ="margin-top:40px">模型训练</button>
+            <button class="button2 disabled" style ="margin-top:40px">模型训练</button>
             <button class="button2 disabled">单条抽取</button>
-            <button class="button2 disabled">多条抽取</button>
+            <button class="button2 ">多条抽取</button>
         </div>
 
     </div>
@@ -202,69 +202,9 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
 
         <!-- 左边内容显示框 -->
         <div id="section">
-            <div id="iframe_part">
-                <form>
-                    <label> 
-                        <span style="width: 100px ; display: inline-block">卷积核数量:</span>
-                        <input type="text" name="lastname">
-                    </label>
-                    <br>
-                    <br>
-                    选择特征：
-                    <br>
-                        <input type="checkbox" name="vehicle" value="Bike" />在文本段中位置特征<br />
-                        <input type="checkbox" name="vehicle" value="Car" /> 在输入文本中的位置特征 <br />
-                        <input type="checkbox" name="vehicle" value="Car" /> 文本段的长度 <br />
-                        <input type="checkbox" name="vehicle" value="Car" /> POS <br />
-                        <input type="checkbox" name="vehicle" value="Car" /> 归一化类别概率 <br />
-                      
-                    <br>
-                    输入特征的维度：
-                    <br />
-
-                    <label> 
-                        <span style="width: 180px ; display: inline-block">在文本段中位置特征:</span>
-                        <input type="text" name="lastname" placeholder="整数，比如100，200" >
-                    </label>
-                    <br>
-
-                    <label> 
-                        <span style="width: 180px ; display: inline-block">在输入文本中的位置特征:</span>
-                        <input type="text" name="lastname" placeholder="整数，比如100，200">
-                    </label>
-                    <br>
-
-                     <label> 
-                        <span style="width: 180px ; display: inline-block">文本段的长度:</span>
-                        <input type="text" name="lastname" placeholder="整数，比如100，200">
-                    </label>
-                    <br>
-                    
-                    <label> 
-                        <span style="width: 180px ; display: inline-block">POS:</span>
-                        <input type="text" name="lastname" placeholder="整数，比如100，200">
-                    </label>
-                    <br>
-
-                    <label> 
-                        <span style="width: 180px ; display: inline-block">归一化类别概率:</span>
-                        <input type="text" name="lastname" placeholder="整数，比如100，200">
-                    </label>
-                    <br>                                                                               
-
-                    </form>
-
-                    <br>
-                    <br>
-
-                    <div id="confirm">
-                        <button type="button">确认</button>
-                        <button type="button">重置</button>
-                    </div>
-            </div>
-
-
+            
         </div>
+        
     </div>
 
 </div>

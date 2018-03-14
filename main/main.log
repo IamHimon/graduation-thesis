@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  13 MAR 2018 23:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  14 MAR 2018 14:50
 entering extended mode
 **main.tex
 ("D:\a_Graduation\graduation thesis\main\main.tex"
@@ -1890,6 +1890,11 @@ Overfull \hbox (21.85628pt too wide) in paragraph at lines 40--51
 [45
 
 ]
+
+LaTeX Warning: Citation `girshick2015fast' on page 46 undefined on input line 1
+9.
+
+
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
  [46])
@@ -1955,10 +1960,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23812 strings out of 495354
- 376299 string characters out of 3183188
+ 23809 strings out of 495354
+ 376248 string characters out of 3183188
  475668 words of memory out of 3000000
- 25629 multiletter control sequences out of 15000+200000
+ 25626 multiletter control sequences out of 15000+200000
  160182 words of font info for 472 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,21n,51p,2019b,1203s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2027,7 +2032,7 @@ nts/txsyb.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb>
 <D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/JobSoftware/CT
 EX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on main.pdf (63 pages, 2193435 bytes).
+Output written on main.pdf (63 pages, 2196565 bytes).
 PDF statistics:
  1583 PDF objects out of 1728 (max. 8388607)
  191 named destinations out of 1000 (max. 500000)

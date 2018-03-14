@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>加载KB</title>
+</head>
+
+<body>
+</body>
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>加载KB</title>
+
+<style>
+#header {
+    background-color:#778899;
+    width: 1100px;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:500px;
+    width:100px;
+    float:left;
+    padding:5px; 
+    border:3px solid #737373;
+}
+#section {
+	background-color: #EEDFCC;
+	width: 900px;
+	height: 500px;
+	float: left;
+	padding: 5px;
+}
+
+#nav1 {
+
+	height:100px
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+#nav2 {
+
+	height:100px
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+#nav3 {
+
+	height:100px
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+
+.button1 {
+    background-color: #C4C4C4; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {
+    background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button3 {
+    background-color: #C4C4C4; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div id="header">
+<h1>CNN-IETS Tool</h1>
+</div>
+
+<div id="nav">
+
+<div id="nav1">
+<button class="button1">设定超参</button>
+</div>
+<div id="nav2">
+<button class="button2">加载KB</button>
+</div>
+<div id="nav3">
+<button class="button3">训练网络</button>
+</div>
+
+</div>
+
+
+<div id="section">
+
+<div id= "value_setting">
+<form>
+KB路径:
+<input type="text" name="lastname">
+<br>
+选择特征：
+<br>
+ <input type="checkbox" name="vehicle" value="Bike" />在文本段中位置特征<br />
+ <input type="checkbox" name="vehicle" value="Car" /> 在输入文本中的位置特征 <br />
+  <input type="checkbox" name="vehicle" value="Car" /> 文本段的长度 <br />
+   <input type="checkbox" name="vehicle" value="Car" /> POS <br />
+    <input type="checkbox" name="vehicle" value="Car" /> 归一化类别概率 <br />
+  
+<br>
+设定维度：
+<br />
+
+在文本段中位置特征:
+<input type="text" name="lastname">
+<br>
+
+在输入文本中的位置特征:
+<input type="text" name="lastname">
+<br>
+
+文本段的长度:
+<input type="text" name="lastname">
+<br>
+
+POS:
+<input type="text" name="lastname">
+<br>
+
+归一化类别概率:
+<input type="text" name="lastname">
+<br>
+
+</form>
+
+</div>
+
+<br />
+<br />
+<div id="conform">
+<button type="button">确认</button>
+<button type="button">重置</button>
+</div>
+
+
+</div>
+
+
+</body>
+</html>
