@@ -1,0 +1,44 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+The style file: sudabst.bst
+inproceedings is already a type "wizard-defined" function name
+---line 893 of file sudabst.bst
+ : function {inproceedings
+ :                        }
+"}" can't start a style-file command---line 911 of file sudabst.bst
+ :     
+ :     }
+(Error may have been on previous line)
+Database file #1: ../bib/mybib.bib
+Repeated entry---line 117 of file ../bib/mybib.bib
+ : @inproceedings{borkar2001automatic
+ :                                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 146 of file ../bib/mybib.bib
+ : @article{lafferty2001conditional
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 152 of file ../bib/mybib.bib
+ : @article{peng2006information
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 163 of file ../bib/mybib.bib
+ : @article{kim2014convolutional
+ :                              ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "mikolov2013distributed"
+You can't pop an empty literal stack for entry borkar2001automatic
+while executing---line 1050 of file sudabst.bst
+Warning--empty journal in lafferty2001conditional
+You can't pop an empty literal stack for entry agichtein2004mining
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry mansuri2006integrating
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry zhao2008exploiting
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry cortez2007flux
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry cortez2010ondux
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry pearl2014probabilistic
+while executing---line 1050 of file sudabst.bst
+(There were 13 error messages)

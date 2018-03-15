@@ -9,6 +9,7 @@
 \documentclass[openany]{SUDAthesis}
 %\usepackage{algorithm}
 %\usepackage{algorithmic}
+\usepackage{diagbox} % 加载宏包
 \usepackage{cite}
 \usepackage{pdfpages}
 \usepackage{tabularx}
@@ -118,7 +119,7 @@
 %% 封面部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % 中文封面内容
-  \title{基于深度学习技术的信息抽取工具的研究与开发}
+  \title{基于CNN的文本记录分割与命名属性识别技术的研究与实现}
   \author{胡猛}
   \advisor{李直旭}
   \degree{硕~士~}
@@ -135,7 +136,7 @@
   \englishadvisor{Zhixu Li}
 
   % 封面
-  \includepdf{cover.pdf}
+  \includepdf{cover_hm.pdf}
   \cleardoublepage
 
   % 版权页

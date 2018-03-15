@@ -67,14 +67,16 @@
 }
 
 #input_text {
-    background-color:black;
-    height: 20%;
+    background-color:#DEB887;
+    height: 25%;
     padding:5px; 
 }
 
 #extraction {
-    height: 80%;
-    margin-left: 20%;
+    /*background-color: red;*/
+    height: 70%;
+    padding:5px;
+    /*margin-left: 20%;*/
 }
 
 #start_stop_child{
@@ -161,6 +163,77 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
 -webkit-background-clip : text;
 }
 
+
+/*内容展示*/
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .select li {
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid rgb(141, 82, 82);
+        }
+
+        .select li span {
+            text-align: center;
+            font-size: 15px;
+            display: inline-block;
+        }
+
+        .display>li>div {
+            background-color: #838B8B;
+            width: 750px;
+            height: 300px;
+            border: 3px solid rgb(141, 82, 82);
+        }
+        
+        .select li.active {
+            background-color: #838B8B;
+        }
+
+
+    /*分块*/
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+
+    .content {
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        padding: 2px 5px;
+        background-color: #5CACEE;
+        border: 2px solid #1874CD;
+        display: inline-block;
+
+    }
+
+    .tip {
+        padding: 2px 5px;
+    }
+
+    .tag {
+        font-size: 12px;
+        text-align: center;
+        float: left;
+        margin: 5px 10px;
+        color: #050505;
+    }
+
 </style>
 
 
@@ -172,7 +245,7 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
     
     <div id="header">
         <div id="header1">
-            <h1 class="press">CNN-IETS</h2>
+            <h1 class="press">TesaRec tool</h2>
         </div>
         <div id="header2">
             <button class="button2 disabled" style ="margin-top:40px">模型训练</button>
@@ -195,34 +268,257 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
 
             <div id="nav2">
                     <label> 
-                        <span style="width: 100px ; display: inline-block">加载KG:</span>
+                        <span style="width: 100px ; display: inline-block">加载  KB:</span>
                         <input type="text" name="lastname" style="width: 80px">
                     </label>
             </div>
-            <br>
-            
+
+            <div id="nav2">
+                    <label> 
+                        <span style="width: 100px ; display: inline-block">存储位置:</span>
+                        <input type="text" name="lastname" style="width: 80px">
+                    </label>
+            </div>            
+
             <div id="nav2">
                    <button type="button">确认</button>
                    <button type="button">重置</button>
             </div>
-            <br>     
+            <br>
 
+            <div id="nav2">
+                    <label> 
+                        <span style="width: 130px ; display: inline-block; float:left;">输入文本:</span>
+                        <input type="text" name="lastname" style="width: 150px" >
+                    </label>
+            </div>   
+            <div id="nav2">
+                   <button type="button">确认</button>
+                   <button type="button">重置</button>
+            </div>
+            <br>
+            <div id="nav2">
+
+                   <button class="button3 disabled">开始抽取</button>
+                   <button class="button3">存入文件</button>
+            </div>
 
 
         </div>
 
         <!-- 左边内容显示框 -->
         <div id="section">
-             <div id="input_text">
+            <div id="input_text">
+
+                <label> 
+                        <span style="width: 100px ; display: inline-block">模型信息:</span>
+                        Car_20180113
+                </label>
+                <br>
+
+                <label> 
+                        <span style="width: 100px ; display: inline-block">KB信息：</span>
+                        Car_v1
+                </label>
+                <br>
+                <label> 
+                        <span style="width: 100px ; display: inline-block">存储位置:</span>
+                        ../storehouse/car_values.xml
+                </label>
+                <br>
+                <label> 
+                        <span style="width: 100px ; display: inline-block">待抽取文本：</span>
+                        <br>
+                        <h5>Mercedes-Benz E250 Auto, $84888, Obsidian Black, 7speed Sports Automatic. 2 doors 4 seat Coupe, 4
+                        cylinder Petrol TurboIntercooled2.0L;6L/100km</h5>
+                </label>                                
                 
             </div>
 
             <div id="extraction">
-                <div id="start_stop_child">
-                    <button class="button3">初始化模型</button>
-                    <button class="button3 disabled">开始训练</button>
-                    <button class="button3 disabled">禁用按钮</button>
-            </div>
+                <ul class="select">
+                        <li class="active" show="panel1"><span>Segment</span></li>
+                        <li  show="panel2"><span>CNN-label</span></li>
+                        <li  show="panel3"><span>Amendment</span></li>
+                        <li  show="panel4"><span>BPSM</span></li>
+                    </ul>
+
+                    <ul class="display">
+                        <li><div id="panel1">
+
+                            <div class="container">
+                                <div class="tag">
+                                    <div class="tip">Brand</div>
+                                    <div class="content">Mercedes-Benz</div>
+                                </div>
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">E250</div>
+                                </div>
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">Auto</div>
+                                </div>
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">$84888</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">Obsidian Black</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip">Tran</div>
+                                    <div class="content">7speed</div>
+                                </div>
+                                   
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">Sports Automatic</div>
+                                </div>
+                                
+
+                                <div class="tag">
+                                    <div class="tip">Body</div>
+                                    <div class="content">2 doors</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">4 seat Coupe</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" >Engine</div>
+                                    <div class="content">4 cylinder </div>
+                                </div>
+
+                                 <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">Petrol TurboIntercooled 2.0L</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">6L/100km</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                        <li><div id="panel2">
+                            <div class="container">
+                                <div class="tag">
+                                    <div class="tip">Brand</div>
+                                    <div class="content">Mercedes-Benz E250</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip" style="color: red;">UN</div>
+                                    <div class="content">Auto</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip">Price</div>
+                                    <div class="content">$84888</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip">Color</div>
+                                    <div class="content">Obsidian Black</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip">Tran</div>
+                                    <div class="content">7speed Sports Automatic</div>
+                                </div>                                                
+
+                                <div class="tag">
+                                    <div class="tip">Body</div>
+                                    <div class="content">2 doors 4 seat Coupe</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" >Engine</div>
+                                    <div class="content">4 cylinder Petrol TurboIntercooled 2.0L</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip">FC</div>
+                                    <div class="content">6L/100km</div>
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <div id="panel3">
+                            <div class="container">
+                                <div class="tag">
+                                    <div class="tip">Brand</div>
+                                    <div class="content">Mercedes-Benz E250 Auto</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip">Price</div>
+                                    <div class="content">$84888</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip">Color</div>
+                                    <div class="content">Obsidian Black</div>
+                                </div>
+
+                                <div class="tag">
+                                    <div class="tip">Tran</div>
+                                    <div class="content">7speed Sports Automatic</div>
+                                </div>                                                
+
+                                <div class="tag">
+                                    <div class="tip">Body</div>
+                                    <div class="content">2 doors 4 seat Coupe</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip" >Engine</div>
+                                    <div class="content">4 cylinder Petrol TurboIntercooled 2.0L</div>
+                                </div>
+                                
+                                <div class="tag">
+                                    <div class="tip">FC</div>
+                                    <div class="content">6L/100km</div>
+                                </div>
+
+                            </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div id="panel4">
+                                <div id="panel4_f" style="float: left; height: 99%; width: 49%; border: 2px solid rgb(141, 82, 82);">
+                                    <img src="forward_one.png" style="height: 100%">
+                                </div>
+                                <div id="panel4_b" style="float: right; height: 99%; width: 49%; border: 2px solid rgb(141, 82, 82);">
+                                    <img src="backward_one.png" style="height: 100%">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+                    <script>
+                        $('.select li').click(function(){
+                            $('.select li').removeClass('active');
+                            $(this).addClass('active');
+                            $('.display>li>div').hide();
+                            $('#' + $(this).attr('show')).show();
+                        });
+
+                        $(".select li").eq(0).click();
+                    </script>
 
             </div>
 
@@ -231,6 +527,300 @@ text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px
     </div>
 
 </div>
+
+
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart1 = echarts.init(document.getElementById('panel4'));
+
+    // 指定图表的配置项和数据
+    option1 = {
+        title: {
+            text: 'Forward Model'
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                type: 'graph',
+                layout: 'none',
+                symbolSize: 50,
+                roam: true,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [10, 20],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                data: [{
+                    name: 'start',
+                    x: 300,
+                    y: 300
+                }, {
+                    name: 'Color',
+                    x: 600,
+                    y: 300
+                }, {
+                    name: 'Brand',
+                    x: 550,
+                    y: 100
+                }, {
+                    name: 'Tran',
+                    x: 550,
+                    y: 500
+                },{
+                    name: 'Price',
+                    x: 400,
+                    y: 400
+                },{
+                    name: 'Body',
+                    x: 550,
+                    y: 200
+                },{
+                    name: 'Engine',
+                    x: 550,
+                    y: 100
+                },{
+                    name: 'FC',
+                    x: 600,
+                    y: 400
+                },{
+                    name: 'End',
+                    x: 800,
+                    y: 300
+                }
+                ],
+                // links: [],
+                links: [{
+                    source: 'start',
+                    target: 'Color',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'start',
+                    target: 'Brand',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Brand',
+                    target: 'Price',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Brand',
+                    target: 'Color',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Color',
+                    target: 'Brand',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Color',
+                    target: 'Price',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Price',
+                    target: 'Engine',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Price',
+                    target: 'Tran',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Tran',
+                    target: 'Body',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Tran',
+                    target: 'Engine',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Body',
+                    target: 'End',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Body',
+                    target: 'FC',
+                     symbolSize: [1, 8]
+                }, {
+                    source: 'FC',
+                    target: 'Body',
+                     symbolSize: [1, 8],
+                }, {
+                    source: 'FC',
+                    target: 'End',
+                     symbolSize: [1, 8],
+                }, {
+                    source: 'Engine',
+                    target: 'End',
+                     symbolSize: [1, 8],
+                }, {
+                    source: 'Engine',
+                    target: 'body',
+                     symbolSize: [1, 8],
+                }],
+                lineStyle: {
+                    normal: {
+                        opacity: 1,
+                        width: 1,
+                        curveness: 0.3,
+                    }
+                }
+            }
+        ]
+    };
+
+// 指定图表的配置项和数据
+    option2 = {
+        title: {
+            text: 'Backward Model'
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                type: 'graph',
+                layout: 'none',
+                symbolSize: 50,
+                roam: true,
+                label: {
+                    normal: {
+                        show: true
+                    }
+                },
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [10, 20],
+                edgeLabel: {
+                    normal: {
+                        textStyle: {
+                            fontSize: 20
+                        }
+                    }
+                },
+                data: [{
+                    name: 'start',
+                    x: 300,
+                    y: 300
+                }, {
+                    name: 'Color',
+                    x: 600,
+                    y: 300
+                }, {
+                    name: 'Brand',
+                    x: 550,
+                    y: 100
+                }, {
+                    name: 'Tran',
+                    x: 550,
+                    y: 500
+                },{
+                    name: 'Price',
+                    x: 400,
+                    y: 400
+                },{
+                    name: 'Body',
+                    x: 550,
+                    y: 200
+                },{
+                    name: 'Engine',
+                    x: 550,
+                    y: 100
+                },{
+                    name: 'FC',
+                    x: 600,
+                    y: 400
+                },{
+                    name: 'End',
+                    x: 800,
+                    y: 300
+                }
+                ],
+                // links: [],
+                links: [{
+                    source: 'End',
+                    target: 'FC',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'End',
+                    target: 'Body',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'End',
+                    target: 'Engine',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Body',
+                    target: 'FC',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Body',
+                    target: 'Tran',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Body',
+                    target: 'Engine',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Engine',
+                    target: 'Price',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Engine',
+                    target: 'Tran',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Tran',
+                    target: 'Price',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Price',
+                    target: 'Color',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Price',
+                    target: 'Brand',
+                    symbolSize: [1, 8],
+                }, {
+                    source: 'Brand',
+                    target: 'Color',
+                     symbolSize: [1, 8]
+                }, {
+                    source: 'Brand',
+                    target: 'start',
+                     symbolSize: [1, 8],
+                }, {
+                    source: 'Color',
+                    target: 'Brand',
+                     symbolSize: [1, 8],
+                }, {
+                    source: 'Color',
+                    target: 'start',
+                     symbolSize: [1, 8],
+                }],
+                lineStyle: {
+                    normal: {
+                        opacity: 1,
+                        width: 1,
+                        curveness: 0.3,
+                    }
+                }
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart1.setOption(option1);
+    // myChart1.setOption(option2)
+</script>
+
 
 </body>
 </html>

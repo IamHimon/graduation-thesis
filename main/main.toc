@@ -33,8 +33,9 @@
 \contentsline {section}{\numberline {4.2}CNN模型构建细节}{40}{section.4.2}
 \contentsline {section}{\numberline {4.3}系统架构及展示}{43}{section.4.3}
 \contentsline {section}{\numberline {4.4}本章小结}{44}{section.4.4}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}全文总结}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}工作展望}{46}{section.5.2}
-\contentsline {chapter}{攻读硕士学位期间发表的论文}{48}{chapter*.4}
-\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{49}{chapter*.5}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}总结与展望}{46}{chapter.5}
+\contentsline {section}{\numberline {5.1}全文总结}{46}{section.5.1}
+\contentsline {section}{\numberline {5.2}工作展望}{47}{section.5.2}
+\contentsline {chapter}{参考文献}{49}{chapter*.4}
+\contentsline {chapter}{攻读硕士学位期间发表的论文}{52}{chapter*.5}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{53}{chapter*.6}

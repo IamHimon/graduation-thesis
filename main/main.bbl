@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+
+\bibitem{freitag2000information}
+Dayne Freitag and Andrew McCallum.
+\newblock Information extraction with HMM structures learned by stochastic
+  optimization [J].
+\newblock AAAI/IAAI, 2000, 2000: 584--589.
+
+\bibitem{borkar2001automatic}
+Vinayak Borkar, Kaustubh Deshmukh and Sunita Sarawagi.
+\newblock
+\newblock Automatic segmentation of text into structured records [A]. ACM
+  SIGMOD Record [C]. ACM, 2001: 175--186.
+
+\bibitem{lafferty2001conditional}
+John Lafferty, Andrew McCallum and Fernando~CN Pereira.
+\newblock Conditional random fields: Probabilistic models for segmenting and
+  labeling sequence data [J].
+\newblock 2001.
+
+\bibitem{peng2006information}
+Fuchun Peng and Andrew McCallum.
+\newblock Information extraction from research papers using conditional random
+  fields [J].
+\newblock Information processing \& management, 2006, 42(4): 963--979.
+
+\bibitem{agichtein2004mining}
+Eugene Agichtein and Venkatesh Ganti.
+\newblock
+\newblock Mining reference tables for automatic text segmentation [A].
+  Proceedings of the tenth ACM SIGKDD international conference on Knowledge
+  discovery and data mining [C]. ACM, 2004: 20--29.
+
+\bibitem{mansuri2006integrating}
+Imran~R Mansuri and Sunita Sarawagi.
+\newblock
+\newblock Integrating unstructured data into relational databases [A]. Data
+  Engineering, 2006. ICDE'06. Proceedings of the 22nd International Conference
+  on [C]. IEEE, 2006: 29--29.
+
+\bibitem{zhao2008exploiting}
+Chang Zhao, Jalal Mahmud and IV~Ramakrishnan.
+\newblock
+\newblock Exploiting structured reference data for unsupervised text
+  segmentation with conditional random fields [A]. Proceedings of the 2008 SIAM
+  International Conference on Data Mining [C]. SIAM, 2008: 420--431.
+
+\bibitem{cortez2007flux}
+Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves, Filipe
+  Mesquita and Edleno~S de~Moura.
+\newblock
+\newblock FLUX-CIM: flexible unsupervised extraction of citation metadata [A].
+  Proceedings of the 7th ACM/IEEE-CS joint conference on Digital libraries [C].
+  ACM, 2007: 215--224.
+
+\bibitem{michelson2007unsupervised}
+Matthew Michelson and Craig~A Knoblock.
+\newblock Unsupervised information extraction from unstructured, ungrammatical
+  data sources on the world wide web [J].
+\newblock International Journal of Document Analysis and Recognition (IJDAR),
+  2007, 10(3-4): 211--226.
+
+\bibitem{cortez2010ondux}
+Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves and Edleno~S
+  de~Moura.
+\newblock
+\newblock Ondux: on-demand unsupervised learning for information extraction
+  [A]. Proceedings of the 2010 ACM SIGMOD International Conference on
+  Management of data [C]. ACM, 2010: 807--818.
+
+\bibitem{sahu2016relation}
+Sunil~Kumar Sahu, Ashish Anand, Krishnadev Oruganty and Mahanandeeshwar Gattu.
+\newblock Relation extraction from clinical texts using domain invariant
+  convolutional neural network [J].
+\newblock arXiv preprint arXiv:1606.09370, 2016.
+
+\bibitem{kim2014convolutional}
+Yoon Kim.
+\newblock Convolutional neural networks for sentence classification [J].
+\newblock arXiv preprint arXiv:1408.5882, 2014.
+
+\bibitem{th2015evaluating}
+MUNEEB TH, Sunil Sahu and Ashish Anand.
+\newblock Evaluating distributed word representations for capturing semantics
+  of biomedical concepts [J].
+\newblock Proceedings of BioNLP 15, 2015, : 158--163.
+
+\bibitem{sarawagi2008information}
+Sunita Sarawagi et~al.
+\newblock Information extraction [J].
+\newblock Foundations and Trends{\textregistered} in Databases, 2008, 1(3):
+  261--377.
+
+\bibitem{pearl2014probabilistic}
+Judea Pearl.
+\newblock
+\newblock Probabilistic reasoning in intelligent systems: networks of plausible
+  inference [M]. Elsevier, 2014.
+
+\bibitem{zhang2015sensitivity}
+Ye~Zhang and Byron Wallace.
+\newblock A sensitivity analysis of (and practitioners' guide to) convolutional
+  neural networks for sentence classification [J].
+\newblock arXiv preprint arXiv:1510.03820, 2015.
+
+\bibitem{ioffe2015batch}
+Sergey Ioffe and Christian Szegedy.
+\newblock Batch normalization: Accelerating deep network training by reducing
+  internal covariate shift [A]. International conference on machine learning
+  [C]. .
+\newblock 2015: 448--456.
+
+\bibitem{girshick2015fast}
+Ross Girshick.
+\newblock Fast r-cnn [J].
+\newblock arXiv preprint arXiv:1504.08083, 2015.
+
+\end{thebibliography}

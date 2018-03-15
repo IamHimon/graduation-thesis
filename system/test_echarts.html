@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 引入 ECharts 文件 -->
+    <script src="echarts.min.js"></script>
+</head>
+</html>
+
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+		option = {
+		    title: {
+		        text: 'Forward Model'
+		    },
+		    tooltip: {},
+		    animationDurationUpdate: 1500,
+		    animationEasingUpdate: 'quinticInOut',
+		    series : [
+		        {
+		            type: 'graph',
+		            layout: 'none',
+		            symbolSize: 50,
+		            roam: true,
+		            label: {
+		                normal: {
+		                    show: true
+		                }
+		            },
+		            edgeSymbol: ['circle', 'arrow'],
+		            edgeSymbolSize: [10, 20],
+		            edgeLabel: {
+		                normal: {
+		                    textStyle: {
+		                        fontSize: 20
+		                    }
+		                }
+		            },
+		            data: [{
+		                name: 'start',
+		                x: 300,
+		                y: 300
+		            }, {
+		                name: 'Color',
+		                x: 600,
+		                y: 300
+		            }, {
+		                name: 'Brand',
+		                x: 550,
+		                y: 100
+		            }, {
+		                name: 'Tran',
+		                x: 550,
+		                y: 500
+		            },{
+		                name: 'Price',
+		                x: 400,
+		                y: 400
+		            },{
+		                name: 'Body',
+		                x: 550,
+		                y: 200
+		            },{
+		                name: 'Engine',
+		                x: 550,
+		                y: 100
+		            },{
+		                name: 'FC',
+		                x: 600,
+		                y: 400
+		            },{
+		                name: 'End',
+		                x: 800,
+		                y: 300
+		            }
+		            ],
+		            // links: [],
+		            links: [{
+		                source: 'start',
+		                target: 'Color',
+		            }, {
+		                source: 'start',
+		                target: 'Brand',
+		            }, {
+		                source: 'Brand',
+		                target: 'Price'
+		            }, {
+		                source: 'Brand',
+		                target: 'Color'
+		            }, {
+		                source: 'Color',
+		                target: 'Brand'
+		            }, {
+		                source: 'Color',
+		                target: 'Price'
+		            }, {
+		                source: 'Price',
+		                target: 'Engine'
+		            }, {
+		                source: 'Price',
+		                target: 'Tran'
+		            }, {
+		                source: 'Tran',
+		                target: 'Body'
+		            }, {
+		                source: 'Tran',
+		                target: 'Engine'
+		            }, {
+		                source: 'Body',
+		                target: 'End'
+		            }, {
+		                source: 'Body',
+		                target: 'FC'
+		            }, {
+		                source: 'FC',
+		                target: 'Body'
+		            }, {
+		                source: 'FC',
+		                target: 'End'
+		            }, {
+		                source: 'Engine',
+		                target: 'End'
+		            }, {
+		                source: 'Engine',
+		                target: 'body'
+		            }],
+		            lineStyle: {
+		                normal: {
+		                    opacity: 0.9,
+		                    width: 2,
+		                    curveness: 0
+		                }
+		            }
+		        }
+		    ]
+		};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>

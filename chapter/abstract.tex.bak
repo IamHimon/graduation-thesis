@@ -10,7 +10,7 @@
 
 (2)提出了基于卷积神经网络的贪婪式概率匹配算法。本算法采用深度卷积神经网络模型，提出了一种贪婪式的概率匹配算法，并在抽取过程中学习出一个双向的序列与位置模型来完成抽取任务，采用了步步提升的设计方案，有效的解决了上述的问题，经过比较F1值取得了非常明显的提升，并在抽取效率上也有非常好的表现。
 
-(3)构建了一个自动化模型训练和执行抽取任务的系统，可以更方便的移植到其他数据集，更方便查看模型各步骤的结果。
+(3)提出 CNN+LSTM+attention model+CRF的解决方案
 
 \keywords{深度学习, 信息抽取, 文本分割}
 
@@ -23,7 +23,7 @@
 
 \begin{englishabstract}
 
-\textcolor[rgb]{1.00,0.00,0.00}{【还没写】}
+【还没写】
 
 With the rapid development of information technology, the data from different field explosively grow, which makes data quality problems increasingly highlight, such as data distortion, data staleness, data missing, inconsistent data expression and so on. This paper mainly do research on one of the important data quality subjects, so-called Entity Matching (EM for short). EM aims at identifying records referring to the same entity within or across databases.
 
