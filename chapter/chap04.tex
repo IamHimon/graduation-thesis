@@ -2,9 +2,6 @@
 
 \chapter{系统的实现与展示}
 
-\section{Tensorflow介绍}
-TensorFlow 是一个使用数据流图进行数值计算的开源软件库。图中的节点代表数学运算， 而图中的边则代表在这些节点之间传递的多维数组（张量）。这种灵活的架构可让您使用一个 API 将计算工作部署到桌面设备、服务器或者移动设备中的一个或多个 CPU 或 GPU。 TensorFlow 最初是由 Google 机器智能研究部门的 Google Brain 团队中的研究人员和工程师开发的，用于进行机器学习和深度神经网络研究， 但它是一个非常基础的系统，因此也可以应用于众多其他领域。
-
 \section{CNN模型构建细节}
 本文提出的基于深度卷积神经网络(CNN)的信息抽取模型，除了事先构建知识库和第一步做初始的文本分割，其他部分的执行都是基于我们构建的CNN分类器模型的输出结果。因此，我们的分类器模型需要能更准确的刻画各属性值的区别，有更高的准确率，但是，我们知道，卷积神经网络(CNN)的优势在于它能充分抽取特征和自由组合特征的能力，但是CNN模型的这个优势，从另一个角度来讲，恰恰也是它的一个劣势——缺乏模型解释性。因此，我们在使用卷积神经网络来构建深度学习模型时，更多时候我们只能把它看做黑盒子。但是，我们还是可以通过加入一些模型训练技巧，探索合适的超参数，改变模型结构来提高模型的表现力。在这一节，将详细介绍我们构建CNN分类模型的一些细节(我们将不再给出实验结果，我们会结合实验结果尝试解释如此选择的原因，从而得到一些经验相关的知识)：
 \vspace{-2pt}
@@ -53,58 +50,105 @@ TensorFlow 是一个使用数据流图进行数值计算的开源软件库。图中的节点代表数学运算， 
 \end{table}
 
 \section{系统架构及展示}
-为了方便执行抽取任务，方便移植到其他数据集，且可视化我们的抽取模型每一步的结果，我们做了一个自动化训练模型和抽取任务可视化的系统。整体来讲，这个系统主要分为下面三个部分：
+为了方便执行抽取任务，方便移植到其他数据集，且可视化我们抽取模型的每一步结果，我们做了一个训练模型和执行抽取可视化的系统。整体来讲，这个系统主要分为下面三个部分：
 
 \vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
-  \item \textit{模型训练调参与训练集初始化}
-
+  \item \textit{模型初始化与模型训练}
     \begin{itemize}
-    \item[*] 模型结构设计和参数设定：可以在网页上直接手动设计模型结构，制定超参的数值。
-    \item[*] 构造知识库（$Knowledge \; Base$），加载、处理和预览训练集，选择性构造特征：
-手动选择数据预处理相关参数，选择要构造的特征，并预览训练数据的初始化结果等。
-    \item[*] 深度学习模型训练过程可视化展现（TensorBoard）。
+        \item[*] 模型结构设计和参数设定：可以在网页上直接手动设计模型结构，比如指定通道个数，激活函数，卷积方式，Polling方式，指定超参的数值，比如指定规则化中Dropout值和l2的值，卷积核大小与数量等。如图~\ref{fig:model_set_train}(a)所示
+        \item[*] 加载知识库（$Knowledge \; Base$），加载、预处理知识库中的各属性值。因为我们在构造CNN模型输入矩阵的时候，除了word2vec，我们还另外构造了五种特征，分别是word2vec，在文本段中的位置特征，在输入文本中的位置特征，文本段的长度，POS和归一化的类别概率，我们可以在系统上选择性的只是用其中的特定几个。并且，因为我们在训练模型的时候，需要将输入特征向量化，因此还需要指定这些特征的维度，如图~\ref{fig:model_set_train}(b)所示。
+        选择性构造特征：手动选择数据预处理相关参数，选择要构造的特征，并预览训练数据的初始化结果等。
+        \item[*] CNN模型训练过程可视化展现，这里我们直接通过iframe将TensorBoard投放到我们的系统中，我们可以直接查看系统的结构和模型训练的过程，然后通过观察loss的变化，当loss没有明显的变化时，我们提供‘提前停止’按钮，可以随时结束模型的训练。如图~\ref{fig:model_set_train}(c)所示
     \end{itemize}
 
-  \item \textit{输入文本执行抽取任务}
+  \item \textit{输入单条文本执行抽取任务}
 
    \begin{itemize}
-    \item[*] 输入一个文件，包含多条文本记录：
-对这个文件抽取结果的展示，即展示每条记录的属性值和相应属性名，BPSM的展示。
-    \item[*] 输入一条文本记录：
-展示模型每一步的中间结，（a）KB-based Blocking，展示每一块，标注出Anchor-block和Unknown-block。（b）CNN-labeling，展示归一化的CNN输出概率，展示目前分块和标注结果。（c）BPSM-amendment，展示BPSM模型以及最终的抽取结果。
+        \item[*] 当需要每次抽取一条文本时，我们可以进入‘单条抽取’模块。加载对应的训练好的CNN模型，对应的知识库和抽取结果的存储文件，然后输入待抽取的一条文本，点击‘开始抽取’便可以开始执行抽取任务。因为本文提出的模型大体包括三个步骤，可以通过我们的系统观察每一步的结果。
+        \item[*] 图~\ref{fig:one_record}(a)模块显示了基于知识库的初始分割和标注的结果，系统中将分割出来的文本段和相应的标签都显示出来，红色‘UN’表示基于知识库无法识别或者是得分没有达到指定阈值的文本段，有标签的文本段便是\emph{锚点块}。
+        \item[*] 图~\ref{fig:one_record}(b)模块显示了通过使用本文提出的\emph{贪婪式概率标注算法}之后的结果，可以发现，大多数‘UN’的文本段都有了相应的标签，还剩一个‘UN’的文本段。
+        \item[*] 在图~\ref{fig:one_record}(c)中显示我们使用BPSM（双向位置与序列模型）对上面的结果进行修正，然后得到了正确的标注结果。
+        \item[*] 图~\ref{fig:one_record}(d) 展示了目前学习到的BPSM，可以看到是一个非常简单的BPSM模型。然后点击‘存入文件’便可以将这条记录的抽取结果存入到结构化文本中，我们的系统可以根据选择的文本类型存储成不同的形式，包括xml形式，json形式和csv格式。
     \end{itemize}
 
-  \item \textit{将结果存入到结构化文件中输出}
+  \item \textit{输入一个文件(多条文本)执行抽取任务}
+    \begin{itemize}
+        \item[*] 为了提高抽取的效率，系统也支持多条文本一起抽取，就是读入一个文件。并显示抽取进度和暂停的按钮。跟抽取一条文本显示的内容一样，系统也显示三个步骤的中间结果，同时显示两条文本的抽取过程。图~\ref{fig:mul_record}(a)(b)(c)显示了目前这两条文本抽取的中间结果。图~\ref{fig:mul_record}(d)是我们执行了80\%的文本之后学习到的BPSM，发现比一开始的要复杂很多了。
 
+    \end{itemize}
 \end{enumerate}
 
 
-下面详细介绍每个模块：
-\begin{figure}[!h]
+
+\begin{figure}
   \centering
-  \includegraphics[width=0.9\textwidth]{../figures/chap04/set_model_para.png}\\
-  \smallcaption{设计模型}
-  \label{chap:chap03:fig:forwardpsm}
+  \subfigure[设定模型参数]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/set_model_para.png}
+  }
+  \subfigure[加载知识库]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/load_kb.png}
+  }
+  \subfigure[训练模型]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/train_model.png}
+  }
+  \caption{模型初始化与训练}
+  \label{fig:model_set_train} %% label for entire figure
 \end{figure}
 
-\begin{figure}[!h]
+
+\begin{figure}
   \centering
-  \includegraphics[width=0.9\textwidth]{../figures/chap04/load_kb.png}\\
-  \smallcaption{加载KB}
-  \label{chap:chap03:fig:forwardpsm}
+  \subfigure[segment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/segment-one.png}
+  }
+  \subfigure[cnn-label]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-one.png}
+  }
+
+  \subfigure[amendment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/amendment-one.png}
+  }
+  \subfigure[BPSM]{
+    %\label{fig:subfig:b} %% label for second subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/BPSM-one.png}
+  }
+  \caption{输入一条记录}
+  \label{fig:one_record} %% label for entire figure
 \end{figure}
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.9\textwidth]{../figures/chap04/train_model.png}\\
-  \smallcaption{训练模型}
-  \label{chap:chap03:fig:forwardpsm}
-\end{figure}
 
+\begin{figure}
+  \centering
+  \subfigure[segment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/segment-mul.png}
+  }
+  \subfigure[cnn-label]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-mul.png}
+  }
+
+  \subfigure[amendment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/amendment-mul.png}
+  }
+  \subfigure[BPSM]{
+    %\label{fig:subfig:b} %% label for second subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/BPSM-mul.png}
+  }
+  \caption{输入一个文件}
+  \label{fig:mul_record} %% label for entire figure
+\end{figure}
 
 
 
 \section{本章小结}
-
+本章详细介绍了构造CNN模型的诸多细节，因为CNN模型很多超参的设定值没有一个固定的理论支持，并且是对数据集敏感的，所以，我们通过查阅文档，并在不同的数据集上做实验，得到了最适合我们的数据集的模型设计模式和超参的值。然后，本章介绍了我们开发的自动训练与执行抽取系统，这个系统是对本文提出的算法的包装，同时添加了训练模型的借口，详细介绍了每个模块的内容并给出了演示的截图。
 

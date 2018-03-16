@@ -53,7 +53,7 @@ TensorFlow 是一个使用数据流图进行数值计算的开源软件库。图中的节点代表数学运算， 
 \end{table}
 
 \section{系统架构及展示}
-为了方便执行抽取任务，方便移植到其他数据集，且可视化我们的抽取模型每一步的结果，我们做了一个自动化训练模型和抽取任务可视化的系统。整体来讲，这个系统主要分为下面三个部分：
+为了方便执行抽取任务，方便移植到其他数据集，且可视化我们抽取模型的每一步的结果，我们做了一个自动化训练模型和抽取任务可视化的系统。整体来讲，这个系统主要分为下面三个部分：
 
 \vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
@@ -81,6 +81,73 @@ TensorFlow 是一个使用数据流图进行数值计算的开源软件库。图中的节点代表数学运算， 
 
 
 下面详细介绍每个模块：
+
+\begin{figure}
+  \centering
+  \subfigure[设定模型参数]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/set_model_para.png}
+  }
+  \subfigure[加载知识库]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/load_kb.png}
+  }
+  \subfigure[训练模型]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/train_model.png}
+  }
+  \caption{模型初始化与训练}
+  %\label{fig:subfig} %% label for entire figure
+\end{figure}
+
+\begin{figure}
+  \centering
+  \subfigure[segment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/segment-one.png}
+  }
+  \subfigure[cnn-label]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-one.png}
+  }
+
+  \subfigure[amendment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/amendment-one.png}
+  }
+  \subfigure[BPSM]{
+    %\label{fig:subfig:b} %% label for second subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/BPSM-one.png}
+  }
+  \caption{输入一条记录}
+  %\label{fig:subfig} %% label for entire figure
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \subfigure[segment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/segment-mul.png}
+  }
+  \subfigure[cnn-label]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-mul.png}
+  }
+
+  \subfigure[amendment]{
+    %\label{fig:subfig:a} %% label for first subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/amendment-mul.png}
+  }
+  \subfigure[BPSM]{
+    %\label{fig:subfig:b} %% label for second subfigure
+    \includegraphics[width=2.5in]{../figures/chap04/BPSM-mul.png}
+  }
+  \caption{输入一个文件}
+  %\label{fig:subfig} %% label for entire figure
+\end{figure}
+
+
 
 
 \section{本章小结}

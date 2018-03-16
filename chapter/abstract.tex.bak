@@ -1,18 +1,20 @@
 \begin{abstract}
 
-信息抽取表示自动的从文本中抽取出结构化的信息，比如实体，实体间的关系，事件或者包含在有噪音的非结构化文本中的属性描述性实体，将非结构化文本抽取出有用的信息存储在结构化形式中，比如表格，XML，图谱，有着非常重要的价值，信息抽取是构建知识图谱的基础理论和实践支撑。信息抽取又包含了若干个子问题，比如，命名体识别，开放域信息抽取，关系抽取以及文本分割。分割式信息抽取是一个特殊的信息抽取问题，它是通过分割半结构化文本信息来抽取出隐含其中的属性值。
+信息抽取表示自动的从文本中抽取出结构化的信息，比如实体，实体间的关系，事件，命名属性值或者包含在有噪音的非结构化文本中的属性描述性实体，将非结构化文本抽取出有用的信息存储在结构化形式中，比如表格，XML，图谱，然后可以做进一步的索引，处理和分析。此外，信息抽取还是构建知识图谱的基础理论和实践支撑。信息抽取又包含了若干个子问题，比如，命名体识别，开放域信息抽取，关系抽取以及文本分割。文本记录分割与命名属性值识别是一种特殊的信息抽取问题，它是通过分割半结构化文本信息来抽取出隐含其中的属性值。
 
-目前主流的解决方案是采用机器学习的方法，包括使用人工标注的训练集使用监督式机器学习方案，或者利用事先存在的知识库来辅助实施非监督式式的机器学习方案，在非监督式方法中，一个杰出的解决方案是借助于知识库，讲整个信息抽取流程分为分割，匹配，调整等若干个模块，取得了目前为止最好的表现。但是，当采用监督式方案是，获取标注好的训练集要花费非常昂贵的代价，并且往往只限制在某个领域内。而通过知识库辅助的方案，则会出现两个主要问题，1. 固定领域文本的属性顺序限制在固定的顺序上，2.匹配准确率底下。
+对于这个任务，目前主流的解决方案是采用机器学习的方法，包括使用人工标注的训练集的监督式方案，或者利用事先存在的知识库辅助实现非监督式方案。监督式方法中，常使用基于图的机器学习算法，比如隐马尔可夫模型和随即向量场，来从数据集中学习到分割模型。在非监督式方法中，常使用事先存在的数据库开代替人工标注的训练集，使用给定的属性值训练一个模型来从输入文本中识别这些属性值。
 
-为了解决上述方案的问题，本文提出了结合深度学习和概率模型的方案，充分利用深度学习强大的特征抽取和组合能力，并结合概率模型的适用性和可解释性。构建了完整的高效的解决方案。本文提出的方法同样借助知识库来克服人工标注的问题，并且有效克服了匹配率底下以及限定属性顺序的问题。具体研究内容如下：
+但是，当采用监督式方法时，获取标注好的训练集要花费非常昂贵的代价，并且往往只限制在某个领域内。而在监督式方案，则会出现两个主要问题，(1) 固定领域文本的属性顺序限制在固定的顺序上，(2) 匹配准确率低下。为了解决这些问题，本文提出了结合深度卷积神经网络和知识库的非监督式方案。充分利用卷积神经网络强大的特征抽取和组合能力，并有效的结合概率模型，构建了完整的、高效的解决方案。具体研究内容如下：
 
-(1)如何选择深度学习模型，如何将深度学习模型与概率模型完美的结合起来，并探索深度学习模型构建和优化的策略，包括构建有效的丰富的特征。
+(1)如何选择深度学习模型，如何将深度学习模型与概率模型完美的结合起来，并探索深度学习模型构建和优化的策略，介绍如何构造有效的、丰富的特征。
 
-(2)提出了基于卷积神经网络的贪婪式概率匹配算法。本算法采用深度卷积神经网络模型，提出了一种贪婪式的概率匹配算法，并在抽取过程中学习出一个双向的序列与位置模型来完成抽取任务，采用了步步提升的设计方案，有效的解决了上述的问题，经过比较F1值取得了非常明显的提升，并在抽取效率上也有非常好的表现。
+(2)提出了基于卷积神经网络的贪婪式概率匹配算法。本算法采用深度卷积神经网络模型，提出了一种贪婪式的概率匹配算法，并在抽取过程中学习出一个双向的序列与位置模型来完成抽取任务，采用了步步优化的设计方案，有效的解决了传统方法中的各种问题，经过比较F1 值取得了非常明显的提升，并在抽取效率上也有非常好的表现。
 
-(3)提出 CNN+LSTM+attention model+CRF的解决方案
+(3)构建了一个自动化模型训练和执行抽取任务的系统，可以将算法更方便的移植到其他数据集，更直观地查看算法各步骤的结果。
 
-\keywords{深度学习, 信息抽取, 文本分割}
+我们在三个真实的数据集上验证了本文提出方法的效果。
+
+\keywords{信息抽取, 深度学习 ,文本分割 ,命名属性值识别}
 
 \end{abstract}
 
@@ -23,20 +25,34 @@
 
 \begin{englishabstract}
 
-【还没写】
+Information Extraction (IE) refers to the automatic extraction of structured
+information such as Entities, Relationships between Entities, Events, Named Attribute Values and Attributes describing Entities from noisy unstructured textual sources. It derives from the necessity of having these valuable information that extracted from unstructured data stored in structured formats (tables, XML, Knowledge Graph),so that it can be further queried, processed, and analyzed. Besides,Information Extraction is the foundation works on building Knowledge Graph. 
 
-With the rapid development of information technology, the data from different field explosively grow, which makes data quality problems increasingly highlight, such as data distortion, data staleness, data missing, inconsistent data expression and so on. This paper mainly do research on one of the important data quality subjects, so-called Entity Matching (EM for short). EM aims at identifying records referring to the same entity within or across databases.
+The IE problem encompasses many distinct sub-problems such as Named
+Entity Recognition (NER), Open Information Extraction, Relationship Extraction,
+and Text Segmentation. Text Record Segmentation and Named Attribute Values Recognition, also called Information Extraction by Text Segmentation (IETS) in ~\cite{cortez2010ondux}, is the problem of segmenting unstructured textual inputs to extract implicit data values contained in them.
 
-So far, most existing EM algorithms depend on string similarity metrics to measure the similarity between key attribute values of entities and then make decisions according to a predefined similarity threshold. But an arbitrary threshold is bad for either the matching precision or the recall.
 
-So as to solve the problems of the existing methods, we propose entity matching algorithms based on polymorphic non-key attributes by analysing textual data and computing similarity do EM. Our methods are orthodox to the existing EM methods based on key attributes. We mainly pay attention on how to use non-key attributes smartly to improve the precision and recall of EM based on key attribute only. More details are shown as follows:
+A fairly common approach to solve this problem is the use of machine learning
+techniques, either supervised with human-driven training,or unsupervised with training provided by some form of pre-existing data source. Among the supervised approaches, the dominant one employs statistical models  such as
+Hidden Markov Models (HMM) or Conditional Random Fields models (CRF) to learn a segmentation model for a given domain. Supervised approaches turn to use pre-existing datasets to alleviate the need for manually labeled training data. 
+These un-supervised methods take advantage of known values of a given attribute to train a model for recognizing values of this attribute occurring in an input textual record.
+
+However, all the supervised approaches require a large labelled training data set
+which might be unfeasible in some domains. Two main problems may happened in these un-supervised approaches , (1)attribute values is only with a single total order for the input texts,(2)the match function in some methods showed a low performance.
+In order to solve these problems, we introduce a novel unsupervised approach based on pre-existing data and a Convolution Neural Network(CNN)-based model. We make full use of the CNN's ability of extracting features and combining features , and combined CNN and probabilistic model to build a complete and high-performance extraction model.More details are shown as follows:
+
+
+
+
 %
 \begin{enumerate}[(1)]
-\item We focus on the problem of EM in the paper. Some existing EM methods are introduced here and the advantages and disadvantages of them are also analysed.
+\item 
 
-\item We propose non-key attributes based EM algorithms which select non-key attributes according to their identification ability to do EM. With the proposed methods, we can not only solve the problem of different expression but also overcome the problem of missing values.
+\item 
 
-\item We propose textual data based EM algorithms which mine the key information from textual data. The precision and recall of EM using the proposed methods are greatly improved .
+\item 
+
 \end{enumerate}
 
 We demonstrate the effectiveness and availability of the proposed methods on on real-world datasets.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  15 MAR 2018 19:46
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  16 MAR 2018 22:11
 entering extended mode
 **main.tex
 ("D:\a_Graduation\graduation thesis\main\main.tex"
@@ -1016,15 +1016,6 @@ LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
 
 LaTeX Warning: Label `table:5' multiply defined.
 
-
-LaTeX Warning: Label `chap:chap03:fig:forwardpsm' multiply defined.
-
-
-LaTeX Warning: Label `chap:chap03:fig:forwardpsm' multiply defined.
-
-
-LaTeX Warning: Label `chap:chap03:fig:forwardpsm' multiply defined.
-
 )
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 95.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 95.
@@ -1224,7 +1215,7 @@ File: extended.enc 2008/12/29 4.8.2
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\cjk\extended.chr
 File: extended.chr 2008/12/29 4.8.2
 )
-<cover_hm.pdf, id=158, page=1, 597.23125pt x 845.1575pt>
+<cover_hm.pdf, id=154, page=1, 597.23125pt x 845.1575pt>
 File: cover_hm.pdf Graphic file (type pdf)
 
 <use cover_hm.pdf, page 1>
@@ -1253,7 +1244,7 @@ Non-PDF special ignored!
 
  <D:/a_Graduation/graduation thesis/main/cover_hm.pdf>] [2
 
-] <copyrightPage1.pdf, id=217, page=1, 597.55246pt x 845.07718pt>
+] <copyrightPage1.pdf, id=211, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage1.pdf Graphic file (type pdf)
 
 <use copyrightPage1.pdf, page 1>
@@ -1280,7 +1271,7 @@ Package pdftex.def Info: copyrightPage1.pdf, page1 used on input line 144.
  [3 <D:/a_Graduation/graduation thesis/main/copyrightPage1.pdf>] [4
 
 ]
-<copyrightPage2.pdf, id=258, page=1, 597.55246pt x 845.07718pt>
+<copyrightPage2.pdf, id=252, page=1, 597.55246pt x 845.07718pt>
 File: copyrightPage2.pdf Graphic file (type pdf)
 
 <use copyrightPage2.pdf, page 1>
@@ -1323,17 +1314,22 @@ File: c19rm.fd 2007/05/06 v0.8a ctex font definition file
 cmap>>
 Package CJKpunct Info: punctuation spaces for family 'zhsong' do not exist. Use
  family 'def' instead. on input line 3.
-<<c1957.cmap>><<c1936.cmap>><<c1952.cmap>><<c1948.cmap>><<c1925.cmap>><<c1947.c
-map>><<c1956.cmap>><<c1951.cmap>><<c1953.cmap>> [1
+<<c1957.cmap>><<c1936.cmap>><<c1952.cmap>><<c1947.cmap>><<c1956.cmap>><<c1948.c
+map>><<c1925.cmap>><<c1951.cmap>><<c1953.cmap>> [1
 
 ]
 Package CJKpunct Info: punctuation spaces for family 'zhhei' do not exist. Use 
-family 'def' instead. on input line 15.
- [2] [3
+family 'def' instead. on input line 17.
+ [2]
+Overfull \hbox (0.32445pt too wide) in paragraph at lines 31--34
+[]\OT1/txr/m/n/12.05 The IE prob-lem en-com-pass-es many dis-tinc-t sub-problem
+s such as Named En-ti-ty Recog-
+ []
 
-]) [4] [5]
-("D:\a_Graduation\graduation thesis\main\main.toc"<<oml.cmap>><<oms.cmap>><<omx
-.cmap>>
+[3
+
+]) [4] [5] ("D:\a_Graduation\graduation thesis\main\main.toc"<<oml.cmap>><<oms.
+cmap>><<omx.cmap>>
 LaTeX Font Info:    Try loading font information for U+txsya on input line 2.
  (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
@@ -1412,7 +1408,7 @@ used, duplicate ignored
 l.1 \chapter
             {œ‡πÿ¿Ì¬€º∞∑Ω∑®} [5]
 µ⁄∂˛’¬
-<../figures/chap02/ner-features.jpg, id=489, 568.1225pt x 435.6275pt>
+<../figures/chap02/ner-features.jpg, id=485, 568.1225pt x 435.6275pt>
 File: ../figures/chap02/ner-features.jpg Graphic file (type jpg)
 
 <use ../figures/chap02/ner-features.jpg>
@@ -1423,16 +1419,12 @@ Package pdftex.def Info: ../figures/chap02/ner-features.jpg used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: File ot154.cmap not found on input line 17.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17 »ª
-       ∂¯‘⁄◊‘»ª”Ô—‘¥¶¿Ì…œ£¨”…”⁄”Ô—‘µƒÃÿ ‚–‘£¨…Ëº∆”–º€÷µµƒÃÿ’˜ «∑«≥£¿ßƒ—µƒ ¬«...
-[6
+l.18 
+      [6
 
 ]
 LaTeX Font Info:    Try loading font information for C19+zhkai on input line 19
@@ -1451,13 +1443,25 @@ ML/txmi/m/it/12 ; \OT1/txr/m/n/12 0\OML/txmi/m/it/12 ; []  ; \OT1/txr/m/n/12 0]
 /txmi/m/it/12 ; []  ; \OT1/txr/m/n/12 0]  [] 
  []
 
+
+LaTeX Warning: Citation `bengio2003neural' on page 8 undefined on input line 25
+.
+
+
+LaTeX Warning: Citation `bengio2003neural' on page 8 undefined on input line 31
+.
+
+
+LaTeX Warning: Citation `mikolov2013distributed' on page 8 undefined on input l
+ine 31.
+
 Missing character: There is no ß in font txr!
 Missing character: There is no Å in font txr!
 Missing character: There is no Ÿ in font txr!
 Missing character: There is no ﬁ in font txr!
 Missing character: There is no Ø in font txr!
 [8]<<c1981.cmap>>
-<../figures/chap02/word2vec_sample.png, id=511, 670.505pt x 181.67876pt>
+<../figures/chap02/word2vec_sample.png, id=507, 670.505pt x 181.67876pt>
 File: ../figures/chap02/word2vec_sample.png Graphic file (type png)
 
 <use ../figures/chap02/word2vec_sample.png>
@@ -1468,7 +1472,7 @@ ne 54.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW.png, id=513, 497.86pt x 280.04625pt>
+<../figures/chap02/CBOW.png, id=509, 497.86pt x 280.04625pt>
 File: ../figures/chap02/CBOW.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW.png>
@@ -1478,7 +1482,7 @@ Package pdftex.def Info: ../figures/chap02/CBOW.png used on input line 62.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap02/CBOW_general.png, id=514, 443.6575pt x 548.0475pt>
+<../figures/chap02/CBOW_general.png, id=510, 443.6575pt x 548.0475pt>
 File: ../figures/chap02/CBOW_general.png Graphic file (type png)
 
 <use ../figures/chap02/CBOW_general.png>
@@ -1489,12 +1493,58 @@ Package pdftex.def Info: ../figures/chap02/CBOW_general.png used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9]
+
+Underfull \vbox (badness 5504) has occurred while \output is active []
+
+ [9]
+
+LaTeX Warning: Citation `kalchbrenner2014convolutional' on page 10 undefined on
+ input line 79.
+
+
+LaTeX Warning: Citation `kalchbrenner2014convolutional' on page 10 undefined on
+ input line 79.
+
+
+LaTeX Warning: Citation `socher2013recursive' on page 10 undefined on input lin
+e 79.
+
+
+LaTeX Warning: Citation `tai2015improved' on page 10 undefined on input line 79
+.
+
+
+LaTeX Warning: Citation `tai2015improved' on page 10 undefined on input line 79
+.
+
+
+LaTeX Warning: Citation `kumar2016ask' on page 10 undefined on input line 79.
+
 
 LaTeX Warning: File ot163.cmap not found on input line 81.
 
 [10 <D:/a_Graduation/graduation thesis/figures/chap02/word2vec_sample.png> <D:/
 a_Graduation/graduation thesis/figures/chap02/CBOW.png>]
+
+LaTeX Warning: Citation `sutskever2014sequence' on page 11 undefined on input l
+ine 81.
+
+
+LaTeX Warning: Citation `wu2016google' on page 11 undefined on input line 81.
+
+
+LaTeX Warning: Citation `gehring2017convolutional' on page 11 undefined on inpu
+t line 81.
+
+
+LaTeX Warning: Citation `vaswani2017attention' on page 11 undefined on input li
+ne 81.
+
+
+LaTeX Warning: Citation `nguyen2015relation' on page 11 undefined on input line
+ 83.
+
+
 Underfull \vbox (badness 1092) has occurred while \output is active []
 
  [11 <D:/a_Graduation/graduation thesis/figures/chap02/CBOW_general.png>]
@@ -1507,7 +1557,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [14])
 ("D:\a_Graduation\graduation thesis\chapter\chap03.tex" [15]
 µ⁄»˝’¬
-<../figures/chap03/framework.pdf, id=599, 451.6875pt x 619.31375pt>
+<../figures/chap03/framework.pdf, id=597, 451.6875pt x 619.31375pt>
 File: ../figures/chap03/framework.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/framework.pdf>
@@ -1524,7 +1574,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17 <D:/a_Graduation/graduation thesis/figures/chap03/framework.pdf>]
-<../figures/chap03/KB.pdf, id=629, 462.72874pt x 164.615pt>
+<../figures/chap03/KB.pdf, id=627, 462.72874pt x 164.615pt>
 File: ../figures/chap03/KB.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/KB.pdf>
@@ -1534,7 +1584,7 @@ Package pdftex.def Info: ../figures/chap03/KB.pdf used on input line 40.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../figures/chap03/labelExample.pdf, id=630, 453.695pt x 217.81375pt>
+<../figures/chap03/labelExample.pdf, id=628, 453.695pt x 217.81375pt>
 File: ../figures/chap03/labelExample.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/labelExample.pdf>
@@ -1549,7 +1599,7 @@ Package CJKpunct Info: punctuation spaces for family 'zhkai' do not exist. Use
 family 'def' instead. on input line 59.
 [18] [19 <D:/a_Graduation/graduation thesis/figures/chap03/KB.pdf> <D:/a_Gradua
 tion/graduation thesis/figures/chap03/labelExample.pdf>]
-<../figures/chap03/CNN_des.pdf, id=694, 1144.275pt x 450.9347pt>
+<../figures/chap03/CNN_des.pdf, id=692, 1144.275pt x 450.9347pt>
 File: ../figures/chap03/CNN_des.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/CNN_des.pdf>
@@ -1565,7 +1615,7 @@ LaTeX Warning: Citation `mikolov2013distributed' on page 21 undefined on input
 line 97.
 
 [21 <D:/a_Graduation/graduation thesis/figures/chap03/CNN_des.pdf>] [22]
-<../figures/chap03/candidate-Labels.pdf, id=769, 390.45876pt x 336.25626pt>
+<../figures/chap03/candidate-Labels.pdf, id=766, 390.45876pt x 336.25626pt>
 File: ../figures/chap03/candidate-Labels.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/candidate-Labels.pdf>
@@ -1577,7 +1627,7 @@ ine 127.
 LaTeX Warning: File ot158.cmap not found on input line 161.
 
 [24] [25]
-<../figures/chap03/greedyLabelling.pdf, id=810, 450.68375pt x 303.1325pt>
+<../figures/chap03/greedyLabelling.pdf, id=807, 450.68375pt x 303.1325pt>
 File: ../figures/chap03/greedyLabelling.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/greedyLabelling.pdf>
@@ -1594,7 +1644,7 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <15.06> not available
 (Font)              size <14.4> substituted on input line 201.
 
 [27] [28]
-<../figures/chap03/forwardpsm.pdf, id=855, 224.76784pt x 266.59592pt>
+<../figures/chap03/forwardpsm.pdf, id=852, 224.76784pt x 266.59592pt>
 File: ../figures/chap03/forwardpsm.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/forwardpsm.pdf>
@@ -1602,7 +1652,7 @@ Package pdftex.def Info: ../figures/chap03/forwardpsm.pdf used on input line 26
 4.
 (pdftex.def)             Requested size: 308.71106pt x 366.1861pt.
 
-<../figures/chap03/backwardpsm.pdf, id=856, 222.7511pt x 266.5968pt>
+<../figures/chap03/backwardpsm.pdf, id=853, 222.7511pt x 266.5968pt>
 File: ../figures/chap03/backwardpsm.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/backwardpsm.pdf>
@@ -1615,7 +1665,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [29 <D:/a_Graduation/graduation thesis/figures/chap03/forwardpsm.pdf>] [30 <D:/
 a_Graduation/graduation thesis/figures/chap03/backwardpsm.pdf>] [31] [32]
-<../figures/chap03/Exp/bib_f.pdf, id=963, 199.07072pt x 113.98917pt>
+<../figures/chap03/Exp/bib_f.pdf, id=959, 199.07072pt x 113.98917pt>
 File: ../figures/chap03/Exp/bib_f.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/bib_f.pdf>
@@ -1623,7 +1673,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/bib_f.pdf used on input line 332
 .
 (pdftex.def)             Requested size: 264.61333pt x 151.52365pt.
 
-<../figures/chap03/Exp/house_f.pdf, id=964, 199.39995pt x 114.31839pt>
+<../figures/chap03/Exp/house_f.pdf, id=960, 199.39995pt x 114.31839pt>
 File: ../figures/chap03/Exp/house_f.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/house_f.pdf>
@@ -1631,7 +1681,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/house_f.pdf used on input line 3
 39.
 (pdftex.def)             Requested size: 264.61333pt x 151.72404pt.
 
-<../figures/chap03/Exp/car_f.pdf, id=965, 198.74149pt x 113.98987pt>
+<../figures/chap03/Exp/car_f.pdf, id=961, 198.74149pt x 113.98987pt>
 File: ../figures/chap03/Exp/car_f.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/car_f.pdf>
@@ -1639,7 +1689,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/car_f.pdf used on input line 346
 .
 (pdftex.def)             Requested size: 264.61333pt x 151.78723pt.
 
-<../figures/chap03/Exp/bib_e.pdf, id=966, 200.38464pt x 113.66093pt>
+<../figures/chap03/Exp/bib_e.pdf, id=962, 200.38464pt x 113.66093pt>
 File: ../figures/chap03/Exp/bib_e.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/bib_e.pdf>
@@ -1647,7 +1697,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/bib_e.pdf used on input line 358
 .
 (pdftex.def)             Requested size: 264.61333pt x 150.09879pt.
 
-<../figures/chap03/Exp/house_e.pdf, id=967, 200.71286pt x 113.98917pt>
+<../figures/chap03/Exp/house_e.pdf, id=963, 200.71286pt x 113.98917pt>
 File: ../figures/chap03/Exp/house_e.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/house_e.pdf>
@@ -1655,7 +1705,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/house_e.pdf used on input line 3
 65.
 (pdftex.def)             Requested size: 264.61333pt x 150.29742pt.
 
-<../figures/chap03/Exp/car_e.pdf, id=968, 200.71286pt x 113.66063pt>
+<../figures/chap03/Exp/car_e.pdf, id=964, 200.71286pt x 113.66063pt>
 File: ../figures/chap03/Exp/car_e.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/car_e.pdf>
@@ -1663,7 +1713,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/car_e.pdf used on input line 372
 .
 (pdftex.def)             Requested size: 264.61333pt x 149.86424pt.
 
-<../figures/chap03/Exp/bib_lambda.pdf, id=969, 198.41327pt x 109.39058pt>
+<../figures/chap03/Exp/bib_lambda.pdf, id=965, 198.41327pt x 109.39058pt>
 File: ../figures/chap03/Exp/bib_lambda.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/bib_lambda.pdf>
@@ -1671,7 +1721,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/bib_lambda.pdf used on input lin
 e 387.
 (pdftex.def)             Requested size: 264.61333pt x 145.89323pt.
 
-<../figures/chap03/Exp/house_lambda.pdf, id=970, 198.08505pt x 109.7191pt>
+<../figures/chap03/Exp/house_lambda.pdf, id=966, 198.08505pt x 109.7191pt>
 File: ../figures/chap03/Exp/house_lambda.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/house_lambda.pdf>
@@ -1679,7 +1729,7 @@ Package pdftex.def Info: ../figures/chap03/Exp/house_lambda.pdf used on input l
 ine 394.
 (pdftex.def)             Requested size: 264.61333pt x 146.58417pt.
 
-<../figures/chap03/Exp/car_lambda.pdf, id=971, 198.41327pt x 109.39088pt>
+<../figures/chap03/Exp/car_lambda.pdf, id=967, 198.41327pt x 109.39088pt>
 File: ../figures/chap03/Exp/car_lambda.pdf Graphic file (type pdf)
 
 <use ../figures/chap03/Exp/car_lambda.pdf>
@@ -1715,51 +1765,117 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [40
 
 ] [41] [42]
-Overfull \hbox (21.85628pt too wide) in paragraph at lines 42--53
+Overfull \hbox (21.85628pt too wide) in paragraph at lines 39--50
  [][] 
  []
 
-[43] <../figures/chap04/set_model_para.png, id=1256, 1007.765pt x 617.30624pt>
+[43]
+<../figures/chap04/set_model_para.png, id=1262, 1008.76875pt x 617.30624pt>
 File: ../figures/chap04/set_model_para.png Graphic file (type png)
 
 <use ../figures/chap04/set_model_para.png>
 Package pdftex.def Info: ../figures/chap04/set_model_para.png used on input lin
-e 86.
-(pdftex.def)             Requested size: 396.91325pt x 243.13155pt.
+e 89.
+(pdftex.def)             Requested size: 180.67499pt x 110.55458pt.
 
-<../figures/chap04/load_kb.png, id=1257, 1008.76875pt x 620.3175pt>
+<../figures/chap04/load_kb.png, id=1263, 1007.765pt x 616.3025pt>
 File: ../figures/chap04/load_kb.png Graphic file (type png)
 
 <use ../figures/chap04/load_kb.png>
 Package pdftex.def Info: ../figures/chap04/load_kb.png used on input line 93.
-(pdftex.def)             Requested size: 396.91325pt x 244.07147pt.
+(pdftex.def)             Requested size: 180.67499pt x 110.48767pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../figures/chap04/train_model.png, id=1258, 1012.78375pt x 620.3175pt>
+<../figures/chap04/train_model.png, id=1264, 1006.76125pt x 616.3025pt>
 File: ../figures/chap04/train_model.png Graphic file (type png)
 
 <use ../figures/chap04/train_model.png>
-Package pdftex.def Info: ../figures/chap04/train_model.png used on input line 1
-00.
-(pdftex.def)             Requested size: 396.91325pt x 243.09654pt.
+Package pdftex.def Info: ../figures/chap04/train_model.png used on input line 9
+7.
+(pdftex.def)             Requested size: 180.67499pt x 110.60052pt.
 
+<../figures/chap04/segment-one.png, id=1265, 1005.7575pt x 617.30624pt>
+File: ../figures/chap04/segment-one.png Graphic file (type png)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<use ../figures/chap04/segment-one.png>
+Package pdftex.def Info: ../figures/chap04/segment-one.png used on input line 1
+08.
+(pdftex.def)             Requested size: 180.67499pt x 110.89368pt.
 
-) ("D:\a_Graduation\graduation thesis\chapter\chap05.tex" [44 <D:/a_Graduation/
-graduation thesis/figures/chap04/set_model_para.png>] [45 <D:/a_Graduation/grad
-uation thesis/figures/chap04/load_kb.png> <D:/a_Graduation/graduation thesis/fi
-gures/chap04/train_model.png>]
+<../figures/chap04/cnn-label-one.png, id=1266, 1004.75375pt x 614.295pt>
+File: ../figures/chap04/cnn-label-one.png Graphic file (type png)
+
+<use ../figures/chap04/cnn-label-one.png>
+Package pdftex.def Info: ../figures/chap04/cnn-label-one.png used on input line
+ 112.
+(pdftex.def)             Requested size: 180.67499pt x 110.45584pt.
+
+<../figures/chap04/amendment-one.png, id=1267, 1005.7575pt x 616.3025pt>
+File: ../figures/chap04/amendment-one.png Graphic file (type png)
+
+<use ../figures/chap04/amendment-one.png>
+Package pdftex.def Info: ../figures/chap04/amendment-one.png used on input line
+ 117.
+(pdftex.def)             Requested size: 180.67499pt x 110.71336pt.
+
+<../figures/chap04/BPSM-one.png, id=1268, 1005.7575pt x 618.31pt>
+File: ../figures/chap04/BPSM-one.png Graphic file (type png)
+
+<use ../figures/chap04/BPSM-one.png>
+Package pdftex.def Info: ../figures/chap04/BPSM-one.png used on input line 121.
+
+(pdftex.def)             Requested size: 180.67499pt x 111.07399pt.
+
+<../figures/chap04/segment-mul.png, id=1269, 1005.7575pt x 617.30624pt>
+File: ../figures/chap04/segment-mul.png Graphic file (type png)
+
+<use ../figures/chap04/segment-mul.png>
+Package pdftex.def Info: ../figures/chap04/segment-mul.png used on input line 1
+32.
+(pdftex.def)             Requested size: 180.67499pt x 110.89368pt.
+
+<../figures/chap04/cnn-label-mul.png, id=1270, 1003.75pt x 615.29875pt>
+File: ../figures/chap04/cnn-label-mul.png Graphic file (type png)
+
+<use ../figures/chap04/cnn-label-mul.png>
+Package pdftex.def Info: ../figures/chap04/cnn-label-mul.png used on input line
+ 136.
+(pdftex.def)             Requested size: 180.67499pt x 110.749pt.
+
+<../figures/chap04/amendment-mul.png, id=1271, 1006.76125pt x 615.29875pt>
+File: ../figures/chap04/amendment-mul.png Graphic file (type png)
+
+<use ../figures/chap04/amendment-mul.png>
+Package pdftex.def Info: ../figures/chap04/amendment-mul.png used on input line
+ 141.
+(pdftex.def)             Requested size: 180.67499pt x 110.42038pt.
+
+<../figures/chap04/BPSM-mul.png, id=1272, 1002.74625pt x 617.30624pt>
+File: ../figures/chap04/BPSM-mul.png Graphic file (type png)
+
+<use ../figures/chap04/BPSM-mul.png>
+Package pdftex.def Info: ../figures/chap04/BPSM-mul.png used on input line 145.
+
+(pdftex.def)             Requested size: 180.67499pt x 111.22336pt.
+ [44] [45 <D:/a_Graduation/graduation thesis/figures/chap04/set_model_para.png>
+ <D:/a_Graduation/graduation thesis/figures/chap04/load_kb.png> <D:/a_Graduatio
+n/graduation thesis/figures/chap04/train_model.png> <D:/a_Graduation/graduation
+ thesis/figures/chap04/segment-one.png> <D:/a_Graduation/graduation thesis/figu
+res/chap04/cnn-label-one.png> <D:/a_Graduation/graduation thesis/figures/chap04
+/amendment-one.png> <D:/a_Graduation/graduation thesis/figures/chap04/BPSM-one.
+png>])
+("D:\a_Graduation\graduation thesis\chapter\chap05.tex" [46 <D:/a_Graduation/gr
+aduation thesis/figures/chap04/segment-mul.png> <D:/a_Graduation/graduation the
+sis/figures/chap04/cnn-label-mul.png> <D:/a_Graduation/graduation thesis/figure
+s/chap04/amendment-mul.png> <D:/a_Graduation/graduation thesis/figures/chap04/B
+PSM-mul.png>]
 µ⁄ŒÂ’¬
-[46
+[47
 
 ]
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [47])
-("D:\a_Graduation\graduation thesis\main\main.bbl" [48] [49
+ [48])
+("D:\a_Graduation\graduation thesis\main\main.bbl" [49] [50
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+txr on input line 91.
@@ -1769,8 +1885,8 @@ File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 91.
- [50])
-("D:\a_Graduation\graduation thesis\chapter\pub.tex" [51]
+ [51])
+("D:\a_Graduation\graduation thesis\chapter\pub.tex" [52]
 
 LaTeX Warning: Empty `publications' environment on input line 2.
 
@@ -1788,7 +1904,7 @@ song/m/n/12/54 F \C19/zhsong/m/n/12/52 œ\OT1/txr/m/n/12 : 2015\C19/zhsong/m/n/1
 n/12/54 F\OT1/txr/m/n/12 ,
  []
 
-) ("D:\a_Graduation\graduation thesis\chapter\thanks.tex" [52
+) ("D:\a_Graduation\graduation thesis\chapter\thanks.tex" [53
 
 ]
 
@@ -1801,7 +1917,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 1.
 
-<<c1969.cmap>><<c1931.cmap>>) [53
+<<c1969.cmap>><<c1931.cmap>>) [54
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 222.
@@ -1817,8 +1933,8 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 8CDC5BD5A1F2DB4880DF027775D9FA80;6054
-(rerunfilecheck)             After:  DFE5A70D3746C9E351AC776CAEF51F28;2643.
+(rerunfilecheck)             Before: 0F6F9A82AE2425E16E01DDAA9321D713;5870
+(rerunfilecheck)             After:  2396E534034BE640A576679772D036E0;2577.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.66pt have occurred.
@@ -1831,13 +1947,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23910 strings out of 495354
- 378399 string characters out of 3183188
- 475813 words of memory out of 3000000
- 25686 multiletter control sequences out of 15000+200000
+ 23974 strings out of 495354
+ 380166 string characters out of 3183188
+ 475982 words of memory out of 3000000
+ 25725 multiletter control sequences out of 15000+200000
  160778 words of font info for 474 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,21n,51p,2019b,1201s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,21n,51p,2019b,1205s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1903,9 +2019,9 @@ nts/txsyb.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb>
 <D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/JobSoftware/CT
 EX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on main.pdf (67 pages, 2429842 bytes).
+Output written on main.pdf (68 pages, 2843869 bytes).
 PDF statistics:
- 1701 PDF objects out of 1728 (max. 8388607)
- 218 named destinations out of 1000 (max. 500000)
- 630 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1740 PDF objects out of 2073 (max. 8388607)
+ 229 named destinations out of 1000 (max. 500000)
+ 662 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -17,6 +17,7 @@
 \@writefile{toc}{\let \CTEX@spaceChar\relax }
 \@writefile{loa}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
+\citation{cortez2010ondux}
 \@writefile{loa}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第一章\hspace  {0.3em}}绪论}{1}{chapter.1}}
@@ -37,11 +38,25 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  命名题识别任务特征列表}}{7}{figure.2.1}}
 \newlabel{chap:chap02:fig:NER_example}{{2-1}{7}{\wuhao 命名题识别任务特征列表\relax }{figure.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}词向量}{7}{subsection.2.1.1}}
+\citation{bengio2003neural}
+\citation{bengio2003neural}
+\citation{mikolov2013distributed}
+\citation{kim2014convolutional,kalchbrenner2014convolutional}
+\citation{kim2014convolutional}
+\citation{kalchbrenner2014convolutional}
+\citation{socher2013recursive,tai2015improved}
+\citation{tai2015improved}
+\citation{kumar2016ask}
 \@writefile{lof}{\contentsline {figure}{\numberline {2-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  词向量的样例}}{10}{figure.2.2}}
 \newlabel{chap:chap02:fig:word2vec_sample}{{2-2}{10}{\wuhao 词向量的样例\relax }{figure.2.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CBOW模型的简单形式}}{10}{figure.2.3}}
 \newlabel{chap:chap02:fig:CBOW}{{2-3}{10}{\wuhao CBOW模型的简单形式\relax }{figure.2.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}各种深度学习模型的使用}{10}{subsection.2.1.2}}
+\citation{sutskever2014sequence}
+\citation{wu2016google}
+\citation{gehring2017convolutional}
+\citation{vaswani2017attention}
+\citation{nguyen2015relation}
 \@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CBOW模型的一般形式}}{11}{figure.2.4}}
 \newlabel{chap:chap02:fig:CBOW_general}{{2-4}{11}{\wuhao CBOW模型的一般形式\relax }{figure.2.4}{}}
 \citation{freitag2000information}
@@ -165,8 +180,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {第四章\hspace  {0.3em}}系统的实现与展示}{40}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Tensorflow介绍}{40}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}CNN模型构建细节}{40}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}CNN模型构建细节}{40}{section.4.1}}
 \citation{kim2014convolutional,zhang2015sensitivity}
 \citation{zhang2015sensitivity}
 \citation{zhang2015sensitivity}
@@ -175,22 +189,33 @@
 \citation{zhang2015sensitivity}
 \@writefile{lot}{\contentsline {table}{\numberline {4-1}{\ignorespaces  CNN模型在不同数据集上的超参选择}}{43}{table.4.1}}
 \newlabel{table:6}{{4-1}{43}{CNN模型在不同数据集上的超参选择\relax }{table.4.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}系统架构及展示}{43}{section.4.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  设计模型}}{44}{figure.4.1}}
-\newlabel{chap:chap03:fig:forwardpsm}{{4-1}{44}{\wuhao 设计模型\relax }{figure.4.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}本章小结}{44}{section.4.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}系统架构及展示}{43}{section.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-1}{\ignorespaces 模型初始化与训练}}{45}{figure.4.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {设定模型参数}}}{45}{figure.4.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {加载知识库}}}{45}{figure.4.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {训练模型}}}{45}{figure.4.1}}
+\newlabel{fig:model_set_train}{{4-1}{45}{模型初始化与训练\relax }{figure.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces 输入一条记录}}{45}{figure.4.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {segment}}}{45}{figure.4.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {cnn-label}}}{45}{figure.4.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {amendment}}}{45}{figure.4.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {BPSM}}}{45}{figure.4.2}}
+\newlabel{fig:one_record}{{4-2}{45}{输入一条记录\relax }{figure.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces 输入一个文件}}{46}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {segment}}}{46}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {cnn-label}}}{46}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {amendment}}}{46}{figure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {BPSM}}}{46}{figure.4.3}}
+\newlabel{fig:mul_record}{{4-3}{46}{输入一个文件\relax }{figure.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}本章小结}{46}{section.4.3}}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  加载KB}}{45}{figure.4.2}}
-\newlabel{chap:chap03:fig:forwardpsm}{{4-2}{45}{\wuhao 加载KB\relax }{figure.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  训练模型}}{45}{figure.4.3}}
-\newlabel{chap:chap03:fig:forwardpsm}{{4-3}{45}{\wuhao 训练模型\relax }{figure.4.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第五章\hspace  {0.3em}}总结与展望}{46}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第五章\hspace  {0.3em}}总结与展望}{47}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:chap05}{{五}{46}{总结与展望\relax }{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}全文总结}{46}{section.5.1}}
+\newlabel{chap:chap05}{{五}{47}{总结与展望\relax }{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}全文总结}{47}{section.5.1}}
 \citation{girshick2015fast}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}工作展望}{47}{section.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}工作展望}{48}{section.5.2}}
 \bibstyle{sudabst}
 \bibdata{../bib/mybib}
 \@writefile{loa}{\addvspace {10\p@ }}
@@ -203,7 +228,7 @@
 \bibcite{zhao2008exploiting}{7}
 \bibcite{cortez2007flux}{8}
 \bibcite{michelson2007unsupervised}{9}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{49}{chapter*.4}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{50}{chapter*.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{cortez2010ondux}{10}
@@ -216,10 +241,10 @@
 \bibcite{ioffe2015batch}{17}
 \bibcite{girshick2015fast}{18}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{52}{chapter*.5}}
+\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{53}{chapter*.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{53}{chapter*.6}}
+\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{54}{chapter*.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
