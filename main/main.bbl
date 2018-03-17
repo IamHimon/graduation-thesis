@@ -1,5 +1,95 @@
 \begin{thebibliography}{10}
 
+\bibitem{cortez2010ondux}
+Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves and Edleno~S
+  de~Moura.
+\newblock
+\newblock Ondux: on-demand unsupervised learning for information extraction
+  [A]. Proceedings of the 2010 ACM SIGMOD International Conference on
+  Management of data [C]. ACM, 2010: 807--818.
+
+\bibitem{bengio2003neural}
+Yoshua Bengio, R{\'e}jean Ducharme, Pascal Vincent and Christian Jauvin.
+\newblock A neural probabilistic language model [J].
+\newblock Journal of machine learning research, 2003, 3(Feb): 1137--1155.
+
+\bibitem{mikolov2013distributed}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado and Jeff Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality [A]. Advances in neural information processing systems [C].
+  .
+\newblock 2013: 3111--3119.
+
+\bibitem{kim2014convolutional}
+Yoon Kim.
+\newblock Convolutional neural networks for sentence classification [J].
+\newblock arXiv preprint arXiv:1408.5882, 2014.
+
+\bibitem{kalchbrenner2014convolutional}
+Nal Kalchbrenner, Edward Grefenstette and Phil Blunsom.
+\newblock A convolutional neural network for modelling sentences [J].
+\newblock arXiv preprint arXiv:1404.2188, 2014.
+
+\bibitem{socher2013recursive}
+Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher~D Manning,
+  Andrew Ng and Christopher Potts.
+\newblock Recursive deep models for semantic compositionality over a sentiment
+  treebank [A]. Proceedings of the 2013 conference on empirical methods in
+  natural language processing [C]. .
+\newblock 2013: 1631--1642.
+
+\bibitem{tai2015improved}
+Kai~Sheng Tai, Richard Socher and Christopher~D Manning.
+\newblock Improved semantic representations from tree-structured long
+  short-term memory networks [J].
+\newblock arXiv preprint arXiv:1503.00075, 2015.
+
+\bibitem{kumar2016ask}
+Ankit Kumar, Ozan Irsoy, Peter Ondruska, Mohit Iyyer, James Bradbury, Ishaan
+  Gulrajani, Victor Zhong, Romain Paulus and Richard Socher.
+\newblock Ask me anything: Dynamic memory networks for natural language
+  processing [A]. International Conference on Machine Learning [C]. .
+\newblock 2016: 1378--1387.
+
+\bibitem{sutskever2014sequence}
+Ilya Sutskever, Oriol Vinyals and Quoc~V Le.
+\newblock Sequence to sequence learning with neural networks [A]. Advances in
+  neural information processing systems [C]. .
+\newblock 2014: 3104--3112.
+
+\bibitem{wu2016google}
+Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc~V Le, Mohammad Norouzi, Wolfgang
+  Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey et~al.
+\newblock Google's neural machine translation system: Bridging the gap between
+  human and machine translation [J].
+\newblock arXiv preprint arXiv:1609.08144, 2016.
+
+\bibitem{gehring2017convolutional}
+Jonas Gehring, Michael Auli, David Grangier, Denis Yarats and Yann~N Dauphin.
+\newblock Convolutional sequence to sequence learning [J].
+\newblock arXiv preprint arXiv:1705.03122, 2017.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N Gomez, {\L}ukasz Kaiser and Illia Polosukhin.
+\newblock Attention is all you need [A]. Advances in Neural Information
+  Processing Systems [C]. .
+\newblock 2017: 6000--6010.
+
+\bibitem{nguyen2015relation}
+Thien~Huu Nguyen and Ralph Grishman.
+\newblock Relation extraction: Perspective from convolutional neural networks
+  [A]. Proceedings of the 1st Workshop on Vector Space Modeling for Natural
+  Language Processing [C]. .
+\newblock 2015: 39--48.
+
+\bibitem{zheng2017joint}
+Suncong Zheng, Yuexing Hao, Dongyuan Lu, Hongyun Bao, Jiaming Xu, Hongwei Hao
+  and Bo~Xu.
+\newblock Joint entity and relation extraction based on a hybrid neural network
+  [J].
+\newblock Neurocomputing, 2017, 257: 59--66.
+
 \bibitem{freitag2000information}
 Dayne Freitag and Andrew McCallum.
 \newblock Information extraction with HMM structures learned by stochastic
@@ -60,25 +150,6 @@ Matthew Michelson and Craig~A Knoblock.
 \newblock International Journal of Document Analysis and Recognition (IJDAR),
   2007, 10(3-4): 211--226.
 
-\bibitem{cortez2010ondux}
-Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves and Edleno~S
-  de~Moura.
-\newblock
-\newblock Ondux: on-demand unsupervised learning for information extraction
-  [A]. Proceedings of the 2010 ACM SIGMOD International Conference on
-  Management of data [C]. ACM, 2010: 807--818.
-
-\bibitem{sahu2016relation}
-Sunil~Kumar Sahu, Ashish Anand, Krishnadev Oruganty and Mahanandeeshwar Gattu.
-\newblock Relation extraction from clinical texts using domain invariant
-  convolutional neural network [J].
-\newblock arXiv preprint arXiv:1606.09370, 2016.
-
-\bibitem{kim2014convolutional}
-Yoon Kim.
-\newblock Convolutional neural networks for sentence classification [J].
-\newblock arXiv preprint arXiv:1408.5882, 2014.
-
 \bibitem{th2015evaluating}
 MUNEEB TH, Sunil Sahu and Ashish Anand.
 \newblock Evaluating distributed word representations for capturing semantics
@@ -114,5 +185,139 @@ Sergey Ioffe and Christian Szegedy.
 Ross Girshick.
 \newblock Fast r-cnn [J].
 \newblock arXiv preprint arXiv:1504.08083, 2015.
+
+\bibitem{sahu2016relation}
+Sunil~Kumar Sahu, Ashish Anand, Krishnadev Oruganty and Mahanandeeshwar Gattu.
+\newblock Relation extraction from clinical texts using domain invariant
+  convolutional neural network [J].
+\newblock arXiv preprint arXiv:1606.09370, 2016.
+
+\bibitem{li2015trip}
+Zhixu Li, Lu~Qin, Hong Cheng, Xiangliang Zhang and Xiaofang Zhou.
+\newblock TRIP: An interactive retrieving-inferring data imputation approach
+  [J].
+\newblock TKDE, 2015, 27(9): 2550--2563.
+
+\bibitem{li2013aml}
+Zhixu Li, Laurianne Sitbon, Liwei Wang, Xiaofang Zhou and Xiaoyong Du.
+\newblock AML: Efficient approximate membership localization within a web-based
+  join framework [J].
+\newblock TKDE, 2013, 25(2): 298--310.
+
+\bibitem{li2014core}
+Zhixu Li, Mohamed~A. Sharaf, Laurianne Sitbon, Xiaoyong Du and Xiaofang Zhou.
+\newblock CoRE: A Context-Aware RelationExtraction Method for Relation
+  Completion [J].
+\newblock TKDE, 2014, 26(4): 836--849.
+
+\bibitem{Guanfeng_ICDE2015}
+G.~Liu, K.~Zheng, Y.~Wang, M.~A. Orgun, A.~Liu, L.~Zhao and X.~Zhou.
+\newblock Multi-Constrained Graph Pattern Matching in Large-Scale Contextual
+  Social Graphs [A]. ICDE [C]. .
+\newblock 2015: 351--362.
+
+\bibitem{chaudhuri2003automated}
+Surajit Chaudhuri and Gautam Das.
+\newblock Automated ranking of database query results [A]. CIDR [C]. .
+\newblock 2003.
+
+\bibitem{seymore1999learning}
+Kristie Seymore, Andrew McCallum and Roni Rosenfeld.
+\newblock Learning hidden Markov model structure for information extraction
+  [A]. AAAI-Workshop [C]. .
+\newblock 1999: 37--42.
+
+\bibitem{kristjansson2004interactive}
+Trausti Kristjansson, Aron Culotta, Paul Viola and Andrew McCallum.
+\newblock Interactive information extraction with constrained conditional
+  random fields [A]. AAAI [C]. .
+\newblock 2004: 412--418.
+
+\bibitem{cortez2011joint}
+Eli Cortez, Daniel Oliveira, Altigran~S da~Silva, Edleno~S de~Moura and
+  Alberto~HF Laender.
+\newblock Joint unsupervised structure discovery and information extraction
+  [A]. SIGMOD [C]. .
+\newblock 2011: 541--552.
+
+\bibitem{toda2009automatically}
+Guilherme~A Toda, Eli Cortez, Filipe Mesquita, Altigran~S da~Silva, Edleno
+  Moura and Marden Neubert.
+\newblock Automatically filling form-based web interfaces with free text inputs
+  [A]. WWW [C]. .
+\newblock 2009: 1163--1164.
+
+\bibitem{toda2010probabilistic}
+Guilherme~A Toda, Eli Cortez, Altigran~S da~Silva and Edleno de~Moura.
+\newblock A probabilistic approach for automatically filling form-based web
+  interfaces [J].
+\newblock PVLDB, 2010, 4(3): 151--160.
+
+\bibitem{chiang2012autodict}
+Fei Chiang, Periklis Andritsos, Erkang Zhu and Ren{\'e}e~J Miller.
+\newblock Autodict: Automated dictionary discovery [A]. ICDE [C]. .
+\newblock 2012: 1277--1280.
+
+\bibitem{serra2011using}
+Elton Serra, Eli Cortez, Altigran~S da~Silva and Edleno~S de~Moura.
+\newblock On using wikipedia to build knowledge bases for information
+  extraction by text segmentation [J].
+\newblock Journal of Information and Data Management, 2011, 2(3): 259.
+
+\bibitem{mesquita2007labrador}
+Filipe Mesquita, Altigran~S da~Silva, Edleno~S de~Moura, P{\'a}vel Calado and
+  Alberto~HF Laender.
+\newblock LABRADOR: Efficiently publishing relational databases on the web by
+  using keyword-based query interfaces [J].
+\newblock Information Processing \& Management, 2007, 43(4): 983--1004.
+
+\bibitem{cortez2013unsupervised}
+Eli Cortez and Altigran~S Da~Silva.
+\newblock
+\newblock Unsupervised information extraction by text segmentation [M].
+  Springer, 2013.
+
+\bibitem{collobert2008unified}
+Ronan Collobert and Jason Weston.
+\newblock A unified architecture for natural language processing: Deep neural
+  networks with multitask learning [A]. ICML [C]. .
+\newblock 2008: 160--167.
+
+\bibitem{muneeb2015evaluating}
+TH~Muneeb, Sunil~Kumar Sahu and Ashish Anand.
+\newblock Evaluating distributed word representations for capturing semantics
+  of biomedical concepts [J].
+\newblock ACL-IJCNLP, 2015, : 158.
+
+\bibitem{pearl1988Probabilistic}
+Judea Pearl.
+\newblock
+\newblock Probabilistic Reasoning in Intelligent Systems [M]. Morgan Kaufmann
+  Publishers, 1988.
+
+\bibitem{chuang2007context}
+Shui-Lung Chuang, Kevin Chen-Chuan Chang and ChengXiang Zhai.
+\newblock Context-aware wrapping: synchronized data extraction [A]. VLDB [C]. .
+\newblock 2007: 699--710.
+
+\bibitem{dai2015document}
+Andrew~M Dai, Christopher Olah and Quoc~V Le.
+\newblock Document embedding with paragraph vectors [J].
+\newblock arXiv preprint arXiv:1507.07998, 2015.
+
+\bibitem{li2009extracting}
+Xiao Li, Ye-Yi Wang and Alex Acero.
+\newblock
+\newblock Extracting structured information from user queries with
+  semi-supervised conditional random fields [A]. Proceedings of the 32nd
+  international ACM SIGIR conference on Research and development in information
+  retrieval [C]. ACM, 2009: 572--579.
+
+\bibitem{buttler2001fully}
+David Buttler, Ling Liu and Calton Pu.
+\newblock
+\newblock A fully automated object extraction system for the World Wide Web
+  [A]. Distributed Computing Systems, 2001. 21st International Conference on.
+  [C]. IEEE, 2001: 361--370.
 
 \end{thebibliography}

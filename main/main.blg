@@ -9,23 +9,16 @@ inproceedings is already a type "wizard-defined" function name
  :     }
 (Error may have been on previous line)
 Database file #1: ../bib/mybib.bib
-Repeated entry---line 117 of file ../bib/mybib.bib
- : @inproceedings{borkar2001automatic
- :                                   ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 146 of file ../bib/mybib.bib
- : @article{lafferty2001conditional
- :                                 ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 152 of file ../bib/mybib.bib
- : @article{peng2006information
- :                             ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 163 of file ../bib/mybib.bib
- : @article{kim2014convolutional
+Repeated entry---line 434 of file ../bib/mybib.bib
+ : @article{mesquita2007labrador
  :                              ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "mikolov2013distributed"
+Repeated entry---line 445 of file ../bib/mybib.bib
+ : @inproceedings{toda2009automatically
+ :                                     ,
+I'm skipping whatever remains of this entry
+You can't pop an empty literal stack for entry cortez2010ondux
+while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry borkar2001automatic
 while executing---line 1050 of file sudabst.bst
 Warning--empty journal in lafferty2001conditional
@@ -37,8 +30,14 @@ You can't pop an empty literal stack for entry zhao2008exploiting
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry cortez2007flux
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry cortez2010ondux
-while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry pearl2014probabilistic
 while executing---line 1050 of file sudabst.bst
-(There were 13 error messages)
+You can't pop an empty literal stack for entry cortez2013unsupervised
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry pearl1988Probabilistic
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry li2009extracting
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry buttler2001fully
+while executing---line 1050 of file sudabst.bst
+(There were 15 error messages)

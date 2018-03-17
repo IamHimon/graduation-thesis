@@ -57,11 +57,12 @@
 \citation{gehring2017convolutional}
 \citation{vaswani2017attention}
 \citation{nguyen2015relation}
+\citation{zheng2017joint}
 \@writefile{lof}{\contentsline {figure}{\numberline {2-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CBOW模型的一般形式}}{11}{figure.2.4}}
 \newlabel{chap:chap02:fig:CBOW_general}{{2-4}{11}{\wuhao CBOW模型的一般形式\relax }{figure.2.4}{}}
 \citation{freitag2000information}
 \citation{borkar2001automatic}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}分割式信息抽取概念以及现有的方法}{12}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}文本记录分割与命名属性值识别概念以及现有的方法}{12}{section.2.2}}
 \citation{lafferty2001conditional,peng2006information}
 \citation{lafferty2001conditional}
 \citation{agichtein2004mining,mansuri2006integrating,zhao2008exploiting,cortez2007flux}
@@ -76,16 +77,16 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}基于知识库实现无监督的抽取模型}{14}{subsection.2.2.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}本章小结}{15}{section.2.3}}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第三章\hspace  {0.3em}}基于卷积神经网络的贪婪式概率标注算法}{16}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第三章\hspace  {0.3em}}CNN-TesaRec 算法}{16}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:chap03}{{三}{16}{基于卷积神经网络的贪婪式概率标注算法\relax }{chapter.3}{}}
+\newlabel{chap:chap03}{{三}{16}{CNN-TesaRec 算法\relax }{chapter.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}算法概述}{16}{section.3.1}}
 \citation{cortez2010ondux}
 \@writefile{lof}{\contentsline {figure}{\numberline {3-1}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  模型的整体结构}}{17}{figure.3.1}}
 \newlabel{chap:chap03:fig:framework}{{3-1}{17}{\wuhao 模型的整体结构\relax }{figure.3.1}{}}
 \citation{cortez2010ondux,zhao2008exploiting}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}基于卷积神经网络的贪婪式概率标注算法}{18}{section.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}基于卷积神经网络的文本记录分割与命名属性值识别算法}{18}{section.3.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}基于知识库的初始分割和标注}{18}{subsection.3.2.1}}
 \newlabel{KB-based Segmentation and Labelling}{{3.2.1}{18}{基于知识库的初始分割和标注\relax }{subsection.3.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3-2}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  一个简化的知识库}}{19}{figure.3.2}}
@@ -93,17 +94,16 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3-3}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  基于知识库的初始分割和标注例子}}{19}{figure.3.3}}
 \newlabel{chap:chap03:fig:labelExample}{{3-3}{19}{\wuhao 基于知识库的初始分割和标注例子\relax }{figure.3.3}{}}
 \newlabel{eq1}{{3.1}{19}{基于知识库的初始分割和标注\relax }{equation.3.2.1}{}}
-\citation{sahu2016relation,kim2014convolutional}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}基于卷积神经网络模型的构建和文本块的标注}{20}{subsection.3.2.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.}构建CNN分类模型}{20}{subsubsection.3.2.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}基于CNN模型的构建和文本段的标注}{20}{subsection.3.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.}构建CNN分类器}{20}{subsubsection.3.2.2.1}}
 \citation{th2015evaluating}
 \citation{mikolov2013distributed}
 \@writefile{lof}{\contentsline {figure}{\numberline {3-4}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  CNN分类模型的架构图}}{21}{figure.3.4}}
 \newlabel{chap:chap03:fig:CNN_des}{{3-4}{21}{\wuhao CNN分类模型的架构图\relax }{figure.3.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.}构建CNN分类模型}{22}{subsubsection.3.2.2.2}}
-\newlabel{eq:2}{{3.2}{23}{构建CNN分类模型\relax }{equation.3.2.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例子中文本段的候选属性值和基于CNN模型的变换概率值}}{23}{figure.3.5}}
-\newlabel{chap:chap03:fig:candidate-Labels}{{3-5}{23}{\wuhao 例子中文本段的候选属性值和基于CNN模型的变换概率值\relax }{figure.3.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.}文本段的概率标注}{22}{subsubsection.3.2.2.2}}
+\newlabel{eq:2}{{3.2}{23}{文本段的概率标注\relax }{equation.3.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-5}{\ignorespaces \fontsize  {10.5pt}{14pt}\selectfont  例子中文本段的候选属性值和基于CNN分类模型的变换概率值}}{23}{figure.3.5}}
+\newlabel{chap:chap03:fig:candidate-Labels}{{3-5}{23}{\wuhao 例子中文本段的候选属性值和基于CNN分类模型的变换概率值\relax }{figure.3.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}输入文本的贪婪式概率标注}{23}{subsection.3.2.3}}
 \newlabel{Probabilistic Labelling to Input Texts}{{3.2.3}{23}{输入文本的贪婪式概率标注\relax }{subsection.3.2.3}{}}
 \newlabel{eq:3}{{3.3}{24}{\relax }{equation.3.2.3}{}}
@@ -130,9 +130,9 @@
 \newlabel{sub@fig:subfig:c}{{(b)}{33}{Subfigure 3 3.9(b)\relax }{subfigure.3.9.2}{}}
 \newlabel{fig:subfig:c}{{3.9(c)}{33}{Subfigure 3 3.9(c)\relax }{subfigure.3.9.3}{}}
 \newlabel{sub@fig:subfig:c}{{(c)}{33}{Subfigure 3 3.9(c)\relax }{subfigure.3.9.3}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {F-Measure on PersonalBib}}}{33}{subfigure.3.9.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {F-Measure on House}}}{33}{subfigure.3.9.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {F-Measure on Car}}}{33}{subfigure.3.9.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {引文数据集上的F值}}}{33}{subfigure.3.9.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {二手房数据集上的F值}}}{33}{subfigure.3.9.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {二手车数据集上的F值}}}{33}{subfigure.3.9.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}与其他方法的比较}{33}{subsection.3.3.3}}
 \citation{lafferty2001conditional}
 \citation{peng2006information}
@@ -142,11 +142,11 @@
 \newlabel{sub@fig:subfig:c}{{(e)}{34}{Subfigure 3 3.9(e)\relax }{subfigure.3.9.5}{}}
 \newlabel{fig:subfig:c}{{3.9(f)}{34}{Subfigure 3 3.9(f)\relax }{subfigure.3.9.6}{}}
 \newlabel{sub@fig:subfig:c}{{(f)}{34}{Subfigure 3 3.9(f)\relax }{subfigure.3.9.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-9}{\ignorespaces Evaluating the Effect of Threshold $\theta $ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}}{34}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Time Cost on PersonalBib}}}{34}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Time Cost on House}}}{34}{figure.3.9}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {Time Cost on Car}}}{34}{figure.3.9}}
-\newlabel{fig:7}{{3-9}{34}{Evaluating the Effect of Threshold $\theta $ to the Extraction Quality and Efficiency ($\lambda = 0.6$)\relax }{figure.3.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-9}{\ignorespaces 阈值$\theta $对抽取质量和效率的影响($\lambda = 0.6$)}}{34}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {引文数据集上的时间花费}}}{34}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {二手房数据集上的时间花费}}}{34}{figure.3.9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {二手车数据集上的时间花费}}}{34}{figure.3.9}}
+\newlabel{fig:7}{{3-9}{34}{阈值$\theta $对抽取质量和效率的影响($\lambda = 0.6$)\relax }{figure.3.9}{}}
 \citation{cortez2010ondux}
 \newlabel{fig:subfig:a}{{3.10(a)}{35}{Subfigure 3 3.10(a)\relax }{subfigure.3.10.1}{}}
 \newlabel{sub@fig:subfig:a}{{(a)}{35}{Subfigure 3 3.10(a)\relax }{subfigure.3.10.1}{}}
@@ -154,21 +154,21 @@
 \newlabel{sub@fig:subfig:c}{{(b)}{35}{Subfigure 3 3.10(b)\relax }{subfigure.3.10.2}{}}
 \newlabel{fig:subfig:c}{{3.10(c)}{35}{Subfigure 3 3.10(c)\relax }{subfigure.3.10.3}{}}
 \newlabel{sub@fig:subfig:c}{{(c)}{35}{Subfigure 3 3.10(c)\relax }{subfigure.3.10.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3-10}{\ignorespaces Evaluating the Effect of Threshold $\lambda $ to the Extraction Quality ($\theta = 0.9$)}}{35}{figure.3.10}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {F-Measure on PersonalBib}}}{35}{figure.3.10}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {F-Measure on House}}}{35}{figure.3.10}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {F-Measure on Car}}}{35}{figure.3.10}}
-\newlabel{fig:8}{{3-10}{35}{Evaluating the Effect of Threshold $\lambda $ to the Extraction Quality ($\theta = 0.9$)\relax }{figure.3.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3-10}{\ignorespaces 阈值$\lambda $对抽取质量的影响($\theta = 0.9$)}}{35}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {引文数据集上的F值}}}{35}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {二手房数据集上的F值}}}{35}{figure.3.10}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {二手车数据集上的F值}}}{35}{figure.3.10}}
+\newlabel{fig:8}{{3-10}{35}{阈值$\lambda $对抽取质量的影响($\theta = 0.9$)\relax }{figure.3.10}{}}
 \citation{cortez2010ondux}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}BPSM效果的验证}{36}{subsection.3.3.4}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces \relax \fontsize  {10.54}{12.65}\selectfont  \abovedisplayskip 11\p@ plus3\p@ minus6\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \def \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ {\leftmargin \leftmargini \topsep 9\p@ plus3\p@ minus5\p@ \parsep 4.5\p@ plus2\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip 基于CNN的贪婪式概率标注算法，CNN-based Greedy Probabilistic Labeling}}{37}{algocf.1}}
 \newlabel{alg:1}{{1}{37}{输入文本的贪婪式概率标注\relax }{algocf.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces Comparing the Extraction Quality on PersonalBib}}{37}{table.3.1}}
-\newlabel{table:1}{{3-1}{37}{Comparing the Extraction Quality on PersonalBib\relax }{table.3.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces Comparing the Extraction Quality on House}}{38}{table.3.2}}
-\newlabel{table:2}{{3-2}{38}{Comparing the Extraction Quality on House\relax }{table.3.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces Comparing the Extraction Quality on Car}}{38}{table.3.3}}
-\newlabel{table:3}{{3-3}{38}{Comparing the Extraction Quality on Car\relax }{table.3.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-1}{\ignorespaces 在引文数据集上抽取质量的比较}}{37}{table.3.1}}
+\newlabel{table:1}{{3-1}{37}{在引文数据集上抽取质量的比较\relax }{table.3.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-2}{\ignorespaces 在二手房数据集上抽取质量的比较}}{38}{table.3.2}}
+\newlabel{table:2}{{3-2}{38}{在二手房数据集上抽取质量的比较\relax }{table.3.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3-3}{\ignorespaces 在二手车数据集上抽取质量的比较}}{38}{table.3.3}}
+\newlabel{table:3}{{3-3}{38}{在二手车数据集上抽取质量的比较\relax }{table.3.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3-4}{\ignorespaces 三种方法花费时间的比较}}{39}{table.3.4}}
 \newlabel{table:5}{{3-4}{39}{三种方法花费时间的比较\relax }{table.3.4}{}}
 \newlabel{table:4}{{3-4}{39}{三种方法花费时间的比较\relax }{table.3.4}{}}
@@ -219,32 +219,66 @@
 \bibstyle{sudabst}
 \bibdata{../bib/mybib}
 \@writefile{loa}{\addvspace {10\p@ }}
-\bibcite{freitag2000information}{1}
-\bibcite{borkar2001automatic}{2}
-\bibcite{lafferty2001conditional}{3}
-\bibcite{peng2006information}{4}
-\bibcite{agichtein2004mining}{5}
-\bibcite{mansuri2006integrating}{6}
-\bibcite{zhao2008exploiting}{7}
-\bibcite{cortez2007flux}{8}
-\bibcite{michelson2007unsupervised}{9}
+\bibcite{cortez2010ondux}{1}
+\bibcite{bengio2003neural}{2}
+\bibcite{mikolov2013distributed}{3}
+\bibcite{kim2014convolutional}{4}
+\bibcite{kalchbrenner2014convolutional}{5}
+\bibcite{socher2013recursive}{6}
+\bibcite{tai2015improved}{7}
+\bibcite{kumar2016ask}{8}
 \@writefile{toc}{\contentsline {chapter}{参考文献}{50}{chapter*.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\bibcite{cortez2010ondux}{10}
-\bibcite{sahu2016relation}{11}
-\bibcite{kim2014convolutional}{12}
-\bibcite{th2015evaluating}{13}
-\bibcite{sarawagi2008information}{14}
-\bibcite{pearl2014probabilistic}{15}
-\bibcite{zhang2015sensitivity}{16}
-\bibcite{ioffe2015batch}{17}
-\bibcite{girshick2015fast}{18}
+\bibcite{sutskever2014sequence}{9}
+\bibcite{wu2016google}{10}
+\bibcite{gehring2017convolutional}{11}
+\bibcite{vaswani2017attention}{12}
+\bibcite{nguyen2015relation}{13}
+\bibcite{zheng2017joint}{14}
+\bibcite{freitag2000information}{15}
+\bibcite{borkar2001automatic}{16}
+\bibcite{lafferty2001conditional}{17}
+\bibcite{peng2006information}{18}
+\bibcite{agichtein2004mining}{19}
+\bibcite{mansuri2006integrating}{20}
+\bibcite{zhao2008exploiting}{21}
+\bibcite{cortez2007flux}{22}
+\bibcite{michelson2007unsupervised}{23}
+\bibcite{th2015evaluating}{24}
+\bibcite{sarawagi2008information}{25}
+\bibcite{pearl2014probabilistic}{26}
+\bibcite{zhang2015sensitivity}{27}
+\bibcite{ioffe2015batch}{28}
+\bibcite{girshick2015fast}{29}
+\bibcite{sahu2016relation}{30}
+\bibcite{li2015trip}{31}
+\bibcite{li2013aml}{32}
+\bibcite{li2014core}{33}
+\bibcite{Guanfeng_ICDE2015}{34}
+\bibcite{chaudhuri2003automated}{35}
+\bibcite{seymore1999learning}{36}
+\bibcite{kristjansson2004interactive}{37}
+\bibcite{cortez2011joint}{38}
+\bibcite{toda2009automatically}{39}
+\bibcite{toda2010probabilistic}{40}
+\bibcite{chiang2012autodict}{41}
+\bibcite{serra2011using}{42}
+\bibcite{mesquita2007labrador}{43}
+\bibcite{cortez2013unsupervised}{44}
+\bibcite{collobert2008unified}{45}
+\bibcite{muneeb2015evaluating}{46}
+\bibcite{pearl1988Probabilistic}{47}
+\bibcite{chuang2007context}{48}
+\bibcite{dai2015document}{49}
+\bibcite{li2009extracting}{50}
+\bibcite{buttler2001fully}{51}
+\citation{*}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{53}{chapter*.5}}
+\@writefile{toc}{\contentsline {chapter}{攻读硕士学位期间发表的论文}{56}{chapter*.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{54}{chapter*.6}}
+\@writefile{toc}{\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{57}{chapter*.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}

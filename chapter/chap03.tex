@@ -4,9 +4,9 @@
 \setlength{\belowcaptionskip}{8pt}%
 \caption}   % 表格上标题修改
 
-\chapter{基于卷积神经网络的贪婪式概率标注算法}
+\chapter{CNN-TesaRec 算法}
 \label{chap:chap03}
-本章首先给出了基于卷积神经网络的贪婪式概率标注算法(简称为 $CNN-IETS$ )概述，然后给出了分割式信息抽取的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
+本章首先给出基于卷积神经网络的文本记录分割与命名属性值识别算法(简称为 $CNN-TesaRec$ )概述，然后给出了文本记录分割与命名属性值识别( $TesaRec$ )的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
 
 
 \section{算法概述}
@@ -18,22 +18,22 @@
   \label{chap:chap03:fig:framework}
 \end{figure}
 
-这一章，我们提出了一种非监督式概率标注算法，它基于深度卷积神经网络(CNN)来构建模型，借助提前构造的知识库来克服需要人工标注语料的难题。卷积神经网络是一种端到端的模型，先天具有抽取特征和组合特征的优势，使用深度卷积神经网络能够自动得选择出高质量的特征来更好的刻画各个属性值。而这个知识库有两个作用，第一个作用是用来训练我们的卷积神经网络模型分类器，第二个作用是协助生成文本段，再输入到我们的分类器中。具体一点讲，如图~\ref{chap:chap03:fig:framework}，输入一个文本,我们首先根据词语在知识库中的共现来初始分隔这条文本，形成若干个文本段。对于这些文本段，如果它在某个属性组中出现的频率比较高而在其他属性组中出现的频率比较低，并且得分高于某个阈值，它就会被标注成这个属性。然后根据这些初始的分割状态和标注结果，哪些没有标注的文本段会被输入到下一步的CNN分类器中。在下一步，我们并不是直接接受CNN分类器的输出结果，我们根据CNN分类器的输出概率发明了一种\emph{贪婪式概率标注算法}，这个算法会从全局考虑分割和标注状态来为输入文本执行最合理的分割和标注方式。对于一些有上面过程产生的漏标注和错误标注的情形，我们提出了一种\emph{双向位置与序列模型}，进一步对标注结果进行调整和改善。
+我们提出了一种非监督式概率标注算法，它基于卷积神经网络(CNN)来构建模型，借助提前构造的知识库来克服需要人工标注语料的问题。CNN是一种端到端的模型，先天具有抽取特征和组合特征的优势，使用CNN能够自动得选择出高质量的特征来更好的刻画各个属性值。我们的知识库有两个作用，第一个作用是用来训练我们的CNN分类器，第二个作用是协助文本分割，生成文本段，再输入到我们的分类器中。具体一点讲，如图~\ref{chap:chap03:fig:framework}，输入一个文本，我们首先根据词语在知识库中的共现来初始分割这条文本，形成若干个文本段。对于这些文本段，如果它在某个属性组中出现的频率比较高而在其他属性组中出现的频率比较低，并且得分高于某个阈值，它就会被标注为这个属性。然后根据这些初始的分割状态和标注结果，那些没有标注的文本段会被输入到下一步的CNN分类器中。在下一步，我们并不是直接接受CNN分类器的输出结果，我们根据CNN分类器的输出概率设计了一种\emph{贪婪式概率标注算法}，这个算法会从全局考虑分割和标注状态来为输入文本找到最合理的分割和标注方式。对于一些上面过程中产生的漏标注和错误标注的情形，我们提出了一种\emph{双向位置与序列模型}，进一步对标注结果进行调整和改善。
 
-为了构建我们的卷积神经网络模型，我们使用了一组全面的语义特征和句法特征加入到模型的输入中，这些特征都是直接从我们的知识库中构造的，这样我们的模型就可以充分利用这些特征来标注每一个独立的文本段。虽然，我们的模型可以直接提供一个标注的结果，但是这些结果仅仅是面对单独的文本段，没有考虑在同一个输入文本中各文本段之间的内在关系，这也不能找到最佳的分割和标注结果。因此，我们需要从全局考虑分割和标注状态来执行概率标注。因此，最理想的标注方式是，我们依次标注每个文本块来最大化所有标注结果的概率和，但在这个过程中，必须满足一个前提条件，即每个属性值只能包含连续的文本段。我们首先证明了这是一个NP-hard的问题，然后提出了一种贪婪式概率标注算法，此算法能够有效的实现最佳标注方式。
+为了构建我们的卷积神经网络模型，我们使用了一组全面的语义特征和句法特征加入到模型的输入中，这些特征都是直接从我们的知识库中构造的，这样我们的模型就可以充分利用这些特征来处理每一个独立的文本段。虽然CNN模型可以直接提供一个标注的方案，但是这些方案仅仅是考虑单独的文本段，没有考虑在同一个输入文本中各文本段之间的内在关系，无法找到最佳的分割和标注方案，所以，我们需要从全局考虑分割和标注状态来执行分割和标注。因此，最理想的标注方式是，我们依次标注每个文本段来最大化所有标注结果的概率和，但在这个过程中，必须满足一个前提条件，即每个属性值只能包含连续的文本段。我们首先证明了这是一个NP-hard的问题，然后提出了一种贪婪式概率标注算法，此算法能够有效的实现最佳标注方式。
 
-使用上述的基于卷积神经网络的贪婪式概率标注算法，大部分的输入文本都能够被正确分割和标注了，但是还是会出现一些漏标注和错误标注问题。为了解决此类问题，我们在执行抽取的过程中了权衡考虑了已经标注文本段的位置和序列信息，相比较文章\ucite{cortez2010ondux}中提出的单向序列模型，我们的是双向模型，从前向和后向同时考虑序列关系，因此能够减少更多的标注错误并提供更大的帮助。
+使用上述的基于卷积神经网络的贪婪式概率标注算法，大部分的输入文本都能够被正确分割和标注了，但是还是会出现一些漏标注和错误标注问题。为了解决此类问题，我们在执行抽取的过程中了权衡考虑了已经标注文本段的位置和序列信息，相比较文章\cite{cortez2010ondux}中提出的单向序列模型，我们的是双向模型，从前向和后向同时考虑序列关系，能够减少更多的标注错误并提供更大的帮助。
 
-\section{基于卷积神经网络的贪婪式概率标注算法}
-在这一节，我们首先给出分割式信息抽取任务的定义，然后详细介绍借助知识库我卷积神经网络构建的贪婪式概率标注算法(CNN-IETS)。
+\section{基于卷积神经网络的文本记录分割与命名属性值识别算法}
+在这一节，我们首先给出文本记录分割与命名属性值识别任务的定义，然后详细介绍借助知识库和卷积神经网络构建的文本记录分割与命名属性值识别算法(CNN-TesaRec)。
 
 \begin{definition}
-{\bf (分割式信息抽取任务)}
-对于某个领域的属性集 $\mathbb{A}$, 假设输入文本 $I$ 包含了一些属性集 $\mathbb{A}$中的属性值, 分割式信息抽取任务目的是分割 $I$ 成一些列的文本段 $S=\{s_1, s_2, ..., s_m\}$, 然后使用一个属性值 $A_i \in \mathbb{A}$ 来标注每一个文本段 $s_i$ ($1\leq i \leq m$), 这里 $s_i$ 数属性 $A_i$中的一个属性值.
+{\bf (文本记录分割与命名属性值识别(TesaTec))}
+对于某个领域的属性集 $\mathbb{A}$, 假设输入文本 $I$ 包含了一些属性集 $\mathbb{A}$ 中的属性值, 文本记录分割与命名属性值识别任务的目的是分割 $I$ 成一系列的文本段 $S=\{s_1, s_2, ..., s_m\}$, 然后使用属性值 $A_i \in \mathbb{A}$ 来标注每一个文本段 $s_i$ ($1\leq i \leq m$)，这里 $s_i$ 是属性 $A_i$ 中的一个属性值.
 \end{definition}
 
-\noindent \underline{\em 知识库:}
-我们使用实现存在的语料库来构建一个固定领域的知识库(简称为KB)，就像\cite{cortez2010ondux, zhao2008exploiting}中做的一样。简单讲，知识库(KB)包含一组特定的属性以及对应的属性值，我们记做 KB=$\{ <A_1, V_1>, <A_2, V_2>, ..., <A_n, V_n> \}$ ，这里每一个属性$A_i$ ($1\leq i \leq n$)都是这个领域属性集  $\mathbb{A}$ 中的一个独立属性， $V_i$ 是一组词语，是在属性$a_i$中出现的典型的、合理的值，并且记录每个属性值在记录中的位置 $\{(v_{i,1}, PS_{i,1}), (v_{i,2}, PS_{i,2}$ $), ..., (v_{i, n_i}, PS_{i,n_i}) \}$，这里$PS_{i, k}$ 是一组位置相关的数值，来表示这个属性值 $v_{i, k}$ 出现在不同记录中的位置属性。一个简化的知识库如图~\ref{chap:chap03:fig:KB}所示，为了方便理解，这里我们只是使用了一些简化的单词而不是使用原始的属性名。
+\noindent \underline{\em 知识库(KB):}
+我们使用事先存在的语料库来构建一个固定领域的知识库，就像\cite{cortez2010ondux, zhao2008exploiting}中做的一样。简单讲，知识库包含一组特定的属性和对应的属性值，我们记做 KB=$\{ <A_1, V_1>, <A_2, V_2>, ..., <A_n, V_n> \}$ ，这里每一个属性 $A_i$ ($1\leq i \leq n$)都是这个领域属性集  $\mathbb{A}$ 中的一个独立属性， $V_i$ 是一组词语，是在属性 $a_i$ 中出现的典型的、合理的值，并且记录每个属性值在记录中的位置 $\{(v_{i,1}, PS_{i,1}), (v_{i,2}, PS_{i,2}$ $), ..., (v_{i, n_i}, PS_{i,n_i}) \}$，这里 $PS_{i, k}$ 是一组位置相关的数值，来表示这个属性值 $v_{i, k}$ 出现在不同记录中的位置属性。一个简化的知识库如图~\ref{chap:chap03:fig:KB}所示，为了方便理解，这里我们只是使用了一些简化的单词而不是使用原始的属性名。
 
 \begin{figure}[!h]
   \centering
@@ -52,7 +52,7 @@
 
 \subsection{基于知识库的初始分割和标注}
 \label{KB-based Segmentation and Labelling}
-这一模块的主要目的是识别出输入文本中所谓的\emph{锚点块}(Anchor Blocks)，就是对一些文本段，我们会根据知识库计算出来一个标注可信度，当这个可信度大于某个阈值时，便可以直接将这个文本段标注成某一个属性。然后，这些识别出来的\emph{锚点块}将被视作一个基础锚点，执行后面步骤中的分割和标注。
+这一模块的主要目的是识别出输入文本中所谓的 \emph{锚点块}(Anchor Blocks)，就是对一些文本段，我们会根据知识库计算出来一个标注可信度，当这个可信度大于某个阈值时，便可以直接将这个文本段标注成某一个属性。然后，这些识别出来的 \emph{锚点块}将被视作一个基础锚点，执行后面步骤中的分割和标注。
 
 \begin{definition}
 {\bf (锚点块)}
@@ -63,22 +63,22 @@
 2) $p(b, A) > \theta$，这个阈值 $\theta$ 是我们自己定义的，用来提高锚点块的标注质量。
 \end{definition}
 
-假设一个文本段 $b$ 出现在知识库中的 $m$ 个不同属性$\{(A_1, A_2, ..., A_m\}$ 的属性值里面，这里$A_i \in \mathbb{A}$ ($1\leq i \leq m$)表示 $b$ 的一个可能的属性。对于每一个 $A_i$ ， 假设 $b$ 出现在一组不同的属性值中，并且具有不同的出现频率，我们记做  $\{(v_{i,1}, f_{i,1}), (v_{i,2}, f_{i,2}), ..., $ $(v_{i,r_i}, f_{i, r_i})\}$ ，假设所有属性值都是互相独立的，则我们可以通过下面的公式，计算出这个文本段 $b$ 属于属性 $A_i$ 的概率为：
+假设一个文本段 $b$ 出现在知识库中的 $m$ 个不同属性 $\{(A_1, A_2, ..., A_m\}$ 的属性值里面，这里 $A_i \in \mathbb{A}$ ($1\leq i \leq m$)表示 $b$ 的一个可能的属性。对于每一个 $A_i$ ， 假设 $b$ 出现在一组不同的属性值中，并且具有不同的出现频率，我们记做  $\{(v_{i,1}, f_{i,1}), (v_{i,2}, f_{i,2}), ..., $ $(v_{i,r_i}, f_{i, r_i})\}$ ，假设所有属性值都是互相独立的，则我们可以通过下面的公式，计算出这个文本段 $b$ 属于属性 $A_i$ 的概率为：
 
 \begin{equation}
 \label{eq1}
 p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}{x}}}{1+\sum_{1 \leq k \leq m}\sum_{1\leq j \leq r_k}\sum_{1\leq x \leq f_{k, j}}{\frac{1}{x}}}
 \end{equation}
 
-这里，我们在分母使用加1的操作是为了防止分母出现为零的情况。 有了这个公式和我们定义的阈值 $\theta$ ，我们便能够在输入文本 $I$ 中标注出一些\emph{锚点块}了。因为，我们的方法的抽取质量和效率是对阈值 $\theta$ 敏感的，所以我们会通过后面的实验部分找到一个合适的阈值。
+这里，我们在分母使用加1的操作是为了防止分母出现为零的情况。 有了这个公式和我们定义的阈值 $\theta$ ，我们便能够在输入文本 $I$ 中标注出一些 \emph{锚点块}了。因为我们的方法的抽取质量和效率是对阈值 $\theta$ 敏感的，所以我们会通过后面的实验部分找到一个合适的阈值。
 
-注意，一个单独的属性值可能被分割成了两个或更多个文本块，比如图~\ref{chap:chap03:fig:labelExample}中，属性 $D$ 便有两个文本块 $d_1$, $d_3$。考虑到在一个输入文本中每个属性可能有一个属性值，所以，我们可以将这两个\emph{锚点块}和他们之间所有的词语都合并到一起。这里可能出现的一个冲突是，在一个属性的两个\emph{锚点块}之间出现了另一个属性的\emph{锚点块}，通常，一个合适的阈值 $\theta$ 便可以避免出现这种冲突。但是，如果这种情况仍然存在，我们可以通过弃掉冲突\emph{锚点块}中得分更低的那个来解决这个问题。
+注意，一个单独的属性值可能被分割成了两个或更多个文本块，比如图~\ref{chap:chap03:fig:labelExample}中，属性 $D$ 便有两个文本块 $d_1$, $d_3$。考虑到在一个输入文本中每个属性只可能有一个属性值，所以，我们可以将这两个锚点块和他们之间所有的词语都合并到一起。这里可能出现的一个冲突是，在一个属性的两个锚点块之间出现了另一个属性的锚点块，通常，一个合适的阈值 $\theta$ 便可以避免出现这种冲突。但是，如果这种情况仍然存在，我们可以通过弃掉冲突锚点块中得分更低的那个来解决这个问题。
 
-例子一：给定图 ~\ref{chap:chap03:fig:KB} 中的知识库， 对于一个图~\ref{chap:chap03:fig:labelExample}(1)中输入文本， 我们能够识别出下面这些\emph{锚点块}: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的\emph{锚点块}, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图~\ref{chap:chap03:fig:labelExample}(3)所示。
+例子一：给定图 ~\ref{chap:chap03:fig:KB} 中的知识库， 对于一个图~\ref{chap:chap03:fig:labelExample}(1)中输入文本， 我们能够识别出下面这些锚点块: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的锚点块, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图~\ref{chap:chap03:fig:labelExample}(3)所示。
 
 
-\subsection{基于卷积神经网络模型的构建和文本块的标注}
-为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们需要执行一个基于卷积神经网络模型分类结果的概率标注。简要来讲，我们首先使用知识库训练一个卷积神经网络分类器(CNN分类器)，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类器会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$)表示$s$属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用我们的CNN模型来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN模型输出的概率结果和那些\emph{锚点块}，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建CNN模型，并且介绍如何找到最佳的标注方式。
+\subsection{基于CNN模型的构建和文本段的标注}
+为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们需要执行一个基于CNN分类器分类结果的概率标注。简要来讲，我们首先使用知识库训练一个卷积神经网络分类器(CNN分类器)，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类器会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$) 表示 $s$ 属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用这个CNN分类器来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN分类器输出的概率结果和那些锚点块位置和标签，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建我们的CNN分类器，并且介绍如何找到最佳的标注方式。
 
 \begin{figure}[!h]
   \centering
@@ -87,45 +87,44 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
   \label{chap:chap03:fig:CNN_des}
 \end{figure}
 
-\subsubsection{构建CNN分类模型}
-图~\ref{chap:chap03:fig:CNN_des}给出了我们构建的CNN分类模型的架构图，它的输入时一个文本段，输出一个关于所有可能的属性的概率向量。整体来看，我们的CNN模型包括特征输入层，嵌入层，卷基层，最大值池化层，全连接层和最后的Softmax分类器层。特征输入层接受一个输入文本段的特征矩阵，这个特征矩阵包含了丰富的句法和语义特征。嵌入层负责将这些特征值对应到相应的特征向量然后将他们合并在一起。然后我们在特征矩阵上执行卷积操作来提取关于输入文本段的特征，在这一步我们使用了不同大小的过滤核来在输入文本段上尽可能多的覆盖n-gram的文本范围，这样我们就可以生成多层次的，且不同尺寸的特征矩阵。然后，我们再使用最大值池化来对卷积层的结果进行标准化，使其最终都成为相同形状的特征矩阵，且这一步也是进一步抽取特征和降维的操作。池化层得到的特征矩阵再通过一个全连接层，就是一个普通的神经网络，做进一步的特征组合和推理。最终，我们使用Softmax分类器作为我们的输出层，为每一个输入文本段产生分类结果。更多的细节，可以去参考~\cite{sahu2016relation, kim2014convolutional}。
+\subsubsection{构建CNN分类器}
+图~\ref{chap:chap03:fig:CNN_des}给出了我们构建的CNN分类器的架构图，它的输入是一个文本段，输出一个关于所有可能的属性的概率向量。整体来看，我们的CNN分类模型包括特征输入层，嵌入层，卷积层，最大值池化层，全连接层和最后的Softmax分类器层。特征输入层接受一个输入文本段的特征矩阵，这个特征矩阵包含了丰富的句法和语义特征。嵌入层负责将这些特征值对应到相应的特征向量然后将他们合并在一起。然后我们在特征矩阵上执行卷积操作来提取关于输入文本段的特征，在这一步我们使用了不同大小的卷积核来在输入文本段上尽可能多的覆盖n-gram的文本范围，这样我们就可以生成多层次的，且不同尺寸的特征矩阵。然后，我们再使用最大值池化来对卷积层的结果进行标准化，使其最终都成为相同形状的特征矩阵，且这一步也是进一步抽取特征和降维的操作。池化层得到的特征矩阵再通过一个全连接层，就是一个普通的神经网络，做进一步的特征组合和推理。最终，我们使用Softmax分类器作为模型的输出层，为每一个输入文本段产生分类结果。
 
 \smallskip
-\noindent \underline{\it 特征:}我们为每个输入文本段都构造了一些列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，他的特征矩阵中包括了，提前训练的词向量 Word2vec， 文本段的位置信息，文本段在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种人为构造的归一化类别概率。下面给出每一个特征的详细介绍：
+\noindent \underline{\it 特征:}我们为每个输入文本段都构造了一系列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，它的特征矩阵中包括了，提前训练的词向量 Word2vec， 单词在文本段的位置信息，文本段在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种人为构造的归一化类别概率。下面给出每一个特征的详细介绍：
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
 \item {\bf Word2Vec:} 对于词向量，我们直接使用文章~\cite{th2015evaluating}中用~\cite{mikolov2013distributed}词向量模型在Pubmed文章上提前训练好的词向量，这个词向量模型是由Tomas Mikolov在Google发明，我们在之前的章节有详细介绍。对于中文实验集，我们在自己的中文语料上使用Google的word2vec工具~\footnote{ https://code.google.com/archive/p/word2vec/}训练了一个词向量。
 
-\item {\bf 在文本段中位置特征:} 这个位置特征是指一个单词在输入文本段中的位置，我们之所以使用这个特征，是因为我们观察到，在一些特定的属性值中，一些特殊的词语会出现在相同的位置上。
+\item {\bf 在文本段中的位置特征:} 这个位置特征是指一个单词在输入文本段中的位置，我们之所以使用这个特征，是因为我们观察到，在一些特定的属性值中，一些特殊的词语会出现在相同的位置上。
 
-\item {\bf 在输入文本中的位置特征:} 这个位置特征是指一个单词在原始输入文本中的位置，我们选择这个特征是因为一个单词在文本中的所在位置往往与它属于哪个属性有密切的关联，这个一个比较容易想到的特征项。
+\item {\bf 在输入文本中的位置特征:} 这个位置特征是指一个单词在原始输入文本中的位置，我们选择这个特征是因为一个单词在文本中的所在位置往往与它属于哪个属性有密切的关联，这是一个比较直观的特征。
 
 \item {\bf 文本段的长度:} 也就是文本段中单词的个数，使用这个特征是因为不同属性的属性值的平均长度往往是有差别的，这说明，文本段的长度是一个非常有区分性的特征。
 
-\item {\bf 语法和词性标注特征(POS):} 构造POS特征的过程，对一句话中的每个单词，依赖这个单词的词性定义和上下文来给它标注一个标签，用以说明这个单词在这句话中的角色。这里，我们使用GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}来得到每个词的POS特征。
+\item {\bf 语法和词性标注特征(POS):} 构造POS特征的过程，对一句话中的每个单词，依赖这个单词的词性和上下文来给它标注一个标签，用以说明这个单词在这句话中的角色。这里，我们使用GENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}来得到每个词的POS特征。
 
-\item {\bf 归一化类别概率:} 我们同样使用公式~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量每一维的值表示一个单词属于某个属性的概率。
+\item {\bf 归一化类别概率:} 我们同样使用公式~\ref{eq1}来计算一个概率向量$\vec{cp}$，向量中每一维的值表示一个单词属于某个属性的概率。然后我们使用离散的数值词典，将概率值标准化。
 
 \end{enumerate}
 
-\subsubsection{构建CNN分类模型}
-虽然CNN分类器可以直接输出一个输入文本段属于各个属性的概率值，因为已经存在标注了的\emph{锚点块}的位置，所以每个输入文本段只会有几个可能的候选属性，因此，对于CNN分类器的结果，有些概率中是用不着的。例如，在图~\ref{chap:chap03:fig:labelExample}(3)中，文本段 $a_3$ 只可能属于属性 $A$， $B$ 和 $E$
-中的一个，因为我们已经有了属性为 $C$，$D$ 和 $F$ 的\emph{锚点块}，且这些\emph{锚点块}都在文本段$a_3$的非邻接位置。我们在图~\ref{chap:chap03:fig:candidate-Labels}列出了其他文本段的所有候选属性列表，其中已经得到的\emph{锚点块}只有一个候选属性。
+\subsubsection{文本段的概率标注}
+虽然CNN分类器可以直接给出一个输入文本段属于各个属性的概率值，但是，因为一些位置已经存在了标注了的锚点块，所以每个输入文本段只会有几个可能的候选属性，因此，对于CNN分类器的结果，有些概率中是用不着的。例如，在图~\ref{chap:chap03:fig:labelExample}(3)中，文本段 $a_3$ 只可能属于属性 $A$， $B$ 和 $E$ 中的一个，因为我们已经有了属性为 $C$，$D$ 和 $F$ 的锚点块，且这些锚点块都在文本段 $a_3$ 的非邻接位置。我们在图~\ref{chap:chap03:fig:candidate-Labels}中列出了其他文本段的所有候选属性列表，其中这些锚点块只有一个候选属性。
 
-对一个文本段 $s$ ，另 $\mathbf{A}_c(s)$ 表示一组候选属性，$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ 表示$s$ 的CNN模型的输出结果，则文本段$s$ 属于一个候选属性 $A \in \mathbf{A}_c(s)$ 的概率用下面的公式计算得到：
+对一个文本段 $s$ ，另 $\mathbf{A}_c(s)$ 表示一组候选属性，$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ 表示 $s$ 的CNN分类器的输出结果，则文本段 $s$ 属于一个候选属性 $A \in \mathbf{A}_c(s)$ 的概率用下面的公式计算得到：
 \begin{equation}
 \label{eq:2}
 p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \end{equation}
 这里 $i(A)$ 表示属性 $A$ 在属性列 $\mathbb{A}$ 中的下标。对于每一个输入文本段，我们都可以使用公式~\ref{eq:2}计算得到它属于每个候选属性的概率值。
 
-例子二：图~\ref{chap:chap03:fig:candidate-Labels}中列出了例子一基于CNN模型得到的各未标注文本段的属于各候选属性的概率值。对于文本段 $a_3$ ，假设它原始的CNN模型输出的概率向量是  $[0.567, $ $0.067, 0.199, 0.133, 0.033]$ ， 因为 $a_3$ 只可能属于属性 $A$，$B$ 或者 $E$ 。因此，我们能计算出文本段 $a_3$ 属于 $A$ 的概率为：$p(a_3, A) = \frac{0.567}{0.567+0.067+0.033} = 0.85$ ，相同的，我们可以计算出属于 $B$ 和 $E$ 的概率 $p(a_3, B)=0.1$ 和 $p(a_3, E)=0.05$。
+例子二：图~\ref{chap:chap03:fig:candidate-Labels}中列出了例子一基于CNN分类模型得到的各未标注文本段属于各候选属性的概率值。对于文本段 $a_3$ ，假设它原始的CNN分类模型输出的概率向量是  $[0.567, $ $0.067, 0.199, 0.133, 0.033]$ ， 因为 $a_3$ 只可能属于属性 $A$，$B$ 或者 $E$ 。因此，我们能计算出文本段 $a_3$ 属于 $A$ 的概率为：$p(a_3, A) = \frac{0.567}{0.567+0.067+0.033} = 0.85$ ，相同的，我们可以计算出属于 $B$ 和 $E$ 的概率 $p(a_3, B)=0.1$ 和 $p(a_3, E)=0.05$。
 
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{../figures/chap03/candidate-Labels.pdf}\\
-  \smallcaption{例子中文本段的候选属性值和基于CNN模型的变换概率值}
+  \smallcaption{例子中文本段的候选属性值和基于CNN分类模型的变换概率值}
   \label{chap:chap03:fig:candidate-Labels}
 \end{figure}
 
@@ -133,10 +132,10 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \subsection{输入文本的贪婪式概率标注}
 \label{Probabilistic Labelling to Input Texts}
 
-尽管我们的CNN模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要整体考虑整个文本的分割和标注状态，事实上，我们期待去找了一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN的受限分割式信息抽取}(Constrained CNN-IETS Problem)：
+尽管我们的CNN分类模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要整体考虑整个文本的分割和标注状态，事实上，我们期待去找到一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN分类结果的受限文本记录分割与命名属性值识别}(Constrained CNN-TesaRec Problem)：
 
 \begin{definition}
-({\bf Constrained CNN-IETS Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做分割式信息抽取任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
+({\bf Constrained CNN-TesaRec Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做分割式信息抽取任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
 %
 每一个文本段 $s_i \in S$ 都有一组候选属性标签 $\mathbf{A}_c(s)$，则\emph{基于CNN的受限的分割式信息抽取}任务的目的是最大化下面这个方程式：
 
@@ -148,7 +147,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 \end{definition}
 
-但是，这中基于CNN模型结果的受限的分割式信息抽取问题(Constrained CNN-IETS Problem)是一个NP-hard问题，我们给出下面的定义：
+但是，这中基于CNN模型结果的受限的分割式信息抽取问题(Constrained CNN-TesaRec Problem)是一个NP-hard 问题，我们给出下面的定义：
 
 \begin{theorem}
 \label{theorem:1}
@@ -238,7 +237,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 因为经过我们的基于CNN的贪婪式概率标注算法得到的标注结果已经具有非常高的准确率（后面的实验中会证明这一点），所以，这个结果可以用来学习序列相关的特征和输入文本中属性值位置的信息。有一点很重要，这些特征的学习是从每一组输入文本中实时的（on-demand）学习到的，不需要人工的训练，也没有属性值遵循某一个特定的顺序这个假设，然后我们构建一种类似隐马尔科夫模型的图模型来强化此前得到的标注结果，我们称之为BPSM（Bidirectional Positioning and Sequencing Model）。相比较 ~\cite{cortez2010ondux}中提出的单相位置和序列模型(PSM)，我们的模型从双向考虑序列之间的关联，这可以减少单向标注中出错的风险。
 
 \smallskip
-\noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。
+\noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN 的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。
 
 我们构建矩阵 $FT$ ，需要考虑在基于CNN的标注结果中从状态 $l_i$ 到 状态 $l_j$ 的数量和从状态 $l_i$ 出发的前向的所有数量的比例。所以，概率矩阵 $FT$ 中每一个概率值 $ft_{i,j}$ 的定义方式如下：
 \begin{equation}
@@ -301,7 +300,7 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 
   \item  \textit{引文数据集:} 我们从超过500个计算机领域的研究员的主页上手机了超过2.5万条的论文引文信息，这些引文信息中隐含的属性值属于{\em Title, Author, Journal, Volume, Pages,} and {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
 
-  \item \textit{二手房:} 我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com}上收集了超过10万的关于二手房出售和租赁相关信息的描述文本，每一条文本中包含的值属于属性：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} and {\em Furnitures}。我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
+  \item \textit{二手房:} 我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com}上收集了超过10 万的关于二手房出售和租赁相关信息的描述文本，每一条文本中包含的值属于属性：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} and {\em Furnitures}。 我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
 
   \item \textit{二手车:} 二手车的数据集，我们从Carsales~\footnote{www.carsales.com}网站中收集了超过20万条的关于二手车售卖的描述信息，这个数据集的属性集包括：{\em Brand, Price, Transmission, Color, Body, Engine, Fuel Consuming} ，我们的构建知识库(KB)的数据同样可以从这个网站上的结构化表格区域得到。
 
@@ -323,21 +322,21 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \begin{figure*}[!ht]
 \centering
 %mobile
-\subfigure[F-Measure on PersonalBib]{
+\subfigure[引文数据集上的F值]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_f.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on House]{
+\subfigure[二手房数据集上的F值]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_f.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on Car]{
+\subfigure[二手车数据集上的F值]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
@@ -349,28 +348,29 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 
 \begin{figure*}[!ht]
 \centering
-\subfigure[Time Cost on PersonalBib]{
+\subfigure[引文数据集上的时间花费]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_e.pdf}
     \end{minipage}
     }
-\subfigure[Time Cost on House]{
+\subfigure[二手房数据集上的时间花费]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_e.pdf}
     \end{minipage}
     }
-\subfigure[Time Cost on Car]{
+\subfigure[二手车数据集上的时间花费]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_e.pdf}
     \end{minipage}
     }
-\caption{Evaluating the Effect of Threshold $\theta$ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}
+\caption{阈值$\theta$对抽取质量和效率的影响($\lambda = 0.6$)}
+%\caption{Evaluating the Effect of Threshold $\theta$ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}
 \label{fig:7}
 \end{figure*}
 
@@ -378,34 +378,35 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \begin{figure*}[!ht]
 \centering
 %mobile
-\subfigure[F-Measure on PersonalBib]{
+\subfigure[引文数据集上的F值]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_lambda.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on House]{
+\subfigure[二手房数据集上的F值]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_lambda.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on Car]{
+\subfigure[二手车数据集上的F值]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_lambda.pdf}
     \end{minipage}
     }
-\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
+\caption{阈值$\lambda$对抽取质量的影响($\theta = 0.9$)}
+%\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
 \label{fig:8}
 \end{figure*}
 
 
 \subsection{与其他方法的比较}
-我们比较了我们的方法(CNN-IETS)的抽取质量与另外两种目前表现最佳的方法的抽取质量，为了公平的比较，对于每个数据集上的每个方法，我们都将他们调整成具有最佳的抽取表现。
+我们比较了我们的方法(CNN-TesaRec)的抽取质量与另外两种目前表现最佳的方法的抽取质量，为了公平的比较，对于每个数据集上的每个方法，我们都将他们调整成具有最佳的抽取表现。
 
 \vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
@@ -413,7 +414,7 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \item 基于CRF的监督式模型 ({\bf CRF}): 这是目前表现最佳的一种基于隐马尔科夫模型(CRF)
 的监督式信息抽取方法~\cite{lafferty2001conditional}，我们构建CRF模型所使用的特征包括文本自身特征，模型布局特征，外部词典源，文章~\cite{peng2006information}中有信息的说明。这些特征也被看做是一种标准的特征。
 
-\item 非监督式ONDUX方法 (\noindent {\bf ONDUX}): ONDUX~\cite{cortez2010ondux} 是目前分割式信息抽取任务中采用非监督式方法表现最佳的一种方法。这种方法首先将根据一个知识库，将输入文本粗略的分割成若干个文本块，每一个文本块是可能组成一个属性值的一组词语，然后通过一组特定的匹配函数，将这些文本块与已知的属性进行匹配。为了比较的公平，这种ONDUX方法与我们的方法(CNN-IETS)使用同一个知识库(KB)。
+\item 非监督式ONDUX方法 (\noindent {\bf ONDUX}): ONDUX~\cite{cortez2010ondux} 是目前分割式信息抽取任务中采用非监督式方法表现最佳的一种方法。这种方法首先将根据一个知识库，将输入文本粗略的分割成若干个文本块，每一个文本块是可能组成一个属性值的一组词语，然后通过一组特定的匹配函数，将这些文本块与已知的属性进行匹配。为了比较的公平，这种ONDUX方法与我们的方法(CNN-TesaRec)使用同一个知识库(KB)。
 \end{enumerate}
 
 
@@ -421,11 +422,11 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \centering
 \large
 %\caption{Comparing the Extraction Quality on PersonalBib}
-\topcaption{Comparing the Extraction Quality on PersonalBib}
+\topcaption{在引文数据集上抽取质量的比较}
 \label{table:1}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Title & 0.829 & 0.781 & {\bf 0.833} \\ \hline
 Author & 0.856 & {\bf 0.861}  & 0.859 \\ \hline
 Journal & 0.772 & 0.803 & {\bf 0.932} \\ \hline
@@ -441,11 +442,11 @@ Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
 \centering
 \large
 %\caption{Comparing the Extraction Quality on House}
-\topcaption{Comparing the Extraction Quality on House}
+\topcaption{在二手房数据集上抽取质量的比较}
 \label{table:2}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Name  & 0.894 & 0.867 &  {\bf 0.977} \\ \hline
 Publish-time & 0.829 & 0.880 & {\bf 0.985} \\ \hline
 Price  & 0.846 & 0.877 &  {\bf 0.985}  \\ \hline
@@ -464,11 +465,11 @@ Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
 \centering
 \large
 %\caption{Comparing the Extraction Quality on Car}
-\topcaption{Comparing the Extraction Quality on Car}
+\topcaption{在二手车数据集上抽取质量的比较}
 \label{table:3}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Brand & 0.844 & 0.857 &  {\bf 0.972} \\ \hline
 Price & 0.794 & 0.890 & {\bf 1.000} \\ \hline
 Transmission & 0.825 & 0.872 & {\bf 1.000} \\ \hline
@@ -484,10 +485,10 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 
 
 \noindent {\bf 抽取质量的比较}:
-我们在三个数据集中比较了这三种方法的抽取质量，为了全面的比较，我们不仅比较各个属性的F值得分，也比较了在每个数据集上所有属性的平均F值得分。我们从表~\ref{table:1}，表~\ref{table:2} 和表~\ref{table:3}中可以看到，我们的方法在三个数据集的几乎所有属性上的表现都好于另外两种方法。整体来讲，我们的方法(CNN-IETS)相比较另外两种目前表现最好的方法(CRF， ONDUX)，在三个数据集上，抽取质量平均提升了超过10\%。
+我们在三个数据集中比较了这三种方法的抽取质量，为了全面的比较，我们不仅比较各个属性的F值得分，也比较了在每个数据集上所有属性的平均F值得分。我们从表~\ref{table:1}，表~\ref{table:2} 和表~\ref{table:3}中可以看到，我们的方法在三个数据集的几乎所有属性上的表现都好于另外两种方法。整体来讲，我们的方法(CNN-TesaRec)相比较另外两种目前表现最好的方法(CRF， ONDUX)，在三个数据集上，抽取质量平均提升了超过10\%。
 
 \noindent {\bf 抽取效率的比较}:
-我们另外比较了使用这三种方法来抽取一条文本所花费的平均时间，从表~\ref{table:4}中可以看到，相比较ONDUX和CNN-IETS，基于CRF的方法花费了更多的时间来训练自己的模型。尽管，我们的方法(CNN-IETS)也需要训练CNN模型，但是这个训练的过程可以使用已经存在的知识库在线下来运行，因此我们的方法跟ONDEX方法在做线上的信息抽取时所花费的时间差不多。
+我们另外比较了使用这三种方法来抽取一条文本所花费的平均时间，从表~\ref{table:4}中可以看到，相比较ONDUX和CNN-TesaRec，基于CRF的方法花费了更多的时间来训练自己的模型。尽管，我们的方法(CNN-TesaRec)也需要训练CNN模型，但是这个训练的过程可以使用已经存在的知识库在线下来运行，因此我们的方法跟ONDEX 方法在做线上的信息抽取时所花费的时间差不多。
 
 \begin{table}%[!hbp]
 \centering
@@ -497,7 +498,7 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 \label{table:5}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Dataset & CRF & ONDUX & CNN-IETS \\ \hline
+Dataset & CRF & ONDUX & CNN-TesaRec \\ \hline
 PersonalBib & 2350ms & 190ms &  150ms \\ \hline
 House & 4670ms & 380ms & 340ms \\ \hline
 Car & 3780ms & 200ms & 210ms \\ \hline
@@ -507,13 +508,13 @@ Car & 3780ms & 200ms & 210ms \\ \hline
 
 
 \noindent {\bf 知识库(KB)的覆盖率对抽取质量的比较}:
-因为ONDUX方法和我们的方法都需要使用一个事先构建好的知识库用来理解输入文本的结构特征，因此，知识库在测试集中属性值的覆盖率对抽取质量有非常大的影响。经过试验，我们得出结论，相比较ONDEX的方法，我们的CNN-IETS方法对知识库覆盖率的要求更低。从图~\ref{fig:9}(a)中可以看到，当知识库的覆盖率从 $0.1$ 增加到 $0.6$ ，在引文数据集上，CNN-IETS方法的抽取质量从 $0.874$ 缓慢地增加到 $0.929$ ，而ONDEX方法的抽取质量急剧的从 $0.704$ 增加到 $0.810$ 。另外，不管知识库的覆盖率是多少，我们的CNN-IETS方法的表现都要好于ONDEX方法。从图~\ref{fig:9}(b)和图~\ref{fig:9}(c)中我们可以发现相同的现象，这就证明了，我们的方法相比较ONDEX方法对知识库覆盖率的依赖更低。
+因为ONDUX方法和我们的方法都需要使用一个事先构建好的知识库用来理解输入文本的结构特征，因此，知识库在测试集中属性值的覆盖率对抽取质量有非常大的影响。经过试验，我们得出结论，相比较ONDEX的方法，我们的 CNN-TesaRec 方法对知识库覆盖率的要求更低。从图~\ref{fig:9}(a)中可以看到，当知识库的覆盖率从 $0.1$ 增加到 $0.6$ ，在引文数据集上，CNN-TesaRec 方法的抽取质量从 $0.874$ 缓慢地增加到 $0.929$ ，而ONDEX方法的抽取质量急剧的从 $0.704$ 增加到 $0.810$ 。另外，不管知识库的覆盖率是多少，我们的CNN-TesaRec方法的表现都要好于ONDEX方法。从图~\ref{fig:9}(b)和图~\ref{fig:9}(c)中我们可以发现相同的现象，这就证明了，我们的方法相比较ONDEX 方法对知识库覆盖率的依赖更低。
 
 
 \subsection{BPSM效果的验证}
-我们提出了一个全新的类似隐马尔科夫的概率图模型，双向位置与序列模型(BPSM)，用来进一步修正CNN模型得到的标注结果，相比较在ONDEX方法~\cite{cortez2010ondux}中使用的单向位置和序列模型(PSM)，我们的模型同时从前向和后向来考虑序列关系，因此可以有效的避免使用单向模型可能出现标注错误的风险。
+我们提出了一个全新的类似隐马尔科夫的概率图模型，双向位置与序列模型(BPSM)，用来进一步修正CNN模型得到的标注结果，相比较在ONDEX方法~\cite{cortez2010ondux} 中使用的单向位置和序列模型(PSM)，我们的模型同时从前向和后向来考虑序列关系，因此可以有效的避免使用单向模型可能出现标注错误的风险。
 
-为了验证BPSM的有效性，已经相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN的抽取质量在三个数据集上平均提升了大概5-8\%。因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
+为了验证BPSM的有效性，已经相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN的抽取质量在三个数据集上平均提升了大概5-8\%。 因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
 
 
 \begin{table}%[!hbp]
@@ -534,6 +535,6 @@ Car & 0.897 & 0.932 & {\bf 0.968} \\ \hline
 
 \section{本章小结}
 
-本章，我们给出了分割式信息抽取(IETS)的正式定义，介绍了知识库的构建，并详细介绍了本文提出的基于卷积神经网络的贪婪式概率标注算法的每一部分，最后我们在三个数据集上与另外两种目前表现最佳的方法做了充分的对比实验，给出了详细的实验结果和分析，最终得到结论，文本提出的方法不仅在抽取质量还是在抽取效率上都明显好于其他方法。
+本章，我们给出了分割式信息抽取(TesaRec)的正式定义，介绍了知识库的构建，并详细介绍了本文提出的基于卷积神经网络的贪婪式概率标注算法的每一部分，最后我们在三个数据集上与另外两种目前表现最佳的方法做了充分的对比实验，给出了详细的实验结果和分析，最终得到结论，文本提出的方法不仅在抽取质量还是在抽取效率上都明显好于其他方法。
 
 

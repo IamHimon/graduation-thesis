@@ -1,6 +1,13 @@
+% 修改表格与表头的间隔
+\newcommand{\topcaption}{%
+\setlength{\abovecaptionskip}{0pt}%
+\setlength{\belowcaptionskip}{8pt}%
+\caption}   % 表格上标题修改
+
 \chapter{基于卷积神经网络的贪婪式概率标注算法}
 \label{chap:chap03}
-本章首先给出了基于卷积神经网络的贪婪式概率标注算法(简称为 $CNN-IETS$ )概述，然后给出了分割式信息抽取的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
+本章首先给出了基于卷积神经网络的贪婪式概率标注算法(简称为 $CNN-TesaRec
+$ )概述，然后给出了分割式信息抽取的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
 
 
 \section{算法概述}
@@ -72,7 +79,7 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 
 \subsection{基于卷积神经网络模型的构建和文本块的标注}
-为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们需要执行一个基于卷积神经网络模型分类结果的概率标注。简要来讲，我们首先使用知识库训练一个卷积神经网络分类器(CNN分类器)，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类器会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$)表示$s$属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用我们的CNN模型来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN模型输出的概率结果和那些\emph{锚点块}，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建CNN模型，并且介绍如何找到最佳的标注方式。
+为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们需要执行一个基于卷积神经网络模型分类结果的概率标注。简要来讲，我们首先使用知识库训练一个卷积神经网络分类器(CNN分类器)，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类器会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$)表示$s$属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用我们的CNN模型来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN 模型输出的概率结果和那些\emph{锚点块}，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建CNN模型，并且介绍如何找到最佳的标注方式。
 
 \begin{figure}[!h]
   \centering
@@ -167,7 +174,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 
 例子三：对于例子一种的输入文本，图~\ref{chap:chap03:fig:candidate-Labels}中给出了每个未标注文本段对于对应的候选属性的基于CNN模型的变换概率值，
-我们设定阈值 $\lambda=0.3$，我们执行文本标注的算法~\ref{alg:1}如下： 
+我们设定阈值 $\lambda=0.3$，我们执行文本标注的算法~\ref{alg:1}如下：
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
  \item 首先，我们像图~\ref{chap:chap03:fig:labelExample}(3)中一样将输入文本分成两个部分，然后独立的在每个分区上执行我们的标注算法。如图
@@ -232,7 +239,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 因为经过我们的基于CNN的贪婪式概率标注算法得到的标注结果已经具有非常高的准确率（后面的实验中会证明这一点），所以，这个结果可以用来学习序列相关的特征和输入文本中属性值位置的信息。有一点很重要，这些特征的学习是从每一组输入文本中实时的（on-demand）学习到的，不需要人工的训练，也没有属性值遵循某一个特定的顺序这个假设，然后我们构建一种类似隐马尔科夫模型的图模型来强化此前得到的标注结果，我们称之为BPSM（Bidirectional Positioning and Sequencing Model）。相比较 ~\cite{cortez2010ondux}中提出的单相位置和序列模型(PSM)，我们的模型从双向考虑序列之间的关联，这可以减少单向标注中出错的风险。
 
 \smallskip
-\noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。 
+\noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN 的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。
 
 我们构建矩阵 $FT$ ，需要考虑在基于CNN的标注结果中从状态 $l_i$ 到 状态 $l_j$ 的数量和从状态 $l_i$ 出发的前向的所有数量的比例。所以，概率矩阵 $FT$ 中每一个概率值 $ft_{i,j}$ 的定义方式如下：
 \begin{equation}
@@ -255,14 +262,14 @@ ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segmen
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/forwardpsm.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/forwardpsm.pdf}\\
   \smallcaption{CAR数据集上产生的BPSM例子-前向和位置}
   \label{chap:chap03:fig:forwardpsm}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/backwardpsm.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/backwardpsm.pdf}\\
   \smallcaption{CAR数据集上产生的BPSM例子-后向和位置}
   \label{chap:chap03:fig:backwardpsm}
 \end{figure}
@@ -295,21 +302,21 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 
   \item  \textit{引文数据集:} 我们从超过500个计算机领域的研究员的主页上手机了超过2.5万条的论文引文信息，这些引文信息中隐含的属性值属于{\em Title, Author, Journal, Volume, Pages,} and {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
 
-  \item \textit{二手房:} 我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com}上收集了超过10万的关于二手房出售和租赁相关信息的描述文本，每一条文本中包含的值属于属性：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} and {\em Furnitures}。我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
+  \item \textit{二手房:} 我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com}上收集了超过10 万的关于二手房出售和租赁相关信息的描述文本，每一条文本中包含的值属于属性：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} and {\em Furnitures}。 我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
 
   \item \textit{二手车:} 二手车的数据集，我们从Carsales~\footnote{www.carsales.com}网站中收集了超过20万条的关于二手车售卖的描述信息，这个数据集的属性集包括：{\em Brand, Price, Transmission, Color, Body, Engine, Fuel Consuming} ，我们的构建知识库(KB)的数据同样可以从这个网站上的结构化表格区域得到。
- 
+
 \end{enumerate}
 
 
-\noindent{\bf 评价标注:} 
+\noindent{\bf 评价标注:}
 我们使用准确率({\bf Precision})，召回率({\bf Recall})和F值({\bf F-Measure})来评测我们提出的模型。对于一个属性 $A$， 另 $N_l(A)$ 表示使用某个方法标注文本段的总数量，$N_c(A)$ 表示对于这个属性正确标注的文本段数量，$N_g(A)$ 表示测试集中应该被标注为属性 $A$的文本段数量。然后，在属性 $A$上的准确率可以表示成：$prec = \frac{N_c(A)}{N_l(A)}$，在属性 $A$上的召回率可以表示成：$recall =\frac{N_c(A)}{N_g(A)}$，在属性 $A$上的F值可以表示成：$F_1= \frac{2(prec \times recall)}{prec+recall}$ 。
 
 
 \subsection{参数的设定}
 在我们的方法中有两个重要的参数：一个是在章节~\ref{KB-based Segmentation and Labelling}中用来定义锚点快的阈值 $\theta$，另外一个是章节~\ref{Probabilistic Labelling to Input Texts}中算法一中用来防止低质量标注的阈值 $\lambda$ 。在我们的实验中，我们采用单一变量分析的方法，先设置阈值$\lambda=0.6$，然后在三个数据集上测试我们的方法中阈值 $\theta$ 对抽取质量和效率的影响。然后，设置阈值$\theta=0.9$，来测试阈值 $\lambda$ 对抽取质量的影响。注意，在这两组实验中，我们的知识库(KB)在测试集中的属性值覆盖率均不超过30\%。
 
-在我们的方法中，图~\ref{fig:7}中表明了阈值 $\theta$ 对抽取质量和效率的影响。详细来讲，从图~\ref{fig:7}(a)中可以看出，当 $\theta$ 从 $0.4$ 增加到 $0.9$，在引文数据集中，F值首先从$0.880$ 平滑的增加到 $0.929$，在这点之后，当 $\theta$ 从 $0.9$ 增加到 $1.0$ ，F值从 $0.929$ 缓慢的下降到 $0.910$ 附近。我们在图~\ref{fig:7}(b)和图~\ref{fig:7}(c)中的二手房和二手车数据集中可以看到相同的趋势。 基于上面的实验结果，我们得出结论，在所有这三个数据集中，来定义锚点快时，设置阈值 $\theta = 0.9$ 是一个合适的选择，这个值也将在后面的实验部分中来使用。在另一方面，当考虑抽取效率时，我们从图~\ref{fig:7}(d)中可以发现，在引文数据集中，当 $\theta$ 从 $0.4$ 增加到 $1.0$ 时，抽取每条文本所花费的时间从 大概 $0.05$秒 缓慢增加到 $0.31$ 秒 。在图~\ref{fig:7}(e)和图~\ref{fig:7}(f)中的二手房和二手车数据集中可以看到相同的趋势。因此，虽然 $\theta=0.9$ 可能不能实现最佳的抽取效率，但是牺牲一点点效率来换取更佳的抽取质量是可以接受的。
+在我们的方法中，图~\ref{fig:7}中表明了阈值 $\theta$ 对抽取质量和效率的影响。详细来讲，从图~\ref{fig:7}(a)中可以看出，当 $\theta$ 从 $0.4$ 增加到 $0.9$，在引文数据集中，F值首先从$0.880$ 平滑的增加到 $0.929$，在这点之后，当 $\theta$ 从 $0.9$ 增加到 $1.0$ ，F值从 $0.929$ 缓慢的下降到 $0.910$ 附近。我们在图~\ref{fig:7}(b)和图~\ref{fig:7}(c)中的二手房和二手车数据集中可以看到相同的趋势。 基于上面的实验结果，我们得出结论，在所有这三个数据集中，来定义锚点快时，设置阈值 $\theta = 0.9$ 是一个合适的选择，这个值也将在后面的实验部分中来使用。在另一方面，当考虑抽取效率时，我们从图~\ref{fig:7}(d)中可以发现，在引文数据集中，当 $\theta$ 从 $0.4$ 增加到 $1.0$ 时，抽取每条文本所花费的时间从 大概 $0.05$秒 缓慢增加到 $0.31$ 秒 。 在图~\ref{fig:7}(e)和图~\ref{fig:7}(f)中的二手房和二手车数据集中可以看到相同的趋势。因此，虽然 $\theta=0.9$ 可能不能实现最佳的抽取效率，但是牺牲一点点效率来换取更佳的抽取质量是可以接受的。
 
 图~\ref{fig:8}中表明了阈值 $\lambda$ 对抽取质量的影响。从图~\ref{fig:8}(a)中可以发现，当阈值 $\lambda$ 的值从 $0.2$ 增加到 $0.6$ ，引文数据集上的抽取质量首先从 $0.817$ 增长到 $0.929$ ，在 $\lambda=0.6$ 时达到最大值。当阈值 $\lambda$ 的值从 $0.6$ 增加到 $1.0$ ，我们方法的抽取质量从  $0.929$ 缓慢的下降到 $0.808$ 。在另外两个数据集中，如图 ~\ref{fig:8}(b) 和图 ~\ref{fig:8}(c)所示，可以看到相同的现象。因此，我们可以得出结论，算法一中在过滤一些糟糕的标注的环节，$\lambda=0.6$ 或许是一个合适的值，我们也将在下面的实验中使用这个值。
 
@@ -319,43 +326,47 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 %mobile
 \subfigure[F-Measure on PersonalBib]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_f.pdf}
     \end{minipage}
     }
 \subfigure[F-Measure on House]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_f.pdf}
     \end{minipage}
     }
 \subfigure[F-Measure on Car]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_f.pdf}
     \end{minipage}
     }
+\end{figure*}
 
+
+\begin{figure*}[!ht]
+\centering
 \subfigure[Time Cost on PersonalBib]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_e.pdf}
     \end{minipage}
     }
 \subfigure[Time Cost on House]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_e.pdf}
     \end{minipage}
     }
 \subfigure[Time Cost on Car]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_e.pdf}
     \end{minipage}
@@ -370,21 +381,21 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 %mobile
 \subfigure[F-Measure on PersonalBib]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_lambda.pdf}
     \end{minipage}
     }
 \subfigure[F-Measure on House]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_lambda.pdf}
     \end{minipage}
     }
 \subfigure[F-Measure on Car]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.32\textwidth}
+    \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_lambda.pdf}
     \end{minipage}
@@ -409,8 +420,9 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 
 \begin{table}%[!hb]
 \centering
-\small
-\caption{Comparing the Extraction Quality on PersonalBib}
+\large
+%\caption{Comparing the Extraction Quality on PersonalBib}
+\topcaption{Comparing the Extraction Quality on PersonalBib}
 \label{table:1}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -428,8 +440,9 @@ Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
 
 \begin{table}%[!hb]
 \centering
-\small
-\caption{Comparing the Extraction Quality on House}
+\large
+%\caption{Comparing the Extraction Quality on House}
+\topcaption{Comparing the Extraction Quality on House}
 \label{table:2}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -450,8 +463,9 @@ Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
 
 \begin{table}%[!hbp]
 \centering
-\small
-\caption{Comparing the Extraction Quality on Car}
+\large
+%\caption{Comparing the Extraction Quality on Car}
+\topcaption{Comparing the Extraction Quality on Car}
 \label{table:3}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -478,8 +492,9 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 
 \begin{table}%[!hbp]
 \centering
-\small
-\caption{三种方法花费时间的比较}
+\large
+%\caption{三种方法花费时间的比较}
+\topcaption{三种方法花费时间的比较}
 \label{table:5}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -493,19 +508,20 @@ Car & 3780ms & 200ms & 210ms \\ \hline
 
 
 \noindent {\bf 知识库(KB)的覆盖率对抽取质量的比较}:
-因为ONDUX方法和我们的方法都需要使用一个事先构建好的知识库用来理解输入文本的结构特征，因此，知识库在测试集中属性值的覆盖率对抽取质量有非常大的影响。经过试验，我们得出结论，相比较ONDEX的方法，我们的CNN-IETS方法对知识库覆盖率的要求更低。从图~\ref{fig:9}(a)中可以看到，当知识库的覆盖率从 $0.1$ 增加到 $0.6$ ，在引文数据集上，CNN-IETS方法的抽取质量从 $0.874$ 缓慢地增加到 $0.929$ ，而ONDEX方法的抽取质量急剧的从 $0.704$ 增加到 $0.810$ 。另外，不管知识库的覆盖率是多少，我们的CNN-IETS方法的表现都要好于ONDEX方法。从图~\ref{fig:9}(b)和图~\ref{fig:9}(c)中我们可以发现相同的现象，这就证明了，我们的方法相比较ONDEX方法对知识库覆盖率的依赖更低。
+因为ONDUX方法和我们的方法都需要使用一个事先构建好的知识库用来理解输入文本的结构特征，因此，知识库在测试集中属性值的覆盖率对抽取质量有非常大的影响。经过试验，我们得出结论，相比较ONDEX的方法，我们的CNN-IETS方法对知识库覆盖率的要求更低。从图~\ref{fig:9}(a)中可以看到，当知识库的覆盖率从 $0.1$ 增加到 $0.6$ ，在引文数据集上，CNN-IETS方法的抽取质量从 $0.874$ 缓慢地增加到 $0.929$ ，而ONDEX方法的抽取质量急剧的从 $0.704$ 增加到 $0.810$ 。另外，不管知识库的覆盖率是多少，我们的CNN-IETS方法的表现都要好于ONDEX方法。从图~\ref{fig:9}(b)和图~\ref{fig:9}(c)中我们可以发现相同的现象，这就证明了，我们的方法相比较ONDEX 方法对知识库覆盖率的依赖更低。
 
 
 \subsection{BPSM效果的验证}
-我们提出了一个全新的类似隐马尔科夫的概率图模型，双向位置与序列模型(BPSM)，用来进一步修正CNN模型得到的标注结果，相比较在ONDEX方法~\cite{cortez2010ondux}中使用的单向位置和序列模型(PSM)，我们的模型同时从前向和后向来考虑序列关系，因此可以有效的避免使用单向模型可能出现标注错误的风险。
+我们提出了一个全新的类似隐马尔科夫的概率图模型，双向位置与序列模型(BPSM)，用来进一步修正CNN模型得到的标注结果，相比较在ONDEX方法~\cite{cortez2010ondux} 中使用的单向位置和序列模型(PSM)，我们的模型同时从前向和后向来考虑序列关系，因此可以有效的避免使用单向模型可能出现标注错误的风险。
 
-为了验证BPSM的有效性，已经相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN的抽取质量在三个数据集上平均提升了大概5-8\%。因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
+为了验证BPSM的有效性，已经相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN的抽取质量在三个数据集上平均提升了大概5-8\%。 因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
 
 
 \begin{table}%[!hbp]
 \centering
-\small
-\caption{\small  CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
+\large
+%\caption{\small  CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
+\topcaption{ CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
 \label{table:5}
 \begin{tabular}{| c | c | c | c |}
 \hline

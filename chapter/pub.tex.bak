@@ -1,6 +1,6 @@
 \begin{publications}{99}
 \end{publications}
-【还没改】
+
 %\begin{center}
 %\textbf{已发表论文}
 %\end{center}
@@ -16,8 +16,7 @@
 \textbf{会议论文:}
 %\end{left}
 
-
-[1] \textbf{Qiang Yang}, Zhixu Li, Binbin Gu, An Liu, Guanfeng Liu, Pengpeng Zhao and Lei Zhao. CTextEM: Using Consolidated Textual Data for Entity Matching [A]. International Conference on Database Systems for Advanced Applications [C]. Springer International Publishing, 2016: 117-132. (\textbf{EI, CCF B 类})
+[1] \textbf{Hu M}, Li Z, Shen Y, et al. CNN-IETS: A CNN-based Probabilistic Approach for Information Extraction by Text Segmentation [C]//Proceedings of the 2017 ACM on Conference on Information and Knowledge Management. ACM, 2017: 1159-1168. (\textbf{EI, CCF B 类})
 
 
 
@@ -25,12 +24,12 @@
 \textbf{申请发明专利:}
 %\end{left}
 
-[1] 李直旭, \textbf{杨强}等. ``一种用于实体匹配的方法及系统". 申请日期: 2015年07月14日, 专利申请号: 201510407893.6
+[1] 李直旭, \textbf{杨强}等. ``一种用于实体匹配的方法及系统". 申请日期: 2015年07月14 日, 专利申请号: 201510407893.6
 
 
 \textbf{软件著作权:}
 
-[1] \textbf{杨强}, 李直旭等. ``基于非主属性的概率决策树实体匹配软件". 申请日期: 2015年01月23日, 登记号: 2015SR077638
+[1] \textbf{胡猛}. ``一种使用深度学习结合概率模型的文本信息抽取软件". 申请日期: 2017 年12月01 日, 登记号: 2018SR133184
 
 %\begin{left}
 \textbf{参与的科研项目:}
