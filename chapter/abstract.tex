@@ -2,13 +2,13 @@
 
 信息抽取表示自动的从文本中抽取出结构化的信息，比如实体，实体间的关系，事件，命名属性值或者包含在有噪音的非结构化文本中的属性描述性实体，将非结构化文本抽取出有用的信息存储在结构化形式中，比如表格，XML，图谱，然后可以做进一步的索引，处理和分析。此外，信息抽取还是构建知识图谱的基础理论和实践支撑。信息抽取又包含了若干个子问题，比如，命名体识别，开放域信息抽取，关系抽取以及文本分割。文本记录分割与命名属性值识别是一种特殊的信息抽取问题，它是通过分割半结构化文本信息来抽取出隐含其中的属性值。
 
-对于这个任务，目前主流的解决方案是采用机器学习的方法，包括使用人工标注的训练集的监督式方案，或者利用事先存在的知识库辅助实现非监督式方案。监督式方法中，常使用基于图的机器学习算法，比如隐马尔可夫模型和随即向量场，来从数据集中学习到分割模型。在非监督式方法中，常使用事先存在的数据库开代替人工标注的训练集，使用给定的属性值训练一个模型来从输入文本中识别这些属性值。
+对于这个任务，目前主流的解决方案是采用机器学习的方法，包括使用人工标注的训练集的监督式方案，或者利用事先存在的知识库辅助实现非监督式方案。监督式方法中，常使用基于图的机器学习算法，比如隐马尔可夫模型和随即向量场，来从数据集中学习到分割模型。在非监督式方法中，常使用事先存在的数据库来代替人工标注的训练集，使用给定的属性值训练一个模型来从输入文本中识别这些属性值。
 
-但是，当采用监督式方法时，获取标注好的训练集要花费非常昂贵的代价，并且往往只限制在某个领域内。而在监督式方案，则会出现两个主要问题，(1) 固定领域文本的属性顺序限制在固定的顺序上，(2) 匹配准确率低下。为了解决这些问题，本文提出了结合深度卷积神经网络和知识库的非监督式方案。充分利用卷积神经网络强大的特征抽取和组合能力，并有效的结合概率模型，构建了完整的、高效的解决方案。具体研究内容如下：
+但是，当采用监督式方法时，获取标注好的训练集要花费非常昂贵的代价，并且往往只限制在某个领域内。而在非监督式方法中，则会出现两个主要问题，(1) 某一领域文本记录的属性值限制为固定的顺序，(2) 匹配准确率低下。为了解决这些问题，本文提出了结合深度卷积神经网络和知识库的非监督式方法。充分利用卷积神经网络强大的特征抽取和组合能力，并有效的结合概率模型，构建了完整的、高效的解决方案。具体研究内容如下：
 
-(1)本文着重研究了文本记录分割与命名属性值识别问题，介绍了已有的解决方法，描述了具有代表性的各类算法的优势，并分析了其中存在的问题。
+(1)本文着重研究了文本记录分割与命名属性值识别问题，介绍了已有的解决方法，描述了具有代表性的各类算法的优势，并分析了其中存在的问题。介绍了深度学习在相关领域的应用。
 
-(2)提出了一种新颖的文本记录分割与命名属性值识别算法。本算法基于卷积神经网络，提出了一种贪婪式的概率匹配算法来做全局标注和分割，在抽取过程中学习出一个双向的序列与位置模型来修正一些错误的结果。这一算法有效的解决了传统方法中的各种问题，比传统的方法的抽取质量提高了超过10\%，并在抽取效率上也有非常好的表现。
+(2)本文提出了一种新颖的文本记录分割与命名属性值识别算法。本算法基于卷积神经网络，设计出了一种贪婪式的概率标注算法来做全局的标注和分割，在抽取过程中学习出一个双向的序列与位置模型来修正一些错误的结果。这一算法有效的解决了传统方法中的各种问题，抽取质量提高了超过10\%，并在抽取效率上也有非常好的表现。
 
 (3)构建了一个自动化模型训练和执行抽取任务的系统，可以将本算法更方便的应用到其他数数据集，更直观地查看算法各步骤的结果。
 
@@ -30,7 +30,7 @@ information such as Entities, Relationships between Entities, Events, Named Attr
 
 The IE problem encompasses many distinct sub-problems such as Named
 Entity Recognition (NER), Open Information Extraction, Relationship Extraction,
-and Text Segmentation. Text Record Segmentation and Named Attribute Values Recognition(TesaRec), also called Information Extraction by Text Segmentation (IETS) in ~\cite{cortez2010ondux}, is the problem of segmenting unstructured textual inputs to extract implicit data values contained in them.
+and Text Segmentation. Text Record Segmentation and Named Attribute Values Recognition(TesaRec), is the problem of segmenting unstructured textual inputs to extract implicit data values contained in them.
 
 A fairly common approach to solve this problem is the use of machine learning
 techniques, either supervised with human-driven training,or unsupervised with training provided by some form of pre-existing data source. Among the supervised approaches, the dominant one employs statistical models  such as
@@ -39,11 +39,11 @@ These un-supervised methods take advantage of known values of a given attribute 
 
 However, all the supervised approaches require a large labelled training data set
 which might be unfeasible in some domains. Two main problems may happened in these un-supervised approaches , (1)attribute values is only with a single total order for the input texts,(2)the match function in some methods showed a low performance.
-In order to solve these problems, we introduce a novel unsupervised approach based on pre-existing data and a Convolution Neural Network(CNN)-based model. We make full use of the CNN's ability of extracting features and combining features , and combined CNN and probabilistic model to build a complete and high-performance extraction model.More details are shown as follows:
+In order to solve these problems, we introduce a novel unsupervised approach based on pre-existing data and a Convolution Neural Network(CNN)-based model. We make full use of the CNN's ability of extracting features and combining features , and combined CNN and probabilistic model to build a complete and high-performance extraction model. More details are shown as follows:
 
 %
 \begin{enumerate}[(1)]
-\item We focus on the problem of TesaRec in the paper. Some existing TesaRec methods are introduced here and the advantages and disadvantages of them are also analysed.
+\item We focus on the problem of TesaRec in the paper. Some existing TesaRec methods are introduced here and the advantages and disadvantages of them are also analysed. We also introduce the related work of Deep Learning used in some related fields.
 
 \item We proposed a novel TesaRec method which based on CNN, then we designed a greedy probabilistic labelling algorithm to find a most probable segmentation and labelling way to the input text by considering the overall segmentation and labelling situation. We finally deploy a Bidirectional Positioning and Sequencing(BPSM) model learned on-demand from the test data to do further adjustment to some problematic labelled segments. Our method effectively solved problems of traditional methods, and improves the extraction quality of state-of-art approaches by more than 10\%, and also has good performance in efficiency.
 
