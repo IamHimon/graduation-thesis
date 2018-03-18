@@ -1,5 +1,23 @@
 \begin{thebibliography}{10}
 
+\bibitem{freitag2000information}
+Dayne Freitag and Andrew McCallum.
+\newblock Information extraction with HMM structures learned by stochastic
+  optimization [J].
+\newblock AAAI/IAAI, 2000, 2000: 584--589.
+
+\bibitem{lafferty2001conditional}
+John Lafferty, Andrew McCallum and Fernando~CN Pereira.
+\newblock Conditional random fields: Probabilistic models for segmenting and
+  labeling sequence data [J].
+\newblock 2001.
+
+\bibitem{peng2006information}
+Fuchun Peng and Andrew McCallum.
+\newblock Information extraction from research papers using conditional random
+  fields [J].
+\newblock Information processing \& management, 2006, 42(4): 963--979.
+
 \bibitem{cortez2010ondux}
 Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves and Edleno~S
   de~Moura.
@@ -7,6 +25,26 @@ Eli Cortez, Altigran~S da~Silva, Marcos~Andr{\'e} Gon{\c{c}}alves and Edleno~S
 \newblock Ondux: on-demand unsupervised learning for information extraction
   [A]. Proceedings of the 2010 ACM SIGMOD International Conference on
   Management of data [C]. ACM, 2010: 807--818.
+
+\bibitem{cortez2011joint}
+Eli Cortez, Daniel Oliveira, Altigran~S da~Silva, Edleno~S de~Moura and
+  Alberto~HF Laender.
+\newblock Joint unsupervised structure discovery and information extraction
+  [A]. SIGMOD [C]. .
+\newblock 2011: 541--552.
+
+\bibitem{toda2010probabilistic}
+Guilherme~A Toda, Eli Cortez, Altigran~S da~Silva and Edleno de~Moura.
+\newblock A probabilistic approach for automatically filling form-based web
+  interfaces [J].
+\newblock PVLDB, 2010, 4(3): 151--160.
+
+\bibitem{toda2009automatically}
+Guilherme~A Toda, Eli Cortez, Filipe Mesquita, Altigran~S da~Silva, Edleno
+  Moura and Marden Neubert.
+\newblock Automatically filling form-based web interfaces with free text inputs
+  [A]. WWW [C]. .
+\newblock 2009: 1163--1164.
 
 \bibitem{bengio2003neural}
 Yoshua Bengio, R{\'e}jean Ducharme, Pascal Vincent and Christian Jauvin.
@@ -90,29 +128,11 @@ Suncong Zheng, Yuexing Hao, Dongyuan Lu, Hongyun Bao, Jiaming Xu, Hongwei Hao
   [J].
 \newblock Neurocomputing, 2017, 257: 59--66.
 
-\bibitem{freitag2000information}
-Dayne Freitag and Andrew McCallum.
-\newblock Information extraction with HMM structures learned by stochastic
-  optimization [J].
-\newblock AAAI/IAAI, 2000, 2000: 584--589.
-
 \bibitem{borkar2001automatic}
 Vinayak Borkar, Kaustubh Deshmukh and Sunita Sarawagi.
 \newblock
 \newblock Automatic segmentation of text into structured records [A]. ACM
   SIGMOD Record [C]. ACM, 2001: 175--186.
-
-\bibitem{lafferty2001conditional}
-John Lafferty, Andrew McCallum and Fernando~CN Pereira.
-\newblock Conditional random fields: Probabilistic models for segmenting and
-  labeling sequence data [J].
-\newblock 2001.
-
-\bibitem{peng2006information}
-Fuchun Peng and Andrew McCallum.
-\newblock Information extraction from research papers using conditional random
-  fields [J].
-\newblock Information processing \& management, 2006, 42(4): 963--979.
 
 \bibitem{agichtein2004mining}
 Eugene Agichtein and Venkatesh Ganti.
@@ -232,26 +252,6 @@ Trausti Kristjansson, Aron Culotta, Paul Viola and Andrew McCallum.
 \newblock Interactive information extraction with constrained conditional
   random fields [A]. AAAI [C]. .
 \newblock 2004: 412--418.
-
-\bibitem{cortez2011joint}
-Eli Cortez, Daniel Oliveira, Altigran~S da~Silva, Edleno~S de~Moura and
-  Alberto~HF Laender.
-\newblock Joint unsupervised structure discovery and information extraction
-  [A]. SIGMOD [C]. .
-\newblock 2011: 541--552.
-
-\bibitem{toda2009automatically}
-Guilherme~A Toda, Eli Cortez, Filipe Mesquita, Altigran~S da~Silva, Edleno
-  Moura and Marden Neubert.
-\newblock Automatically filling form-based web interfaces with free text inputs
-  [A]. WWW [C]. .
-\newblock 2009: 1163--1164.
-
-\bibitem{toda2010probabilistic}
-Guilherme~A Toda, Eli Cortez, Altigran~S da~Silva and Edleno de~Moura.
-\newblock A probabilistic approach for automatically filling form-based web
-  interfaces [J].
-\newblock PVLDB, 2010, 4(3): 151--160.
 
 \bibitem{chiang2012autodict}
 Fei Chiang, Periklis Andritsos, Erkang Zhu and Ren{\'e}e~J Miller.

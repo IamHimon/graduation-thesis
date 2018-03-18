@@ -44,7 +44,7 @@
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/labelExample.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/labelExample.pdf}\\
   \smallcaption{基于知识库的初始分割和标注例子}
   \label{chap:chap03:fig:labelExample}
 \end{figure}
@@ -123,7 +123,7 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/candidate-Labels.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/candidate-Labels.pdf}\\
   \smallcaption{例子中文本段的候选属性值和基于CNN分类模型的变换概率值}
   \label{chap:chap03:fig:candidate-Labels}
 \end{figure}
@@ -165,7 +165,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/greedyLabelling.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/greedyLabelling.pdf}\\
   \smallcaption{贪婪式概率标注例子}
   \label{chap:chap03:fig:greedyLabelling}
 \end{figure}
@@ -260,14 +260,14 @@ ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segmen
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.7\textwidth]{../figures/chap03/forwardpsm.pdf}\\
+  \includegraphics[width=0.6\textwidth]{../figures/chap03/forwardpsm.pdf}\\
   \smallcaption{CAR数据集上产生的BPSM例子-前向和位置}
   \label{chap:chap03:fig:forwardpsm}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.7\textwidth]{../figures/chap03/backwardpsm.pdf}\\
+  \includegraphics[width=0.6\textwidth]{../figures/chap03/backwardpsm.pdf}\\
   \smallcaption{CAR数据集上产生的BPSM例子-后向和位置}
   \label{chap:chap03:fig:backwardpsm}
 \end{figure}
@@ -324,47 +324,43 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 %mobile
 \subfigure[引文数据集上的F值]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_f.pdf}
     \end{minipage}
     }
 \subfigure[二手房数据集上的F值]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_f.pdf}
     \end{minipage}
     }
 \subfigure[二手车数据集上的F值]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_f.pdf}
     \end{minipage}
     }
-\end{figure*}
 
-
-\begin{figure*}[!ht]
-\centering
 \subfigure[引文数据集上的时间花费]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_e.pdf}
     \end{minipage}
     }
 \subfigure[二手房数据集上的时间花费]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_e.pdf}
     \end{minipage}
     }
 \subfigure[二手车数据集上的时间花费]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_e.pdf}
     \end{minipage}
@@ -380,21 +376,21 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 %mobile
 \subfigure[引文数据集上的F值]{
     \label{fig:subfig:a}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_lambda.pdf}
     \end{minipage}
     }
 \subfigure[二手房数据集上的F值]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_lambda.pdf}
     \end{minipage}
     }
 \subfigure[二手车数据集上的F值]{
     \label{fig:subfig:c}
-    \begin{minipage}[h]{0.6\textwidth}
+    \begin{minipage}[h]{0.3\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_lambda.pdf}
     \end{minipage}
@@ -402,6 +398,37 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \caption{阈值$\lambda$对抽取质量的影响($\theta = 0.9$)}
 %\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
 \label{fig:8}
+\end{figure*}
+
+
+
+\begin{figure*}[!ht]
+\centering
+%mobile
+\subfigure[引文数据集上的F值]{
+    \label{fig:subfig:a}
+    \begin{minipage}[h]{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_kb.pdf}
+    \end{minipage}
+    }
+\subfigure[二手房数据集上的F值]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_kb.pdf}
+    \end{minipage}
+    }
+\subfigure[二手车数据集上的F值]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.3\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_kb.pdf}
+    \end{minipage}
+    }
+\caption{知识库覆盖率对抽取质量的影响}
+
+\label{fig:9}
 \end{figure*}
 
 

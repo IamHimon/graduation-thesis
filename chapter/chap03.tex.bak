@@ -4,10 +4,9 @@
 \setlength{\belowcaptionskip}{8pt}%
 \caption}   % ±í¸ñÉÏ±êÌâÐÞ¸Ä
 
-\chapter{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
+\chapter{CNN-TesaRec Ëã·¨}
 \label{chap:chap03}
-±¾ÕÂÊ×ÏÈ¸ø³öÁË»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨(¼ò³ÆÎª $CNN-TesaRec
-$ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉÜÁËËã·¨Ã¿Ò»²¿·ÖµÄÄÚÈÝ£¬×îºó¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûÀ´Ö¤Ã÷Ëã·¨µÄÐ§¹ûºÍ±íÏÖ¡£
+±¾ÕÂÊ×ÏÈ¸ø³ö»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðËã·¨(¼ò³ÆÎª $CNN-TesaRec$ )¸ÅÊö£¬È»ºó¸ø³öÁËÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ð( $TesaRec$ )µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉÜÁËËã·¨Ã¿Ò»²¿·ÖµÄÄÚÈÝ£¬×îºó¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûÀ´Ö¤Ã÷Ëã·¨µÄÐ§¹ûºÍ±íÏÖ¡£
 
 
 \section{Ëã·¨¸ÅÊö}
@@ -19,22 +18,22 @@ $ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉ
   \label{chap:chap03:fig:framework}
 \end{figure}
 
-ÕâÒ»ÕÂ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ·Ç¼à¶½Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬Ëü»ùÓÚÉî¶È¾í»ýÉñ¾­ÍøÂç(CNN)À´¹¹½¨Ä£ÐÍ£¬½èÖúÌáÇ°¹¹ÔìµÄÖªÊ¶¿âÀ´¿Ë·þÐèÒªÈË¹¤±ê×¢ÓïÁÏµÄÄÑÌâ¡£¾í»ýÉñ¾­ÍøÂçÊÇÒ»ÖÖ¶Ëµ½¶ËµÄÄ£ÐÍ£¬ÏÈÌì¾ßÓÐ³éÈ¡ÌØÕ÷ºÍ×éºÏÌØÕ÷µÄÓÅÊÆ£¬Ê¹ÓÃÉî¶È¾í»ýÉñ¾­ÍøÂçÄÜ¹»×Ô¶¯µÃÑ¡Ôñ³ö¸ßÖÊÁ¿µÄÌØÕ÷À´¸üºÃµÄ¿Ì»­¸÷¸öÊôÐÔÖµ¡£¶øÕâ¸öÖªÊ¶¿âÓÐÁ½¸ö×÷ÓÃ£¬µÚÒ»¸ö×÷ÓÃÊÇÓÃÀ´ÑµÁ·ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ·ÖÀàÆ÷£¬µÚ¶þ¸ö×÷ÓÃÊÇÐ­ÖúÉú³ÉÎÄ±¾¶Î£¬ÔÙÊäÈëµ½ÎÒÃÇµÄ·ÖÀàÆ÷ÖÐ¡£¾ßÌåÒ»µã½²£¬ÈçÍ¼~\ref{chap:chap03:fig:framework}£¬ÊäÈëÒ»¸öÎÄ±¾,ÎÒÃÇÊ×ÏÈ¸ù¾Ý´ÊÓïÔÚÖªÊ¶¿âÖÐµÄ¹²ÏÖÀ´³õÊ¼·Ö¸ôÕâÌõÎÄ±¾£¬ÐÎ³ÉÈô¸É¸öÎÄ±¾¶Î¡£¶ÔÓÚÕâÐ©ÎÄ±¾¶Î£¬Èç¹ûËüÔÚÄ³¸öÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½Ï¸ß¶øÔÚÆäËûÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½ÏµÍ£¬²¢ÇÒµÃ·Ö¸ßÓÚÄ³¸öãÐÖµ£¬Ëü¾Í»á±»±ê×¢³ÉÕâ¸öÊôÐÔ¡£È»ºó¸ù¾ÝÕâÐ©³õÊ¼µÄ·Ö¸î×´Ì¬ºÍ±ê×¢½á¹û£¬ÄÄÐ©Ã»ÓÐ±ê×¢µÄÎÄ±¾¶Î»á±»ÊäÈëµ½ÏÂÒ»²½µÄCNN·ÖÀàÆ÷ÖÐ¡£ÔÚÏÂÒ»²½£¬ÎÒÃÇ²¢²»ÊÇÖ±½Ó½ÓÊÜCNN·ÖÀàÆ÷µÄÊä³ö½á¹û£¬ÎÒÃÇ¸ù¾ÝCNN·ÖÀàÆ÷µÄÊä³ö¸ÅÂÊ·¢Ã÷ÁËÒ»ÖÖ\emph{Ì°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}£¬Õâ¸öËã·¨»á´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´ÎªÊäÈëÎÄ±¾Ö´ÐÐ×îºÏÀíµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£¶ÔÓÚÒ»Ð©ÓÐÉÏÃæ¹ý³Ì²úÉúµÄÂ©±ê×¢ºÍ´íÎó±ê×¢µÄÇéÐÎ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ\emph{Ë«ÏòÎ»ÖÃÓëÐòÁÐÄ£ÐÍ}£¬½øÒ»²½¶Ô±ê×¢½á¹û½øÐÐµ÷ÕûºÍ¸ÄÉÆ¡£
+ÎÒÃÇÌá³öÁËÒ»ÖÖ·Ç¼à¶½Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬Ëü»ùÓÚ¾í»ýÉñ¾­ÍøÂç(CNN)À´¹¹½¨Ä£ÐÍ£¬½èÖúÌáÇ°¹¹ÔìµÄÖªÊ¶¿âÀ´¿Ë·þÐèÒªÈË¹¤±ê×¢ÓïÁÏµÄÎÊÌâ¡£CNNÊÇÒ»ÖÖ¶Ëµ½¶ËµÄÄ£ÐÍ£¬ÏÈÌì¾ßÓÐ³éÈ¡ÌØÕ÷ºÍ×éºÏÌØÕ÷µÄÓÅÊÆ£¬Ê¹ÓÃCNNÄÜ¹»×Ô¶¯µÃÑ¡Ôñ³ö¸ßÖÊÁ¿µÄÌØÕ÷À´¸üºÃµÄ¿Ì»­¸÷¸öÊôÐÔÖµ¡£ÎÒÃÇµÄÖªÊ¶¿âÓÐÁ½¸ö×÷ÓÃ£¬µÚÒ»¸ö×÷ÓÃÊÇÓÃÀ´ÑµÁ·ÎÒÃÇµÄCNN·ÖÀàÆ÷£¬µÚ¶þ¸ö×÷ÓÃÊÇÐ­ÖúÎÄ±¾·Ö¸î£¬Éú³ÉÎÄ±¾¶Î£¬ÔÙÊäÈëµ½ÎÒÃÇµÄ·ÖÀàÆ÷ÖÐ¡£¾ßÌåÒ»µã½²£¬ÈçÍ¼~\ref{chap:chap03:fig:framework}£¬ÊäÈëÒ»¸öÎÄ±¾£¬ÎÒÃÇÊ×ÏÈ¸ù¾Ý´ÊÓïÔÚÖªÊ¶¿âÖÐµÄ¹²ÏÖÀ´³õÊ¼·Ö¸îÕâÌõÎÄ±¾£¬ÐÎ³ÉÈô¸É¸öÎÄ±¾¶Î¡£¶ÔÓÚÕâÐ©ÎÄ±¾¶Î£¬Èç¹ûËüÔÚÄ³¸öÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½Ï¸ß¶øÔÚÆäËûÊôÐÔ×éÖÐ³öÏÖµÄÆµÂÊ±È½ÏµÍ£¬²¢ÇÒµÃ·Ö¸ßÓÚÄ³¸öãÐÖµ£¬Ëü¾Í»á±»±ê×¢ÎªÕâ¸öÊôÐÔ¡£È»ºó¸ù¾ÝÕâÐ©³õÊ¼µÄ·Ö¸î×´Ì¬ºÍ±ê×¢½á¹û£¬ÄÇÐ©Ã»ÓÐ±ê×¢µÄÎÄ±¾¶Î»á±»ÊäÈëµ½ÏÂÒ»²½µÄCNN·ÖÀàÆ÷ÖÐ¡£ÔÚÏÂÒ»²½£¬ÎÒÃÇ²¢²»ÊÇÖ±½Ó½ÓÊÜCNN·ÖÀàÆ÷µÄÊä³ö½á¹û£¬ÎÒÃÇ¸ù¾ÝCNN·ÖÀàÆ÷µÄÊä³ö¸ÅÂÊÉè¼ÆÁËÒ»ÖÖ\emph{Ì°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}£¬Õâ¸öËã·¨»á´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´ÎªÊäÈëÎÄ±¾ÕÒµ½×îºÏÀíµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£¶ÔÓÚÒ»Ð©ÉÏÃæ¹ý³ÌÖÐ²úÉúµÄÂ©±ê×¢ºÍ´íÎó±ê×¢µÄÇéÐÎ£¬ÎÒÃÇÌá³öÁËÒ»ÖÖ\emph{Ë«ÏòÎ»ÖÃÓëÐòÁÐÄ£ÐÍ}£¬½øÒ»²½¶Ô±ê×¢½á¹û½øÐÐµ÷ÕûºÍ¸ÄÉÆ¡£
 
-ÎªÁË¹¹½¨ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ£¬ÎÒÃÇÊ¹ÓÃÁËÒ»×éÈ«ÃæµÄÓïÒåÌØÕ÷ºÍ¾ä·¨ÌØÕ÷¼ÓÈëµ½Ä£ÐÍµÄÊäÈëÖÐ£¬ÕâÐ©ÌØÕ÷¶¼ÊÇÖ±½Ó´ÓÎÒÃÇµÄÖªÊ¶¿âÖÐ¹¹ÔìµÄ£¬ÕâÑùÎÒÃÇµÄÄ£ÐÍ¾Í¿ÉÒÔ³ä·ÖÀûÓÃÕâÐ©ÌØÕ÷À´±ê×¢Ã¿Ò»¸ö¶ÀÁ¢µÄÎÄ±¾¶Î¡£ËäÈ»£¬ÎÒÃÇµÄÄ£ÐÍ¿ÉÒÔÖ±½ÓÌá¹©Ò»¸ö±ê×¢µÄ½á¹û£¬µ«ÊÇÕâÐ©½á¹û½ö½öÊÇÃæ¶Ôµ¥¶ÀµÄÎÄ±¾¶Î£¬Ã»ÓÐ¿¼ÂÇÔÚÍ¬Ò»¸öÊäÈëÎÄ±¾ÖÐ¸÷ÎÄ±¾¶ÎÖ®¼äµÄÄÚÔÚ¹ØÏµ£¬ÕâÒ²²»ÄÜÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢½á¹û¡£Òò´Ë£¬ÎÒÃÇÐèÒª´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´Ö´ÐÐ¸ÅÂÊ±ê×¢¡£Òò´Ë£¬×îÀíÏëµÄ±ê×¢·½Ê½ÊÇ£¬ÎÒÃÇÒÀ´Î±ê×¢Ã¿¸öÎÄ±¾¿éÀ´×î´ó»¯ËùÓÐ±ê×¢½á¹ûµÄ¸ÅÂÊºÍ£¬µ«ÔÚÕâ¸ö¹ý³ÌÖÐ£¬±ØÐëÂú×ãÒ»¸öÇ°ÌáÌõ¼þ£¬¼´Ã¿¸öÊôÐÔÖµÖ»ÄÜ°üº¬Á¬ÐøµÄÎÄ±¾¶Î¡£ÎÒÃÇÊ×ÏÈÖ¤Ã÷ÁËÕâÊÇÒ»¸öNP-hardµÄÎÊÌâ£¬È»ºóÌá³öÁËÒ»ÖÖÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ËËã·¨ÄÜ¹»ÓÐÐ§µÄÊµÏÖ×î¼Ñ±ê×¢·½Ê½¡£
+ÎªÁË¹¹½¨ÎÒÃÇµÄ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ£¬ÎÒÃÇÊ¹ÓÃÁËÒ»×éÈ«ÃæµÄÓïÒåÌØÕ÷ºÍ¾ä·¨ÌØÕ÷¼ÓÈëµ½Ä£ÐÍµÄÊäÈëÖÐ£¬ÕâÐ©ÌØÕ÷¶¼ÊÇÖ±½Ó´ÓÎÒÃÇµÄÖªÊ¶¿âÖÐ¹¹ÔìµÄ£¬ÕâÑùÎÒÃÇµÄÄ£ÐÍ¾Í¿ÉÒÔ³ä·ÖÀûÓÃÕâÐ©ÌØÕ÷À´´¦ÀíÃ¿Ò»¸ö¶ÀÁ¢µÄÎÄ±¾¶Î¡£ËäÈ»CNNÄ£ÐÍ¿ÉÒÔÖ±½ÓÌá¹©Ò»¸ö±ê×¢µÄ·½°¸£¬µ«ÊÇÕâÐ©·½°¸½ö½öÊÇ¿¼ÂÇµ¥¶ÀµÄÎÄ±¾¶Î£¬Ã»ÓÐ¿¼ÂÇÔÚÍ¬Ò»¸öÊäÈëÎÄ±¾ÖÐ¸÷ÎÄ±¾¶ÎÖ®¼äµÄÄÚÔÚ¹ØÏµ£¬ÎÞ·¨ÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢·½°¸£¬ËùÒÔ£¬ÎÒÃÇÐèÒª´ÓÈ«¾Ö¿¼ÂÇ·Ö¸îºÍ±ê×¢×´Ì¬À´Ö´ÐÐ·Ö¸îºÍ±ê×¢¡£Òò´Ë£¬×îÀíÏëµÄ±ê×¢·½Ê½ÊÇ£¬ÎÒÃÇÒÀ´Î±ê×¢Ã¿¸öÎÄ±¾¶ÎÀ´×î´ó»¯ËùÓÐ±ê×¢½á¹ûµÄ¸ÅÂÊºÍ£¬µ«ÔÚÕâ¸ö¹ý³ÌÖÐ£¬±ØÐëÂú×ãÒ»¸öÇ°ÌáÌõ¼þ£¬¼´Ã¿¸öÊôÐÔÖµÖ»ÄÜ°üº¬Á¬ÐøµÄÎÄ±¾¶Î¡£ÎÒÃÇÊ×ÏÈÖ¤Ã÷ÁËÕâÊÇÒ»¸öNP-hardµÄÎÊÌâ£¬È»ºóÌá³öÁËÒ»ÖÖÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ËËã·¨ÄÜ¹»ÓÐÐ§µÄÊµÏÖ×î¼Ñ±ê×¢·½Ê½¡£
 
-Ê¹ÓÃÉÏÊöµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ó²¿·ÖµÄÊäÈëÎÄ±¾¶¼ÄÜ¹»±»ÕýÈ··Ö¸îºÍ±ê×¢ÁË£¬µ«ÊÇ»¹ÊÇ»á³öÏÖÒ»Ð©Â©±ê×¢ºÍ´íÎó±ê×¢ÎÊÌâ¡£ÎªÁË½â¾ö´ËÀàÎÊÌâ£¬ÎÒÃÇÔÚÖ´ÐÐ³éÈ¡µÄ¹ý³ÌÖÐÁËÈ¨ºâ¿¼ÂÇÁËÒÑ¾­±ê×¢ÎÄ±¾¶ÎµÄÎ»ÖÃºÍÐòÁÐÐÅÏ¢£¬Ïà±È½ÏÎÄÕÂ\ucite{cortez2010ondux}ÖÐÌá³öµÄµ¥ÏòÐòÁÐÄ£ÐÍ£¬ÎÒÃÇµÄÊÇË«ÏòÄ£ÐÍ£¬´ÓÇ°ÏòºÍºóÏòÍ¬Ê±¿¼ÂÇÐòÁÐ¹ØÏµ£¬Òò´ËÄÜ¹»¼õÉÙ¸ü¶àµÄ±ê×¢´íÎó²¢Ìá¹©¸ü´óµÄ°ïÖú¡£
+Ê¹ÓÃÉÏÊöµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨£¬´ó²¿·ÖµÄÊäÈëÎÄ±¾¶¼ÄÜ¹»±»ÕýÈ··Ö¸îºÍ±ê×¢ÁË£¬µ«ÊÇ»¹ÊÇ»á³öÏÖÒ»Ð©Â©±ê×¢ºÍ´íÎó±ê×¢ÎÊÌâ¡£ÎªÁË½â¾ö´ËÀàÎÊÌâ£¬ÎÒÃÇÔÚÖ´ÐÐ³éÈ¡µÄ¹ý³ÌÖÐÁËÈ¨ºâ¿¼ÂÇÁËÒÑ¾­±ê×¢ÎÄ±¾¶ÎµÄÎ»ÖÃºÍÐòÁÐÐÅÏ¢£¬Ïà±È½ÏÎÄÕÂ\cite{cortez2010ondux}ÖÐÌá³öµÄµ¥ÏòÐòÁÐÄ£ÐÍ£¬ÎÒÃÇµÄÊÇË«ÏòÄ£ÐÍ£¬´ÓÇ°ÏòºÍºóÏòÍ¬Ê±¿¼ÂÇÐòÁÐ¹ØÏµ£¬ÄÜ¹»¼õÉÙ¸ü¶àµÄ±ê×¢´íÎó²¢Ìá¹©¸ü´óµÄ°ïÖú¡£
 
-\section{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨}
-ÔÚÕâÒ»½Ú£¬ÎÒÃÇÊ×ÏÈ¸ø³ö·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñµÄ¶¨Òå£¬È»ºóÏêÏ¸½éÉÜ½èÖúÖªÊ¶¿âÎÒ¾í»ýÉñ¾­ÍøÂç¹¹½¨µÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨(CNN-IETS)¡£
+\section{»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðËã·¨}
+ÔÚÕâÒ»½Ú£¬ÎÒÃÇÊ×ÏÈ¸ø³öÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðÈÎÎñµÄ¶¨Òå£¬È»ºóÏêÏ¸½éÉÜ½èÖúÖªÊ¶¿âºÍ¾í»ýÉñ¾­ÍøÂç¹¹½¨µÄÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðËã·¨(CNN-TesaRec)¡£
 
 \begin{definition}
-{\bf (·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñ)}
-¶ÔÓÚÄ³¸öÁìÓòµÄÊôÐÔ¼¯ $\mathbb{A}$, ¼ÙÉèÊäÈëÎÄ±¾ $I$ °üº¬ÁËÒ»Ð©ÊôÐÔ¼¯ $\mathbb{A}$ÖÐµÄÊôÐÔÖµ, ·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñÄ¿µÄÊÇ·Ö¸î $I$ ³ÉÒ»Ð©ÁÐµÄÎÄ±¾¶Î $S=\{s_1, s_2, ..., s_m\}$, È»ºóÊ¹ÓÃÒ»¸öÊôÐÔÖµ $A_i \in \mathbb{A}$ À´±ê×¢Ã¿Ò»¸öÎÄ±¾¶Î $s_i$ ($1\leq i \leq m$), ÕâÀï $s_i$ ÊýÊôÐÔ $A_i$ÖÐµÄÒ»¸öÊôÐÔÖµ.
+{\bf (ÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ð(TesaTec))}
+¶ÔÓÚÄ³¸öÁìÓòµÄÊôÐÔ¼¯ $\mathbb{A}$, ¼ÙÉèÊäÈëÎÄ±¾ $I$ °üº¬ÁËÒ»Ð©ÊôÐÔ¼¯ $\mathbb{A}$ ÖÐµÄÊôÐÔÖµ, ÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðÈÎÎñµÄÄ¿µÄÊÇ·Ö¸î $I$ ³ÉÒ»ÏµÁÐµÄÎÄ±¾¶Î $S=\{s_1, s_2, ..., s_m\}$, È»ºóÊ¹ÓÃÊôÐÔÖµ $A_i \in \mathbb{A}$ À´±ê×¢Ã¿Ò»¸öÎÄ±¾¶Î $s_i$ ($1\leq i \leq m$)£¬ÕâÀï $s_i$ ÊÇÊôÐÔ $A_i$ ÖÐµÄÒ»¸öÊôÐÔÖµ.
 \end{definition}
 
-\noindent \underline{\em ÖªÊ¶¿â:}
-ÎÒÃÇÊ¹ÓÃÊµÏÖ´æÔÚµÄÓïÁÏ¿âÀ´¹¹½¨Ò»¸ö¹Ì¶¨ÁìÓòµÄÖªÊ¶¿â(¼ò³ÆÎªKB)£¬¾ÍÏñ\cite{cortez2010ondux, zhao2008exploiting}ÖÐ×öµÄÒ»Ñù¡£¼òµ¥½²£¬ÖªÊ¶¿â(KB)°üº¬Ò»×éÌØ¶¨µÄÊôÐÔÒÔ¼°¶ÔÓ¦µÄÊôÐÔÖµ£¬ÎÒÃÇ¼Ç×ö KB=$\{ <A_1, V_1>, <A_2, V_2>, ..., <A_n, V_n> \}$ £¬ÕâÀïÃ¿Ò»¸öÊôÐÔ$A_i$ ($1\leq i \leq n$)¶¼ÊÇÕâ¸öÁìÓòÊôÐÔ¼¯  $\mathbb{A}$ ÖÐµÄÒ»¸ö¶ÀÁ¢ÊôÐÔ£¬ $V_i$ ÊÇÒ»×é´ÊÓï£¬ÊÇÔÚÊôÐÔ$a_i$ÖÐ³öÏÖµÄµäÐÍµÄ¡¢ºÏÀíµÄÖµ£¬²¢ÇÒ¼ÇÂ¼Ã¿¸öÊôÐÔÖµÔÚ¼ÇÂ¼ÖÐµÄÎ»ÖÃ $\{(v_{i,1}, PS_{i,1}), (v_{i,2}, PS_{i,2}$ $), ..., (v_{i, n_i}, PS_{i,n_i}) \}$£¬ÕâÀï$PS_{i, k}$ ÊÇÒ»×éÎ»ÖÃÏà¹ØµÄÊýÖµ£¬À´±íÊ¾Õâ¸öÊôÐÔÖµ $v_{i, k}$ ³öÏÖÔÚ²»Í¬¼ÇÂ¼ÖÐµÄÎ»ÖÃÊôÐÔ¡£Ò»¸ö¼ò»¯µÄÖªÊ¶¿âÈçÍ¼~\ref{chap:chap03:fig:KB}ËùÊ¾£¬ÎªÁË·½±ãÀí½â£¬ÕâÀïÎÒÃÇÖ»ÊÇÊ¹ÓÃÁËÒ»Ð©¼ò»¯µÄµ¥´Ê¶ø²»ÊÇÊ¹ÓÃÔ­Ê¼µÄÊôÐÔÃû¡£
+\noindent \underline{\em ÖªÊ¶¿â(KB):}
+ÎÒÃÇÊ¹ÓÃÊÂÏÈ´æÔÚµÄÓïÁÏ¿âÀ´¹¹½¨Ò»¸ö¹Ì¶¨ÁìÓòµÄÖªÊ¶¿â£¬¾ÍÏñ\cite{cortez2010ondux, zhao2008exploiting}ÖÐ×öµÄÒ»Ñù¡£¼òµ¥½²£¬ÖªÊ¶¿â°üº¬Ò»×éÌØ¶¨µÄÊôÐÔºÍ¶ÔÓ¦µÄÊôÐÔÖµ£¬ÎÒÃÇ¼Ç×ö KB=$\{ <A_1, V_1>, <A_2, V_2>, ..., <A_n, V_n> \}$ £¬ÕâÀïÃ¿Ò»¸öÊôÐÔ $A_i$ ($1\leq i \leq n$)¶¼ÊÇÕâ¸öÁìÓòÊôÐÔ¼¯  $\mathbb{A}$ ÖÐµÄÒ»¸ö¶ÀÁ¢ÊôÐÔ£¬ $V_i$ ÊÇÒ»×é´ÊÓï£¬ÊÇÔÚÊôÐÔ $a_i$ ÖÐ³öÏÖµÄµäÐÍµÄ¡¢ºÏÀíµÄÖµ£¬²¢ÇÒ¼ÇÂ¼Ã¿¸öÊôÐÔÖµÔÚ¼ÇÂ¼ÖÐµÄÎ»ÖÃ $\{(v_{i,1}, PS_{i,1}), (v_{i,2}, PS_{i,2}$ $), ..., (v_{i, n_i}, PS_{i,n_i}) \}$£¬ÕâÀï $PS_{i, k}$ ÊÇÒ»×éÎ»ÖÃÏà¹ØµÄÊýÖµ£¬À´±íÊ¾Õâ¸öÊôÐÔÖµ $v_{i, k}$ ³öÏÖÔÚ²»Í¬¼ÇÂ¼ÖÐµÄÎ»ÖÃÊôÐÔ¡£Ò»¸ö¼ò»¯µÄÖªÊ¶¿âÈçÍ¼~\ref{chap:chap03:fig:KB}ËùÊ¾£¬ÎªÁË·½±ãÀí½â£¬ÕâÀïÎÒÃÇÖ»ÊÇÊ¹ÓÃÁËÒ»Ð©¼ò»¯µÄµ¥´Ê¶ø²»ÊÇÊ¹ÓÃÔ­Ê¼µÄÊôÐÔÃû¡£
 
 \begin{figure}[!h]
   \centering
@@ -53,7 +52,7 @@ $ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉ
 
 \subsection{»ùÓÚÖªÊ¶¿âµÄ³õÊ¼·Ö¸îºÍ±ê×¢}
 \label{KB-based Segmentation and Labelling}
-ÕâÒ»Ä£¿éµÄÖ÷ÒªÄ¿µÄÊÇÊ¶±ð³öÊäÈëÎÄ±¾ÖÐËùÎ½µÄ\emph{Ãªµã¿é}(Anchor Blocks)£¬¾ÍÊÇ¶ÔÒ»Ð©ÎÄ±¾¶Î£¬ÎÒÃÇ»á¸ù¾ÝÖªÊ¶¿â¼ÆËã³öÀ´Ò»¸ö±ê×¢¿ÉÐÅ¶È£¬µ±Õâ¸ö¿ÉÐÅ¶È´óÓÚÄ³¸öãÐÖµÊ±£¬±ã¿ÉÒÔÖ±½Ó½«Õâ¸öÎÄ±¾¶Î±ê×¢³ÉÄ³Ò»¸öÊôÐÔ¡£È»ºó£¬ÕâÐ©Ê¶±ð³öÀ´µÄ\emph{Ãªµã¿é}½«±»ÊÓ×÷Ò»¸ö»ù´¡Ãªµã£¬Ö´ÐÐºóÃæ²½ÖèÖÐµÄ·Ö¸îºÍ±ê×¢¡£
+ÕâÒ»Ä£¿éµÄÖ÷ÒªÄ¿µÄÊÇÊ¶±ð³öÊäÈëÎÄ±¾ÖÐËùÎ½µÄ \emph{Ãªµã¿é}(Anchor Blocks)£¬¾ÍÊÇ¶ÔÒ»Ð©ÎÄ±¾¶Î£¬ÎÒÃÇ»á¸ù¾ÝÖªÊ¶¿â¼ÆËã³öÀ´Ò»¸ö±ê×¢¿ÉÐÅ¶È£¬µ±Õâ¸ö¿ÉÐÅ¶È´óÓÚÄ³¸öãÐÖµÊ±£¬±ã¿ÉÒÔÖ±½Ó½«Õâ¸öÎÄ±¾¶Î±ê×¢³ÉÄ³Ò»¸öÊôÐÔ¡£È»ºó£¬ÕâÐ©Ê¶±ð³öÀ´µÄ \emph{Ãªµã¿é}½«±»ÊÓ×÷Ò»¸ö»ù´¡Ãªµã£¬Ö´ÐÐºóÃæ²½ÖèÖÐµÄ·Ö¸îºÍ±ê×¢¡£
 
 \begin{definition}
 {\bf (Ãªµã¿é)}
@@ -64,22 +63,22 @@ $ )¸ÅÊö£¬È»ºó¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡µÄÕýÊ½¶¨Òå£¬²¢½éÉÜÁËÖªÊ¶¿âµÄ½á¹¹¡£½ÓÏÂÀ´ÏêÏ¸½éÉ
 2) $p(b, A) > \theta$£¬Õâ¸öãÐÖµ $\theta$ ÊÇÎÒÃÇ×Ô¼º¶¨ÒåµÄ£¬ÓÃÀ´Ìá¸ßÃªµã¿éµÄ±ê×¢ÖÊÁ¿¡£
 \end{definition}
 
-¼ÙÉèÒ»¸öÎÄ±¾¶Î $b$ ³öÏÖÔÚÖªÊ¶¿âÖÐµÄ $m$ ¸ö²»Í¬ÊôÐÔ$\{(A_1, A_2, ..., A_m\}$ µÄÊôÐÔÖµÀïÃæ£¬ÕâÀï$A_i \in \mathbb{A}$ ($1\leq i \leq m$)±íÊ¾ $b$ µÄÒ»¸ö¿ÉÄÜµÄÊôÐÔ¡£¶ÔÓÚÃ¿Ò»¸ö $A_i$ £¬ ¼ÙÉè $b$ ³öÏÖÔÚÒ»×é²»Í¬µÄÊôÐÔÖµÖÐ£¬²¢ÇÒ¾ßÓÐ²»Í¬µÄ³öÏÖÆµÂÊ£¬ÎÒÃÇ¼Ç×ö  $\{(v_{i,1}, f_{i,1}), (v_{i,2}, f_{i,2}), ..., $ $(v_{i,r_i}, f_{i, r_i})\}$ £¬¼ÙÉèËùÓÐÊôÐÔÖµ¶¼ÊÇ»¥Ïà¶ÀÁ¢µÄ£¬ÔòÎÒÃÇ¿ÉÒÔÍ¨¹ýÏÂÃæµÄ¹«Ê½£¬¼ÆËã³öÕâ¸öÎÄ±¾¶Î $b$ ÊôÓÚÊôÐÔ $A_i$ µÄ¸ÅÂÊÎª£º
+¼ÙÉèÒ»¸öÎÄ±¾¶Î $b$ ³öÏÖÔÚÖªÊ¶¿âÖÐµÄ $m$ ¸ö²»Í¬ÊôÐÔ $\{(A_1, A_2, ..., A_m\}$ µÄÊôÐÔÖµÀïÃæ£¬ÕâÀï $A_i \in \mathbb{A}$ ($1\leq i \leq m$)±íÊ¾ $b$ µÄÒ»¸ö¿ÉÄÜµÄÊôÐÔ¡£¶ÔÓÚÃ¿Ò»¸ö $A_i$ £¬ ¼ÙÉè $b$ ³öÏÖÔÚÒ»×é²»Í¬µÄÊôÐÔÖµÖÐ£¬²¢ÇÒ¾ßÓÐ²»Í¬µÄ³öÏÖÆµÂÊ£¬ÎÒÃÇ¼Ç×ö  $\{(v_{i,1}, f_{i,1}), (v_{i,2}, f_{i,2}), ..., $ $(v_{i,r_i}, f_{i, r_i})\}$ £¬¼ÙÉèËùÓÐÊôÐÔÖµ¶¼ÊÇ»¥Ïà¶ÀÁ¢µÄ£¬ÔòÎÒÃÇ¿ÉÒÔÍ¨¹ýÏÂÃæµÄ¹«Ê½£¬¼ÆËã³öÕâ¸öÎÄ±¾¶Î $b$ ÊôÓÚÊôÐÔ $A_i$ µÄ¸ÅÂÊÎª£º
 
 \begin{equation}
 \label{eq1}
 p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}{x}}}{1+\sum_{1 \leq k \leq m}\sum_{1\leq j \leq r_k}\sum_{1\leq x \leq f_{k, j}}{\frac{1}{x}}}
 \end{equation}
 
-ÕâÀï£¬ÎÒÃÇÔÚ·ÖÄ¸Ê¹ÓÃ¼Ó1µÄ²Ù×÷ÊÇÎªÁË·ÀÖ¹·ÖÄ¸³öÏÖÎªÁãµÄÇé¿ö¡£ ÓÐÁËÕâ¸ö¹«Ê½ºÍÎÒÃÇ¶¨ÒåµÄãÐÖµ $\theta$ £¬ÎÒÃÇ±ãÄÜ¹»ÔÚÊäÈëÎÄ±¾ $I$ ÖÐ±ê×¢³öÒ»Ð©\emph{Ãªµã¿é}ÁË¡£ÒòÎª£¬ÎÒÃÇµÄ·½·¨µÄ³éÈ¡ÖÊÁ¿ºÍÐ§ÂÊÊÇ¶ÔãÐÖµ $\theta$ Ãô¸ÐµÄ£¬ËùÒÔÎÒÃÇ»áÍ¨¹ýºóÃæµÄÊµÑé²¿·ÖÕÒµ½Ò»¸öºÏÊÊµÄãÐÖµ¡£
+ÕâÀï£¬ÎÒÃÇÔÚ·ÖÄ¸Ê¹ÓÃ¼Ó1µÄ²Ù×÷ÊÇÎªÁË·ÀÖ¹·ÖÄ¸³öÏÖÎªÁãµÄÇé¿ö¡£ ÓÐÁËÕâ¸ö¹«Ê½ºÍÎÒÃÇ¶¨ÒåµÄãÐÖµ $\theta$ £¬ÎÒÃÇ±ãÄÜ¹»ÔÚÊäÈëÎÄ±¾ $I$ ÖÐ±ê×¢³öÒ»Ð© \emph{Ãªµã¿é}ÁË¡£ÒòÎªÎÒÃÇµÄ·½·¨µÄ³éÈ¡ÖÊÁ¿ºÍÐ§ÂÊÊÇ¶ÔãÐÖµ $\theta$ Ãô¸ÐµÄ£¬ËùÒÔÎÒÃÇ»áÍ¨¹ýºóÃæµÄÊµÑé²¿·ÖÕÒµ½Ò»¸öºÏÊÊµÄãÐÖµ¡£
 
-×¢Òâ£¬Ò»¸öµ¥¶ÀµÄÊôÐÔÖµ¿ÉÄÜ±»·Ö¸î³ÉÁËÁ½¸ö»ò¸ü¶à¸öÎÄ±¾¿é£¬±ÈÈçÍ¼~\ref{chap:chap03:fig:labelExample}ÖÐ£¬ÊôÐÔ $D$ ±ãÓÐÁ½¸öÎÄ±¾¿é $d_1$, $d_3$¡£¿¼ÂÇµ½ÔÚÒ»¸öÊäÈëÎÄ±¾ÖÐÃ¿¸öÊôÐÔ¿ÉÄÜÓÐÒ»¸öÊôÐÔÖµ£¬ËùÒÔ£¬ÎÒÃÇ¿ÉÒÔ½«ÕâÁ½¸ö\emph{Ãªµã¿é}ºÍËûÃÇÖ®¼äËùÓÐµÄ´ÊÓï¶¼ºÏ²¢µ½Ò»Æð¡£ÕâÀï¿ÉÄÜ³öÏÖµÄÒ»¸ö³åÍ»ÊÇ£¬ÔÚÒ»¸öÊôÐÔµÄÁ½¸ö\emph{Ãªµã¿é}Ö®¼ä³öÏÖÁËÁíÒ»¸öÊôÐÔµÄ\emph{Ãªµã¿é}£¬Í¨³££¬Ò»¸öºÏÊÊµÄãÐÖµ $\theta$ ±ã¿ÉÒÔ±ÜÃâ³öÏÖÕâÖÖ³åÍ»¡£µ«ÊÇ£¬Èç¹ûÕâÖÖÇé¿öÈÔÈ»´æÔÚ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÆúµô³åÍ»\emph{Ãªµã¿é}ÖÐµÃ·Ö¸üµÍµÄÄÇ¸öÀ´½â¾öÕâ¸öÎÊÌâ¡£
+×¢Òâ£¬Ò»¸öµ¥¶ÀµÄÊôÐÔÖµ¿ÉÄÜ±»·Ö¸î³ÉÁËÁ½¸ö»ò¸ü¶à¸öÎÄ±¾¿é£¬±ÈÈçÍ¼~\ref{chap:chap03:fig:labelExample}ÖÐ£¬ÊôÐÔ $D$ ±ãÓÐÁ½¸öÎÄ±¾¿é $d_1$, $d_3$¡£¿¼ÂÇµ½ÔÚÒ»¸öÊäÈëÎÄ±¾ÖÐÃ¿¸öÊôÐÔÖ»¿ÉÄÜÓÐÒ»¸öÊôÐÔÖµ£¬ËùÒÔ£¬ÎÒÃÇ¿ÉÒÔ½«ÕâÁ½¸öÃªµã¿éºÍËûÃÇÖ®¼äËùÓÐµÄ´ÊÓï¶¼ºÏ²¢µ½Ò»Æð¡£ÕâÀï¿ÉÄÜ³öÏÖµÄÒ»¸ö³åÍ»ÊÇ£¬ÔÚÒ»¸öÊôÐÔµÄÁ½¸öÃªµã¿éÖ®¼ä³öÏÖÁËÁíÒ»¸öÊôÐÔµÄÃªµã¿é£¬Í¨³££¬Ò»¸öºÏÊÊµÄãÐÖµ $\theta$ ±ã¿ÉÒÔ±ÜÃâ³öÏÖÕâÖÖ³åÍ»¡£µ«ÊÇ£¬Èç¹ûÕâÖÖÇé¿öÈÔÈ»´æÔÚ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÆúµô³åÍ»Ãªµã¿éÖÐµÃ·Ö¸üµÍµÄÄÇ¸öÀ´½â¾öÕâ¸öÎÊÌâ¡£
 
-Àý×ÓÒ»£º¸ø¶¨Í¼ ~\ref{chap:chap03:fig:KB} ÖÐµÄÖªÊ¶¿â£¬ ¶ÔÓÚÒ»¸öÍ¼~\ref{chap:chap03:fig:labelExample}(1)ÖÐÊäÈëÎÄ±¾£¬ ÎÒÃÇÄÜ¹»Ê¶±ð³öÏÂÃæÕâÐ©\emph{Ãªµã¿é}: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ ÒÔ¼° $f_2$ £¬¾ÍÊÇÍ¼~\ref{chap:chap03:fig:labelExample}(2)ÖÐÂÌÉ«·½¸ñÕâÐ©ÎÄ±¾¶Î¡£ÁíÍâ, ¼ÈÈ» $d_1$ ºÍ $d_3$ ¶¼ÊÇÊôÐÔ $D$ µÄ\emph{Ãªµã¿é}, ÎÒÃÇºÏ²¢ÕâÈý¸ö¿é $d_1 d_2 d_3$ £¬²¢¹²Í¬±ê×¢ÎªÊôÐÔ $D$ £¬ÈçÍ¼~\ref{chap:chap03:fig:labelExample}(3)ËùÊ¾¡£
+Àý×ÓÒ»£º¸ø¶¨Í¼ ~\ref{chap:chap03:fig:KB} ÖÐµÄÖªÊ¶¿â£¬ ¶ÔÓÚÒ»¸öÍ¼~\ref{chap:chap03:fig:labelExample}(1)ÖÐÊäÈëÎÄ±¾£¬ ÎÒÃÇÄÜ¹»Ê¶±ð³öÏÂÃæÕâÐ©Ãªµã¿é: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ ÒÔ¼° $f_2$ £¬¾ÍÊÇÍ¼~\ref{chap:chap03:fig:labelExample}(2)ÖÐÂÌÉ«·½¸ñÕâÐ©ÎÄ±¾¶Î¡£ÁíÍâ, ¼ÈÈ» $d_1$ ºÍ $d_3$ ¶¼ÊÇÊôÐÔ $D$ µÄÃªµã¿é, ÎÒÃÇºÏ²¢ÕâÈý¸ö¿é $d_1 d_2 d_3$ £¬²¢¹²Í¬±ê×¢ÎªÊôÐÔ $D$ £¬ÈçÍ¼~\ref{chap:chap03:fig:labelExample}(3)ËùÊ¾¡£
 
 
-\subsection{»ùÓÚ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍµÄ¹¹½¨ºÍÎÄ±¾¿éµÄ±ê×¢}
-ÎªÁË´¦ÀíÒ»Ð©Î´±ê×¢µÄÎÄ±¾¶Î£¬±ÈÈçÉÏÊöÀý×ÓÖÐµÚÒ»²½²úÉúµÄ$a_1$£¬ $a_3$ ºÍ $c_2$£¬ÎÒÃÇÐèÒªÖ´ÐÐÒ»¸ö»ùÓÚ¾í»ýÉñ¾­ÍøÂçÄ£ÐÍ·ÖÀà½á¹ûµÄ¸ÅÂÊ±ê×¢¡£¼òÒªÀ´½²£¬ÎÒÃÇÊ×ÏÈÊ¹ÓÃÖªÊ¶¿âÑµÁ·Ò»¸ö¾í»ýÉñ¾­ÍøÂç·ÖÀàÆ÷(CNN·ÖÀàÆ÷)£¬¼ÙÉè $|\mathbb{A}|$ ±íÊ¾¸ø¶¨ÁìÓòÖÐÊôÐÔµÄ¸öÊý£¬È»ºó¶ÔÓÚÃ¿Ò»¸öÊäÈëÎÄ±¾ $s$ £¬ÎÒÃÇµÄCNN·ÖÀàÆ÷»áÉú³ÉÒ»¸ö $|\mathbb{A}|$-Î¬µÄÊä³öÏòÁ¿ $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$£¬ ÕâÀïÃ¿Ò»¸ö $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$)±íÊ¾$s$ÊôÓÚÊôÐÔ $A_i \in \mathbb{A}$ µÄ¸ÅÂÊ¡£¶ÔÓÚÃ¿Ò»¸öÎ´±ê×¢µÄÎÄ±¾¶Î£¬ÎÒÃÇÊ¹ÓÃÎÒÃÇµÄCNNÄ£ÐÍÀ´¾ö¶¨ËüÊôÓÚÄÄÒ»¸öÊôÐÔ£¬È»ºó×ÛºÏ¿¼ÂÇËùÓÐÎ´±ê×¢ÎÄ±¾¶ÎµÄCNN Ä£ÐÍÊä³öµÄ¸ÅÂÊ½á¹ûºÍÄÇÐ©\emph{Ãªµã¿é}£¬µÃµ½Õû¸öÊäÈëÎÄ±¾µÄ×î¼Ñ·Ö¸îºÍ±ê×¢½á¹û¡£ÏÂÃæ£¬ÎÒÃÇ½âÊÍÈçºÎ¹¹½¨CNNÄ£ÐÍ£¬²¢ÇÒ½éÉÜÈçºÎÕÒµ½×î¼ÑµÄ±ê×¢·½Ê½¡£
+\subsection{»ùÓÚCNNÄ£ÐÍµÄ¹¹½¨ºÍÎÄ±¾¶ÎµÄ±ê×¢}
+ÎªÁË´¦ÀíÒ»Ð©Î´±ê×¢µÄÎÄ±¾¶Î£¬±ÈÈçÉÏÊöÀý×ÓÖÐµÚÒ»²½²úÉúµÄ$a_1$£¬ $a_3$ ºÍ $c_2$£¬ÎÒÃÇÐèÒªÖ´ÐÐÒ»¸ö»ùÓÚCNN·ÖÀàÆ÷·ÖÀà½á¹ûµÄ¸ÅÂÊ±ê×¢¡£¼òÒªÀ´½²£¬ÎÒÃÇÊ×ÏÈÊ¹ÓÃÖªÊ¶¿âÑµÁ·Ò»¸ö¾í»ýÉñ¾­ÍøÂç·ÖÀàÆ÷(CNN·ÖÀàÆ÷)£¬¼ÙÉè $|\mathbb{A}|$ ±íÊ¾¸ø¶¨ÁìÓòÖÐÊôÐÔµÄ¸öÊý£¬È»ºó¶ÔÓÚÃ¿Ò»¸öÊäÈëÎÄ±¾ $s$ £¬ÎÒÃÇµÄCNN·ÖÀàÆ÷»áÉú³ÉÒ»¸ö $|\mathbb{A}|$-Î¬µÄÊä³öÏòÁ¿ $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$£¬ ÕâÀïÃ¿Ò»¸ö $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$) ±íÊ¾ $s$ ÊôÓÚÊôÐÔ $A_i \in \mathbb{A}$ µÄ¸ÅÂÊ¡£¶ÔÓÚÃ¿Ò»¸öÎ´±ê×¢µÄÎÄ±¾¶Î£¬ÎÒÃÇÊ¹ÓÃÕâ¸öCNN·ÖÀàÆ÷À´¾ö¶¨ËüÊôÓÚÄÄÒ»¸öÊôÐÔ£¬È»ºó×ÛºÏ¿¼ÂÇËùÓÐÎ´±ê×¢ÎÄ±¾¶ÎµÄCNN·ÖÀàÆ÷Êä³öµÄ¸ÅÂÊ½á¹ûºÍÄÇÐ©Ãªµã¿éÎ»ÖÃºÍ±êÇ©£¬µÃµ½Õû¸öÊäÈëÎÄ±¾µÄ×î¼Ñ·Ö¸îºÍ±ê×¢½á¹û¡£ÏÂÃæ£¬ÎÒÃÇ½âÊÍÈçºÎ¹¹½¨ÎÒÃÇµÄCNN·ÖÀàÆ÷£¬²¢ÇÒ½éÉÜÈçºÎÕÒµ½×î¼ÑµÄ±ê×¢·½Ê½¡£
 
 \begin{figure}[!h]
   \centering
@@ -88,45 +87,44 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
   \label{chap:chap03:fig:CNN_des}
 \end{figure}
 
-\subsubsection{¹¹½¨CNN·ÖÀàÄ£ÐÍ}
-Í¼~\ref{chap:chap03:fig:CNN_des}¸ø³öÁËÎÒÃÇ¹¹½¨µÄCNN·ÖÀàÄ£ÐÍµÄ¼Ü¹¹Í¼£¬ËüµÄÊäÈëÊ±Ò»¸öÎÄ±¾¶Î£¬Êä³öÒ»¸ö¹ØÓÚËùÓÐ¿ÉÄÜµÄÊôÐÔµÄ¸ÅÂÊÏòÁ¿¡£ÕûÌåÀ´¿´£¬ÎÒÃÇµÄCNNÄ£ÐÍ°üÀ¨ÌØÕ÷ÊäÈë²ã£¬Ç¶Èë²ã£¬¾í»ù²ã£¬×î´óÖµ³Ø»¯²ã£¬È«Á¬½Ó²ãºÍ×îºóµÄSoftmax·ÖÀàÆ÷²ã¡£ÌØÕ÷ÊäÈë²ã½ÓÊÜÒ»¸öÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷¾ØÕó£¬Õâ¸öÌØÕ÷¾ØÕó°üº¬ÁË·á¸»µÄ¾ä·¨ºÍÓïÒåÌØÕ÷¡£Ç¶Èë²ã¸ºÔð½«ÕâÐ©ÌØÕ÷Öµ¶ÔÓ¦µ½ÏàÓ¦µÄÌØÕ÷ÏòÁ¿È»ºó½«ËûÃÇºÏ²¢ÔÚÒ»Æð¡£È»ºóÎÒÃÇÔÚÌØÕ÷¾ØÕóÉÏÖ´ÐÐ¾í»ý²Ù×÷À´ÌáÈ¡¹ØÓÚÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷£¬ÔÚÕâÒ»²½ÎÒÃÇÊ¹ÓÃÁË²»Í¬´óÐ¡µÄ¹ýÂËºËÀ´ÔÚÊäÈëÎÄ±¾¶ÎÉÏ¾¡¿ÉÄÜ¶àµÄ¸²¸Çn-gramµÄÎÄ±¾·¶Î§£¬ÕâÑùÎÒÃÇ¾Í¿ÉÒÔÉú³É¶à²ã´ÎµÄ£¬ÇÒ²»Í¬³ß´çµÄÌØÕ÷¾ØÕó¡£È»ºó£¬ÎÒÃÇÔÙÊ¹ÓÃ×î´óÖµ³Ø»¯À´¶Ô¾í»ý²ãµÄ½á¹û½øÐÐ±ê×¼»¯£¬Ê¹Æä×îÖÕ¶¼³ÉÎªÏàÍ¬ÐÎ×´µÄÌØÕ÷¾ØÕó£¬ÇÒÕâÒ»²½Ò²ÊÇ½øÒ»²½³éÈ¡ÌØÕ÷ºÍ½µÎ¬µÄ²Ù×÷¡£³Ø»¯²ãµÃµ½µÄÌØÕ÷¾ØÕóÔÙÍ¨¹ýÒ»¸öÈ«Á¬½Ó²ã£¬¾ÍÊÇÒ»¸öÆÕÍ¨µÄÉñ¾­ÍøÂç£¬×ö½øÒ»²½µÄÌØÕ÷×éºÏºÍÍÆÀí¡£×îÖÕ£¬ÎÒÃÇÊ¹ÓÃSoftmax·ÖÀàÆ÷×÷ÎªÎÒÃÇµÄÊä³ö²ã£¬ÎªÃ¿Ò»¸öÊäÈëÎÄ±¾¶Î²úÉú·ÖÀà½á¹û¡£¸ü¶àµÄÏ¸½Ú£¬¿ÉÒÔÈ¥²Î¿¼~\cite{sahu2016relation, kim2014convolutional}¡£
+\subsubsection{¹¹½¨CNN·ÖÀàÆ÷}
+Í¼~\ref{chap:chap03:fig:CNN_des}¸ø³öÁËÎÒÃÇ¹¹½¨µÄCNN·ÖÀàÆ÷µÄ¼Ü¹¹Í¼£¬ËüµÄÊäÈëÊÇÒ»¸öÎÄ±¾¶Î£¬Êä³öÒ»¸ö¹ØÓÚËùÓÐ¿ÉÄÜµÄÊôÐÔµÄ¸ÅÂÊÏòÁ¿¡£ÕûÌåÀ´¿´£¬ÎÒÃÇµÄCNN·ÖÀàÄ£ÐÍ°üÀ¨ÌØÕ÷ÊäÈë²ã£¬Ç¶Èë²ã£¬¾í»ý²ã£¬×î´óÖµ³Ø»¯²ã£¬È«Á¬½Ó²ãºÍ×îºóµÄSoftmax·ÖÀàÆ÷²ã¡£ÌØÕ÷ÊäÈë²ã½ÓÊÜÒ»¸öÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷¾ØÕó£¬Õâ¸öÌØÕ÷¾ØÕó°üº¬ÁË·á¸»µÄ¾ä·¨ºÍÓïÒåÌØÕ÷¡£Ç¶Èë²ã¸ºÔð½«ÕâÐ©ÌØÕ÷Öµ¶ÔÓ¦µ½ÏàÓ¦µÄÌØÕ÷ÏòÁ¿È»ºó½«ËûÃÇºÏ²¢ÔÚÒ»Æð¡£È»ºóÎÒÃÇÔÚÌØÕ÷¾ØÕóÉÏÖ´ÐÐ¾í»ý²Ù×÷À´ÌáÈ¡¹ØÓÚÊäÈëÎÄ±¾¶ÎµÄÌØÕ÷£¬ÔÚÕâÒ»²½ÎÒÃÇÊ¹ÓÃÁË²»Í¬´óÐ¡µÄ¾í»ýºËÀ´ÔÚÊäÈëÎÄ±¾¶ÎÉÏ¾¡¿ÉÄÜ¶àµÄ¸²¸Çn-gramµÄÎÄ±¾·¶Î§£¬ÕâÑùÎÒÃÇ¾Í¿ÉÒÔÉú³É¶à²ã´ÎµÄ£¬ÇÒ²»Í¬³ß´çµÄÌØÕ÷¾ØÕó¡£È»ºó£¬ÎÒÃÇÔÙÊ¹ÓÃ×î´óÖµ³Ø»¯À´¶Ô¾í»ý²ãµÄ½á¹û½øÐÐ±ê×¼»¯£¬Ê¹Æä×îÖÕ¶¼³ÉÎªÏàÍ¬ÐÎ×´µÄÌØÕ÷¾ØÕó£¬ÇÒÕâÒ»²½Ò²ÊÇ½øÒ»²½³éÈ¡ÌØÕ÷ºÍ½µÎ¬µÄ²Ù×÷¡£³Ø»¯²ãµÃµ½µÄÌØÕ÷¾ØÕóÔÙÍ¨¹ýÒ»¸öÈ«Á¬½Ó²ã£¬¾ÍÊÇÒ»¸öÆÕÍ¨µÄÉñ¾­ÍøÂç£¬×ö½øÒ»²½µÄÌØÕ÷×éºÏºÍÍÆÀí¡£×îÖÕ£¬ÎÒÃÇÊ¹ÓÃSoftmax·ÖÀàÆ÷×÷ÎªÄ£ÐÍµÄÊä³ö²ã£¬ÎªÃ¿Ò»¸öÊäÈëÎÄ±¾¶Î²úÉú·ÖÀà½á¹û¡£
 
 \smallskip
-\noindent \underline{\it ÌØÕ÷:}ÎÒÃÇÎªÃ¿¸öÊäÈëÎÄ±¾¶Î¶¼¹¹ÔìÁËÒ»Ð©ÁÐ·á¸»µÄÓïÒåÌØÕ÷£¬°üÀ¨Ò»Ð©ºÏ³ÉµÄÌØÕ÷¡£¶ÔÓÚÎÄ±¾¶ÎÖÐµÄÃ¿Ò»¸öµ¥´Ê£¬ËûµÄÌØÕ÷¾ØÕóÖÐ°üÀ¨ÁË£¬ÌáÇ°ÑµÁ·µÄ´ÊÏòÁ¿ Word2vec£¬ ÎÄ±¾¶ÎµÄÎ»ÖÃÐÅÏ¢£¬ÎÄ±¾¶ÎÔÚÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃÐÅÏ¢£¬´ÊÐÔ±ê×¢ÐÅÏ¢(POS)£¬ÎÄ±¾¶Î³¤¶È£¬ÒÔ¼°Ò»ÖÖÈËÎª¹¹ÔìµÄ¹éÒ»»¯Àà±ð¸ÅÂÊ¡£ÏÂÃæ¸ø³öÃ¿Ò»¸öÌØÕ÷µÄÏêÏ¸½éÉÜ£º
+\noindent \underline{\it ÌØÕ÷:}ÎÒÃÇÎªÃ¿¸öÊäÈëÎÄ±¾¶Î¶¼¹¹ÔìÁËÒ»ÏµÁÐ·á¸»µÄÓïÒåÌØÕ÷£¬°üÀ¨Ò»Ð©ºÏ³ÉµÄÌØÕ÷¡£¶ÔÓÚÎÄ±¾¶ÎÖÐµÄÃ¿Ò»¸öµ¥´Ê£¬ËüµÄÌØÕ÷¾ØÕóÖÐ°üÀ¨ÁË£¬ÌáÇ°ÑµÁ·µÄ´ÊÏòÁ¿ Word2vec£¬ µ¥´ÊÔÚÎÄ±¾¶ÎµÄÎ»ÖÃÐÅÏ¢£¬ÎÄ±¾¶ÎÔÚÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃÐÅÏ¢£¬´ÊÐÔ±ê×¢ÐÅÏ¢(POS)£¬ÎÄ±¾¶Î³¤¶È£¬ÒÔ¼°Ò»ÖÖÈËÎª¹¹ÔìµÄ¹éÒ»»¯Àà±ð¸ÅÂÊ¡£ÏÂÃæ¸ø³öÃ¿Ò»¸öÌØÕ÷µÄÏêÏ¸½éÉÜ£º
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
 \item {\bf Word2Vec:} ¶ÔÓÚ´ÊÏòÁ¿£¬ÎÒÃÇÖ±½ÓÊ¹ÓÃÎÄÕÂ~\cite{th2015evaluating}ÖÐÓÃ~\cite{mikolov2013distributed}´ÊÏòÁ¿Ä£ÐÍÔÚPubmedÎÄÕÂÉÏÌáÇ°ÑµÁ·ºÃµÄ´ÊÏòÁ¿£¬Õâ¸ö´ÊÏòÁ¿Ä£ÐÍÊÇÓÉTomas MikolovÔÚGoogle·¢Ã÷£¬ÎÒÃÇÔÚÖ®Ç°µÄÕÂ½ÚÓÐÏêÏ¸½éÉÜ¡£¶ÔÓÚÖÐÎÄÊµÑé¼¯£¬ÎÒÃÇÔÚ×Ô¼ºµÄÖÐÎÄÓïÁÏÉÏÊ¹ÓÃGoogleµÄword2vec¹¤¾ß~\footnote{ https://code.google.com/archive/p/word2vec/}ÑµÁ·ÁËÒ»¸ö´ÊÏòÁ¿¡£
 
-\item {\bf ÔÚÎÄ±¾¶ÎÖÐÎ»ÖÃÌØÕ÷:} Õâ¸öÎ»ÖÃÌØÕ÷ÊÇÖ¸Ò»¸öµ¥´ÊÔÚÊäÈëÎÄ±¾¶ÎÖÐµÄÎ»ÖÃ£¬ÎÒÃÇÖ®ËùÒÔÊ¹ÓÃÕâ¸öÌØÕ÷£¬ÊÇÒòÎªÎÒÃÇ¹Û²ìµ½£¬ÔÚÒ»Ð©ÌØ¶¨µÄÊôÐÔÖµÖÐ£¬Ò»Ð©ÌØÊâµÄ´ÊÓï»á³öÏÖÔÚÏàÍ¬µÄÎ»ÖÃÉÏ¡£
+\item {\bf ÔÚÎÄ±¾¶ÎÖÐµÄÎ»ÖÃÌØÕ÷:} Õâ¸öÎ»ÖÃÌØÕ÷ÊÇÖ¸Ò»¸öµ¥´ÊÔÚÊäÈëÎÄ±¾¶ÎÖÐµÄÎ»ÖÃ£¬ÎÒÃÇÖ®ËùÒÔÊ¹ÓÃÕâ¸öÌØÕ÷£¬ÊÇÒòÎªÎÒÃÇ¹Û²ìµ½£¬ÔÚÒ»Ð©ÌØ¶¨µÄÊôÐÔÖµÖÐ£¬Ò»Ð©ÌØÊâµÄ´ÊÓï»á³öÏÖÔÚÏàÍ¬µÄÎ»ÖÃÉÏ¡£
 
-\item {\bf ÔÚÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃÌØÕ÷:} Õâ¸öÎ»ÖÃÌØÕ÷ÊÇÖ¸Ò»¸öµ¥´ÊÔÚÔ­Ê¼ÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃ£¬ÎÒÃÇÑ¡ÔñÕâ¸öÌØÕ÷ÊÇÒòÎªÒ»¸öµ¥´ÊÔÚÎÄ±¾ÖÐµÄËùÔÚÎ»ÖÃÍùÍùÓëËüÊôÓÚÄÄ¸öÊôÐÔÓÐÃÜÇÐµÄ¹ØÁª£¬Õâ¸öÒ»¸ö±È½ÏÈÝÒ×Ïëµ½µÄÌØÕ÷Ïî¡£
+\item {\bf ÔÚÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃÌØÕ÷:} Õâ¸öÎ»ÖÃÌØÕ÷ÊÇÖ¸Ò»¸öµ¥´ÊÔÚÔ­Ê¼ÊäÈëÎÄ±¾ÖÐµÄÎ»ÖÃ£¬ÎÒÃÇÑ¡ÔñÕâ¸öÌØÕ÷ÊÇÒòÎªÒ»¸öµ¥´ÊÔÚÎÄ±¾ÖÐµÄËùÔÚÎ»ÖÃÍùÍùÓëËüÊôÓÚÄÄ¸öÊôÐÔÓÐÃÜÇÐµÄ¹ØÁª£¬ÕâÊÇÒ»¸ö±È½ÏÖ±¹ÛµÄÌØÕ÷¡£
 
 \item {\bf ÎÄ±¾¶ÎµÄ³¤¶È:} Ò²¾ÍÊÇÎÄ±¾¶ÎÖÐµ¥´ÊµÄ¸öÊý£¬Ê¹ÓÃÕâ¸öÌØÕ÷ÊÇÒòÎª²»Í¬ÊôÐÔµÄÊôÐÔÖµµÄÆ½¾ù³¤¶ÈÍùÍùÊÇÓÐ²î±ðµÄ£¬ÕâËµÃ÷£¬ÎÄ±¾¶ÎµÄ³¤¶ÈÊÇÒ»¸ö·Ç³£ÓÐÇø·ÖÐÔµÄÌØÕ÷¡£
 
-\item {\bf Óï·¨ºÍ´ÊÐÔ±ê×¢ÌØÕ÷(POS):} ¹¹ÔìPOSÌØÕ÷µÄ¹ý³Ì£¬¶ÔÒ»¾ä»°ÖÐµÄÃ¿¸öµ¥´Ê£¬ÒÀÀµÕâ¸öµ¥´ÊµÄ´ÊÐÔ¶¨ÒåºÍÉÏÏÂÎÄÀ´¸øËü±ê×¢Ò»¸ö±êÇ©£¬ÓÃÒÔËµÃ÷Õâ¸öµ¥´ÊÔÚÕâ¾ä»°ÖÐµÄ½ÇÉ«¡£ÕâÀï£¬ÎÒÃÇÊ¹ÓÃGENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}À´µÃµ½Ã¿¸ö´ÊµÄPOSÌØÕ÷¡£
+\item {\bf Óï·¨ºÍ´ÊÐÔ±ê×¢ÌØÕ÷(POS):} ¹¹ÔìPOSÌØÕ÷µÄ¹ý³Ì£¬¶ÔÒ»¾ä»°ÖÐµÄÃ¿¸öµ¥´Ê£¬ÒÀÀµÕâ¸öµ¥´ÊµÄ´ÊÐÔºÍÉÏÏÂÎÄÀ´¸øËü±ê×¢Ò»¸ö±êÇ©£¬ÓÃÒÔËµÃ÷Õâ¸öµ¥´ÊÔÚÕâ¾ä»°ÖÐµÄ½ÇÉ«¡£ÕâÀï£¬ÎÒÃÇÊ¹ÓÃGENIA tagger~\footnote{ http://www.nactem.ac.uk/GENIA/tagger/}À´µÃµ½Ã¿¸ö´ÊµÄPOSÌØÕ÷¡£
 
-\item {\bf ¹éÒ»»¯Àà±ð¸ÅÂÊ:} ÎÒÃÇÍ¬ÑùÊ¹ÓÃ¹«Ê½~\ref{eq1}À´¼ÆËãÒ»¸ö¸ÅÂÊÏòÁ¿$\vec{cp}$£¬ÏòÁ¿Ã¿Ò»Î¬µÄÖµ±íÊ¾Ò»¸öµ¥´ÊÊôÓÚÄ³¸öÊôÐÔµÄ¸ÅÂÊ¡£
+\item {\bf ¹éÒ»»¯Àà±ð¸ÅÂÊ:} ÎÒÃÇÍ¬ÑùÊ¹ÓÃ¹«Ê½~\ref{eq1}À´¼ÆËãÒ»¸ö¸ÅÂÊÏòÁ¿$\vec{cp}$£¬ÏòÁ¿ÖÐÃ¿Ò»Î¬µÄÖµ±íÊ¾Ò»¸öµ¥´ÊÊôÓÚÄ³¸öÊôÐÔµÄ¸ÅÂÊ¡£È»ºóÎÒÃÇÊ¹ÓÃÀëÉ¢µÄÊýÖµ´Êµä£¬½«¸ÅÂÊÖµ±ê×¼»¯¡£
 
 \end{enumerate}
 
-\subsubsection{¹¹½¨CNN·ÖÀàÄ£ÐÍ}
-ËäÈ»CNN·ÖÀàÆ÷¿ÉÒÔÖ±½ÓÊä³öÒ»¸öÊäÈëÎÄ±¾¶ÎÊôÓÚ¸÷¸öÊôÐÔµÄ¸ÅÂÊÖµ£¬ÒòÎªÒÑ¾­´æÔÚ±ê×¢ÁËµÄ\emph{Ãªµã¿é}µÄÎ»ÖÃ£¬ËùÒÔÃ¿¸öÊäÈëÎÄ±¾¶ÎÖ»»áÓÐ¼¸¸ö¿ÉÄÜµÄºòÑ¡ÊôÐÔ£¬Òò´Ë£¬¶ÔÓÚCNN·ÖÀàÆ÷µÄ½á¹û£¬ÓÐÐ©¸ÅÂÊÖÐÊÇÓÃ²»×ÅµÄ¡£ÀýÈç£¬ÔÚÍ¼~\ref{chap:chap03:fig:labelExample}(3)ÖÐ£¬ÎÄ±¾¶Î $a_3$ Ö»¿ÉÄÜÊôÓÚÊôÐÔ $A$£¬ $B$ ºÍ $E$
-ÖÐµÄÒ»¸ö£¬ÒòÎªÎÒÃÇÒÑ¾­ÓÐÁËÊôÐÔÎª $C$£¬$D$ ºÍ $F$ µÄ\emph{Ãªµã¿é}£¬ÇÒÕâÐ©\emph{Ãªµã¿é}¶¼ÔÚÎÄ±¾¶Î$a_3$µÄ·ÇÁÚ½ÓÎ»ÖÃ¡£ÎÒÃÇÔÚÍ¼~\ref{chap:chap03:fig:candidate-Labels}ÁÐ³öÁËÆäËûÎÄ±¾¶ÎµÄËùÓÐºòÑ¡ÊôÐÔÁÐ±í£¬ÆäÖÐÒÑ¾­µÃµ½µÄ\emph{Ãªµã¿é}Ö»ÓÐÒ»¸öºòÑ¡ÊôÐÔ¡£
+\subsubsection{ÎÄ±¾¶ÎµÄ¸ÅÂÊ±ê×¢}
+ËäÈ»CNN·ÖÀàÆ÷¿ÉÒÔÖ±½Ó¸ø³öÒ»¸öÊäÈëÎÄ±¾¶ÎÊôÓÚ¸÷¸öÊôÐÔµÄ¸ÅÂÊÖµ£¬µ«ÊÇ£¬ÒòÎªÒ»Ð©Î»ÖÃÒÑ¾­´æÔÚÁË±ê×¢ÁËµÄÃªµã¿é£¬ËùÒÔÃ¿¸öÊäÈëÎÄ±¾¶ÎÖ»»áÓÐ¼¸¸ö¿ÉÄÜµÄºòÑ¡ÊôÐÔ£¬Òò´Ë£¬¶ÔÓÚCNN·ÖÀàÆ÷µÄ½á¹û£¬ÓÐÐ©¸ÅÂÊÖÐÊÇÓÃ²»×ÅµÄ¡£ÀýÈç£¬ÔÚÍ¼~\ref{chap:chap03:fig:labelExample}(3)ÖÐ£¬ÎÄ±¾¶Î $a_3$ Ö»¿ÉÄÜÊôÓÚÊôÐÔ $A$£¬ $B$ ºÍ $E$ ÖÐµÄÒ»¸ö£¬ÒòÎªÎÒÃÇÒÑ¾­ÓÐÁËÊôÐÔÎª $C$£¬$D$ ºÍ $F$ µÄÃªµã¿é£¬ÇÒÕâÐ©Ãªµã¿é¶¼ÔÚÎÄ±¾¶Î $a_3$ µÄ·ÇÁÚ½ÓÎ»ÖÃ¡£ÎÒÃÇÔÚÍ¼~\ref{chap:chap03:fig:candidate-Labels}ÖÐÁÐ³öÁËÆäËûÎÄ±¾¶ÎµÄËùÓÐºòÑ¡ÊôÐÔÁÐ±í£¬ÆäÖÐÕâÐ©Ãªµã¿éÖ»ÓÐÒ»¸öºòÑ¡ÊôÐÔ¡£
 
-¶ÔÒ»¸öÎÄ±¾¶Î $s$ £¬Áí $\mathbf{A}_c(s)$ ±íÊ¾Ò»×éºòÑ¡ÊôÐÔ£¬$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ ±íÊ¾$s$ µÄCNNÄ£ÐÍµÄÊä³ö½á¹û£¬ÔòÎÄ±¾¶Î$s$ ÊôÓÚÒ»¸öºòÑ¡ÊôÐÔ $A \in \mathbf{A}_c(s)$ µÄ¸ÅÂÊÓÃÏÂÃæµÄ¹«Ê½¼ÆËãµÃµ½£º
+¶ÔÒ»¸öÎÄ±¾¶Î $s$ £¬Áí $\mathbf{A}_c(s)$ ±íÊ¾Ò»×éºòÑ¡ÊôÐÔ£¬$P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$ ±íÊ¾ $s$ µÄCNN·ÖÀàÆ÷µÄÊä³ö½á¹û£¬ÔòÎÄ±¾¶Î $s$ ÊôÓÚÒ»¸öºòÑ¡ÊôÐÔ $A \in \mathbf{A}_c(s)$ µÄ¸ÅÂÊÓÃÏÂÃæµÄ¹«Ê½¼ÆËãµÃµ½£º
 \begin{equation}
 \label{eq:2}
 p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \end{equation}
 ÕâÀï $i(A)$ ±íÊ¾ÊôÐÔ $A$ ÔÚÊôÐÔÁÐ $\mathbb{A}$ ÖÐµÄÏÂ±ê¡£¶ÔÓÚÃ¿Ò»¸öÊäÈëÎÄ±¾¶Î£¬ÎÒÃÇ¶¼¿ÉÒÔÊ¹ÓÃ¹«Ê½~\ref{eq:2}¼ÆËãµÃµ½ËüÊôÓÚÃ¿¸öºòÑ¡ÊôÐÔµÄ¸ÅÂÊÖµ¡£
 
-Àý×Ó¶þ£ºÍ¼~\ref{chap:chap03:fig:candidate-Labels}ÖÐÁÐ³öÁËÀý×ÓÒ»»ùÓÚCNNÄ£ÐÍµÃµ½µÄ¸÷Î´±ê×¢ÎÄ±¾¶ÎµÄÊôÓÚ¸÷ºòÑ¡ÊôÐÔµÄ¸ÅÂÊÖµ¡£¶ÔÓÚÎÄ±¾¶Î $a_3$ £¬¼ÙÉèËüÔ­Ê¼µÄCNNÄ£ÐÍÊä³öµÄ¸ÅÂÊÏòÁ¿ÊÇ  $[0.567, $ $0.067, 0.199, 0.133, 0.033]$ £¬ ÒòÎª $a_3$ Ö»¿ÉÄÜÊôÓÚÊôÐÔ $A$£¬$B$ »òÕß $E$ ¡£Òò´Ë£¬ÎÒÃÇÄÜ¼ÆËã³öÎÄ±¾¶Î $a_3$ ÊôÓÚ $A$ µÄ¸ÅÂÊÎª£º$p(a_3, A) = \frac{0.567}{0.567+0.067+0.033} = 0.85$ £¬ÏàÍ¬µÄ£¬ÎÒÃÇ¿ÉÒÔ¼ÆËã³öÊôÓÚ $B$ ºÍ $E$ µÄ¸ÅÂÊ $p(a_3, B)=0.1$ ºÍ $p(a_3, E)=0.05$¡£
+Àý×Ó¶þ£ºÍ¼~\ref{chap:chap03:fig:candidate-Labels}ÖÐÁÐ³öÁËÀý×ÓÒ»»ùÓÚCNN·ÖÀàÄ£ÐÍµÃµ½µÄ¸÷Î´±ê×¢ÎÄ±¾¶ÎÊôÓÚ¸÷ºòÑ¡ÊôÐÔµÄ¸ÅÂÊÖµ¡£¶ÔÓÚÎÄ±¾¶Î $a_3$ £¬¼ÙÉèËüÔ­Ê¼µÄCNN·ÖÀàÄ£ÐÍÊä³öµÄ¸ÅÂÊÏòÁ¿ÊÇ  $[0.567, $ $0.067, 0.199, 0.133, 0.033]$ £¬ ÒòÎª $a_3$ Ö»¿ÉÄÜÊôÓÚÊôÐÔ $A$£¬$B$ »òÕß $E$ ¡£Òò´Ë£¬ÎÒÃÇÄÜ¼ÆËã³öÎÄ±¾¶Î $a_3$ ÊôÓÚ $A$ µÄ¸ÅÂÊÎª£º$p(a_3, A) = \frac{0.567}{0.567+0.067+0.033} = 0.85$ £¬ÏàÍ¬µÄ£¬ÎÒÃÇ¿ÉÒÔ¼ÆËã³öÊôÓÚ $B$ ºÍ $E$ µÄ¸ÅÂÊ $p(a_3, B)=0.1$ ºÍ $p(a_3, E)=0.05$¡£
 
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.8\textwidth]{../figures/chap03/candidate-Labels.pdf}\\
-  \smallcaption{Àý×ÓÖÐÎÄ±¾¶ÎµÄºòÑ¡ÊôÐÔÖµºÍ»ùÓÚCNNÄ£ÐÍµÄ±ä»»¸ÅÂÊÖµ}
+  \smallcaption{Àý×ÓÖÐÎÄ±¾¶ÎµÄºòÑ¡ÊôÐÔÖµºÍ»ùÓÚCNN·ÖÀàÄ£ÐÍµÄ±ä»»¸ÅÂÊÖµ}
   \label{chap:chap03:fig:candidate-Labels}
 \end{figure}
 
@@ -134,10 +132,10 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \subsection{ÊäÈëÎÄ±¾µÄÌ°À·Ê½¸ÅÂÊ±ê×¢}
 \label{Probabilistic Labelling to Input Texts}
 
-¾¡¹ÜÎÒÃÇµÄCNNÄ£ÐÍÄÜ¹»Ö±½Ó¸ø³öÊäÈëÎÄ±¾¶ÎÊôÓÚ¸÷ÊôÐÔµÄ¸ÅÂÊ£¬µ«ÊÇÕâÖÖ±ê×¢·½Ê½Ö»ÊÇµ¥¶ÀµÄ¿¼ÂÇÁËµÄÕâÒ»¸öÎÄ±¾¶Î£¬Ã»ÓÐ×ÛºÏ¿¼ÂÇÕâ¸öÎÄ±¾¶ÎÓëÊäÈëÎÄ±¾ÖÐÆäËûÎÄ±¾¶ÎµÄ¹ØÏµ£¬Òò´ËÕâÖÖ·½Ê½¿ÉÄÜ²»ÄÜ¹»ÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£Òò´Ë£¬ÎÒÃÇÔÚÖ´ÐÐÃ¿Ò»¸ö¸ÅÂÊ±ê×¢µÄÊ±ºòÐèÒªÕûÌå¿¼ÂÇÕû¸öÎÄ±¾µÄ·Ö¸îºÍ±ê×¢×´Ì¬£¬ÊÂÊµÉÏ£¬ÎÒÃÇÆÚ´ýÈ¥ÕÒÁËÒ»ÖÖ×î¼ÑµÄ±ê×¢·½Ê½À´×î´ó»¯ÕûÌåµÄ±ê×¢¸ÅÂÊÖµµÃ·Ö£¬¶øÕâ¸öµÃ·Ö¾ÍÊÇÊäÈëÎÄ±¾ÖÐËùÓÐÎÄ±¾¶ÎÊôÓÚ¶ÔÓ¦ÊôÐÔµÄ¸ÅÂÊÖ®ºÍ£¬µ«ÊÇÕâ¸ö¹ý³ÌÐèÒª×ñÑ­Ò»¸öÌõ¼þ£¬Õâ¸öÊäÈëÎÄ±¾ÖÐÃ¿¸öÊôÐÔÖµÖ»ÄÜÓÉÎ»ÖÃÁ¬ÐøµÄÎÄ±¾¶Î×é³É£¬ÎÒÃÇ°ÑÕâ¸öÎÊÌâ¶¨ÒåÎª\emph{»ùÓÚCNNµÄÊÜÏÞ·Ö¸îÊ½ÐÅÏ¢³éÈ¡}(Constrained CNN-IETS Problem)£º
+¾¡¹ÜÎÒÃÇµÄCNN·ÖÀàÄ£ÐÍÄÜ¹»Ö±½Ó¸ø³öÊäÈëÎÄ±¾¶ÎÊôÓÚ¸÷ÊôÐÔµÄ¸ÅÂÊ£¬µ«ÊÇÕâÖÖ±ê×¢·½Ê½Ö»ÊÇµ¥¶ÀµÄ¿¼ÂÇÁËµÄÕâÒ»¸öÎÄ±¾¶Î£¬Ã»ÓÐ×ÛºÏ¿¼ÂÇÕâ¸öÎÄ±¾¶ÎÓëÊäÈëÎÄ±¾ÖÐÆäËûÎÄ±¾¶ÎµÄ¹ØÏµ£¬Òò´ËÕâÖÖ·½Ê½¿ÉÄÜ²»ÄÜ¹»ÕÒµ½×î¼ÑµÄ·Ö¸îºÍ±ê×¢·½Ê½¡£Òò´Ë£¬ÎÒÃÇÔÚÖ´ÐÐÃ¿Ò»¸ö¸ÅÂÊ±ê×¢µÄÊ±ºòÐèÒªÕûÌå¿¼ÂÇÕû¸öÎÄ±¾µÄ·Ö¸îºÍ±ê×¢×´Ì¬£¬ÊÂÊµÉÏ£¬ÎÒÃÇÆÚ´ýÈ¥ÕÒµ½Ò»ÖÖ×î¼ÑµÄ±ê×¢·½Ê½À´×î´ó»¯ÕûÌåµÄ±ê×¢¸ÅÂÊÖµµÃ·Ö£¬¶øÕâ¸öµÃ·Ö¾ÍÊÇÊäÈëÎÄ±¾ÖÐËùÓÐÎÄ±¾¶ÎÊôÓÚ¶ÔÓ¦ÊôÐÔµÄ¸ÅÂÊÖ®ºÍ£¬µ«ÊÇÕâ¸ö¹ý³ÌÐèÒª×ñÑ­Ò»¸öÌõ¼þ£¬Õâ¸öÊäÈëÎÄ±¾ÖÐÃ¿¸öÊôÐÔÖµÖ»ÄÜÓÉÎ»ÖÃÁ¬ÐøµÄÎÄ±¾¶Î×é³É£¬ÎÒÃÇ°ÑÕâ¸öÎÊÌâ¶¨ÒåÎª\emph{»ùÓÚCNN·ÖÀà½á¹ûµÄÊÜÏÞÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ð}(Constrained CNN-TesaRec Problem)£º
 
 \begin{definition}
-({\bf Constrained CNN-IETS Problem}) ¸ø¶¨Ä³¸öÁìÓòÊôÐÔ¼¯ $\mathbb{A}$ ÒÔ¼°Ò»¸öÊäÈëÎÄ±¾ $I$ À´×ö·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñ,£¬¼ÙÉè $S(I)=\{s_1, s_2, ..., $ $s_m\}$ ±íÊ¾´Ó $I$ ÖÐ·Ö¸î³öÀ´µÄÎÄ±¾¶Î£¬ ÆäÖÐ $s_1+s_2+...s_m=I$, ²¢ÇÒ $s_i \cap s_j = \emptyset$ ($i \neq j$)£¬
+({\bf Constrained CNN-TesaRec Problem}) ¸ø¶¨Ä³¸öÁìÓòÊôÐÔ¼¯ $\mathbb{A}$ ÒÔ¼°Ò»¸öÊäÈëÎÄ±¾ $I$ À´×öÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðÈÎÎñ,£¬¼ÙÉè $S(I)=\{s_1, s_2, ..., $ $s_m\}$ ±íÊ¾´Ó $I$ ÖÐ·Ö¸î³öÀ´µÄÎÄ±¾¶Î£¬ ÆäÖÐ $s_1+s_2+...s_m=I$, ²¢ÇÒ $s_i \cap s_j = \emptyset$ ($i \neq j$)£¬
 %
 Ã¿Ò»¸öÎÄ±¾¶Î $s_i \in S$ ¶¼ÓÐÒ»×éºòÑ¡ÊôÐÔ±êÇ© $\mathbf{A}_c(s)$£¬Ôò\emph{»ùÓÚCNNµÄÊÜÏÞµÄ·Ö¸îÊ½ÐÅÏ¢³éÈ¡}ÈÎÎñµÄÄ¿µÄÊÇ×î´ó»¯ÏÂÃæÕâ¸ö·½³ÌÊ½£º
 
@@ -149,7 +147,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 \end{definition}
 
-µ«ÊÇ£¬ÕâÖÐ»ùÓÚCNNÄ£ÐÍ½á¹ûµÄÊÜÏÞµÄ·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÎÊÌâ(Constrained CNN-IETS Problem)ÊÇÒ»¸öNP-hardÎÊÌâ£¬ÎÒÃÇ¸ø³öÏÂÃæµÄ¶¨Òå£º
+µ«ÊÇ£¬ÕâÖÐ»ùÓÚCNNÄ£ÐÍ½á¹ûµÄÊÜÏÞµÄ·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÎÊÌâ(Constrained CNN-TesaRec Problem)ÊÇÒ»¸öNP-hard ÎÊÌâ£¬ÎÒÃÇ¸ø³öÏÂÃæµÄ¶¨Òå£º
 
 \begin{theorem}
 \label{theorem:1}
@@ -324,21 +322,21 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \begin{figure*}[!ht]
 \centering
 %mobile
-\subfigure[F-Measure on PersonalBib]{
+\subfigure[ÒýÎÄÊý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_f.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on House]{
+\subfigure[¶þÊÖ·¿Êý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_f.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on Car]{
+\subfigure[¶þÊÖ³µÊý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
@@ -350,28 +348,29 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 
 \begin{figure*}[!ht]
 \centering
-\subfigure[Time Cost on PersonalBib]{
+\subfigure[ÒýÎÄÊý¾Ý¼¯ÉÏµÄÊ±¼ä»¨·Ñ]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_e.pdf}
     \end{minipage}
     }
-\subfigure[Time Cost on House]{
+\subfigure[¶þÊÖ·¿Êý¾Ý¼¯ÉÏµÄÊ±¼ä»¨·Ñ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_e.pdf}
     \end{minipage}
     }
-\subfigure[Time Cost on Car]{
+\subfigure[¶þÊÖ³µÊý¾Ý¼¯ÉÏµÄÊ±¼ä»¨·Ñ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_e.pdf}
     \end{minipage}
     }
-\caption{Evaluating the Effect of Threshold $\theta$ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}
+\caption{ãÐÖµ$\theta$¶Ô³éÈ¡ÖÊÁ¿ºÍÐ§ÂÊµÄÓ°Ïì($\lambda = 0.6$)}
+%\caption{Evaluating the Effect of Threshold $\theta$ to the Extraction Quality and Efficiency ($\lambda = 0.6$)}
 \label{fig:7}
 \end{figure*}
 
@@ -379,34 +378,35 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \begin{figure*}[!ht]
 \centering
 %mobile
-\subfigure[F-Measure on PersonalBib]{
+\subfigure[ÒýÎÄÊý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:a}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/bib_lambda.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on House]{
+\subfigure[¶þÊÖ·¿Êý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/house_lambda.pdf}
     \end{minipage}
     }
-\subfigure[F-Measure on Car]{
+\subfigure[¶þÊÖ³µÊý¾Ý¼¯ÉÏµÄFÖµ]{
     \label{fig:subfig:c}
     \begin{minipage}[h]{0.6\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/chap03/Exp/car_lambda.pdf}
     \end{minipage}
     }
-\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
+\caption{ãÐÖµ$\lambda$¶Ô³éÈ¡ÖÊÁ¿µÄÓ°Ïì($\theta = 0.9$)}
+%\caption{Evaluating the Effect of Threshold $\lambda$ to the Extraction Quality ($\theta = 0.9$)}
 \label{fig:8}
 \end{figure*}
 
 
 \subsection{ÓëÆäËû·½·¨µÄ±È½Ï}
-ÎÒÃÇ±È½ÏÁËÎÒÃÇµÄ·½·¨(CNN-IETS)µÄ³éÈ¡ÖÊÁ¿ÓëÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×î¼ÑµÄ·½·¨µÄ³éÈ¡ÖÊÁ¿£¬ÎªÁË¹«Æ½µÄ±È½Ï£¬¶ÔÓÚÃ¿¸öÊý¾Ý¼¯ÉÏµÄÃ¿¸ö·½·¨£¬ÎÒÃÇ¶¼½«ËûÃÇµ÷Õû³É¾ßÓÐ×î¼ÑµÄ³éÈ¡±íÏÖ¡£
+ÎÒÃÇ±È½ÏÁËÎÒÃÇµÄ·½·¨(CNN-TesaRec)µÄ³éÈ¡ÖÊÁ¿ÓëÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×î¼ÑµÄ·½·¨µÄ³éÈ¡ÖÊÁ¿£¬ÎªÁË¹«Æ½µÄ±È½Ï£¬¶ÔÓÚÃ¿¸öÊý¾Ý¼¯ÉÏµÄÃ¿¸ö·½·¨£¬ÎÒÃÇ¶¼½«ËûÃÇµ÷Õû³É¾ßÓÐ×î¼ÑµÄ³éÈ¡±íÏÖ¡£
 
 \vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
@@ -414,7 +414,7 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \item »ùÓÚCRFµÄ¼à¶½Ê½Ä£ÐÍ ({\bf CRF}): ÕâÊÇÄ¿Ç°±íÏÖ×î¼ÑµÄÒ»ÖÖ»ùÓÚÒþÂí¶û¿Æ·òÄ£ÐÍ(CRF)
 µÄ¼à¶½Ê½ÐÅÏ¢³éÈ¡·½·¨~\cite{lafferty2001conditional}£¬ÎÒÃÇ¹¹½¨CRFÄ£ÐÍËùÊ¹ÓÃµÄÌØÕ÷°üÀ¨ÎÄ±¾×ÔÉíÌØÕ÷£¬Ä£ÐÍ²¼¾ÖÌØÕ÷£¬Íâ²¿´ÊµäÔ´£¬ÎÄÕÂ~\cite{peng2006information}ÖÐÓÐÐÅÏ¢µÄËµÃ÷¡£ÕâÐ©ÌØÕ÷Ò²±»¿´×öÊÇÒ»ÖÖ±ê×¼µÄÌØÕ÷¡£
 
-\item ·Ç¼à¶½Ê½ONDUX·½·¨ (\noindent {\bf ONDUX}): ONDUX~\cite{cortez2010ondux} ÊÇÄ¿Ç°·Ö¸îÊ½ÐÅÏ¢³éÈ¡ÈÎÎñÖÐ²ÉÓÃ·Ç¼à¶½Ê½·½·¨±íÏÖ×î¼ÑµÄÒ»ÖÖ·½·¨¡£ÕâÖÖ·½·¨Ê×ÏÈ½«¸ù¾ÝÒ»¸öÖªÊ¶¿â£¬½«ÊäÈëÎÄ±¾´ÖÂÔµÄ·Ö¸î³ÉÈô¸É¸öÎÄ±¾¿é£¬Ã¿Ò»¸öÎÄ±¾¿éÊÇ¿ÉÄÜ×é³ÉÒ»¸öÊôÐÔÖµµÄÒ»×é´ÊÓï£¬È»ºóÍ¨¹ýÒ»×éÌØ¶¨µÄÆ¥Åäº¯Êý£¬½«ÕâÐ©ÎÄ±¾¿éÓëÒÑÖªµÄÊôÐÔ½øÐÐÆ¥Åä¡£ÎªÁË±È½ÏµÄ¹«Æ½£¬ÕâÖÖONDUX·½·¨ÓëÎÒÃÇµÄ·½·¨(CNN-IETS)Ê¹ÓÃÍ¬Ò»¸öÖªÊ¶¿â(KB)¡£
+\item ·Ç¼à¶½Ê½ONDUX·½·¨ (\noindent {\bf ONDUX}): ONDUX~\cite{cortez2010ondux} ÊÇÄ¿Ç°ÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ðÈÎÎñÖÐ²ÉÓÃ·Ç¼à¶½Ê½·½·¨±íÏÖ×î¼ÑµÄÒ»ÖÖ·½·¨¡£ÕâÖÖ·½·¨Ê×ÏÈ½«¸ù¾ÝÒ»¸öÖªÊ¶¿â£¬½«ÊäÈëÎÄ±¾´ÖÂÔµÄ·Ö¸î³ÉÈô¸É¸öÎÄ±¾¿é£¬Ã¿Ò»¸öÎÄ±¾¿éÊÇ¿ÉÄÜ×é³ÉÒ»¸öÊôÐÔÖµµÄÒ»×é´ÊÓï£¬È»ºóÍ¨¹ýÒ»×éÌØ¶¨µÄÆ¥Åäº¯Êý£¬½«ÕâÐ©ÎÄ±¾¿éÓëÒÑÖªµÄÊôÐÔ½øÐÐÆ¥Åä¡£ÎªÁË±È½ÏµÄ¹«Æ½£¬ÕâÖÖONDUX·½·¨ÓëÎÒÃÇµÄ·½·¨(CNN-TesaRec)Ê¹ÓÃÍ¬Ò»¸öÖªÊ¶¿â(KB)¡£
 \end{enumerate}
 
 
@@ -422,11 +422,11 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \centering
 \large
 %\caption{Comparing the Extraction Quality on PersonalBib}
-\topcaption{Comparing the Extraction Quality on PersonalBib}
+\topcaption{ÔÚÒýÎÄÊý¾Ý¼¯ÉÏ³éÈ¡ÖÊÁ¿µÄ±È½Ï}
 \label{table:1}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Title & 0.829 & 0.781 & {\bf 0.833} \\ \hline
 Author & 0.856 & {\bf 0.861}  & 0.859 \\ \hline
 Journal & 0.772 & 0.803 & {\bf 0.932} \\ \hline
@@ -442,11 +442,11 @@ Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
 \centering
 \large
 %\caption{Comparing the Extraction Quality on House}
-\topcaption{Comparing the Extraction Quality on House}
+\topcaption{ÔÚ¶þÊÖ·¿Êý¾Ý¼¯ÉÏ³éÈ¡ÖÊÁ¿µÄ±È½Ï}
 \label{table:2}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Name  & 0.894 & 0.867 &  {\bf 0.977} \\ \hline
 Publish-time & 0.829 & 0.880 & {\bf 0.985} \\ \hline
 Price  & 0.846 & 0.877 &  {\bf 0.985}  \\ \hline
@@ -465,11 +465,11 @@ Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
 \centering
 \large
 %\caption{Comparing the Extraction Quality on Car}
-\topcaption{Comparing the Extraction Quality on Car}
+\topcaption{ÔÚ¶þÊÖ³µÊý¾Ý¼¯ÉÏ³éÈ¡ÖÊÁ¿µÄ±È½Ï}
 \label{table:3}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Attribute & CRF & ONDUX & CNN-IETS \\ \hline
+Attribute & CRF & ONDUX & CNN-TesaRec \\ \hline
 Brand & 0.844 & 0.857 &  {\bf 0.972} \\ \hline
 Price & 0.794 & 0.890 & {\bf 1.000} \\ \hline
 Transmission & 0.825 & 0.872 & {\bf 1.000} \\ \hline
@@ -485,10 +485,10 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 
 
 \noindent {\bf ³éÈ¡ÖÊÁ¿µÄ±È½Ï}:
-ÎÒÃÇÔÚÈý¸öÊý¾Ý¼¯ÖÐ±È½ÏÁËÕâÈýÖÖ·½·¨µÄ³éÈ¡ÖÊÁ¿£¬ÎªÁËÈ«ÃæµÄ±È½Ï£¬ÎÒÃÇ²»½ö±È½Ï¸÷¸öÊôÐÔµÄFÖµµÃ·Ö£¬Ò²±È½ÏÁËÔÚÃ¿¸öÊý¾Ý¼¯ÉÏËùÓÐÊôÐÔµÄÆ½¾ùFÖµµÃ·Ö¡£ÎÒÃÇ´Ó±í~\ref{table:1}£¬±í~\ref{table:2} ºÍ±í~\ref{table:3}ÖÐ¿ÉÒÔ¿´µ½£¬ÎÒÃÇµÄ·½·¨ÔÚÈý¸öÊý¾Ý¼¯µÄ¼¸ºõËùÓÐÊôÐÔÉÏµÄ±íÏÖ¶¼ºÃÓÚÁíÍâÁ½ÖÖ·½·¨¡£ÕûÌåÀ´½²£¬ÎÒÃÇµÄ·½·¨(CNN-IETS)Ïà±È½ÏÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×îºÃµÄ·½·¨(CRF£¬ ONDUX)£¬ÔÚÈý¸öÊý¾Ý¼¯ÉÏ£¬³éÈ¡ÖÊÁ¿Æ½¾ùÌáÉýÁË³¬¹ý10\%¡£
+ÎÒÃÇÔÚÈý¸öÊý¾Ý¼¯ÖÐ±È½ÏÁËÕâÈýÖÖ·½·¨µÄ³éÈ¡ÖÊÁ¿£¬ÎªÁËÈ«ÃæµÄ±È½Ï£¬ÎÒÃÇ²»½ö±È½Ï¸÷¸öÊôÐÔµÄFÖµµÃ·Ö£¬Ò²±È½ÏÁËÔÚÃ¿¸öÊý¾Ý¼¯ÉÏËùÓÐÊôÐÔµÄÆ½¾ùFÖµµÃ·Ö¡£ÎÒÃÇ´Ó±í~\ref{table:1}£¬±í~\ref{table:2} ºÍ±í~\ref{table:3}ÖÐ¿ÉÒÔ¿´µ½£¬ÎÒÃÇµÄ·½·¨ÔÚÈý¸öÊý¾Ý¼¯µÄ¼¸ºõËùÓÐÊôÐÔÉÏµÄ±íÏÖ¶¼ºÃÓÚÁíÍâÁ½ÖÖ·½·¨¡£ÕûÌåÀ´½²£¬ÎÒÃÇµÄ·½·¨(CNN-TesaRec)Ïà±È½ÏÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×îºÃµÄ·½·¨(CRF£¬ ONDUX)£¬ÔÚÈý¸öÊý¾Ý¼¯ÉÏ£¬³éÈ¡ÖÊÁ¿Æ½¾ùÌáÉýÁË³¬¹ý10\%¡£
 
 \noindent {\bf ³éÈ¡Ð§ÂÊµÄ±È½Ï}:
-ÎÒÃÇÁíÍâ±È½ÏÁËÊ¹ÓÃÕâÈýÖÖ·½·¨À´³éÈ¡Ò»ÌõÎÄ±¾Ëù»¨·ÑµÄÆ½¾ùÊ±¼ä£¬´Ó±í~\ref{table:4}ÖÐ¿ÉÒÔ¿´µ½£¬Ïà±È½ÏONDUXºÍCNN-IETS£¬»ùÓÚCRFµÄ·½·¨»¨·ÑÁË¸ü¶àµÄÊ±¼äÀ´ÑµÁ·×Ô¼ºµÄÄ£ÐÍ¡£¾¡¹Ü£¬ÎÒÃÇµÄ·½·¨(CNN-IETS)Ò²ÐèÒªÑµÁ·CNNÄ£ÐÍ£¬µ«ÊÇÕâ¸öÑµÁ·µÄ¹ý³Ì¿ÉÒÔÊ¹ÓÃÒÑ¾­´æÔÚµÄÖªÊ¶¿âÔÚÏßÏÂÀ´ÔËÐÐ£¬Òò´ËÎÒÃÇµÄ·½·¨¸úONDEX·½·¨ÔÚ×öÏßÉÏµÄÐÅÏ¢³éÈ¡Ê±Ëù»¨·ÑµÄÊ±¼ä²î²»¶à¡£
+ÎÒÃÇÁíÍâ±È½ÏÁËÊ¹ÓÃÕâÈýÖÖ·½·¨À´³éÈ¡Ò»ÌõÎÄ±¾Ëù»¨·ÑµÄÆ½¾ùÊ±¼ä£¬´Ó±í~\ref{table:4}ÖÐ¿ÉÒÔ¿´µ½£¬Ïà±È½ÏONDUXºÍCNN-TesaRec£¬»ùÓÚCRFµÄ·½·¨»¨·ÑÁË¸ü¶àµÄÊ±¼äÀ´ÑµÁ·×Ô¼ºµÄÄ£ÐÍ¡£¾¡¹Ü£¬ÎÒÃÇµÄ·½·¨(CNN-TesaRec)Ò²ÐèÒªÑµÁ·CNNÄ£ÐÍ£¬µ«ÊÇÕâ¸öÑµÁ·µÄ¹ý³Ì¿ÉÒÔÊ¹ÓÃÒÑ¾­´æÔÚµÄÖªÊ¶¿âÔÚÏßÏÂÀ´ÔËÐÐ£¬Òò´ËÎÒÃÇµÄ·½·¨¸úONDEX ·½·¨ÔÚ×öÏßÉÏµÄÐÅÏ¢³éÈ¡Ê±Ëù»¨·ÑµÄÊ±¼ä²î²»¶à¡£
 
 \begin{table}%[!hbp]
 \centering
@@ -498,7 +498,7 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 \label{table:5}
 \begin{tabular}{| l | c | c | c |}
 \hline
-Dataset & CRF & ONDUX & CNN-IETS \\ \hline
+Dataset & CRF & ONDUX & CNN-TesaRec \\ \hline
 PersonalBib & 2350ms & 190ms &  150ms \\ \hline
 House & 4670ms & 380ms & 340ms \\ \hline
 Car & 3780ms & 200ms & 210ms \\ \hline
@@ -508,7 +508,7 @@ Car & 3780ms & 200ms & 210ms \\ \hline
 
 
 \noindent {\bf ÖªÊ¶¿â(KB)µÄ¸²¸ÇÂÊ¶Ô³éÈ¡ÖÊÁ¿µÄ±È½Ï}:
-ÒòÎªONDUX·½·¨ºÍÎÒÃÇµÄ·½·¨¶¼ÐèÒªÊ¹ÓÃÒ»¸öÊÂÏÈ¹¹½¨ºÃµÄÖªÊ¶¿âÓÃÀ´Àí½âÊäÈëÎÄ±¾µÄ½á¹¹ÌØÕ÷£¬Òò´Ë£¬ÖªÊ¶¿âÔÚ²âÊÔ¼¯ÖÐÊôÐÔÖµµÄ¸²¸ÇÂÊ¶Ô³éÈ¡ÖÊÁ¿ÓÐ·Ç³£´óµÄÓ°Ïì¡£¾­¹ýÊÔÑé£¬ÎÒÃÇµÃ³ö½áÂÛ£¬Ïà±È½ÏONDEXµÄ·½·¨£¬ÎÒÃÇµÄCNN-IETS·½·¨¶ÔÖªÊ¶¿â¸²¸ÇÂÊµÄÒªÇó¸üµÍ¡£´ÓÍ¼~\ref{fig:9}(a)ÖÐ¿ÉÒÔ¿´µ½£¬µ±ÖªÊ¶¿âµÄ¸²¸ÇÂÊ´Ó $0.1$ Ôö¼Óµ½ $0.6$ £¬ÔÚÒýÎÄÊý¾Ý¼¯ÉÏ£¬CNN-IETS·½·¨µÄ³éÈ¡ÖÊÁ¿´Ó $0.874$ »ºÂýµØÔö¼Óµ½ $0.929$ £¬¶øONDEX·½·¨µÄ³éÈ¡ÖÊÁ¿¼±¾çµÄ´Ó $0.704$ Ôö¼Óµ½ $0.810$ ¡£ÁíÍâ£¬²»¹ÜÖªÊ¶¿âµÄ¸²¸ÇÂÊÊÇ¶àÉÙ£¬ÎÒÃÇµÄCNN-IETS·½·¨µÄ±íÏÖ¶¼ÒªºÃÓÚONDEX·½·¨¡£´ÓÍ¼~\ref{fig:9}(b)ºÍÍ¼~\ref{fig:9}(c)ÖÐÎÒÃÇ¿ÉÒÔ·¢ÏÖÏàÍ¬µÄÏÖÏó£¬Õâ¾ÍÖ¤Ã÷ÁË£¬ÎÒÃÇµÄ·½·¨Ïà±È½ÏONDEX ·½·¨¶ÔÖªÊ¶¿â¸²¸ÇÂÊµÄÒÀÀµ¸üµÍ¡£
+ÒòÎªONDUX·½·¨ºÍÎÒÃÇµÄ·½·¨¶¼ÐèÒªÊ¹ÓÃÒ»¸öÊÂÏÈ¹¹½¨ºÃµÄÖªÊ¶¿âÓÃÀ´Àí½âÊäÈëÎÄ±¾µÄ½á¹¹ÌØÕ÷£¬Òò´Ë£¬ÖªÊ¶¿âÔÚ²âÊÔ¼¯ÖÐÊôÐÔÖµµÄ¸²¸ÇÂÊ¶Ô³éÈ¡ÖÊÁ¿ÓÐ·Ç³£´óµÄÓ°Ïì¡£¾­¹ýÊÔÑé£¬ÎÒÃÇµÃ³ö½áÂÛ£¬Ïà±È½ÏONDEXµÄ·½·¨£¬ÎÒÃÇµÄ CNN-TesaRec ·½·¨¶ÔÖªÊ¶¿â¸²¸ÇÂÊµÄÒªÇó¸üµÍ¡£´ÓÍ¼~\ref{fig:9}(a)ÖÐ¿ÉÒÔ¿´µ½£¬µ±ÖªÊ¶¿âµÄ¸²¸ÇÂÊ´Ó $0.1$ Ôö¼Óµ½ $0.6$ £¬ÔÚÒýÎÄÊý¾Ý¼¯ÉÏ£¬CNN-TesaRec ·½·¨µÄ³éÈ¡ÖÊÁ¿´Ó $0.874$ »ºÂýµØÔö¼Óµ½ $0.929$ £¬¶øONDEX·½·¨µÄ³éÈ¡ÖÊÁ¿¼±¾çµÄ´Ó $0.704$ Ôö¼Óµ½ $0.810$ ¡£ÁíÍâ£¬²»¹ÜÖªÊ¶¿âµÄ¸²¸ÇÂÊÊÇ¶àÉÙ£¬ÎÒÃÇµÄCNN-TesaRec·½·¨µÄ±íÏÖ¶¼ÒªºÃÓÚONDEX·½·¨¡£´ÓÍ¼~\ref{fig:9}(b)ºÍÍ¼~\ref{fig:9}(c)ÖÐÎÒÃÇ¿ÉÒÔ·¢ÏÖÏàÍ¬µÄÏÖÏó£¬Õâ¾ÍÖ¤Ã÷ÁË£¬ÎÒÃÇµÄ·½·¨Ïà±È½ÏONDEX ·½·¨¶ÔÖªÊ¶¿â¸²¸ÇÂÊµÄÒÀÀµ¸üµÍ¡£
 
 
 \subsection{BPSMÐ§¹ûµÄÑéÖ¤}
@@ -535,6 +535,6 @@ Car & 0.897 & 0.932 & {\bf 0.968} \\ \hline
 
 \section{±¾ÕÂÐ¡½á}
 
-±¾ÕÂ£¬ÎÒÃÇ¸ø³öÁË·Ö¸îÊ½ÐÅÏ¢³éÈ¡(IETS)µÄÕýÊ½¶¨Òå£¬½éÉÜÁËÖªÊ¶¿âµÄ¹¹½¨£¬²¢ÏêÏ¸½éÉÜÁË±¾ÎÄÌá³öµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨µÄÃ¿Ò»²¿·Ö£¬×îºóÎÒÃÇÔÚÈý¸öÊý¾Ý¼¯ÉÏÓëÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×î¼ÑµÄ·½·¨×öÁË³ä·ÖµÄ¶Ô±ÈÊµÑé£¬¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûºÍ·ÖÎö£¬×îÖÕµÃµ½½áÂÛ£¬ÎÄ±¾Ìá³öµÄ·½·¨²»½öÔÚ³éÈ¡ÖÊÁ¿»¹ÊÇÔÚ³éÈ¡Ð§ÂÊÉÏ¶¼Ã÷ÏÔºÃÓÚÆäËû·½·¨¡£
+±¾ÕÂ£¬ÎÒÃÇ¸ø³öÁËÎÄ±¾¼ÇÂ¼·Ö¸îÓëÃüÃûÊôÐÔÖµÊ¶±ð(TesaRec)µÄÕýÊ½¶¨Òå£¬½éÉÜÁËÖªÊ¶¿âµÄ¹¹½¨£¬²¢ÏêÏ¸½éÉÜÁË±¾ÎÄÌá³öµÄ»ùÓÚ¾í»ýÉñ¾­ÍøÂçµÄÌ°À·Ê½¸ÅÂÊ±ê×¢Ëã·¨µÄÃ¿Ò»²¿·Ö£¬×îºóÎÒÃÇÔÚÈý¸öÊý¾Ý¼¯ÉÏÓëÁíÍâÁ½ÖÖÄ¿Ç°±íÏÖ×î¼ÑµÄ·½·¨×öÁË³ä·ÖµÄ¶Ô±ÈÊµÑé£¬¸ø³öÁËÏêÏ¸µÄÊµÑé½á¹ûºÍ·ÖÎö£¬×îÖÕµÃµ½½áÂÛ£¬ÎÄ±¾Ìá³öµÄ·½·¨²»½öÔÚ³éÈ¡ÖÊÁ¿»¹ÊÇÔÚ³éÈ¡Ð§ÂÊÉÏ¶¼Ã÷ÏÔºÃÓÚÆäËû·½·¨¡£
 
 

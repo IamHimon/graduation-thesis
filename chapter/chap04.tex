@@ -26,7 +26,7 @@
 
 
   \item \textit{正则化:} 我们使用两种正则化策略，一个是 $dropout$ ，一个 $l2$ 正则。我们使用了文章~\cite{zhang2015sensitivity}中相同的办法来寻找最佳的值，通过实验，我们得到图~\ref{table:6}中的结果。其实，正则化对于模型的影响非常小，我们比较不同正则化值得区别也非常小。这可能是因为，我们的模型只是一个交浅层的网络，模型复杂度不高，所以正则化的作用便没有那么明显。同时，我们也尝试在我们的模型中加入 $batch \; normalization$ 的技巧 \cite{ioffe2015batch}，发现并不会对模型的表现起到明显的帮助，只是稍微缩减了一点模型的训练时间。在 $Tensorflow$ 中，我们可以直接调用高度抽象的函数 $batch \; normalization$ 来实现。在试验中，$dropout$ 值的选择空间设定为： $[0.1,0.2,0.3,0.4,0.5]$， $l2$ 中的正则阈值选择空间设定为： $[3, 5,10,20,30,40, 50]$ 。
-      
+
   \item \textit{$batch \;size$:} batch size的选择是一个需要权衡的考虑，没有固定的选择策略。在我们的模型中，选择设定 $batch \;size$ 为64。
 \end{enumerate}
 
@@ -85,15 +85,15 @@
   \centering
   \subfigure[设定模型参数]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/set_model_para.png}
+    \includegraphics[width=3.5in]{../figures/chap04/set_model_para.png}
   }
   \subfigure[加载知识库]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/load_kb.png}
+    \includegraphics[width=3.5in]{../figures/chap04/load_kb.png}
   }
   \subfigure[训练模型]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/train_model.png}
+    \includegraphics[width=3.5in]{../figures/chap04/train_model.png}
   }
   \caption{模型初始化与训练}
   \label{fig:model_set_train} %% label for entire figure
@@ -104,20 +104,20 @@
   \centering
   \subfigure[segment]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/segment-one.png}
+    \includegraphics[width=3.4in]{../figures/chap04/segment-one.png}
   }
   \subfigure[cnn-label]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-one.png}
+    \includegraphics[width=3.5in]{../figures/chap04/cnn-label-one.png}
   }
 
   \subfigure[amendment]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/amendment-one.png}
+    \includegraphics[width=3.5in]{../figures/chap04/amendment-one.png}
   }
   \subfigure[BPSM]{
     %\label{fig:subfig:b} %% label for second subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/BPSM-one.png}
+    \includegraphics[width=3.5in]{../figures/chap04/BPSM-one.png}
   }
   \caption{输入一条记录}
   \label{fig:one_record} %% label for entire figure
@@ -128,20 +128,20 @@
   \centering
   \subfigure[segment]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/segment-mul.png}
+    \includegraphics[width=3.5in]{../figures/chap04/segment-mul.png}
   }
   \subfigure[cnn-label]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/cnn-label-mul.png}
+    \includegraphics[width=3.5in]{../figures/chap04/cnn-label-mul.png}
   }
 
   \subfigure[amendment]{
     %\label{fig:subfig:a} %% label for first subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/amendment-mul.png}
+    \includegraphics[width=3.5in]{../figures/chap04/amendment-mul.png}
   }
   \subfigure[BPSM]{
     %\label{fig:subfig:b} %% label for second subfigure
-    \includegraphics[width=2.5in]{../figures/chap04/BPSM-mul.png}
+    \includegraphics[width=3.5in]{../figures/chap04/BPSM-mul.png}
   }
   \caption{输入一个文件}
   \label{fig:mul_record} %% label for entire figure

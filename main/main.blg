@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: main.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: sudabst.bst
 inproceedings is already a type "wizard-defined" function name
 ---line 893 of file sudabst.bst
@@ -19,11 +17,11 @@ Repeated entry---line 445 of file ../bib/mybib.bib
  : @inproceedings{toda2009automatically
  :                                     ,
 I'm skipping whatever remains of this entry
+Warning--empty journal in lafferty2001conditional
 You can't pop an empty literal stack for entry cortez2010ondux
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry borkar2001automatic
 while executing---line 1050 of file sudabst.bst
-Warning--empty journal in lafferty2001conditional
 You can't pop an empty literal stack for entry agichtein2004mining
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry mansuri2006integrating
@@ -42,45 +40,4 @@ You can't pop an empty literal stack for entry li2009extracting
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry buttler2001fully
 while executing---line 1050 of file sudabst.bst
-You've used 51 entries,
-            1981 wiz_defined-function locations,
-            765 strings with 13794 characters,
-and the built_in function-call counts, 11631 in all, are:
-= -- 1020
-> -- 668
-< -- 2
-+ -- 241
-- -- 190
-* -- 868
-:= -- 1932
-add.period$ -- 153
-call.type$ -- 51
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 373
-empty$ -- 1066
-format.name$ -- 190
-if$ -- 2525
-int.to.chr$ -- 0
-int.to.str$ -- 51
-missing$ -- 54
-newline$ -- 258
-num.names$ -- 51
-pop$ -- 92
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 174
-stack$ -- 0
-substring$ -- 916
-swap$ -- 16
-text.length$ -- 2
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 1
-while$ -- 122
-width$ -- 53
-write$ -- 509
 (There were 15 error messages)
