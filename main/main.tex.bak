@@ -50,7 +50,7 @@
 %\titleformat{command}[shape]{format}{label}{sep}{before}[after]%标题格式
 % 参考文献上标格式定义
 \newcommand{\ucite}[1]{\textsuperscript{\cite{#1}}}
-            
+    
 
 %---------------------------------------------------
 % 代码部分
