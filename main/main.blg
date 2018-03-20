@@ -20,8 +20,6 @@ I'm skipping whatever remains of this entry
 Warning--empty journal in lafferty2001conditional
 You can't pop an empty literal stack for entry cortez2010ondux
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry borkar2001automatic
-while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry agichtein2004mining
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry mansuri2006integrating
@@ -29,6 +27,8 @@ while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry zhao2008exploiting
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry cortez2007flux
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry borkar2001automatic
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry pearl2014probabilistic
 while executing---line 1050 of file sudabst.bst

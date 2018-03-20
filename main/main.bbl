@@ -128,12 +128,6 @@ Suncong Zheng, Yuexing Hao, Dongyuan Lu, Hongyun Bao, Jiaming Xu, Hongwei Hao
   [J].
 \newblock Neurocomputing, 2017, 257: 59--66.
 
-\bibitem{borkar2001automatic}
-Vinayak Borkar, Kaustubh Deshmukh and Sunita Sarawagi.
-\newblock
-\newblock Automatic segmentation of text into structured records [A]. ACM
-  SIGMOD Record [C]. ACM, 2001: 175--186.
-
 \bibitem{agichtein2004mining}
 Eugene Agichtein and Venkatesh Ganti.
 \newblock
@@ -175,6 +169,12 @@ MUNEEB TH, Sunil Sahu and Ashish Anand.
 \newblock Evaluating distributed word representations for capturing semantics
   of biomedical concepts [J].
 \newblock Proceedings of BioNLP 15, 2015, : 158--163.
+
+\bibitem{borkar2001automatic}
+Vinayak Borkar, Kaustubh Deshmukh and Sunita Sarawagi.
+\newblock
+\newblock Automatic segmentation of text into structured records [A]. ACM
+  SIGMOD Record [C]. ACM, 2001: 175--186.
 
 \bibitem{sarawagi2008information}
 Sunita Sarawagi et~al.

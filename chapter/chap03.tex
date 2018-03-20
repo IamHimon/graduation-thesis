@@ -261,20 +261,26 @@ ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segmen
 
 根据基于CNN模型的标注结果，我们使用概率矩阵 $TF$ ， $BT$ ，$P$ 来最大化输入文本中属性值出现的序列和位置概率和，这种方式遵循了最大化概率方式（Maximum Likelihood approach），通常被用来训练图相关的模型~\cite{borkar2001automatic, sarawagi2008information}。在实际操作中，构建矩阵 $TF$ ， $BT$ ，$PS$  需要在基于CNN模型的标注结果上执行单趟的观察。这里注意，漏标注的文本段（mis-matching）在构建矩阵的时候是被自动忽略的，虽然构建矩阵时也可以加上这些漏标注文本段的数量，但这可能会刻画出谬误的转移。此外，在我们的实验中发现，基于CNN模型的标注结果中产生的漏标注文本段的数量本身是非常少的，因此我们不必考虑这些漏标注的文本段，它们也不会对整体的修正起到很大的影响。
 
-图~\ref{chap:chap03:fig:forwardpsm} 和 图~\ref{chap:chap03:fig:backwardpsm} 展示了我们使用二手车数据集构建的BPSM模型，我们可以发现，这个模型不仅可以表示分配给文本段的属性序列相关的信息，也可以表示输入文本中位置相关的信息。例如，在这个数据集中，输入文本第一个属性值相比为‘Color’的属性值，更倾向于是为‘Brand’的属性值，还有，为‘Engine’的属性值出现在为‘Price’的属性值后面的概率会更大。这些信息都是对输入文本结构相关信息的描述。当构建好了BPSM模型，我们便可以用这些估计出来的概率值来优化标注结果了。
+图~\ref{fig:BPSM}(a)(b)展示了我们使用二手车数据集构建的BPSM模型，我们可以发现，这个模型不仅可以表示分配给文本段的属性序列相关的信息，也可以表示输入文本中位置相关的信息。例如，在这个数据集中，输入文本第一个属性值相比为‘Color’的属性值，更倾向于是为‘Brand’的属性值，还有，为‘Engine’的属性值出现在为‘Price’的属性值后面的概率会更大。这些信息都是对输入文本结构相关信息的描述。当构建好了BPSM模型，我们便可以用这些估计出来的概率值来优化标注结果了。
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{../figures/chap03/forwardpsm.pdf}\\
-  \smallcaption{CAR数据集上产生的BPSM例子-前向和位置}
-  \label{chap:chap03:fig:forwardpsm}
-\end{figure}
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.6\textwidth]{../figures/chap03/backwardpsm.pdf}\\
-  \smallcaption{CAR数据集上产生的BPSM例子-后向和位置}
-  \label{chap:chap03:fig:backwardpsm}
+\begin{figure}
+\setlength{\abovecaptionskip}{0.cm}
+\setlength{\belowcaptionskip}{-0.cm}
+\subfigure[前向模型]{
+    \label{fig:subfig:a}
+    \begin{minipage}[h]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/forwardpsm.pdf}
+    \end{minipage}}
+\subfigure[后向模型]{
+    \label{fig:subfig:c}
+    \begin{minipage}[h]{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/chap03/backwardpsm.pdf}
+    \end{minipage}
+    }
+\caption{二手车数据集上产生的BPSM}
+\label{fig:BPSM}
 \end{figure}
 
 
