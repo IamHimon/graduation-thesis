@@ -8,17 +8,39 @@ inproceedings is already a type "wizard-defined" function name
  :     
  :     }
 (Error may have been on previous line)
-Database file #1: ../bib/mybib.bib
-Repeated entry---line 434 of file ../bib/mybib.bib
- : @article{mesquita2007labrador
- :                              ,
+Database file #1: ../bib/new_mybib.bib
+I was expecting a `,' or a `}'---line 82 of file ../bib/new_mybib.bib
+ :   
+ :   organization={NIPS},
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Repeated entry---line 445 of file ../bib/mybib.bib
+I was expecting a `,' or a `}'---line 172 of file ../bib/new_mybib.bib
+ :   
+ :   organization={ACM},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 232 of file ../bib/new_mybib.bib
  : @inproceedings{toda2009automatically
  :                                     ,
 I'm skipping whatever remains of this entry
-Warning--empty journal in lafferty2001conditional
+Repeated entry---line 471 of file ../bib/new_mybib.bib
+ : @article{mesquita2007labrador
+ :                              ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 485 of file ../bib/new_mybib.bib
+ :   
+ :   year={2014},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I'm ignoring cortez2013unsupervised's extra "year" field
+--line 493 of file ../bib/new_mybib.bib
+You can't pop an empty literal stack for entry lafferty2001conditional
+while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry cortez2010ondux
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry toda2009automatically
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry kumar2016ask
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry agichtein2004mining
 while executing---line 1050 of file sudabst.bst
@@ -32,12 +54,25 @@ You can't pop an empty literal stack for entry borkar2001automatic
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry pearl2014probabilistic
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry cortez2013unsupervised
+Warning--empty year in pearl2014probabilistic
+You can't pop an empty literal stack for entry ioffe2015batch
 while executing---line 1050 of file sudabst.bst
-You can't pop an empty literal stack for entry pearl1988Probabilistic
+You can't pop an empty literal stack for entry kristjansson2004interactive
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry chaudhuri2003automated
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry chiang2012autodict
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry collobert2008unified
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry chuang2007context
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry li2009extracting
 while executing---line 1050 of file sudabst.bst
 You can't pop an empty literal stack for entry buttler2001fully
 while executing---line 1050 of file sudabst.bst
-(There were 15 error messages)
+You can't pop an empty literal stack for entry cortez2013unsupervised
+while executing---line 1050 of file sudabst.bst
+You can't pop an empty literal stack for entry pearl1988Probabilistic
+while executing---line 1050 of file sudabst.bst
+(There were 27 error messages)

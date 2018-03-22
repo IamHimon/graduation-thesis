@@ -48,9 +48,9 @@
 \renewcommand{\captionfont}{\heiti}%图表标题使用黑体，大小与图表中文字同字号
 \renewcommand{\captionlabelfont}{\heiti}
 %\titleformat{command}[shape]{format}{label}{sep}{before}[after]%标题格式
-% 参考文献上标格式定义
+% 参考文献上标格式定 义
 \newcommand{\ucite}[1]{\textsuperscript{\cite{#1}}}
-            
+
 
 %---------------------------------------------------
 % 代码部分
@@ -160,7 +160,7 @@
   \mbox{}
   % 目录
   \setContentsStyle
-  \tableofcontents      
+  \tableofcontents
   % 插图目录
   % \listoffigures
   % 表格目录
@@ -204,7 +204,8 @@
   \kaishu
 
   \bibliographystyle{sudabst}
-  \bibliography{../bib/mybib}
+  %\bibliography{../bib/mybib}
+  \bibliography{../bib/new_mybib}
   %下面一句作用：列出所有参考文献，即使没有引用
   \nocite{*}
   \songti

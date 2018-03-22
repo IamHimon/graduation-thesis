@@ -1,21 +1,19 @@
 
-
 % 修改表格与表头的间隔
-\newcommand{\topcaption}{%
-\setlength{\abovecaptionskip}{0pt}%
-\setlength{\belowcaptionskip}{8pt}%
-\caption}   % 表格上标题修改
+%\newcommand{\topcaption}{%
+%\setlength{\abovecaptionskip}{0pt}%
+%\setlength{\belowcaptionskip}{8pt}%
+%\caption}   % 表格上标题修改
 
 \chapter{CNN-TesaRec 算法}
 \label{chap:chap03}
 本章首先给出基于卷积神经网络的文本记录分割与命名属性值识别算法(简称为 $CNN-TesaRec$ )的概述。然后给出了文本记录分割与命名属性值识别( $TesaRec$ )的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
 
-
 \section{算法概述}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.8\textwidth]{../figures/chap03/framework.pdf}\\
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/framework.pdf}\\
   \smallcaption{模型的整体结构}
   \label{chap:chap03:fig:framework}
 \end{figure}
@@ -30,7 +28,7 @@
 在这一节，我们首先给出文本记录分割与命名属性值识别任务的定义，然后详细介绍借助知识库和CNN构建的文本记录分割与命名属性值识别算法(CNN-TesaRec)。
 
 \begin{definition}
-{\bf (文本记录分割与命名属性值识别(TesaTec))}
+{\bf (文本记录分割与命名属性值识别(TesaRec))}
 对于某个领域的属性集 $\mathbb{A}$, 假设输入文本 $I$ 包含了一些属性集 $\; \mathbb{A}$ 中的属性值, 文本记录分割与命名属性值识别任务的目的是分割 $I$ 成一系列的文本段 $S=\{s_1, s_2, ..., s_m\}$, 然后使用属性值 $A_i \in \mathbb{A}$ 来标注每一个文本段 $s_i$ ($1\leq i \leq m$)，这里 $s_i$ 是属性 $A_i$ 中的一个属性值.
 \end{definition}
 
@@ -42,13 +40,6 @@
   \includegraphics[width=0.8\textwidth]{../figures/chap03/KB.pdf}\\
   \smallcaption{一个简化的知识库}
   \label{chap:chap03:fig:KB}
-\end{figure}
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.7\textwidth]{../figures/chap03/labelExample.pdf}\\
-  \smallcaption{基于知识库的初始分割和标注例子}
-  \label{chap:chap03:fig:labelExample}
 \end{figure}
 
 
@@ -74,10 +65,16 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 这里，我们在分母使用加1的操作是为了防止分母出现为零的情况。 有了这个公式和我们定义的阈值 $\theta$ ，我们便能够在输入文本 $I$ 中标注出一些 \emph{锚点块}了。因为我们的方法的抽取质量和效率是对阈值 $\theta$ 敏感的，所以我们会通过后面的实验找到一个合适的阈值。
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/labelExample.pdf}\\
+  \smallcaption{基于知识库的初始分割和标注例子}
+  \label{chap:chap03:fig:labelExample}
+\end{figure}
+
 注意，在这个过程中一个单独的属性值可能被分割成了两个或更多个文本段，比如图~\ref{chap:chap03:fig:labelExample}中，属性 $D$ 便有两个文本段 $d_1$, $d_3$。 考虑到在一个输入文本中每个属性只可能有一个属性值，所以，我们可以将这两个锚点块和他们之间所有的词语都合并到一起。这里可能出现的一个冲突是，在一个属性的两个锚点块之间出现了另一个属性的锚点块，通常，一个合适的阈值 $\theta$ 便可以避免出现这种冲突。但是，如果这种情况仍然存在，我们可以通过弃掉冲突锚点块中得分更低的那个来解决这个问题。
 
 \emph{例子一}：给定图 ~\ref{chap:chap03:fig:KB} 中的知识库， 对于图~\ref{chap:chap03:fig:labelExample}(1)中所示一条输入文本， 我们能够识别出下面这些锚点块: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的锚点块, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图~\ref{chap:chap03:fig:labelExample}(3)所示。
-
 
 \subsection{基于CNN的分类模型的构建和文本段的标注}
 为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们设计了一个基于CNN分类模型的分类结果的概率标注。简要来讲，我们首先使用知识库训练一个CNN分类模型，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类模型会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$) 表示 $s$ 属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用这个CNN分类模型来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN分类模型输出的概率结果和那些锚点块的位置和标签，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建我们的CNN分类模型，并且介绍如何找到最佳的标注方式。
@@ -92,7 +89,6 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 \subsubsection{构建CNN分类模型}
 图~\ref{chap:chap03:fig:CNN_des}给出了我们构建的CNN分类模型的架构图，它的输入是一个文本段，输出一个关于所有可能的属性的概率向量。整体来看，我们的CNN分类模型包括特征输入层，嵌入层，卷积层，最大值池化层，全连接层和最后的Softmax分类器层。特征输入层接受一个输入文本段的特征矩阵，这个特征矩阵包含了丰富的句法和语义特征。嵌入层负责将这些特征值对应到相应的特征向量然后合并在一起。接下来我们在特征矩阵上执行卷积操作来提取关于输入文本段的特征，在这一步我们使用了不同大小的卷积核来在输入文本段上尽可能多范围的文本范围，类似于语言模型中n-gram的思路，这样我们就可以生成多层次的，且不同尺寸的特征矩阵。然后，我们再使用最大值池化来对卷积层的结果进行标准化，使其最终都成为相同形状的特征矩阵，且这一步也是为了进一步抽取特征和降维。池化层得到的特征矩阵再通过一个全连接层，就是一个普通的神经网络，做进一步的特征组合和推理。最终，我们使用Softmax分类器作为模型的输出层，为每一个输入文本段产生分类结果。
 
-\smallskip
 \noindent \underline{\it 特征:}我们为每个输入文本段都构造了一系列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，它的特征矩阵中包括了，提前训练的词向量 Word2vec， 单词在文本段中的位置信息，单词在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种人为构造的归一化类别概率。下面给出每一个特征的详细介绍：
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
@@ -135,7 +131,35 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \subsection{输入文本的贪婪式概率标注}
 \label{Probabilistic Labelling to Input Texts}
 
+尽管我们的CNN分类模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要全局考虑整个文本的分割和标注状态，事实上，我们期待去找到一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN分类结果的受限文本记录分割与命名属性值识别问题}(Constrained CNN-TesaRec Problem)：
 
+\begin{definition}
+({\bf Constrained CNN-TesaRec Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做文本记录分割与命名属性值识别任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
+%
+每一个文本段 $s_i \in S$ 都有一组候选属性标签 $\mathbf{A}_c(s)$，则\emph{基于CNN分类结果的受限文本记录分割与命名属性值识别}任务的目的是最大化下面这个方程式：
+
+\begin{equation}
+\label{eq:3}
+Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
+\end{equation}
+, 这里 $A_s \in \mathbf{A}_c(s)$ 是 $s$ 的一个可选属性标签， 所谓\emph{受限}是指，对于任何不相邻的文本段 $s_a \in S(I)$ 和 $s_b \in S(I)$，他们的可选属性标签 $A_{s_a} \neq A_{s_b}$ ，除非他们之间的所有文本段都具有相同的可选属性标签。
+
+\end{definition}
+
+但是，这种基于CNN分类结果的受限文本记录分割与命名属性值识别问题是一个NP-hard 问题，于是我们给出下面的定理：
+
+\begin{theorem}
+\label{theorem:1}
+基于CNN分类结果的受限文本记录分割与命名属性值识别问题是一个NP-hard问题。
+\end{theorem}
+
+\begin{proof}
+首先，我们假设输入文本中一个没有任何\emph{锚点块}的属性称作\emph{自由属性}(Free-Attribute)，如果在这个输入文本中存在属性值，则它可能出现在这段文本中任何没有标记的位置上。假设，这个输入文本中有 $n$ 个自由属性，我们可以将我们的基于CNN分类结果的受限文本记录分割与命名属性值识别问题问题约简地看做是旅行商问题(Travelling SalesMan problem，TSP)。令 $V$ 表示一组城市, $A=\{(r,s):r,s\in V\}$ 表示城市之间的路径，$C(r, s)=C(s, r)$ 表示城市 $r$ 和城市 $s$ 之间的路程费用，旅行商问题(TSP)是最基本的路线规划问题，就是找到最小的路程总费用而访问完所有城市。
+
+下面将我们的问题简化成为旅行商问题(TSP)：将我们的问题中的 $n$ 个自由属性比作旅行商问题中的那一组城市 $V$ ，将公式~\ref{eq:3}中的 $p(s, A_s)$ 比作TSP中与边 $(A_c, A_s)$ 相关的路费计算方式，其中当且仅当 $A_c$ 是第 $i$ 次出发的城市。然后，我们的问题就可以看做是找到最大的路程总费用而访问完所有城市。因此，我们可以发现，基于CNN分类结果的受限文本记录分割与命名属性值识别问题跟旅行商问题一样，在旅行商问题中需要去全排列列出来所有可能的路线，然后找到最小化花费的旅行路线，我们的是要全排列列出所有可能的文本段组合方式，找到最大概率值总和的标注方式。于是，理论~\ref{theorem:1}得证。
+\end{proof}
+
+但是，列出所有可能的文本段组合方式是一个很不合实际的方式，因为，(1)因为未标注的文本段个数很多，用全排列会产生大量的组合结果，很多组合结果完全没有考虑\emph{锚点块}的位置，是完全没有意义的，这增加了标注错误的几率概率， (2)得到如此多组合结果，处理起来会花费大量的时间，这种方式效率上会大受影响。为了解决这些问题，我们提出了一种\emph{贪婪式概率标注算法}，这个算法基于每个文本段属于所有候选属性的概率值，然后寻找到一个对于当前输入文本的尽可能接近最佳的标注结果。在算法~\ref{alg:1}中详细介绍了这种贪婪式的标注算法：对于一个输入文本 $I$ ，令 $S(I)=\{s_1, s_2, ..., s_m\}$ 表示从文本 $I$ 中分割得到的所有文本段，最开始，一部分这些文本段被定义为\emph{锚点块}，对于剩下的未标注的文本段，我们以一种贪婪的模式来标注他们。首先，我们在输入文本中寻找有没有存在相邻的\emph{锚点块}，比如图~\ref{chap:chap03:fig:labelExample}(2)中的点块 $b_1b_2$ 和点块 $c_1$ ，如果找到了，我们便可以将输入文本分割成两部分，比如像图~\ref{chap:chap03:fig:labelExample}(3)中的这条分割线，这样我们就可以分开来执行标注算法，这可以提高标注效率。然后，对于每一个分区，基于CNN分类模型的输出概率向量，使用公式~\ref{eq:2}，我们便可以计算出来每个文本块属于它的所有候选属性的概率值。在这些所有未标注的文本块中，每一次我们只贪婪地选择一个出来进行标注，记做$s_c$ ，这个选出来的文本段的概率应该是剩下这一分区中未标注文本段中概率值最高的那一个。然后，我们根据概率值为文本段 $\; s_c$ 标注上对应属性，记做 $A_c$，然后，我们立即检测是不是存在一个非邻接的文本段 $s'$ ，且这个文本段 $\;  s'$ 也已经具有属性 $A_c$ ，如果出现这种情形，我们需要检查 $\; s'$ 和 $s_c$ 之间是不是已经存在标注了其他属性的文本段，如果这种情况出现了，我们便取消这次对 $s_c$ 的标注，重新选择具有第二高概率值的文本段来进行相同的标注。如果这种情形没有发生，我们需要将 $s'$ 和 $s_c$ 之间所有的文本段合并形成一个新的文本段，且标注为 $A_c$ 。 我们重复执行这个过程，直到输入文本 $I$ 中没有可以被标注的文本段为止。注意，在这个过程中，我们定义了一个阈值 $\lambda$ 来防止产生低质量的标注，我们会在实验部分检测这个阈值的作用，并寻找到它的最佳值。
 
 \begin{algorithm}%[!htb]
     %\linesnumbered
@@ -179,44 +203,6 @@ p(s, A)=\frac{\rho_{i(A)}}{\sum_{A' \in \mathbf{A}_c(s)}{\rho_{i(A')}}}
 \end{algorithm}
 
 
-尽管我们的CNN分类模型能够直接给出输入文本段属于各属性的概率，但是这种标注方式只是单独的考虑了的这一个文本段，没有综合考虑这个文本段与输入文本中其他文本段的关系，因此这种方式可能不能够找到最佳的分割和标注方式。因此，我们在执行每一个概率标注的时候需要全局考虑整个文本的分割和标注状态，事实上，我们期待去找到一种最佳的标注方式来最大化整体的标注概率值得分，而这个得分就是输入文本中所有文本段属于对应属性的概率之和，但是这个过程需要遵循一个条件，这个输入文本中每个属性值只能由位置连续的文本段组成，我们把这个问题定义为\emph{基于CNN分类结果的受限文本记录分割与命名属性值识别问题}(Constrained CNN-TesaRec Problem)：
-
-\begin{definition}
-({\bf Constrained CNN-TesaRec Problem}) 给定某个领域属性集 $\mathbb{A}$ 以及一个输入文本 $I$ 来做文本记录分割与命名属性值识别任务,，假设 $S(I)=\{s_1, s_2, ..., $ $s_m\}$ 表示从 $I$ 中分割出来的文本段， 其中 $s_1+s_2+...s_m=I$, 并且 $s_i \cap s_j = \emptyset$ ($i \neq j$)，
-%
-每一个文本段 $s_i \in S$ 都有一组候选属性标签 $\mathbf{A}_c(s)$，则\emph{基于CNN分类结果的受限文本记录分割与命名属性值识别}任务的目的是最大化下面这个方程式：
-
-\begin{equation}
-\label{eq:3}
-Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
-\end{equation}
-, 这里 $A_s \in \mathbf{A}_c(s)$ 是 $s$ 的一个可选属性标签， 所谓\emph{受限}是指，对于任何不相邻的文本段 $s_a \in S(I)$ 和 $s_b \in S(I)$，他们的可选属性标签 $A_{s_a} \neq A_{s_b}$ ，除非他们之间的所有文本段都具有相同的可选属性标签。
-
-\end{definition}
-
-但是，这种基于CNN分类结果的受限文本记录分割与命名属性值识别问题是一个NP-hard 问题，于是我们给出下面的定理：
-
-\begin{theorem}
-\label{theorem:1}
-基于CNN分类结果的受限文本记录分割与命名属性值识别问题是一个NP-hard问题。
-\end{theorem}
-
-\begin{proof}
-首先，我们假设输入文本中一个没有任何\emph{锚点块}的属性称作\emph{自由属性}(Free-Attribute)，如果在这个输入文本中存在属性值，则它可能出现在这段文本中任何没有标记的位置上。假设，这个输入文本中有 $n$ 个自由属性，我们可以将我们的基于CNN分类结果的受限文本记录分割与命名属性值识别问题问题约简地看做是旅行商问题(Travelling SalesMan problem，TSP)。令 $V$ 表示一组城市, $A=\{(r,s):r,s\in V\}$ 表示城市之间的路径，$C(r, s)=C(s, r)$ 表示城市 $r$ 和城市 $s$ 之间的路程费用，旅行商问题(TSP)是最基本的路线规划问题，就是找到最小的路程总费用而访问完所有城市。
-
-下面将我们的问题简化成为旅行商问题(TSP)：将我们的问题中的 $n$ 个自由属性比作旅行商问题中的那一组城市 $V$ ，将公式~\ref{eq:3}中的 $p(s, A_s)$ 比作TSP中与边 $(A_c, A_s)$ 相关的路费计算方式，其中当且仅当 $A_c$ 是第 $i$ 次出发的城市。然后，我们的问题就可以看做是找到最大的路程总费用而访问完所有城市。因此，我们可以发现，基于CNN分类结果的受限文本记录分割与命名属性值识别问题跟旅行商问题一样，在旅行商问题中需要去全排列列出来所有可能的路线，然后找到最小化花费的旅行路线，我们的是要全排列列出所有可能的文本段组合方式，找到最大概率值总和的标注方式。于是，理论~\ref{theorem:1}得证。
-\end{proof}
-
-但是，列出所有可能的文本段组合方式是一个很不合实际的方式，因为，(1)因为未标注的文本段个数很多，用全排列会产生大量的组合结果，很多组合结果完全没有考虑\emph{锚点块}的位置，是完全没有意义的，这增加了标注错误的几率概率， (2)得到如此多组合结果，处理起来会花费大量的时间，这种方式效率上会大受影响。为了解决这些问题，我们提出了一种\emph{贪婪式概率标注算法}，这个算法基于每个文本段属于所有候选属性的概率值，然后寻找到一个对于当前输入文本的尽可能接近最佳的标注结果。在算法~\ref{alg:1}中详细介绍了这种贪婪式的标注算法：对于一个输入文本 $I$ ，令 $S(I)=\{s_1, s_2, ..., s_m\}$ 表示从文本 $I$ 中分割得到的所有文本段，最开始，一部分这些文本段被定义为\emph{锚点块}，对于剩下的未标注的文本段，我们以一种贪婪的模式来标注他们。首先，我们在输入文本中寻找有没有存在相邻的\emph{锚点块}，比如图~\ref{chap:chap03:fig:labelExample}(2)中的点块 $b_1b_2$ 和点块 $c_1$ ，如果找到了，我们便可以将输入文本分割成两部分，比如像图~\ref{chap:chap03:fig:labelExample}(3)中的这条分割线，这样我们就可以分开来执行标注算法，这可以提高标注效率。然后，对于每一个分区，基于CNN分类模型的输出概率向量，使用公式~\ref{eq:2}，我们便可以计算出来每个文本块属于它的所有候选属性的概率值。在这些所有未标注的文本块中，每一次我们只贪婪地选择一个出来进行标注，记做$s_c$ ，这个选出来的文本段的概率应该是剩下这一分区中未标注文本段中概率值最高的那一个。然后，我们根据概率值为文本段 $\; s_c$ 标注上对应属性，记做 $A_c$，然后，我们立即检测是不是存在一个非邻接的文本段 $s'$ ，且这个文本段 $\;  s'$ 也已经具有属性 $A_c$ ，如果出现这种情形，我们需要检查 $\; s'$ 和 $s_c$ 之间是不是已经存在标注了其他属性的文本段，如果这种情况出现了，我们便取消这次对 $s_c$ 的标注，重新选择具有第二高概率值的文本段来进行相同的标注。如果这种情形没有发生，我们需要将 $s'$ 和 $s_c$ 之间所有的文本段合并形成一个新的文本段，且标注为 $A_c$ 。 我们重复执行这个过程，直到输入文本 $I$ 中没有可以被标注的文本段为止。注意，在这个过程中，我们定义了一个阈值 $\lambda$ 来防止产生低质量的标注，我们会在实验部分检测这个阈值的作用，并寻找到它的最佳值。
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=0.7\textwidth]{../figures/chap03/greedyLabelling.pdf}\\
-  \smallcaption{贪婪式概率标注例子}
-  \label{chap:chap03:fig:greedyLabelling}
-\end{figure}
-
-
 \emph{例子三}：对于例子一种的输入文本，图~\ref{chap:chap03:fig:candidate-Labels}中给出了每个未标注文本段对于对应的候选属性的基于CNN模型的变换概率值，
 我们设定阈值 $\lambda=0.3$，我们执行文本标注的算法~\ref{alg:1}如下：
 
@@ -227,11 +213,17 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
  \item 在第一个分区，我们首先标注 $\; a_1$ 为属性 $A$ 的一个文本块，因为，$a_1$ 在这个分区中的所有文本块中具有最高的概率值。然后，我们继续标注 $a_2$ 为属性 $A$ 的一个文本块，此时，我们完成了第一个分区的标注任务。
 
 \item 第二个分区有5个未标注的文本段，其中文本段 $c_3$ 属于属性 $C$ 具有最高的概率值，将被第一个标注。然后，我们通过标注$c_2$ 为属性 $C$ 来合并 $c_1$ 和 $c_3$。至此，我们还有三个未标注的文本段，其中，$c_4$ 具有最高的概率值首先被标注为 $E$ ，然后，$e_1$ 应该是一下个被标注为 $E$ 的，但是，因为它与 $c_4$ 冲突了，所以我们撤销了对 $e_1$ 的标注，然后标注文本块 $f_1$。直到最后 $e_1$ 任然不会被标注，因为它的概率值小于我们的阈值 ($\lambda=0.3$ )。
-
 \end{enumerate}
 
-使用我们的基于CNN分类模型结果的贪婪式概率标注算法，大部分输入文本都可以被正确的分割和标注了，只有一些特殊的情形中出现了错误标注（mis-matching）和漏标注（un-matching），比如像例子三中的 $c_4$ ， $e_1$ 。为了处理这种错误，在下一节中，我们从测试数据集中实时地学习到已标注文本段的位置和序列信息，使用一个模型来权衡这些位置和序列信息来修正目前的标注结果。
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{../figures/chap03/greedyLabelling.pdf}\\
+  \smallcaption{贪婪式概率标注例子}
+  \label{chap:chap03:fig:greedyLabelling}
+\end{figure}
+
+使用我们的基于CNN分类模型结果的贪婪式概率标注算法，大部分输入文本都可以被正确的分割和标注了，只有一些特殊的情形中出现了错误标注（mis-matching）和漏标注（un-matching），比如像例子三中的 $c_4$ ， $e_1$ 。为了处理这种错误，在下一节中，我们从测试数据集中实时地学习到已标注文本段的位置和序列信息，使用一个模型来权衡这些位置和序列信息来修正目前的标注结果。
 
 \subsection{基于位置与序列的结果修正}
 \label{Sequential-based Amendment}
@@ -240,7 +232,7 @@ Prob(I, \mathbb{A}) = \sum_{s \in S(I)}{p(s, A_s)}
 
 因为经过我们的基于CNN分类模型结果的贪婪式概率标注算法得到的标注结果已经具有非常高的准确率（后面的实验中会证明这一点），所以，这个结果可以用来学习序列相关的特征和输入文本中属性值位置的信息。有一点很重要，这些特征的学习是从每一组输入文本中实时的（on-demand）学习到的，不需要人工的训练，也没有属性值遵循某一个特定的顺序这个假设，然后我们构建一种类似隐马尔科夫模型的图模型来强化此前得到的标注结果，我们称之为BPSM（Bidirectional Positioning and Sequencing Model）。相比较 ~\cite{cortez2010ondux}中提出的单相位置和序列模型(PSM)，我们的模型从双向考虑序列之间的关联，这可以减少单向标注中出错的风险。
 
-\smallskip
+%\smallskip
 \noindent \underline{\em 双向位置与序列模型(BPSM):} 我们的模型考虑：（1）对于一组状态 $L = \{begin, l_1, l_2, $ $..., l_n, end\}$ ，这里状态 $l_i$ 表示在我们的基于CNN 的概率标注算法中每一个文本段被分配到的标签，$begin$ 和 $end$ 表示两个虚拟的状态，仅仅表示一个输入文本的开头和结尾，是我们人为添加上的。（2）矩阵 $FT$ 中存储了在标注结果中从状态 $l_i$ 转移到状态 $l_j$ 的概率，这是一种前向转移，表示从状态$begin$ 到 状态 $end$。（3）矩阵 $BT$ 中存储了在标注结果中从状态 $l_j$ 转移到状态 $l_i$的概率，是一种后向转移，表示从状态 $end$ 到状态 $begin$。（4）矩阵 $P$ 存储了在标注结果中输入文本中的一个标签为 $l_i$ 的文本段出现在 $pos$ 位置的概率。
 
 下面来介绍如何构建这些矩阵。
@@ -263,6 +255,22 @@ ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segmen
 
 图~\ref{fig:BPSM}(a)(b)展示了我们使用二手车数据集构建的BPSM模型，我们可以发现，这个模型不仅可以表示分配给文本段的属性序列相关的信息，也可以表示输入文本中位置相关的信息。例如，在这个数据集中，输入文本第一个属性值相比为‘Color’的属性值，更倾向于是为‘Brand’的属性值，还有，为‘Engine’的属性值出现在为‘Price’的属性值后面的概率会更大。这些信息都是对输入文本结构相关信息的描述。当构建好了BPSM模型，我们便可以用这些估计出来的概率值来优化标注结果了。
 
+%\smallskip
+\noindent \underline{\em 使用BPSM来做修正:}
+我们在执行最后修正的步骤时，同时考虑三个因素，序列概率，位置概率和基于CNN模型的标注结果。考虑到这三个因素是相互独立的，一种 Noisy-OR-Gate模型 ~\cite{pearl2014probabilistic} 非常适合用于整合这三个因素来决定每个文本段最终的标注方案。 详细来讲，对于文本段 $s$ 属于属性 $A_j$ 的概率分别从前向考虑和后向考虑为：
+\begin{equation}
+%\scriptsize
+P_{fw}(s, A_j) = 1-((1-p(s, A_j))(1-ft_{i, j})(1-ps_{j, pos(s)}) )
+\end{equation}
+\begin{equation}
+%\scriptsize
+P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
+\end{equation}
+这里，$s$ 表示在输入文本中位置为 $pos$ 的文本段，它前面是一个被标注为 $A_j$ 属性的文本段，后面是一个被标注为 $A_k$ 属性的文本段。概率项 $ft_{i,j}$, $bt_{k,j}$ 和 $ps_{j,pos(s)}$ 分别来自矩阵 $TF$， $TB$ 和 $PS$。
+
+对于输入文本 $I$ 的一组文本段 $S(I)=\{s_1, s_2, ..., s_m\}$ ，在一次迭代中，我们需要比较输入文本中最前面的一个未标注文本段的前向概率，记作 $P_{fw}(s_1, A_{l1})$ ，和最后一个未标注文本段的后向概率，记作 $P_{bw}(s_m, A_{lm})$ 。如果 $P_{fw}(s_1, A_{l1}) \geq P_{bw}(s_m, A_{lm})$ ，我们首先标注 $s_1$，然后继续比较 $P_{fw}(s_2, A_{l2}) $ 和 $P_{bw}(s_m, A_{lm})$ 。否则，我们首先标注 $s_m$ ，然后继续比较 $P_{fw}(s_1, A_{l1}) $ 和 $P_{bw}(s_{m-1}, A_{l,m-1})$  来决定哪一个是下一个被标注的文本段。我们希望通过这种思路，同时从前向和后向考虑，找到最佳的标注结果。我们循环执行这行这个过程，直到一条输入文本中所有的文本段都被标注了为止。
+
+
 \begin{figure}
 \setlength{\abovecaptionskip}{0.cm}
 \setlength{\belowcaptionskip}{-0.cm}
@@ -284,29 +292,12 @@ ps_{j,pos} = \frac{\#\;of\;observations\;of\;l_j\;in\;pos}{Total\;\#\;of\;segmen
 \end{figure}
 
 
-\smallskip
-\noindent \underline{\em 使用BPSM来做修正:}
-我们在执行最后修正的步骤时，同时考虑三个因素，序列概率，位置概率和基于CNN模型的标注结果。考虑到这三个因素是相互独立的，一种 Noisy-OR-Gate模型 ~\cite{pearl2014probabilistic} 非常适合用于整合这三个因素来决定每个文本段最终的标注方案。 详细来讲，对于文本段 $s$ 属于属性 $A_j$ 的概率分别从前向考虑和后向考虑为：
-\begin{equation}
-%\scriptsize
-P_{fw}(s, A_j) = 1-((1-p(s, A_j))(1-ft_{i, j})(1-ps_{j, pos(s)}) )
-\end{equation}
-\begin{equation}
-%\scriptsize
-P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
-\end{equation}
-这里，$s$ 表示在输入文本中位置为 $pos$ 的文本段，它前面是一个被标注为 $A_j$ 属性的文本段，后面是一个被标注为 $A_k$ 属性的文本段。概率项 $ft_{i,j}$, $bt_{k,j}$ 和 $ps_{j,pos(s)}$ 分别来自矩阵 $TF$， $TB$ 和 $PS$。
-
-对于输入文本 $I$ 的一组文本段 $S(I)=\{s_1, s_2, ..., s_m\}$ ，在一次迭代中，我们需要比较输入文本中最前面的一个未标注文本段的前向概率，记作 $P_{fw}(s_1, A_{l1})$ ，和最后一个未标注文本段的后向概率，记作 $P_{bw}(s_m, A_{lm})$ 。如果 $P_{fw}(s_1, A_{l1}) \geq P_{bw}(s_m, A_{lm})$ ，我们首先标注 $s_1$，然后继续比较 $P_{fw}(s_2, A_{l2}) $ 和 $P_{bw}(s_m, A_{lm})$ 。否则，我们首先标注 $s_m$ ，然后继续比较 $P_{fw}(s_1, A_{l1}) $ 和 $P_{bw}(s_{m-1}, A_{l,m-1})$  来决定哪一个是下一个被标注的文本段。我们希望通过这种思路，同时从前向和后向考虑，找到最佳的标注结果。我们循环执行这行这个过程，直到一条输入文本中所有的文本段都被标注了为止。
-
-
 \section{实验结果与分析}
 在这一节，我们会介绍本文提出的模型在三个真实数据集上的实验结果，并做充分的分析和比较。
 
 \subsection{数据集和评价标准}
 我们在下面这三个真实数据集上做了实验：
 
-\vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
 
   \item  \textit{引文数据集:} 我们从超过500个计算机领域的研究员的主页上收集了超过2.5万条的论文引文信息，这些引文信息中隐含的值属于：{\em Title, Author, Journal, Volume, Pages,} 和 {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
@@ -456,11 +447,11 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \end{enumerate}
 
 
-\begin{table}%[!hb]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on PersonalBib}
-\topcaption{在引文数据集上抽取质量的比较}
+\smallcaption{在引文数据集上抽取质量的比较}
 \label{table:1}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -476,11 +467,11 @@ Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}%[!hb]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on House}
-\topcaption{在二手房数据集上抽取质量的比较}
+\smallcaption{在二手房数据集上抽取质量的比较}
 \label{table:2}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -499,11 +490,11 @@ Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
 \end{table}
 
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on Car}
-\topcaption{在二手车数据集上抽取质量的比较}
+\smallcaption{在二手车数据集上抽取质量的比较}
 \label{table:3}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -528,11 +519,11 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 \noindent {\bf 抽取效率的比较}:
 我们另外比较了使用这三种方法来抽取一条文本所花费的平均时间，从表~\ref{table:4}中可以看到，相比较ONDUX和CNN-TesaRec，基于CRF的方法花费了更多的时间来训练自己的模型。尽管，我们的方法(CNN-TesaRec)也需要训练CNN模型，但是这个训练的过程可以使用已经存在的知识库在线下运行，因此我们的方法跟ONDUX 方法在做线上的信息抽取时所花费的时间差不多。
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{三种方法花费时间的比较}
-\topcaption{三种方法花费时间的比较}
+\smallcaption{三种方法花费时间的比较}
 \label{table:5}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -555,11 +546,11 @@ Car & 3780ms & 200ms & 210ms \\ \hline
 为了验证BPSM的有效性，以及相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN 的抽取质量在三个数据集上平均提升了大概5-8\%。 因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
 
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
 \large
 %\caption{\small  CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
-\topcaption{ CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
+\smallcaption{ CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
 \label{table:5}
 \begin{tabular}{| c | c | c | c |}
 \hline

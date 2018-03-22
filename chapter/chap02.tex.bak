@@ -53,7 +53,7 @@ $$(w^{food})^{T} \times w^{eat} \quad = \quad (w^{eat})^{T} \times w^{laptop} \q
 
 (4)计算输出层的得分向量 $\; z = W^{2}h$
 
-(5)使用softmax将输出层的得分向量变成归一化的概率值 $\; \widehat{y} = softmax(z)$
+(5)使用Softmax将输出层的得分向量变成归一化的概率值 $\; \widehat{y} = Softmax(z)$
 
 (6)使用这个输出概率值与真正的目标词语 $\; y$ 比较，通过计算交叉熵 $H(\widehat{y^{i}}, y^{i})$ 来定义损失函数，再通过梯度下降一步一步调整权重矩阵，以此来优化这个模型。
 

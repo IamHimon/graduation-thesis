@@ -25,7 +25,7 @@
 
 \begin{englishabstract}
 
-Information Extraction refers to the automatic extraction of structured information from semi-structured or unstructured data, which is an important technique support for many field, such as Text Understanding, Information Retrieval, Question Answer and Knowledge Graph building. This paper focus on a common problem in the field of Open Information Extraction, Text Record Segmentation and Named Attribute Values Recognition(TesaRec). This problem aimed to segment attribute values contained in an unstructured textual without any explicit delimiters, and then further recognising and labelling them.
+Information Extraction refers to the automatic extraction of structured information from semi-structured or unstructured data, which is an important technique support for many field,such as Text Understanding, Information Retrieval,Question Answer and Knowledge Graph building.This paper focus on a common problem in the field of Open Information Extraction, Text Record Segmentation and Named Attribute Values Recognition(TesaRec).This problem aimed to segment attribute values contained in an unstructured textual inputs to extract implicit data values contained in them.
 
 A fairly common approach to solve this problem is the use of machine learning
 techniques, either supervised with human-driven training,or unsupervised with training provided by some form of pre-existing data source. Among the supervised approaches, the dominant one employs statistical models  such as
