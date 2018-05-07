@@ -55,10 +55,10 @@ Yoshua Bengio, R{\'e}jean Ducharme, Pascal Vincent and Christian Jauvin.
 
 \bibitem{mikolov2013distributed}
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado and Jeff Dean.
+\newblock
 \newblock Distributed representations of words and phrases and their
-  compositionality [A]. Advances in neural information processing systems [C].
-  .
-\newblock 2013: 3111--3119.
+  compositionality [A]. Burges C J C. Advances in neural information processing
+  systems [C]. Lake Tahoe: NIPS, 2013: 3111--3119.
 
 \bibitem{kim2014convolutional}
 Yoon Kim.
@@ -94,9 +94,10 @@ Ankit Kumar, Ozan Irsoy, Peter Ondruska, Mohit Iyyer, James Bradbury, Ishaan
 
 \bibitem{sutskever2014sequence}
 Ilya Sutskever, Oriol Vinyals and Quoc~V Le.
+\newblock
 \newblock Sequence to sequence learning with neural networks [A]. Ghahramani Z.
-  Advances in neural information processing systems [C]. .
-\newblock 2014: 3104--3112.
+  Advances in neural information processing systems [C]. Montreal: NIPS, 2014:
+  3104--3112.
 
 \bibitem{wu2016google}
 Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc~V Le, Mohammad Norouzi, Wolfgang
@@ -113,16 +114,17 @@ Jonas Gehring, Michael Auli, David Grangier, Denis Yarats and Yann~N Dauphin.
 \bibitem{vaswani2017attention}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
   Aidan~N Gomez, {\L}ukasz Kaiser and Illia Polosukhin.
+\newblock
 \newblock Attention is all you need [A]. Guyon I. Advances in Neural
-  Information Processing Systems [C]. .
-\newblock 2017: 6000--6010.
+  Information Processing Systems [C]. Long Beach: NIPS, 2017: 6000--6010.
 
 \bibitem{nguyen2015relation}
 Thien~Huu Nguyen and Ralph Grishman.
+\newblock
 \newblock Relation extraction: Perspective from convolutional neural networks
   [A]. Blunsom P. Proceedings of the 1st Workshop on Vector Space Modeling for
-  Natural Language Processing [C]. .
-\newblock 2015: 39--48.
+  Natural Language Processing [C]. Denver: The Association for Computational
+  Linguistics, 2015: 39--48.
 
 \bibitem{zheng2017joint}
 Suncong Zheng, Yuexing Hao, Dongyuan Lu, Hongyun Bao, Jiaming Xu, Hongwei Hao
@@ -324,8 +326,8 @@ Judea Pearl.
 
 \bibitem{Guanfeng_ICDE2015}
 G.~Liu, K.~Zheng, Y.~Wang, M.~A. Orgun, A.~Liu, L.~Zhao and X.~Zhou.
+\newblock
 \newblock Multi-Constrained Graph Pattern Matching in Large-Scale Contextual
-  Social Graphs [A]. ICDE [C]. .
-\newblock 2015: 351--362.
+  Social Graphs [A]. ICDE [C]. Seoul: IEEE, 2015: 351--362.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  22 MAR 2018 18:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  7 MAY 2018 12:05
 entering extended mode
 **main.tex
 ("D:\a_Graduation\graduation thesis\main\main.tex"
@@ -1731,15 +1731,15 @@ ion/graduation thesis/figures/chap03/Exp/car_lambda.pdf> <D:/a_Graduation/gradu
 ation thesis/figures/chap03/Exp/bib_kb.pdf> <D:/a_Graduation/graduation thesis/
 figures/chap03/Exp/house_kb.pdf> <D:/a_Graduation/graduation thesis/figures/cha
 p03/Exp/car_kb.pdf>]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 456.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 455.
 
 
 LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 456.
+(Font)              size <10.95> substituted on input line 455.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 456.
+(Font)              size <10.95> substituted on input line 455.
 
 [33]
 Underfull \vbox (badness 6380) has occurred while \output is active []
@@ -1761,28 +1761,29 @@ Overfull \hbox (5.96701pt too wide) in paragraph at lines 62--63
  []
 
 [39] [40] [41]
-<../figures/chap04/set_model_para.png, id=1363, 1008.76875pt x 617.30624pt>
-File: ../figures/chap04/set_model_para.png Graphic file (type png)
+<../figures/chap04/set_model_para_n.png, id=1363, 1012.78375pt x 618.31pt>
+File: ../figures/chap04/set_model_para_n.png Graphic file (type png)
 
-<use ../figures/chap04/set_model_para.png>
-Package pdftex.def Info: ../figures/chap04/set_model_para.png used on input lin
-e 90.
-(pdftex.def)             Requested size: 273.42883pt x 167.31541pt.
+<use ../figures/chap04/set_model_para_n.png>
+Package pdftex.def Info: ../figures/chap04/set_model_para_n.png used on input l
+ine 90.
+(pdftex.def)             Requested size: 273.42883pt x 166.92706pt.
 
-<../figures/chap04/load_kb.png, id=1364, 1007.765pt x 616.3025pt>
-File: ../figures/chap04/load_kb.png Graphic file (type png)
+<../figures/chap04/load_kb_n.png, id=1364, 1010.77625pt x 621.32124pt>
+File: ../figures/chap04/load_kb_n.png Graphic file (type png)
 
-<use ../figures/chap04/load_kb.png>
-Package pdftex.def Info: ../figures/chap04/load_kb.png used on input line 97.
-(pdftex.def)             Requested size: 273.42883pt x 167.21263pt.
+<use ../figures/chap04/load_kb_n.png>
+Package pdftex.def Info: ../figures/chap04/load_kb_n.png used on input line 97.
 
-<../figures/chap04/train_model.png, id=1365, 1006.76125pt x 616.3025pt>
-File: ../figures/chap04/train_model.png Graphic file (type png)
+(pdftex.def)             Requested size: 273.42883pt x 168.07184pt.
 
-<use ../figures/chap04/train_model.png>
-Package pdftex.def Info: ../figures/chap04/train_model.png used on input line 1
-04.
-(pdftex.def)             Requested size: 273.42883pt x 167.38191pt.
+<../figures/chap04/train_model_n.png, id=1365, 1009.7725pt x 618.31pt>
+File: ../figures/chap04/train_model_n.png Graphic file (type png)
+
+<use ../figures/chap04/train_model_n.png>
+Package pdftex.def Info: ../figures/chap04/train_model_n.png used on input line
+ 104.
+(pdftex.def)             Requested size: 273.42883pt x 167.4271pt.
 
 <../figures/chap04/segment-one.png, id=1366, 1005.7575pt x 617.30624pt>
 File: ../figures/chap04/segment-one.png Graphic file (type png)
@@ -1790,7 +1791,7 @@ File: ../figures/chap04/segment-one.png Graphic file (type png)
 <use ../figures/chap04/segment-one.png>
 Package pdftex.def Info: ../figures/chap04/segment-one.png used on input line 1
 12.
-(pdftex.def)             Requested size: 273.42883pt x 167.81465pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.94353pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1801,7 +1802,7 @@ File: ../figures/chap04/cnn-label-one.png Graphic file (type png)
 <use ../figures/chap04/cnn-label-one.png>
 Package pdftex.def Info: ../figures/chap04/cnn-label-one.png used on input line
  119.
-(pdftex.def)             Requested size: 273.42883pt x 167.16476pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.25398pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1812,7 +1813,7 @@ File: ../figures/chap04/amendment-one.png Graphic file (type png)
 <use ../figures/chap04/amendment-one.png>
 Package pdftex.def Info: ../figures/chap04/amendment-one.png used on input line
  126.
-(pdftex.def)             Requested size: 273.42883pt x 167.54178pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.65744pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1823,7 +1824,7 @@ File: ../figures/chap04/BPSM-one.png Graphic file (type png)
 <use ../figures/chap04/BPSM-one.png>
 Package pdftex.def Info: ../figures/chap04/BPSM-one.png used on input line 133.
 
-(pdftex.def)             Requested size: 273.42883pt x 168.08752pt.
+(pdftex.def)             Requested size: 286.65883pt x 176.22961pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1834,7 +1835,7 @@ File: ../figures/chap04/segment-mul.png Graphic file (type png)
 <use ../figures/chap04/segment-mul.png>
 Package pdftex.def Info: ../figures/chap04/segment-mul.png used on input line 1
 42.
-(pdftex.def)             Requested size: 273.42883pt x 167.81465pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.94353pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1845,7 +1846,7 @@ File: ../figures/chap04/cnn-label-mul.png Graphic file (type png)
 <use ../figures/chap04/cnn-label-mul.png>
 Package pdftex.def Info: ../figures/chap04/cnn-label-mul.png used on input line
  149.
-(pdftex.def)             Requested size: 273.42883pt x 167.61629pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.71873pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1856,7 +1857,7 @@ File: ../figures/chap04/amendment-mul.png Graphic file (type png)
 <use ../figures/chap04/amendment-mul.png>
 Package pdftex.def Info: ../figures/chap04/amendment-mul.png used on input line
  156.
-(pdftex.def)             Requested size: 273.42883pt x 167.1093pt.
+(pdftex.def)             Requested size: 286.65883pt x 175.19296pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1867,35 +1868,29 @@ File: ../figures/chap04/BPSM-mul.png Graphic file (type png)
 <use ../figures/chap04/BPSM-mul.png>
 Package pdftex.def Info: ../figures/chap04/BPSM-mul.png used on input line 163.
 
-(pdftex.def)             Requested size: 273.42883pt x 168.32329pt.
+(pdftex.def)             Requested size: 286.65883pt x 176.47101pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) ("D:\a_Graduation\graduation thesis\chapter\chap05.tex" [42 <D:/a_Graduation/
-graduation thesis/figures/chap04/set_model_para.png> <D:/a_Graduation/graduatio
-n thesis/figures/chap04/load_kb.png> <D:/a_Graduation/graduation thesis/figures
-/chap04/train_model.png>]
+graduation thesis/figures/chap04/set_model_para_n.png> <D:/a_Graduation/graduat
+ion thesis/figures/chap04/load_kb_n.png> <D:/a_Graduation/graduation thesis/fig
+ures/chap04/train_model_n.png>]
 
 LaTeX Warning: Text page 43 contains only floats.
 
-
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
- [43 <D:/a_Graduation/graduation thesis/figures/chap04/segment-one.png> <D:/a_G
-raduation/graduation thesis/figures/chap04/cnn-label-one.png> <D:/a_Graduation/
-graduation thesis/figures/chap04/amendment-one.png>]
+[43 <D:/a_Graduation/graduation thesis/figures/chap04/segment-one.png> <D:/a_Gr
+aduation/graduation thesis/figures/chap04/cnn-label-one.png> <D:/a_Graduation/g
+raduation thesis/figures/chap04/amendment-one.png>]
 
 LaTeX Warning: Text page 44 contains only floats.
 
-
-Underfull \vbox (badness 3029) has occurred while \output is active []
-
- [44 <D:/a_Graduation/graduation thesis/figures/chap04/BPSM-one.png> <D:/a_Grad
-uation/graduation thesis/figures/chap04/segment-mul.png> <D:/a_Graduation/gradu
-ation thesis/figures/chap04/cnn-label-mul.png>] [45 <D:/a_Graduation/graduation
- thesis/figures/chap04/amendment-mul.png> <D:/a_Graduation/graduation thesis/fi
-gures/chap04/BPSM-mul.png>]
+[44 <D:/a_Graduation/graduation thesis/figures/chap04/BPSM-one.png> <D:/a_Gradu
+ation/graduation thesis/figures/chap04/segment-mul.png> <D:/a_Graduation/gradua
+tion thesis/figures/chap04/cnn-label-mul.png>] [45 <D:/a_Graduation/graduation 
+thesis/figures/chap04/amendment-mul.png> <D:/a_Graduation/graduation thesis/fig
+ures/chap04/BPSM-mul.png>]
 µÚÎåÕÂ
 [46
 
@@ -1906,14 +1901,14 @@ Underfull \vbox (badness 2903) has occurred while \output is active []
 ("D:\a_Graduation\graduation thesis\main\main.bbl" [48] [49
 
 ] [50] [51]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 185.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 187.
 
 
 (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 185.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 187.
  [52] [53] [54])
 ("D:\a_Graduation\graduation thesis\chapter\pub.tex" [55]
 
@@ -1959,8 +1954,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  24210 strings out of 495354
- 384678 string characters out of 3183188
- 471464 words of memory out of 3000000
+ 384708 string characters out of 3183188
+ 471462 words of memory out of 3000000
  25856 multiletter control sequences out of 15000+200000
  188845 words of font info for 559 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -2029,7 +2024,7 @@ D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyb.pfb><D:/JobSoftware
 /CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><D:/JobSoftware/CTEX/MiKTeX/f
 onts/type1/urw/times/utmb8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/tim
 es/utmr8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (71 pages, 2916854 bytes).
+Output written on main.pdf (71 pages, 2918559 bytes).
 PDF statistics:
  1869 PDF objects out of 2073 (max. 8388607)
  267 named destinations out of 1000 (max. 500000)

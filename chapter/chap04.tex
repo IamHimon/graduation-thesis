@@ -4,7 +4,7 @@
 \section{CNN模型构建细节}
 本文提出的基于深度卷积神经网络(CNN)的信息抽取模型，除了事先构建知识库和第一步做初始的文本分割，其他部分的执行都是基于我们构建的CNN分类模型的输出结果。因此，我们的分类器模型需要能更准确的刻画各属性值的区别，有更高的准确率。我们知道，卷积神经网络(CNN)的优势在于它能充分抽取特征和自由组合特征的能力，但是CNN模型的这个优势，从另一个角度来讲，恰恰也是它的一个劣势——缺乏模型解释性。因此，我们在使用卷积神经网络来构建深度学习模型时，更多时候我们只能把它看做黑盒子。但是，我们还是可以通过加入一些模型训练技巧，探索合适的超参数，改变模型结构来提高模型的表现力。在这一节，我们将详细介绍构建CNN分类模型的一些细节(本文将不再给出实验结果，我们会结合实验结果尝试解释如此选择的原因，从而得到一些经验相关的知识)：
 \vspace{-2pt}
-\begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
+\begin{enumerate}[(1)]\setlength{\itemsep}{-1pt}
 
   \item  \textit{CNN模型结构:} 我们使用了文章~\cite{kim2014convolutional}中类似的模型结构，在输入层之后，是一个多卷积核的卷积层，然后接一个池化层，最后是一个Softmax分类器。卷积层和池化层的层层叠加构成了卷积神经网络模型(有些模型没有池化层)，一般来讲，现实中常用的基于卷积神经网络的深度学习模型都会有很多层的卷积层加池化层，特别是在做图像和语音的任务中。因此，我们在构建自己的模型时，尝试增加卷积层和池化层的数量，但是通过实验我们发现，这并没有提升模型的表现力，反而有略微的相反作用，并且更重要的一点是，增加了层数，模型训练时间会有明显的增加。模型层数多就代表模型需要学习的参数更多，当我们要做图像识别时，模型的输入是图像的像素矩阵，这个矩阵的特征密度非常高，因此我们需要一层一层的，从低阶到高阶的，从部分到整体的对输入矩阵进行处理，并在每一层进行特征的抽象和组合。图像中特征的刻画是非常复杂的，比如从低阶的边角特征组合成不同动物是需要在非常高阶上组合的，因此，增加模型的层数，才能够用更多的参数来刻画这种高阶的特征。而在我们的应用场景中，首先因为我们的模型输入矩阵是训练好的word2vec，虽然是一种压缩的高密度文本表征方式，但是这种‘高密度’也是相对于one-hot编码而言，相比较图像的像素矩阵，所包含的特征密度还是差得很远，因此我们不需要这么深的网络。另外，我们训练CNN模型的输入是来自于知识库中的属性值，它的文本长度相对较短，即使最终将所有输入都归一化之后，也不会是很大的输入矩阵，这种输入矩阵的大小也不需要我们使用过深的网络。此外网络越复杂过拟合的可能性越大。因此，这种单层卷积加单层池化的结构是最适合我们的应用场景的。
 
@@ -24,7 +24,7 @@
   \item \textit{池化方式:} 在我们的模型中，池化层放在卷积层后面，池化的作用有两个，第一个作用是降低维度，第二个作用是统一输出形式。在我们的模型中，使用 $1-max \; Pooling$，也是比较通用和有效的一种 $Pooling$ 方式，在我们的模型汇总 $Pooling$ 窗口的大小就是输入文本的长度，这样每个卷积核最终的输出都是一个值。
 
 
-  \item \textit{正则化:} 我们使用两种正则化策略，一个是 $dropout$ 正则，一个 $l2$ 正则。我们使用了文章~\cite{zhang2015sensitivity}中相同的办法来寻找最佳的值，通过实验，我们得到图~\ref{table:6}中的结果。其实，正则化对于模型的影响非常小，我们比较不同正则化值得区别也非常小。这可能是因为我们的模型只是一个较浅层的网络，模型复杂度不高，所以正则化的作用没有那么明显。同时，我们也尝试在我们的模型中加入 $batch \; normalization$ 的技巧 \cite{ioffe2015batch}，发现并不会对模型的表现起到明显的帮助，只是稍微缩减了一点模型的训练时间。在 $Tensorflow$ 中，我们可以直接调用高度抽象的函数 $batch\_normalization()$ 来实现。在试验中，$dropout$ 值的选择空间设定为： $[0.1,0.2,0.3,0.4,0.5]$， $l2$ 中的正则阈值选择空间设定为： $[3, 5,10,20,30,40, 50]$ 。
+  \item \textit{正则化:} 我们使用两种正则化策略，一个是 $dropout$ 正则，一个 $l2$ 正则。我们使用了文章~\cite{zhang2015sensitivity}中相同的办法来寻找最佳的值，通过实验，我们得到图~\ref{table:6}中的结果。其实，正则化对于模型的影响非常小，我们比较不同正则化值得区别也非常小。这可能是因为我们的模型只是一个较浅层的网络，模型复杂度不高，所以正则化的作用没有那么明显。同时，我们也尝试在我们的模型中加入 $batch \; normalization$ 的技巧 \ucite{ioffe2015batch}，发现并不会对模型的表现起到明显的帮助，只是稍微缩减了一点模型的训练时间。在 $Tensorflow$ 中，我们可以直接调用高度抽象的函数 $batch\_normalization()$ 来实现。在试验中，$dropout$ 值的选择空间设定为： $[0.1,0.2,0.3,0.4,0.5]$， $l2$ 中的正则阈值选择空间设定为： $[3, 5,10,20,30,40, 50]$ 。
 
   \item \textit{$batch \;size$:} $batch \;size$ 的选择是一个需要权衡的考虑，没有固定的选择策略。在我们的模型中，选择设定 $batch \;size$ 为64。
 \end{enumerate}
@@ -57,7 +57,7 @@
   \item \textit{模型初始化与模型训练}
     \begin{itemize}
         \item[*] 模型结构设计和参数设定：可以在网页上直接手动设计模型结构，比如指定通道个数，激活函数，卷积方式，Polling方式，指定超参的数值，比如指定规则化中Dropout值和l2的值，卷积核大小与数量等。如图~\ref{fig:model_set_train_a}所示
-        \item[*] 加载知识库（$Knowledge \; Base$），加载、预处理知识库中的各属性值。因为我们在构造CNN分类模型输入矩阵的时候，除了word2vec，我们还另外构造了五种特征，分别是word2vec，单词在文本段中的位置特征，单词在输入文本中的位置特征，文本段的长度，POS和归一化的类别概率，我们可以在系统上选择来只使用指定的几个特征。并且，因为我们在训练模型的时候，需要将输入特征向量化，因此还需要指定这些特征的维度，如图~\ref{fig:model_set_train_b}所示。
+        \item[*] 加载知识库（$Knowledge \; Base$）和训练集，加载知识库，加载、预处理训练集中的各属性值。因为我们在构造CNN分类模型输入矩阵的时候，除了word2vec，我们还另外构造了五种特征，分别是word2vec，单词在文本段中的位置特征，单词在输入文本中的位置特征，文本段的长度，POS和归一化的类别概率，我们可以在系统上选择来只使用指定的几个特征。并且，因为我们在训练模型的时候，需要将输入特征向量化，因此还需要指定这些特征的维度，如图~\ref{fig:model_set_train_b}所示。
         选择性构造特征：手动选择数据预处理相关参数，选择要构造的特征，并预览训练数据的初始化结果等。
         \item[*] CNN分类模型训练过程可视化展现，这里我们直接通过iframe将TensorBoard投放到我们的系统中，我们可以直接查看系统的结构和模型训练的过程，然后通过观察loss的变化，当loss没有明显的变化时，我们提供‘提前停止’按钮，可以随时结束模型的训练。如图~\ref{fig:model_set_train_c}所示
     \end{itemize}
@@ -87,21 +87,21 @@
 %模型初始化与训练
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/set_model_para.png}\\
+  \includegraphics[width=0.62\textwidth]{../figures/chap04/set_model_para_n.png}\\
   \smallcaption{设定模型参数}
   \label{fig:model_set_train_a}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/load_kb.png}\\
-  \smallcaption{加载知识库}
+  \includegraphics[width=0.62\textwidth]{../figures/chap04/load_kb_n.png}\\
+  \smallcaption{加载KB和训练集}
   \label{fig:model_set_train_b}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/train_model.png}\\
+  \includegraphics[width=0.62\textwidth]{../figures/chap04/train_model_n.png}\\
   \smallcaption{训练模型}
   \label{fig:model_set_train_c}
 \end{figure}
@@ -109,28 +109,28 @@
 %一条文本
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/segment-one.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/segment-one.png}\\
   \smallcaption{一条文本:Segment}
   \label{fig:one_record_a}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/cnn-label-one.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/cnn-label-one.png}\\
   \smallcaption{一条文本:CNN-labelling}
   \label{fig:one_record_b}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/amendment-one.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/amendment-one.png}\\
   \smallcaption{一条文本:Amendment}
   \label{fig:one_record_c}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/BPSM-one.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/BPSM-one.png}\\
   \smallcaption{一条文本:BPSM}
   \label{fig:one_record_d}
 \end{figure}
@@ -139,28 +139,28 @@
 %多条文本
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/segment-mul.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/segment-mul.png}\\
   \smallcaption{多条文本:Segment}
   \label{fig:mul_record_a}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/cnn-label-mul.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/cnn-label-mul.png}\\
   \smallcaption{多条文本:CNN-labelling}
   \label{fig:mul_record_b}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/amendment-mul.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/amendment-mul.png}\\
   \smallcaption{多条文本:Amendment}
   \label{fig:mul_record_c}
 \end{figure}
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.62\textwidth]{../figures/chap04/BPSM-mul.png}\\
+  \includegraphics[width=0.65\textwidth]{../figures/chap04/BPSM-mul.png}\\
   \smallcaption{多条文本:BPSM}
   \label{fig:mul_record_d}
 \end{figure}

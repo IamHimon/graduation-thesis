@@ -1,15 +1,13 @@
 
-
 % 修改表格与表头的间隔
-\newcommand{\topcaption}{%
-\setlength{\abovecaptionskip}{0pt}%
-\setlength{\belowcaptionskip}{8pt}%
-\caption}   % 表格上标题修改
+%\newcommand{\topcaption}{%
+%\setlength{\abovecaptionskip}{0pt}%
+%\setlength{\belowcaptionskip}{8pt}%
+%\caption}   % 表格上标题修改
 
 \chapter{CNN-TesaRec 算法}
 \label{chap:chap03}
 本章首先给出基于卷积神经网络的文本记录分割与命名属性值识别算法(简称为 $CNN-TesaRec$ )的概述。然后给出了文本记录分割与命名属性值识别( $TesaRec$ )的正式定义，并介绍了知识库的结构。接下来详细介绍了算法每一部分的内容，最后给出了详细的实验结果来证明算法的效果和表现。
-
 
 \section{算法概述}
 
@@ -78,7 +76,6 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 
 \emph{例子一}：给定图 ~\ref{chap:chap03:fig:KB} 中的知识库， 对于图~\ref{chap:chap03:fig:labelExample}(1)中所示一条输入文本， 我们能够识别出下面这些锚点块: $a_2$, $b_1 b_2$, $c_1$, $d_1$, $d_3$ 以及 $f_2$ ，就是图~\ref{chap:chap03:fig:labelExample}(2)中绿色方格这些文本段。另外, 既然 $d_1$ 和 $d_3$ 都是属性 $D$ 的锚点块, 我们合并这三个块 $d_1 d_2 d_3$ ，并共同标注为属性 $D$ ，如图~\ref{chap:chap03:fig:labelExample}(3)所示。
 
-
 \subsection{基于CNN的分类模型的构建和文本段的标注}
 为了处理一些未标注的文本段，比如上述例子中第一步产生的$a_1$， $a_3$ 和 $c_2$，我们设计了一个基于CNN分类模型的分类结果的概率标注。简要来讲，我们首先使用知识库训练一个CNN分类模型，假设 $|\mathbb{A}|$ 表示给定领域中属性的个数，然后对于每一个输入文本 $s$ ，我们的CNN分类模型会生成一个 $|\mathbb{A}|$-维的输出向量 $P(s)=[\rho_1, \rho_2, ..., \rho_{|\mathbb{A}|}]$， 这里每一个 $\rho_{i}$ ($1\leq i \leq |\mathbb{A}|$) 表示 $s$ 属于属性 $A_i \in \mathbb{A}$ 的概率。对于每一个未标注的文本段，我们使用这个CNN分类模型来决定它属于哪一个属性，然后综合考虑所有未标注文本段的CNN分类模型输出的概率结果和那些锚点块的位置和标签，得到整个输入文本的最佳分割和标注结果。下面，我们解释如何构建我们的CNN分类模型，并且介绍如何找到最佳的标注方式。
 
@@ -92,7 +89,6 @@ p(b, A_i) = \frac{1+\sum_{1\leq j \leq r_i}\sum_{1\leq x \leq f_{i, j}}{\frac{1}
 \subsubsection{构建CNN分类模型}
 图~\ref{chap:chap03:fig:CNN_des}给出了我们构建的CNN分类模型的架构图，它的输入是一个文本段，输出一个关于所有可能的属性的概率向量。整体来看，我们的CNN分类模型包括特征输入层，嵌入层，卷积层，最大值池化层，全连接层和最后的Softmax分类器层。特征输入层接受一个输入文本段的特征矩阵，这个特征矩阵包含了丰富的句法和语义特征。嵌入层负责将这些特征值对应到相应的特征向量然后合并在一起。接下来我们在特征矩阵上执行卷积操作来提取关于输入文本段的特征，在这一步我们使用了不同大小的卷积核来在输入文本段上尽可能多范围的文本范围，类似于语言模型中n-gram的思路，这样我们就可以生成多层次的，且不同尺寸的特征矩阵。然后，我们再使用最大值池化来对卷积层的结果进行标准化，使其最终都成为相同形状的特征矩阵，且这一步也是为了进一步抽取特征和降维。池化层得到的特征矩阵再通过一个全连接层，就是一个普通的神经网络，做进一步的特征组合和推理。最终，我们使用Softmax分类器作为模型的输出层，为每一个输入文本段产生分类结果。
 
-\smallskip
 \noindent \underline{\it 特征:}我们为每个输入文本段都构造了一系列丰富的语义特征，包括一些合成的特征。对于文本段中的每一个单词，它的特征矩阵中包括了，提前训练的词向量 Word2vec， 单词在文本段中的位置信息，单词在输入文本中的位置信息，词性标注信息(POS)，文本段长度，以及一种人为构造的归一化类别概率。下面给出每一个特征的详细介绍：
 
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
@@ -302,14 +298,13 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \subsection{数据集和评价标准}
 我们在下面这三个真实数据集上做了实验：
 
-\vspace{-2pt}
 \begin{enumerate}[1)]\setlength{\itemsep}{-1pt}
 
-  \item  \textit{引文数据集:} 我们从超过500个计算机领域的研究员的主页上收集了超过2.5万条的论文引文信息，这些引文信息中隐含的值属于：{\em Title, Author, Journal, Volume, Pages,} 和 {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
+  \item  \textit{引文数据集():} 我们从超过500个计算机领域的研究员的主页上收集了超过2.5万条的论文引文信息，这些引文信息中隐含的值属于：{\em Title, Author, Journal, Volume, Pages,} 和 {\em Date}这些属性，文章~\cite{cortez2010ondux,zhao2008exploiting}中也使用了相同的数据集。另外，我们随机的从DBLP中选择了若干引文记录来构建我们的知识库(KB)。
 
-  \item \textit{二手房数据集:} 这是个中文数据集，我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com} 上收集了超过10 万的关于二手房出售和租赁相关信息的描述文本，每一条文本中隐含的值属于：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} 和 {\em Furnitures}这些属性。 我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
+  \item \textit{二手房数据集(House):} 这是个中文数据集，我们从Anjuke~\footnote{www.anjuke.com}, Ganji~\footnote{www.ganji.com} and Lianjia~\footnote{www.lianjia.com} 上收集了超过10 万的关于二手房出售和租赁相关信息的描述文本，每一条文本中隐含的值属于：{\em Name, Publish-Time, Price, Charge-Method, Neighborhood, Unit, Floor,} 和 {\em Furnitures}这些属性。 我们的知识库(KB)的构建使用相同来源的结构化的表格构建的。
 
-  \item \textit{二手车数据集:} 二手车的数据集，我们从Carsales~\footnote{www.carsales.com}网站中收集了超过20万条的关于二手车售卖的描述信息，这个数据集中隐含的值属于：{\em Brand, Price, Transmission, Color, Body, Engine}和 {\em Fuel Consuming} 这些属性，我们的构建知识库(KB)的数据同样可以从这个网站上的结构化表格区域得到。
+  \item \textit{二手车数据集(Car):} 二手车的数据集，我们从Carsales~\footnote{www.carsales.com}网站中收集了超过20万条的关于二手车售卖的描述信息，这个数据集中隐含的值属于：{\em Brand, Price, Transmission, Color, Body, Engine}和 {\em Fuel Consuming} 这些属性，我们的构建知识库(KB)的数据同样可以从这个网站上的结构化表格区域得到。
 
 \end{enumerate}
 
@@ -452,11 +447,11 @@ P_{bw}(s, A_j) = 1-((1-p(s, A_j))(1-bt_{k, j})(1-ps_{j, pos(s)}) )
 \end{enumerate}
 
 
-\begin{table}%[!hb]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on PersonalBib}
-\topcaption{在引文数据集上抽取质量的比较}
+\smallcaption{在引文数据集上抽取质量的比较}
 \label{table:1}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -472,11 +467,11 @@ Date & 0.782 & 0.817 &  {\bf 0.998} \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}%[!hb]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on House}
-\topcaption{在二手房数据集上抽取质量的比较}
+\smallcaption{在二手房数据集上抽取质量的比较}
 \label{table:2}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -495,11 +490,11 @@ Furnitures & 0.821 & 0.871 &  {\bf 0.996} \\ \hline
 \end{table}
 
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{Comparing the Extraction Quality on Car}
-\topcaption{在二手车数据集上抽取质量的比较}
+\smallcaption{在二手车数据集上抽取质量的比较}
 \label{table:3}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -524,11 +519,11 @@ Fuel-consuming & 0.813 & 0.854 & {\bf 0.979}  \\ \hline
 \noindent {\bf 抽取效率的比较}:
 我们另外比较了使用这三种方法来抽取一条文本所花费的平均时间，从表~\ref{table:4}中可以看到，相比较ONDUX和CNN-TesaRec，基于CRF的方法花费了更多的时间来训练自己的模型。尽管，我们的方法(CNN-TesaRec)也需要训练CNN模型，但是这个训练的过程可以使用已经存在的知识库在线下运行，因此我们的方法跟ONDUX 方法在做线上的信息抽取时所花费的时间差不多。
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
-\large
+\small
 %\caption{三种方法花费时间的比较}
-\topcaption{三种方法花费时间的比较}
+\smallcaption{三种方法花费时间的比较}
 \label{table:5}
 \begin{tabular}{| l | c | c | c |}
 \hline
@@ -551,11 +546,11 @@ Car & 3780ms & 200ms & 210ms \\ \hline
 为了验证BPSM的有效性，以及相比较PSM的优势，我们在三个数据集上做了实验，比较了三种模型下的抽取质量，这三种模式分别是：纯粹基于卷积神经网络的方法(CNN)，卷积神经网络结合单向位置与序列模型的方法(CNN + PSM)，卷积神经网络结合双向位置与序列模型的方法(CNN + BPSM)。从表~\ref{table:5}中可以看到，CNN + PSM的方法在所有三个数据集上均取得了最佳的F值。具体来讲，使用CNN+PSM仅仅比单纯使用CNN的抽取质量在三个数据集上平均提升了大概3-5\%，但是，使用CNN+BPSM比单纯使用CNN 的抽取质量在三个数据集上平均提升了大概5-8\%。 因此，我们得出结论，我们提出的双向位置与序列模型确实好过单向的位置与序列模型。
 
 
-\begin{table}%[!hbp]
+\begin{table}[!htb]
 \centering
 \large
 %\caption{\small  CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
-\topcaption{ CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
+\smallcaption{ CNN, CNN+PSM 和 CNN+BPSM 三种模型抽取质量的比较}
 \label{table:5}
 \begin{tabular}{| c | c | c | c |}
 \hline
