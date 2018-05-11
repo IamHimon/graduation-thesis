@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  7 MAY 2018 12:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2018.3.5)  9 MAY 2018 17:41
 entering extended mode
 **main.tex
 ("D:\a_Graduation\graduation thesis\main\main.tex"
@@ -1897,24 +1897,24 @@ ures/chap04/BPSM-mul.png>]
 ]
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
- [47])
-("D:\a_Graduation\graduation thesis\main\main.bbl" [48] [49
+ [47]
+[48]) ("D:\a_Graduation\graduation thesis\main\main.bbl" [49] [50
 
-] [50] [51]
+] [51]
+[52]
 LaTeX Font Info:    Try loading font information for OMS+txr on input line 187.
 
-
-(D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
+ (D:\JobSoftware\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 187.
- [52] [53] [54])
-("D:\a_Graduation\graduation thesis\chapter\pub.tex" [55]
+ [53] [54]
+[55]) ("D:\a_Graduation\graduation thesis\chapter\pub.tex" [56]
 
 LaTeX Warning: Empty `publications' environment on input line 2.
 
-) ("D:\a_Graduation\graduation thesis\chapter\thanks.tex" [56
+) ("D:\a_Graduation\graduation thesis\chapter\thanks.tex" [57
 
 ]
 
@@ -1927,7 +1927,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 1.
 
-<<c1931.cmap>>) [57
+<<c1931.cmap>>) [58
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
@@ -1954,9 +1954,9 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  24210 strings out of 495354
- 384708 string characters out of 3183188
- 471462 words of memory out of 3000000
- 25856 multiletter control sequences out of 15000+200000
+ 384692 string characters out of 3183188
+ 471466 words of memory out of 3000000
+ 25855 multiletter control sequences out of 15000+200000
  188845 words of font info for 559 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,21n,51p,2027b,1203s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2024,9 +2024,9 @@ D:/JobSoftware/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyb.pfb><D:/JobSoftware
 /CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><D:/JobSoftware/CTEX/MiKTeX/f
 onts/type1/urw/times/utmb8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/tim
 es/utmr8a.pfb><D:/JobSoftware/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (71 pages, 2918559 bytes).
+Output written on main.pdf (72 pages, 2920569 bytes).
 PDF statistics:
- 1869 PDF objects out of 2073 (max. 8388607)
- 267 named destinations out of 1000 (max. 500000)
+ 1873 PDF objects out of 2073 (max. 8388607)
+ 268 named destinations out of 1000 (max. 500000)
  670 words of extra memory for PDF output out of 10000 (max. 10000000)
 
